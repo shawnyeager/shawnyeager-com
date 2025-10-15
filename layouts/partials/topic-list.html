@@ -1,0 +1,9 @@
+{{ $heading := .heading | default "Browse by Topic" }}
+<section class="topics">
+    <h3>{{ $heading }}</h3>
+    <div class="topic-tags">
+        {{ range .context.Site.Taxonomies.topics }}
+        <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+        {{ end }}
+    </div>
+</section>

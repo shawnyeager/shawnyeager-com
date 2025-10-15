@@ -1,0 +1,59 @@
+{{ define "main" }}
+    <!-- Bio -->
+    <div class="bio">
+        I'm working toward a future built on Bitcoin. I operate, advise, and invest in startups doing the same. As a go-to-market and revenue leader, I've created over $300M in value.
+    </div>
+
+    <!-- Latest Essay -->
+    {{ $posts := where .Site.RegularPages "Type" "essays" }}
+    {{ $posts = where $posts "Draft" false }}
+    {{ $latestPost := index $posts 0 }}
+    {{ with $latestPost }}
+    <section class="latest-essay">
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p>{{ .Summary }}</p>
+        <a href="{{ .RelPermalink }}" class="read-more">Read more <span aria-hidden="true">→</span></a>
+    </section>
+    {{ end }}
+
+    <!-- Podcast Feature Box -->
+    <section class="podcast">
+        <div class="podcast-header">
+            <img src="/images/trust-revolution-cover.webp" alt="Trust Revolution Podcast" class="podcast-art">
+            <div class="podcast-info">
+                <h3>{{ .Site.Params.podcast_name }}</h3>
+                <p>{{ .Site.Params.podcast_description }}</p>
+            </div>
+        </div>
+        <div class="podcast-links">
+            <a href="{{ .Site.Params.podcast_url }}" target="_blank">Listen now <span aria-hidden="true">→</span></a>
+            <a href="{{ "podcast" | relURL }}">Subscribe <span aria-hidden="true">→</span></a>
+        </div>
+    </section>
+
+    <!-- Topics -->
+    {{ if .Site.Taxonomies.topics }}
+    {{ partial "topic-list.html" (dict "context" . "heading" "Essays by Topic") }}
+    {{ end }}
+
+    <!-- Recent Essays -->
+    {{ if $posts }}
+    <section class="recent-essays">
+        <h3>Recent Essays</h3>
+        {{ range first 5 $posts }}
+        <div class="essay-item">
+            <a href="{{ .RelPermalink }}">
+                <span class="essay-date">{{ .Date.Format "2006 · 01" }}</span>
+                <span class="essay-title">{{ .Title }}</span>
+            </a>
+        </div>
+        {{ end }}
+        <a href="{{ "essays" | relURL }}" class="all-essays">All essays <span aria-hidden="true">→</span></a>
+    </section>
+    {{ else }}
+    <section class="recent-essays">
+        <h3>Recent Essays</h3>
+        <p>No essays published yet.</p>
+    </section>
+    {{ end }}
+{{ end }}

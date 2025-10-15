@@ -1,0 +1,38 @@
+{{ define "main" }}
+    <h2 class="page-title">Essays</h2>
+
+    <!-- Topics -->
+    {{ if .Site.Taxonomies.topics }}
+    {{ partial "topic-list.html" (dict "context" . "heading" "Browse by Topic") }}
+    {{ end }}
+
+    <!-- All Essays -->
+    <section class="recent-essays">
+        {{ $posts := where .Pages "Type" "essays" }}
+        {{ $posts = where $posts "Draft" false }}
+        {{ $paginator := .Paginate $posts }}
+        {{ range $paginator.Pages }}
+        <div class="essay-item">
+            <a href="{{ .RelPermalink }}">
+                <span class="essay-date">{{ .Date.Format "2006 · 01" }}</span>
+                <span class="essay-title">{{ .Title }}</span>
+            </a>
+        </div>
+        {{ end }}
+    </section>
+
+    {{ if or $paginator.HasPrev $paginator.HasNext }}
+    <nav class="pagination">
+        {{ if $paginator.HasPrev }}
+        <a href="{{ $paginator.Prev.URL }}" class="pagination-prev">
+            <span aria-hidden="true">←</span> Newer essays
+        </a>
+        {{ end }}
+        {{ if $paginator.HasNext }}
+        <a href="{{ $paginator.Next.URL }}" class="pagination-next">
+            Older essays <span aria-hidden="true">→</span>
+        </a>
+        {{ end }}
+    </nav>
+    {{ end }}
+{{ end }}

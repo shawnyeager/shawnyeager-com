@@ -1,0 +1,39 @@
+{{/*
+REMINDER: Always add a description in frontmatter for SEO and social sharing:
+---
+title: "Essay Title"
+description: "A concise 1-2 sentence summary of the essay for SEO meta tags and social media."
+---
+*/}}
+{{ define "main" }}
+    <article class="essay-content">
+        <!-- Essay Metadata -->
+        <div class="essay-meta">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+            {{ if .Site.Params.show_read_time }}
+            <span class="essay-meta-separator">·</span>
+            <span class="essay-reading-time">{{ .ReadingTime }} min read</span>
+            {{ end }}
+        </div>
+        
+        <!-- Essay Title -->
+        <h1 class="essay-title-single">{{ .Title }}</h1>
+        
+        <!-- Essay Content -->
+        <div class="essay-body">
+            {{ .Content }}
+        </div>
+
+        <!-- Optional Footer CTA -->
+        {{ with .Params.footer_cta }}
+        <div class="essay-footer">
+            <p>{{ . | markdownify }}</p>
+        </div>
+        {{ end }}
+
+        <!-- Back Link -->
+        <div class="essay-back-link">
+            <a href="{{ "essays" | relURL }}"><span aria-hidden="true">←</span> All essays</a>
+        </div>
+    </article>
+{{ end }}

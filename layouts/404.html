@@ -1,0 +1,14 @@
+{{ define "main" }}
+    <h2 class="page-title">Page Not Found</h2>
+
+    <div class="page-body">
+        <p>This page doesn't exist.</p>
+
+        <p>Try:</p>
+        <ul>
+            <li><a href="{{ "/" | relURL }}">Home</a></li>
+            <li><a href="{{ "essays" | relURL }}">All essays</a></li>
+            <li><a href="{{ "now" | relURL }}">What I'm working on</a></li>
+        </ul>
+    </div>
+{{ end }}

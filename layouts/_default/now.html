@@ -1,0 +1,16 @@
+{{ define "main" }}
+    <!-- Page Title -->
+    <h2 class="page-title">{{ .Title }}</h2>
+
+    <!-- Updated Date -->
+    {{ with .Params.updated }}
+    <div class="now-updated">Updated {{ . }}</div>
+    {{ end }}
+
+    <!-- Page Content wrapped in sections -->
+    <div class="page-body">
+        {{ $content := .Content }}
+        {{ $content = replace $content "<!-- FOLLOWING_ALONG -->" "" }}
+        {{ $content | safeHTML }}
+    </div>
+{{ end }}
