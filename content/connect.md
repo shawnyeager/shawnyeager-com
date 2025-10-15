@@ -1,5 +1,6 @@
 ---
 title: "Connect"
+description: "Get in touch about Bitcoin projects. Email, Signal, or book a meeting directly."
 type: "page"
 hide_footer_signup: true
 ---
