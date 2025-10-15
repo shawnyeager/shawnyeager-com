@@ -3,6 +3,7 @@ title: "Encrypt It"
 description: "Public keys and encryption contact information for secure communication with Shawn Yeager."
 date: 2025-10-14
 type: page
+hide_footer_signup: true
 ---
 
 <div class="contact-section">

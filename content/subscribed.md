@@ -1,6 +1,7 @@
 ---
 title: "You're Subscribed"
 description: "Thanks for subscribing to occasional updates on Bitcoin strategy and go-to-market thinking."
+hide_footer_signup: true
 ---
 
 Thanks for subscribing. You'll get occasional updates on Bitcoin strategy, go-to-market thinking, and essays worth your time.
