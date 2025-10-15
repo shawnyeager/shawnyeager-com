@@ -13,7 +13,7 @@ enableEmoji = true
 # Hugo Module - Theme
 [module]
   [[module.imports]]
-    path = "/home/shawn/Work/shawnyeager-theme"  # Local path for testing
+    path = "/home/shawn/Work/tangerine-theme"  # Local path for testing
 
 # Pagination
 [pagination]

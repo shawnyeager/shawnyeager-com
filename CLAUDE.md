@@ -41,8 +41,8 @@ This site imports the shared theme:
 ```toml
 [module]
   [[module.imports]]
-    path = "github.com/shawnyeager/shawnyeager-theme"  # Production
-    # path = "/home/shawn/Work/shawnyeager-theme"      # Local testing
+    path = "github.com/shawnyeager/tangerine-theme"  # Production
+    # path = "/home/shawn/Work/tangerine-theme"      # Local testing
 ```
 
 **For local development:** Use local path
@@ -236,8 +236,8 @@ git push origin master
 
 ## Related Repositories
 
-- **shawnyeager-theme**: Shared theme module
-  - `github.com/shawnyeager/shawnyeager-theme`
+- **tangerine-theme**: Shared theme module
+  - `github.com/shawnyeager/tangerine-theme`
   - Contains layouts, CSS, partials
 
 - **shawnyeager-org**: The Workshop (notes site)
