@@ -1,68 +1,104 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Shawn Yeager</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on Shawn Yeager</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 14 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/feed.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Encrypt It</title>
-      <link>http://localhost:1313/encrypt/</link>
-      <pubDate>Tue, 14 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/encrypt/</guid>
-      <description>&lt;div class=&#34;contact-section&#34;&gt;&#xA;&lt;div class=&#34;contact-method&#34;&gt;&#xA;&lt;span class=&#34;contact-label&#34;&gt;PGP Fingerprint:&lt;/span&gt;&#xA;&lt;code style=&#34;font-family: &#39;SF Mono&#39;, Monaco, &#39;Cascadia Code&#39;, &#39;Roboto Mono&#39;, Consolas, &#39;Courier New&#39;, monospace; font-size: 0.9em;&#34;&gt;4D2D 4238 3666 5C2A E2F9 B65D 7763 A481 2E14 D3D6&lt;/code&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://keys.openpgp.org/search?q=shawn@shawnyeager.com&#34; class=&#34;contact-value&#34;&gt;Lookup my public key on OpenPGP&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://localhost:1313/assets/public-key.asc&#34; class=&#34;contact-value&#34; style=&#34;display: block; margin-top: 0.5rem;&#34; download&gt;Download ASCII-armored public key&lt;/a&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;contact-method&#34; style=&#34;margin-top: 3rem;&#34;&gt;&#xA;&lt;span class=&#34;contact-label&#34;&gt;Proton Mail:&lt;/span&gt;&#xA;&lt;code style=&#34;font-family: &#39;SF Mono&#39;, Monaco, &#39;Cascadia Code&#39;, &#39;Roboto Mono&#39;, Consolas, &#39;Courier New&#39;, monospace; font-size: 0.9em;&#34;&gt;1C64 D339 A241 B7DD D30D DD03 E7AC 8AF1 7DF1 6D6D&lt;/code&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;contact-method&#34;&gt;&#xA;&lt;span class=&#34;contact-label&#34;&gt;Nostr:&lt;/span&gt;&#xA;&lt;code style=&#34;font-family: &#39;SF Mono&#39;, Monaco, &#39;Cascadia Code&#39;, &#39;Roboto Mono&#39;, Consolas, &#39;Courier New&#39;, monospace; font-size: 0.9em; word-break: break-all;&#34;&gt;npub1clk6vc9xhjp8q5cws262wuf2eh4zuvwupft03hy4ttqqnm7e0jrq3upup9&lt;/code&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
-    </item>
-    <item>
-      <title>Why Bitcoin Sales Is Different from SaaS</title>
-      <link>http://localhost:1313/why-bitcoin-sales-is-different-from-saas/</link>
-      <pubDate>Sat, 11 Oct 2025 10:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/why-bitcoin-sales-is-different-from-saas/</guid>
-      <description>&lt;p&gt;Most Bitcoin companies try to apply traditional SaaS playbooks to selling Bitcoin infrastructure. This rarely works. Bitcoin sales requires a fundamentally different approach because you&amp;rsquo;re not just selling software—you&amp;rsquo;re selling a paradigm shift in how money and trust work.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Media</title>
-      <link>http://localhost:1313/media/</link>
-      <pubDate>Sat, 11 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/media/</guid>
-      <description>&lt;p&gt;Bio, photos, and contact information for journalists, conference organizers, and podcast hosts.&lt;/p&gt;&#xA;&lt;section class=&#34;media-section&#34;&gt;&#xA;&lt;h3 id=&#34;short-bio-50-words&#34;&gt;Short Bio (50 words)&lt;/h3&gt;&#xA;&lt;div class=&#34;bio-text&#34;&gt;&#xA;Shawn Yeager is a Bitcoin go-to-market and revenue leader. He hosts Trust Revolution, a podcast exploring trust in a decentralized future. Previously, he led sales and business development at Amboss, NYDIG Payments, and Bottlepay, creating over $300M in revenue.&#xA;&lt;/div&gt;&#xA;&lt;/section&gt;&#xA;&lt;section class=&#34;media-section&#34;&gt;&#xA;&lt;h3 id=&#34;extended-bio-150-words&#34;&gt;Extended Bio (150 words)&lt;/h3&gt;&#xA;&lt;div class=&#34;bio-text&#34;&gt;&#xA;Shawn Yeager is working toward a future built on Bitcoin. He operates, advises, and invests in Bitcoin startups, specializing in go-to-market strategy and revenue leadership.&lt;br&gt;&lt;br&gt;As host of Trust Revolution, Shawn explores how we can rethink trust for a decentralized future, featuring conversations with builders, thinkers, and operators in Bitcoin and beyond.&lt;br&gt;&lt;br&gt;Before focusing on Bitcoin, Shawn created high-impact partnerships and business development strategies across technology sectors—from browsers to data centers, cloud computing to connected devices, and streaming media to personal data platforms. His work has generated over $300M in revenue.&lt;br&gt;&lt;br&gt;In Bitcoin, Shawn has led sales and business development at Amboss (Lightning Network infrastructure), NYDIG Payments (institutional Bitcoin services), and Bottlepay (Lightning payments platform).&lt;br&gt;&lt;br&gt;He writes about Bitcoin strategy, partnerships, and building for the long term at shawnyeager.com.&#xA;&lt;/div&gt;&#xA;&lt;/section&gt;&#xA;&lt;section class=&#34;media-section&#34;&gt;&#xA;&lt;h3 id=&#34;professional-photo&#34;&gt;Professional Photo&lt;/h3&gt;&#xA;&lt;p&gt;High-resolution headshot available for download:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Trust Revolution</title>
-      <link>http://localhost:1313/podcast/</link>
-      <pubDate>Sat, 11 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/podcast/</guid>
-      <description>&lt;section class=&#34;media-section&#34;&gt;&#xA;&lt;div class=&#34;podcast-header&#34; style=&#34;margin-bottom: 4rem;&#34;&gt;&#xA;    &lt;img src=&#34;http://localhost:1313/images/trust-revolution-cover.webp&#34; alt=&#34;Trust Revolution Podcast&#34; class=&#34;podcast-art&#34; style=&#34;width: 180px; height: 180px;&#34;&gt;&#xA;    &lt;div class=&#34;podcast-info&#34;&gt;&#xA;        &lt;p style=&#34;margin: 0;&#34;&gt;Unfiltered conversations with builders, thinkers, and operators in Bitcoin and beyond. Exploring the systems we trust, why they work (or don&#39;t), and what comes next.&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/section&gt;&#xA;&lt;section class=&#34;media-section&#34;&gt;&#xA;&lt;h3 id=&#34;listen--subscribe&#34;&gt;Listen &amp;amp; Subscribe&lt;/h3&gt;&#xA;&lt;div class=&#34;podcast-services-card&#34;&gt;&#xA;    &lt;div class=&#34;podcast-services&#34; style=&#34;display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem;&#34;&gt;&#xA;        &lt;a href=&#34;https://fountain.fm/show/Mk0fJte5vrfiDQ5RyCZd&#34; target=&#34;_blank&#34;&gt;Fountain&lt;/a&gt;&#xA;        &lt;a href=&#34;https://podcasts.apple.com/us/podcast/trust-revolution/id1801093421&#34; target=&#34;_blank&#34;&gt;Apple Podcasts&lt;/a&gt;&#xA;        &lt;a href=&#34;https://open.spotify.com/show/28nrs8ROe8mhjtyA7kftYZ&#34; target=&#34;_blank&#34;&gt;Spotify&lt;/a&gt;&#xA;        &lt;a href=&#34;https://www.youtube.com/@trustrev&#34; target=&#34;_blank&#34;&gt;YouTube&lt;/a&gt;&#xA;        &lt;a href=&#34;https://trustrevolution.substack.com&#34; target=&#34;_blank&#34;&gt;Substack&lt;/a&gt;&#xA;        &lt;a href=&#34;https://pocketcasts.com/podcast/trust-revolution/b34ae280-e76a-013d-1b17-0acc26574db2&#34; target=&#34;_blank&#34;&gt;Pocket Casts&lt;/a&gt;&#xA;    &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/section&gt;&#xA;&lt;section class=&#34;media-section&#34;&gt;&#xA;&lt;h3 id=&#34;rss-feed&#34;&gt;RSS Feed&lt;/h3&gt;&#xA;&lt;p&gt;Copy this URL to subscribe in any podcast app:&lt;/p&gt;&#xA;&lt;div class=&#34;rss-feed-card&#34;&gt;&#xA;    &lt;code id=&#34;rss-url&#34; style=&#34;font-family: &#39;SF Mono&#39;, &#39;Monaco&#39;, &#39;Inconsolata&#39;, &#39;Fira Code&#39;, &#39;Droid Sans Mono&#39;, &#39;Source Code Pro&#39;, monospace; font-size: 0.9rem; color: var(--text-primary); word-break: break-all; display: block; padding-right: 4rem;&#34;&gt;{{ .Site.Params.podcast_rss }}&lt;/code&gt;&#xA;    &lt;button onclick=&#34;copyRSS()&#34; id=&#34;copy-btn&#34; style=&#34;position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); background: transparent; color: var(--text-secondary); border: 1px solid var(--border-color); padding: 0.4rem 0.75rem; border-radius: 4px; cursor: pointer; font-weight: 500; font-size: 0.85rem; transition: all 0.2s;&#34;&gt;Copy&lt;/button&gt;&#xA;&lt;/div&gt;&#xA;&lt;script&gt;&#xA;function copyRSS() {&#xA;    const url = document.getElementById(&#39;rss-url&#39;).textContent;&#xA;    const btn = document.getElementById(&#39;copy-btn&#39;);&#xA;&#xA;    navigator.clipboard.writeText(url).then(() =&gt; {&#xA;        btn.textContent = &#39;Copied!&#39;;&#xA;        btn.style.color = &#39;var(--brand-orange)&#39;;&#xA;        btn.style.borderColor = &#39;var(--brand-orange)&#39;;&#xA;&#xA;        setTimeout(() =&gt; {&#xA;            btn.textContent = &#39;Copy&#39;;&#xA;            btn.style.color = &#39;var(--text-secondary)&#39;;&#xA;            btn.style.borderColor = &#39;var(--border-color)&#39;;&#xA;        }, 2000);&#xA;    });&#xA;}&#xA;&lt;/script&gt;&#xA;&lt;/section&gt;</description>
-    </item>
-    <item>
-      <title>What I&#39;m Focused On Now</title>
-      <link>http://localhost:1313/now/</link>
-      <pubDate>Sat, 11 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/now/</guid>
-      <description>&lt;h3 id=&#34;trust-revolution-podcast&#34;&gt;Trust Revolution Podcast&lt;/h3&gt;&#xA;&lt;p&gt;I&amp;rsquo;m currently hosting Trust Revolution, where I explore how we can rethink trust for a decentralized future. Recent episodes have covered the Lightning Network&amp;rsquo;s role in scaling Bitcoin, institutional adoption challenges, and the evolution of self-custody solutions. Working on conversations about Bitcoin&amp;rsquo;s role in emerging markets and the intersection of AI and decentralized systems.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://trustrevolution.co&#34; class=&#34;cta-link&#34;&gt;Listen at trustrevolution.co &lt;span aria-hidden=&#34;true&#34;&gt;→&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;advisory--operating-work&#34;&gt;Advisory &amp;amp; Operating Work&lt;/h3&gt;&#xA;&lt;p&gt;Working with several Bitcoin startups on go-to-market strategy and revenue operations. Focused on helping teams move from product-market fit to scalable revenue models. Current themes: enterprise sales cycles for Bitcoin infrastructure, partnership strategy for Lightning companies, and building revenue teams in Bitcoin.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Markdown Test Essay</title>
-      <link>http://localhost:1313/markdown-test/</link>
-      <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/markdown-test/</guid>
-      <description>&lt;p&gt;This essay tests all common markdown elements to ensure proper rendering across the site.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Connect</title>
-      <link>http://localhost:1313/connect/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/connect/</guid>
-      <description>&lt;p class=&#34;page-intro&#34;&gt;Working on something in Bitcoin? Let&#39;s talk.&lt;/p&gt;&#xA;&lt;div class=&#34;contact-section&#34;&gt;&#xA;&lt;div class=&#34;contact-method&#34;&gt;&#xA;    &lt;span class=&#34;contact-label&#34;&gt;Email&lt;/span&gt;&#xA;    &lt;a href=&#34;mailto:hello@shawnyeager.com&#34; class=&#34;contact-value&#34;&gt;hello@shawnyeager.com&lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div class=&#34;contact-method&#34;&gt;&#xA;    &lt;span class=&#34;contact-label&#34;&gt;Signal&lt;/span&gt;&#xA;    &lt;a href=&#34;https://shawnyeager.com/signal&#34; class=&#34;contact-value&#34;&gt;shawnyeager.com/signal&lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div class=&#34;contact-method&#34;&gt;&#xA;    &lt;span class=&#34;contact-label&#34;&gt;Calendar&lt;/span&gt;&#xA;    &lt;a href=&#34;https://cal.com/shawnyeager&#34; class=&#34;contact-value&#34;&gt;Book a meeting&lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://localhost:1313/contact.vcf&#34; class=&#34;vcard-link&#34;&gt;Download contact card&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>You&#39;re Subscribed</title>
-      <link>http://localhost:1313/subscribed/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/subscribed/</guid>
-      <description>&lt;p&gt;Thanks for subscribing. You&amp;rsquo;ll get occasional updates on Bitcoin strategy, go-to-market thinking, and essays worth your time.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Check your email to confirm your subscription.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;In the meantime, check out &lt;a href=&#34;http://localhost:1313/essays/&#34; class=&#34;cta-link&#34;&gt;recent essays &lt;span aria-hidden=&#34;true&#34;&gt;→&lt;/span&gt;&lt;/a&gt; or learn more &lt;a href=&#34;http://localhost:1313/now/&#34; class=&#34;cta-link&#34;&gt;about what I&amp;rsquo;m working on now &lt;span aria-hidden=&#34;true&#34;&gt;→&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;div class=&#34;back-link&#34;&gt;&#xA;&lt;a href=&#34;http://localhost:1313/&#34;&gt;&lt;span aria-hidden=&#34;true&#34;&gt;←&lt;/span&gt; Back to home&lt;/a&gt;&#xA;&lt;/div&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Shawn Yeager</title><link>https://shawnyeager.com/</link><description>Recent content on Shawn Yeager</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 14 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://shawnyeager.com/feed.xml" rel="self" type="application/rss+xml"/><item><title>Encrypt It</title><link>https://shawnyeager.com/encrypt/</link><pubDate>Tue, 14 Oct 2025 00:00:00 +0000</pubDate><guid>https://shawnyeager.com/encrypt/</guid><description>&lt;div class="contact-section"&gt;
+&lt;div class="contact-method"&gt;
+&lt;span class="contact-label"&gt;PGP Fingerprint:&lt;/span&gt;
+&lt;code style="font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace; font-size: 0.9em;"&gt;4D2D 4238 3666 5C2A E2F9 B65D 7763 A481 2E14 D3D6&lt;/code&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href="https://keys.openpgp.org/search?q=shawn@shawnyeager.com" class="contact-value"&gt;Lookup my public key on OpenPGP&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://shawnyeager.com/assets/public-key.asc" class="contact-value" style="display: block; margin-top: 0.5rem;" download&gt;Download ASCII-armored public key&lt;/a&gt;&lt;/p&gt;
+&lt;div class="contact-method" style="margin-top: 3rem;"&gt;
+&lt;span class="contact-label"&gt;Proton Mail:&lt;/span&gt;
+&lt;code style="font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace; font-size: 0.9em;"&gt;1C64 D339 A241 B7DD D30D DD03 E7AC 8AF1 7DF1 6D6D&lt;/code&gt;
+&lt;/div&gt;
+&lt;div class="contact-method"&gt;
+&lt;span class="contact-label"&gt;Nostr:&lt;/span&gt;
+&lt;code style="font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace; font-size: 0.9em; word-break: break-all;"&gt;npub1clk6vc9xhjp8q5cws262wuf2eh4zuvwupft03hy4ttqqnm7e0jrq3upup9&lt;/code&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Why Bitcoin Sales Is Different from SaaS</title><link>https://shawnyeager.com/why-bitcoin-sales-is-different-from-saas/</link><pubDate>Sat, 11 Oct 2025 10:00:00 -0500</pubDate><guid>https://shawnyeager.com/why-bitcoin-sales-is-different-from-saas/</guid><description>&lt;p&gt;Most Bitcoin companies try to apply traditional SaaS playbooks to selling Bitcoin infrastructure. This rarely works. Bitcoin sales requires a fundamentally different approach because you&amp;rsquo;re not just selling software—you&amp;rsquo;re selling a paradigm shift in how money and trust work.&lt;/p&gt;</description></item><item><title>Media</title><link>https://shawnyeager.com/media/</link><pubDate>Sat, 11 Oct 2025 00:00:00 +0000</pubDate><guid>https://shawnyeager.com/media/</guid><description>&lt;p&gt;Bio, photos, and contact information for journalists, conference organizers, and podcast hosts.&lt;/p&gt;
+&lt;section class="media-section"&gt;
+&lt;h3 id="short-bio-50-words"&gt;Short Bio (50 words)&lt;/h3&gt;
+&lt;div class="bio-text"&gt;
+Shawn Yeager is a Bitcoin go-to-market and revenue leader. He hosts Trust Revolution, a podcast exploring trust in a decentralized future. Previously, he led sales and business development at Amboss, NYDIG Payments, and Bottlepay, creating over $300M in revenue.
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="media-section"&gt;
+&lt;h3 id="extended-bio-150-words"&gt;Extended Bio (150 words)&lt;/h3&gt;
+&lt;div class="bio-text"&gt;
+Shawn Yeager is working toward a future built on Bitcoin. He operates, advises, and invests in Bitcoin startups, specializing in go-to-market strategy and revenue leadership.&lt;br&gt;&lt;br&gt;As host of Trust Revolution, Shawn explores how we can rethink trust for a decentralized future, featuring conversations with builders, thinkers, and operators in Bitcoin and beyond.&lt;br&gt;&lt;br&gt;Before focusing on Bitcoin, Shawn created high-impact partnerships and business development strategies across technology sectors—from browsers to data centers, cloud computing to connected devices, and streaming media to personal data platforms. His work has generated over $300M in revenue.&lt;br&gt;&lt;br&gt;In Bitcoin, Shawn has led sales and business development at Amboss (Lightning Network infrastructure), NYDIG Payments (institutional Bitcoin services), and Bottlepay (Lightning payments platform).&lt;br&gt;&lt;br&gt;He writes about Bitcoin strategy, partnerships, and building for the long term at shawnyeager.com.
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="media-section"&gt;
+&lt;h3 id="professional-photo"&gt;Professional Photo&lt;/h3&gt;
+&lt;p&gt;High-resolution headshot available for download:&lt;/p&gt;</description></item><item><title>Trust Revolution</title><link>https://shawnyeager.com/podcast/</link><pubDate>Sat, 11 Oct 2025 00:00:00 +0000</pubDate><guid>https://shawnyeager.com/podcast/</guid><description>&lt;section class="media-section"&gt;
+&lt;div class="podcast-header" style="margin-bottom: 4rem;"&gt;
+ &lt;img src="https://shawnyeager.com/images/trust-revolution-cover.webp" alt="Trust Revolution Podcast" class="podcast-art" style="width: 180px; height: 180px;"&gt;
+ &lt;div class="podcast-info"&gt;
+ &lt;p style="margin: 0;"&gt;Unfiltered conversations with builders, thinkers, and operators in Bitcoin and beyond. Exploring the systems we trust, why they work (or don't), and what comes next.&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="media-section"&gt;
+&lt;h3 id="listen--subscribe"&gt;Listen &amp;amp; Subscribe&lt;/h3&gt;
+&lt;div class="podcast-services-card"&gt;
+ &lt;div class="podcast-services" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem;"&gt;
+ &lt;a href="https://fountain.fm/show/Mk0fJte5vrfiDQ5RyCZd" target="_blank"&gt;Fountain&lt;/a&gt;
+ &lt;a href="https://podcasts.apple.com/us/podcast/trust-revolution/id1801093421" target="_blank"&gt;Apple Podcasts&lt;/a&gt;
+ &lt;a href="https://open.spotify.com/show/28nrs8ROe8mhjtyA7kftYZ" target="_blank"&gt;Spotify&lt;/a&gt;
+ &lt;a href="https://www.youtube.com/@trustrev" target="_blank"&gt;YouTube&lt;/a&gt;
+ &lt;a href="https://trustrevolution.substack.com" target="_blank"&gt;Substack&lt;/a&gt;
+ &lt;a href="https://pocketcasts.com/podcast/trust-revolution/b34ae280-e76a-013d-1b17-0acc26574db2" target="_blank"&gt;Pocket Casts&lt;/a&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="media-section"&gt;
+&lt;h3 id="rss-feed"&gt;RSS Feed&lt;/h3&gt;
+&lt;p&gt;Copy this URL to subscribe in any podcast app:&lt;/p&gt;
+&lt;div class="rss-feed-card"&gt;
+ &lt;code id="rss-url" style="font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Droid Sans Mono', 'Source Code Pro', monospace; font-size: 0.9rem; color: var(--text-primary); word-break: break-all; display: block; padding-right: 4rem;"&gt;{{ .Site.Params.podcast_rss }}&lt;/code&gt;
+ &lt;button onclick="copyRSS()" id="copy-btn" style="position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); background: transparent; color: var(--text-secondary); border: 1px solid var(--border-color); padding: 0.4rem 0.75rem; border-radius: 4px; cursor: pointer; font-weight: 500; font-size: 0.85rem; transition: all 0.2s;"&gt;Copy&lt;/button&gt;
+&lt;/div&gt;
+&lt;script&gt;
+function copyRSS() {
+ const url = document.getElementById('rss-url').textContent;
+ const btn = document.getElementById('copy-btn');
+
+ navigator.clipboard.writeText(url).then(() =&gt; {
+ btn.textContent = 'Copied!';
+ btn.style.color = 'var(--brand-orange)';
+ btn.style.borderColor = 'var(--brand-orange)';
+
+ setTimeout(() =&gt; {
+ btn.textContent = 'Copy';
+ btn.style.color = 'var(--text-secondary)';
+ btn.style.borderColor = 'var(--border-color)';
+ }, 2000);
+ });
+}
+&lt;/script&gt;
+&lt;/section&gt;</description></item><item><title>What I'm Focused On Now</title><link>https://shawnyeager.com/now/</link><pubDate>Sat, 11 Oct 2025 00:00:00 +0000</pubDate><guid>https://shawnyeager.com/now/</guid><description>&lt;h3 id="trust-revolution-podcast"&gt;Trust Revolution Podcast&lt;/h3&gt;
+&lt;p&gt;I&amp;rsquo;m currently hosting Trust Revolution, where I explore how we can rethink trust for a decentralized future. Recent episodes have covered the Lightning Network&amp;rsquo;s role in scaling Bitcoin, institutional adoption challenges, and the evolution of self-custody solutions. Working on conversations about Bitcoin&amp;rsquo;s role in emerging markets and the intersection of AI and decentralized systems.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://trustrevolution.co" class="cta-link"&gt;Listen at trustrevolution.co &lt;span aria-hidden="true"&gt;→&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="advisory--operating-work"&gt;Advisory &amp;amp; Operating Work&lt;/h3&gt;
+&lt;p&gt;Working with several Bitcoin startups on go-to-market strategy and revenue operations. Focused on helping teams move from product-market fit to scalable revenue models. Current themes: enterprise sales cycles for Bitcoin infrastructure, partnership strategy for Lightning companies, and building revenue teams in Bitcoin.&lt;/p&gt;</description></item><item><title>Markdown Test Essay</title><link>https://shawnyeager.com/markdown-test/</link><pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate><guid>https://shawnyeager.com/markdown-test/</guid><description>&lt;p&gt;This essay tests all common markdown elements to ensure proper rendering across the site.&lt;/p&gt;</description></item><item><title>Connect</title><link>https://shawnyeager.com/connect/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://shawnyeager.com/connect/</guid><description>&lt;p class="page-intro"&gt;Working on something in Bitcoin? Let's talk.&lt;/p&gt;
+&lt;div class="contact-section"&gt;
+&lt;div class="contact-method"&gt;
+ &lt;span class="contact-label"&gt;Email&lt;/span&gt;
+ &lt;a href="mailto:hello@shawnyeager.com" class="contact-value"&gt;hello@shawnyeager.com&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class="contact-method"&gt;
+ &lt;span class="contact-label"&gt;Signal&lt;/span&gt;
+ &lt;a href="https://shawnyeager.com/signal" class="contact-value"&gt;shawnyeager.com/signal&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class="contact-method"&gt;
+ &lt;span class="contact-label"&gt;Calendar&lt;/span&gt;
+ &lt;a href="https://cal.com/shawnyeager" class="contact-value"&gt;Book a meeting&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;p&gt;&lt;a href="https://shawnyeager.com/contact.vcf" class="vcard-link"&gt;Download contact card&lt;/a&gt;&lt;/p&gt;</description></item><item><title>You're Subscribed</title><link>https://shawnyeager.com/subscribed/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://shawnyeager.com/subscribed/</guid><description>&lt;p&gt;Thanks for subscribing. You&amp;rsquo;ll get occasional updates on Bitcoin strategy, go-to-market thinking, and essays worth your time.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Check your email to confirm your subscription.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In the meantime, check out &lt;a href="https://shawnyeager.com/essays/" class="cta-link"&gt;recent essays &lt;span aria-hidden="true"&gt;→&lt;/span&gt;&lt;/a&gt; or learn more &lt;a href="https://shawnyeager.com/now/" class="cta-link"&gt;about what I&amp;rsquo;m working on now &lt;span aria-hidden="true"&gt;→&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="back-link"&gt;
+&lt;a href="https://shawnyeager.com/"&gt;&lt;span aria-hidden="true"&gt;←&lt;/span&gt; Back to home&lt;/a&gt;
+&lt;/div&gt;</description></item></channel></rss>

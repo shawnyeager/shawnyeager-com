@@ -44,9 +44,14 @@ enableEmoji = true
 [params]
   description = "Bitcoin go-to-market and revenue leader. Host of Trust Revolution podcast. Operator, advisor, investor in Bitcoin startups."
   author = "Shawn Yeager"
-  
+
   # Custom CSS
   custom_css = ["css/custom.css"]
+
+  # Theme configuration
+  content_type = "essays"         # Content type for parameterized templates
+  favicon_style = "solid"         # Favicon style: "solid" or "outlined"
+  noindex = false                 # Block search engines (false = allow indexing)
 
   # Reading time display (used in layouts/essays/single.html)
   show_read_time = true           # Show reading time on essays
