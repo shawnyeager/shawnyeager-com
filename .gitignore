@@ -2,4 +2,5 @@
 .netlify
 
 # Hugo build artifacts
+public/
 hugo_stats.json
