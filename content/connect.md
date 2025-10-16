@@ -5,7 +5,7 @@ type: "page"
 hide_footer_signup: true
 ---
 
-<p class="page-intro">Working on something in Bitcoin? Let's talk.</p>
+Working on something in Bitcoin? Let's talk.
 
 <div class="contact-section">
 
