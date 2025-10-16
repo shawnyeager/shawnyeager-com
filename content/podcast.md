@@ -9,10 +9,10 @@ layout: podcast
 
 <section class="media-section">
 
-<div class="podcast-header" style="margin-bottom: 4rem;">
-    <img src="/images/trust-revolution-cover.webp" alt="Trust Revolution Podcast" class="podcast-art" style="width: 180px; height: 180px;">
+<div class="podcast-header">
+    <img src="/images/trust-revolution-cover.webp" alt="Trust Revolution Podcast" class="podcast-art">
     <div class="podcast-info">
-        <p style="margin: 0;">Unfiltered conversations with builders, thinkers, and operators in Bitcoin and beyond. Exploring the systems we trust, why they work (or don't), and what comes next.</p>
+        <p>Unfiltered conversations with builders, thinkers, and operators in Bitcoin and beyond. Exploring the systems we trust, why they work (or don't), and what comes next.</p>
     </div>
 </div>
 
@@ -23,7 +23,7 @@ layout: podcast
 ### Listen & Subscribe
 
 <div class="podcast-services-card">
-    <div class="podcast-services" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem;">
+    <div class="podcast-services">
         <a href="https://fountain.fm/show/Mk0fJte5vrfiDQ5RyCZd" target="_blank">Fountain</a>
         <a href="https://podcasts.apple.com/us/podcast/trust-revolution/id1801093421" target="_blank">Apple Podcasts</a>
         <a href="https://open.spotify.com/show/28nrs8ROe8mhjtyA7kftYZ" target="_blank">Spotify</a>
@@ -42,8 +42,8 @@ layout: podcast
 Copy this URL to subscribe in any podcast app:
 
 <div class="rss-feed-card">
-    <code id="rss-url" style="font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Droid Sans Mono', 'Source Code Pro', monospace; font-size: 0.9rem; color: var(--text-primary); word-break: break-all; display: block; padding-right: 4rem;">{{ .Site.Params.podcast_rss }}</code>
-    <button onclick="copyRSS()" id="copy-btn" style="position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); background: transparent; color: var(--text-secondary); border: 1px solid var(--border-color); padding: 0.4rem 0.75rem; border-radius: 4px; cursor: pointer; font-weight: 500; font-size: 0.85rem; transition: all 0.2s;">Copy</button>
+    <code id="rss-url" class="rss-url">{{ .Site.Params.podcast_rss }}</code>
+    <button onclick="copyRSS()" id="copy-btn" class="rss-copy-btn">Copy</button>
 </div>
 
 <script>
