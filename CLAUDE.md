@@ -1,265 +1,173 @@
-# shawnyeager.com - The Gallery
+# CLAUDE.md
 
-**Professional site for finished essays and public-facing content**
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Purpose
+## Overview
 
-The Gallery: Polished, finished work. This is where completed essays, professional bio, media information, and podcast details live. Content here is indexed by search engines and represents the public-facing brand.
+**shawnyeager.com** - "The Gallery" for finished essays and professional content. Built with Hugo, using a shared theme module. Sister site to shawnyeager.org (the "Workshop" for notes).
 
-## Repository Structure
+## Development Commands
 
-```
-shawnyeager-com/
-├── CLAUDE.md                    # This file
-├── hugo.toml                    # Site configuration
-├── go.mod                       # Hugo Modules config
-├── content/
-│   ├── essays/                  # Published essays
-│   ├── now.md                   # Current focus page
-│   ├── media.md                 # Press/media page
-│   ├── connect.md               # Contact page
-│   ├── encrypt.md               # PGP keys page
-│   └── subscribed.md            # Newsletter confirmation
-├── layouts/
-│   ├── index.html               # Custom homepage
-│   ├── essays/                  # Essay templates
-│   ├── page/                    # Page templates
-│   └── partials/
-│       └── head.html            # Solid favicon override
-├── static/
-│   ├── css/
-│   │   └── main.css             # Design system (copied from theme during dev)
-│   ├── images/                  # Site images
-│   └── assets/                  # Downloadable assets
-└── public/                      # Built site (not committed)
+```bash
+# Local development with drafts
+hugo server -D -p 1313
+
+# Build for production
+hugo --minify
+
+# Create new essay
+hugo new content/essays/essay-slug.md
+
+# Update Hugo modules (theme)
+hugo mod get -u
+hugo mod tidy
 ```
 
-## Theme Module
+## Architecture
 
-This site imports the shared theme:
+### Hugo Module Theme Pattern
+
+This site uses Hugo Modules to import a shared theme:
 
 ```toml
 [module]
   [[module.imports]]
     path = "github.com/shawnyeager/tangerine-theme"  # Production
-    # path = "/home/shawn/Work/tangerine-theme"      # Local testing
+    # path = "/home/shawn/Work/tangerine-theme"      # Local development
 ```
 
-**For local development:** Use local path
-**For production:** Use GitHub URL
+**Critical:** Switch between GitHub URL (production) and local path (development) in `hugo.toml`. Local development requires the tangerine-theme repo to be at `/home/shawn/Work/tangerine-theme`.
 
-## Site Configuration
+The theme module contains:
+- Base layouts in `layouts/`
+- Design system CSS in `assets/css/`
+- Shared partials and shortcodes
 
-Key settings in `hugo.toml`:
+### Template Override Strategy
 
-```toml
-baseURL = "https://shawnyeager.com/"
-title = "Shawn Yeager"
+This site overrides specific theme templates in `layouts/`:
 
-[params]
-  show_read_time = true           # Show reading time on essays
-  description = "Bitcoin go-to-market and revenue leader..."
+- **`index.html`**: Custom homepage (bio, latest essay, podcast feature, topics, recent essays)
+- **`essays/single.html`**: Individual essay page with reading time
+- **`essays/list.html`**: Essays index page
+- **`page/single.html`**: Generic pages (now, media, connect, etc.)
+- **`_default/now.html`**: Special layout for /now page
+- **`_default/podcast.html`**: Special layout for /podcast page
+- **`partials/topic-list.html`**: Topics navigation component
+- **`shortcodes/contact-method.html`**: Contact link component
 
-[taxonomies]
-  topic = "topics"                # Browse essays by topic
-  tag = "tags"                    # Browse essays by tag
+Templates fall back to theme module if not overridden locally.
+
+### Content Architecture
+
+```
+content/
+├── essays/              # Type: essays, section: essays
+│   └── *.md            # Frontmatter: title, description, date, topics, tags
+├── now.md              # Type: page, updated monthly
+├── media.md            # Type: page, press/media info
+├── podcast.md          # Type: podcast
+├── connect.md          # Type: page, contact methods
+├── encrypt.md          # Type: page, PGP keys
+└── subscribed.md       # Type: page, newsletter confirmation
 ```
 
-## Content Structure
-
-### Essays (`content/essays/`)
-
-Markdown files with frontmatter:
-
+**Essay frontmatter template:**
 ```yaml
 ---
 title: "Essay Title"
-description: "SEO description"
+description: "SEO description for social sharing"
 date: 2025-10-15
-topics: ["Bitcoin", "Strategy"]
-tags: ["go-to-market", "sales"]
+topics: ["Bitcoin", "Strategy"]  # Taxonomy for topic browsing
+tags: ["go-to-market", "sales"]  # Taxonomy for tag filtering
 ---
-
-Essay content here...
 ```
 
-### Special Pages
+**Special frontmatter flags:**
+- `hide_footer_signup: true` - Hides newsletter form (use on utility pages)
+- `type: page` - Forces page layout instead of default
 
-- **`now.md`**: Current focus (update monthly)
-- **`media.md`**: Press/media info, bios, photos
-- **`connect.md`**: Contact methods
-- **`encrypt.md`**: PGP keys for secure communication
-- **`subscribed.md`**: Newsletter confirmation (hide_footer_signup: true)
+### Permalinks
 
-### Frontmatter Parameters
-
-```yaml
-hide_footer_signup: true  # Hide newsletter form on utility pages
-type: page                # Use page layout instead of default
+Essays use clean URLs without dates:
+```toml
+[permalinks]
+  essays = "/:contentbasename/"
 ```
 
-## Template Overrides
+Result: `/why-bitcoin-sales-is-different-from-saas/` instead of `/essays/2025/10/why-bitcoin-sales-is-different-from-saas/`
 
-This site overrides these theme templates:
+### Static Assets
 
-1. **`layouts/index.html`**: Custom homepage with:
-   - Bio paragraph
-   - Latest essay with excerpt
-   - Podcast feature box
-   - Topic tags section
-   - Recent essays list
-
-2. **`layouts/partials/head.html`**: Solid orange square favicon (The Gallery metaphor)
-
-3. **`layouts/essays/`**: Essay-specific layouts:
-   - `single.html`: Individual essay page
-   - `list.html`: Essays index page
-
-4. **`layouts/page/single.html`**: Generic page layout (now, media, etc.)
-
-## Common Tasks
-
-### Publishing a New Essay
-
-```bash
-cd ~/Work/shawnyeager-com
-
-# Create new essay
-hugo new content/essays/essay-slug.md
-
-# Edit the file
-# Add title, description, date, topics, tags
-# Write content
-
-# Preview locally
-hugo server -D -p 1313
-# View at http://localhost:1313
-
-# Build
-hugo --minify
-
-# Deploy (push to GitHub, Netlify builds automatically)
-git add content/essays/essay-slug.md
-git commit -m "Add new essay: Title"
-git push
+```
+static/
+├── images/              # Site images (webp preferred)
+├── assets/              # Downloadable files (PDFs, media kits)
+└── _redirects           # Netlify redirects config
 ```
 
-### Updating Now Page
+**Important:** CSS is NOT in `static/css/`. The theme module handles CSS via Hugo Pipes in `assets/css/`. Do not create `static/css/main.css` unless explicitly copying from theme for debugging.
 
-```bash
-# Edit content/now.md
-# Update date and current focus
+## Configuration
 
-hugo --minify
-git add content/now.md
-git commit -m "Update now page"
-git push
+### Key hugo.toml Parameters
+
+```toml
+# Theme behavior
+[params]
+  content_type = "essays"         # Parameterizes theme templates
+  favicon_style = "solid"         # Solid square (vs "outlined" on .org)
+  noindex = false                 # Allow search indexing (true on .org)
+  show_read_time = true           # Show reading time (false on .org)
+  show_email_signup = true        # Footer newsletter form
+
+# Taxonomies
+[taxonomies]
+  topic = "topics"                # Frontmatter: topics: [...]
+  tag = "tags"                    # Frontmatter: tags: [...]
+
+# RSS feed
+[outputFormats.RSS]
+  baseName = "feed"               # Output: /feed.xml not /index.xml
 ```
 
-### Adding Images
+### Theme Configuration Differences
 
-```bash
-# Place in static/images/
-cp ~/Downloads/image.webp static/images/
-
-# Reference in markdown
-![Alt text](/images/image.webp)
-
-# Commit
-git add static/images/image.webp
-git commit -m "Add image"
-git push
-```
-
-## Design System
-
-### Colors
-- **Brand**: Trust Revolution Orange (#F84200 light, #FF5733 dark)
-- **Text**: #1a1a1a (light), #e8e8e8 (dark)
-- **Secondary**: #555 (light), #d0d0d0 (dark)
-- **Meta**: #777 (light), #999 (dark)
-
-### Typography
-- **System fonts**: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto...
-- **Base**: 16px, 1.6 line-height
-- **Essay body**: 18px, 1.7 line-height
-- **H1**: 2rem, 700 weight
-- **H2**: 1.25rem, 600 weight
-
-### Spacing
-- **Section gaps**: 3rem (`var(--space-section)`)
-- **Dividers**: 2rem (`var(--space-divider)`)
-- **Elements**: 1.5rem (`var(--space-element)`)
-- **Tight**: 1rem (`var(--space-tight)`)
-
-## Key Differences from .org
-
-| Feature | .com (Gallery) | .org (Workshop) |
-|---------|----------------|-----------------|
-| Purpose | Finished work | Work in progress |
-| Date format | October 15, 2025 | 2025 · 10 |
-| Reading time | Shown | Hidden |
-| Homepage | Feature-rich | Simple |
-| Newsletter | Shown in footer | Not shown |
-| Search indexing | Allowed | Blocked |
-| Favicon | Solid square | Outlined square |
-
-## Testing Checklist
-
-Before deploying:
-- [ ] Build succeeds: `hugo --minify`
-- [ ] No broken links
-- [ ] Images load correctly
-- [ ] Dark mode works
-- [ ] Mobile responsive
-- [ ] Newsletter form works (test subscribe)
-- [ ] RSS feed valid: `/feed.xml`
-- [ ] Reading time accurate
-- [ ] Topics/tags link correctly
+| Parameter | .com (Gallery) | .org (Workshop) |
+|-----------|----------------|-----------------|
+| `favicon_style` | `"solid"` | `"outlined"` |
+| `noindex` | `false` | `true` |
+| `show_read_time` | `true` | `false` |
+| `show_email_signup` | `true` | `false` |
 
 ## Deployment
 
 **Platform:** Netlify
+**Deploy trigger:** Push to `master` branch
+**Build command:** `hugo --minify` (with GITHUB_TOKEN for private theme module)
+**Publish directory:** `public/`
+**Hugo version:** 0.151.0 (set in `netlify.toml`)
 
-**Build settings:**
-- Build command: `hugo --minify`
-- Publish directory: `public`
-- Hugo version: 0.151.0 (set in `netlify.toml` or environment)
+### Netlify Build Configuration
 
-**Custom domain:** shawnyeager.com
-
-**Deploy:**
-```bash
-git push origin master
-# Netlify automatically builds and deploys
+`netlify.toml` configures GitHub token for private module access:
+```toml
+[build]
+  command = 'git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/" && hugo --minify'
 ```
+
+Environment variable `GITHUB_TOKEN` must be set in Netlify dashboard.
 
 ## Related Repositories
 
-- **tangerine-theme**: Shared theme module
-  - `github.com/shawnyeager/tangerine-theme`
-  - Contains layouts, CSS, partials
+- **tangerine-theme** (`github.com/shawnyeager/tangerine-theme`): Shared theme module with layouts, CSS, partials
+- **shawnyeager-org** (`github.com/shawnyeager/shawnyeager-org`): Sister site for work-in-progress notes
+- **hugo-sites-project** (`~/Work/hugo-sites-project`): Archived monorepo with design specs and mockups
 
-- **shawnyeager-org**: The Workshop (notes site)
-  - `github.com/shawnyeager/shawnyeager-org`
-  - Sister site for work-in-progress content
+## Critical Constraints
 
-## Archived Monorepo
-
-Original development happened in: `~/Work/hugo-sites-project`
-
-Contains:
-- Design system specification: `docs/design-system-specification.md`
-- HTML mockups: `docs/shawnyeager-com-mockup.html`
-- Original templates and CSS
-- Full project history
-
-**Reference for:** Design decisions, mockups, specifications
-
-## Notes
-
-- Never commit `public/` directory (in `.gitignore`)
-- Newsletter uses Buttondown (form action in footer)
-- Analytics: Plausible (script in head partial)
-- Solid orange favicon differentiates from .org's outlined favicon
-- Update now page monthly (set reminder)
+1. **Never commit `public/` directory** - Build artifact, in `.gitignore`
+2. **Match theme module path** - Switch between GitHub URL (prod) and local path (dev) in `hugo.toml`
+3. **Update go.mod** - Run `hugo mod tidy` after theme changes
+4. **Preserve essay permalinks** - Changing `[permalinks]` breaks existing URLs
+5. **Monthly now page updates** - Convention to keep /now current
