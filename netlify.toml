@@ -3,7 +3,7 @@
   command = "git config --global url.\"https://${GITHUB_TOKEN}@github.com/\".insteadOf \"https://github.com/\" && hugo --minify"
 
 [build.environment]
-  HUGO_VERSION = "0.139.3"
+  HUGO_VERSION = "0.151.0"
   GO_VERSION = "1.23"
 
 [context.production.environment]
