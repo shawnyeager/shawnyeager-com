@@ -2,6 +2,6 @@ module github.com/shawnyeager/shawnyeager-com
 
 go 1.25.3
 
-require github.com/shawnyeager/tangerine-theme v0.9.0 // indirect
+require github.com/shawnyeager/tangerine-theme v1.0.0 // indirect
 
 replace github.com/shawnyeager/tangerine-theme => /home/shawn/Work/tangerine-theme
