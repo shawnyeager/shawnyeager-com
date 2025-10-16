@@ -56,21 +56,26 @@ enableEmoji = true
   # Reading time display (used in layouts/essays/single.html)
   show_read_time = true           # Show reading time on essays
 
+  # Email signup (footer)
+  show_email_signup = true        # Show email subscription form in footer
+  email_signup_text = "I send new essays and updates via email."
+  email_signup_action = "https://buttondown.com/api/emails/embed-subscribe/shawnyeager"
+
   # Social/contact links
   nostr = "https://nostr.shawnyeager.com"
   github = "https://github.com/shawnyeager"
   email = "hello@shawnyeager.com"
   newsletter = "https://buttondown.com/shawnyeager"
-  
+
   # Site-specific
   podcast_name = "Trust Revolution Podcast"
   podcast_url = "https://trustrevolution.co"
   podcast_rss = "https://fountain.fm/show/Mk0fJte5vrfiDQ5RyCZd"
   podcast_description = "Rethinking trust for a decentralized future"
-  
-  # Secondary site link
-  notes_site_url = "https://shawnyeager.org"
-  notes_site_name = "Notes"
+
+  # Secondary site link (for footer cross-link)
+  secondary_site_url = "https://shawnyeager.org"
+  secondary_site_name = "Notes"
 
 # Menu configuration
 [menu]
