@@ -2,56 +2,114 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/345f9641-36ce-4cef-a6ce-d2f0b1e1de73/deploy-status)](https://app.netlify.com/sites/shawnyeager-com/deploys)
 
-Professional site for finished essays and public-facing content. Built with Hugo using a shared theme module.
+**The Gallery** — Finished essays and professional content.
 
-**Live site:** [shawnyeager.com](https://shawnyeager.com)
+## About
+
+This is the public-facing side of a two-site system:
+- **shawnyeager.com** (this site) — Polished essays and published work
+- **[shawnyeager.org](https://shawnyeager.org)** — Rough notes and explorations
+
+Content here is indexed by search engines and represents the professional brand. Essays are organized by topics and tags for browsing.
 
 ## Quick Start
 
 ```bash
-# Local development with drafts
+# Local development
 hugo server -D -p 1313
-
-# Build for production
-hugo --minify
 
 # Create new essay
 hugo new content/essays/essay-slug.md
+
+# Build for production
+hugo --minify
 ```
 
-## Architecture
+## Tech Stack
 
-This site uses [Hugo Modules](https://gohugo.io/hugo-modules/) to import the [tangerine-theme](https://github.com/shawnyeager/tangerine-theme), a shared theme module containing layouts, CSS, and partials.
+- **Hugo** 0.151.0 — Static site generator
+- **Hugo Modules** — Theme imported from [tangerine-theme](https://github.com/shawnyeager/tangerine-theme)
+- **Netlify** — Automatic deployment on push to master
+- **System fonts** — No external dependencies
 
-**Key features:**
-- Clean permalink structure (`/essay-title/` instead of `/essays/2025/10/essay-title/`)
-- Topic and tag taxonomies for browsing essays
-- Reading time display on essays
-- Newsletter signup integration (Buttondown)
-- RSS feed at `/feed.xml`
+## Configuration
 
-## Content Structure
+Key parameters in `hugo.toml`:
 
-```
-content/
-├── essays/          # Published essays with topics and tags
-├── now.md           # Current focus page (update monthly)
-├── media.md         # Press/media information
-├── podcast.md       # Podcast subscription links
-├── connect.md       # Contact methods
-├── encrypt.md       # PGP keys
-└── subscribed.md    # Newsletter confirmation
+```toml
+[params]
+  content_type = "essays"
+  favicon_style = "solid"
+  noindex = false
+  show_read_time = true
+  show_email_signup = true
 ```
 
-## Deployment
+## Project Structure
 
-Automatic deployment via Netlify on push to `master`. Build command uses `GITHUB_TOKEN` environment variable to access the private theme module.
+```
+shawnyeager-com/
+├── content/
+│   ├── essays/
+│   ├── now.md
+│   ├── media.md
+│   ├── podcast.md
+│   ├── connect.md
+│   ├── encrypt.md
+│   └── subscribed.md
+├── layouts/
+│   ├── index.html
+│   ├── essays/
+│   ├── page/
+│   ├── _default/
+│   ├── partials/
+│   └── shortcodes/
+├── static/
+│   ├── images/
+│   └── assets/
+├── hugo.toml
+├── go.mod
+└── netlify.toml
+```
 
-## Related
+## Theme Module
 
-- **[tangerine-theme](https://github.com/shawnyeager/tangerine-theme)** - Shared Hugo theme module
-- **[shawnyeager.org](https://github.com/shawnyeager/shawnyeager-org)** - Sister site for work-in-progress notes
+Uses Hugo Modules to import the shared theme:
 
-## Documentation
+```toml
+[module]
+  [[module.imports]]
+    path = "github.com/shawnyeager/tangerine-theme"
+    # path = "/home/shawn/Work/tangerine-theme"  # Local development
+```
 
-See [CLAUDE.md](CLAUDE.md) for detailed architecture, configuration, and development guidance.
+Switch to local path when developing theme changes. Run `hugo mod get -u && hugo mod tidy` after theme updates.
+
+## Publishing Workflow
+
+1. Create essay: `hugo new content/essays/essay-slug.md`
+2. Write content with frontmatter (title, description, date, topics, tags)
+3. Preview locally: `hugo server -D -p 1313`
+4. Build: `hugo --minify`
+5. Push to master — Netlify deploys automatically
+
+## Key Features
+
+- **Clean permalinks** — `/essay-title/` instead of `/essays/2025/10/essay-title/`
+- **Reading time** — Displayed on all essays
+- **Topics & tags** — Taxonomy-based browsing
+- **Newsletter signup** — Buttondown integration in footer
+- **RSS feed** — Available at `/feed.xml`
+- **Solid favicon** — Orange square distinguishes from .org's outlined square
+
+## Philosophy
+
+The Gallery is for finished work. Essays here are polished, professional, and public. This is where ideas that started rough in the Workshop get refined and published for broader audiences.
+
+---
+
+**Shawn Yeager**
+Essays: [shawnyeager.com](https://shawnyeager.com)
+Notes: [shawnyeager.org](https://shawnyeager.org)
+Nostr: [shawnyeager.com/connect](https://shawnyeager.com/connect)
+GitHub: [@shawnyeager](https://github.com/shawnyeager)
