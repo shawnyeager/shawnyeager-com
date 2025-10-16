@@ -130,7 +130,7 @@ enableEmoji = true
 
 # Build configuration
 [build]
-  writeStats = true
+  writeStats = false
   
 # Cache configuration
 [caches]
