@@ -13,8 +13,8 @@ enableEmoji = true
 # Hugo Module - Theme
 [module]
   [[module.imports]]
-    path = "/home/shawn/Work/tangerine-theme"  # Local testing
-    # path = "github.com/shawnyeager/tangerine-theme"  # Production
+    # path = "/home/shawn/Work/tangerine-theme"  # Local testing
+    path = "github.com/shawnyeager/tangerine-theme"  # Production
 
 # Pagination
 [pagination]
