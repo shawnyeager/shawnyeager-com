@@ -4,7 +4,7 @@
     <p class="page-subtitle">{{ .Params.subtitle }}</p>
 
     <!-- Page Content -->
-    <div class="now-content">
+    <div class="podcast-content">
         {{ $content := .Content }}
         {{ $content = replace $content "{{ .Site.Params.podcast_rss }}" .Site.Params.podcast_rss }}
         {{ $content | safeHTML }}

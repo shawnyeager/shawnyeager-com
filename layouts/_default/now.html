@@ -8,7 +8,7 @@
     {{ end }}
 
     <!-- Page Content wrapped in sections -->
-    <div class="page-body">
+    <div class="now-content">
         {{ $content := .Content }}
         {{ $content = replace $content "<!-- FOLLOWING_ALONG -->" "" }}
         {{ $content | safeHTML }}
