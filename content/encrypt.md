@@ -12,8 +12,6 @@ hide_footer_signup: true
 
 {{< button url="/assets/public-key.asc" text="Download ASCII-armored public key" variant="download" >}}
 
----
-
 {{< detail-pair label="Proton Mail" value="1C64 D339 A241 B7DD D30D DD03 E7AC 8AF1 7DF1 6D6D" code="true" >}}
 
 {{< detail-pair label="Nostr" value="npub1clk6vc9xhjp8q5cws262wuf2eh4zuvwupft03hy4ttqqnm7e0jrq3upup9" code="true" >}}
