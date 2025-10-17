@@ -8,6 +8,6 @@ Thanks for subscribing. You'll get occasional updates on Bitcoin strategy, go-to
 
 **Check your email to confirm your subscription.**
 
-In the meantime, check out {{< link url="/essays/" text="recent essays" style="cta" arrow="right" >}} or learn more {{< link url="/now/" text="about what I'm working on now" style="cta" arrow="right" >}}.
+In the meantime, check out {{< link url="/essays/" text="recent essays" style="cta" >}} or learn more {{< link url="/now/" text="about what I'm working on now" style="cta" >}}.
 
-{{< back url="/" text="Back to home" >}}
+{{< link url="/" text="Back to home" style="back" >}}

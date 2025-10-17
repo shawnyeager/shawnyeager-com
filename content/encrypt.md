@@ -8,7 +8,7 @@ hide_footer_signup: true
 
 {{< detail-pair label="PGP Fingerprint" value="4D2D 4238 3666 5C2A E2F9 B65D 7763 A481 2E14 D3D6" >}}
 
-{{< link url="https://keys.openpgp.org/search?q=shawn@shawnyeager.com" text="Lookup my public key on OpenPGP" style="cta" arrow="right" >}}
+{{< link url="https://keys.openpgp.org/search?q=shawn@shawnyeager.com" text="Lookup my public key on OpenPGP" style="cta" >}}
 
 {{< button url="/assets/public-key.asc" text="Download ASCII-armored public key" variant="download" >}}
 
