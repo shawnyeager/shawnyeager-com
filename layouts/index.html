@@ -12,7 +12,7 @@
     <section class="latest-essay">
         <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
         <p>{{ .Summary }}</p>
-        <a href="{{ .RelPermalink }}" class="read-more">Read more <span aria-hidden="true">→</span></a>
+        <p><a href="{{ .RelPermalink }}" class="read-more">Read more <span aria-hidden="true">→</span></a></p>
     </section>
     {{ end }}
 
@@ -48,7 +48,7 @@
             </a>
         </div>
         {{ end }}
-        <a href="{{ "essays" | relURL }}" class="all-essays">All essays <span aria-hidden="true">→</span></a>
+        <p><a href="{{ "essays" | relURL }}" class="all-essays">All essays <span aria-hidden="true">→</span></a></p>
     </section>
     {{ else }}
     <section class="recent-essays">
