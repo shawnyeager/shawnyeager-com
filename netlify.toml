@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = 'git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/" && hugo --minify'
+  command = 'git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/" && hugo mod clean && hugo --minify'
 
 [build.environment]
   HUGO_VERSION = "0.151.0"
