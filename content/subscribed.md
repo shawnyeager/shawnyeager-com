@@ -8,8 +8,6 @@ Thanks for subscribing. You'll get occasional updates on Bitcoin strategy, go-to
 
 **Check your email to confirm your subscription.**
 
-In the meantime, check out <a href="/essays/" class="cta-link">recent essays <span aria-hidden="true">→</span></a> or learn more <a href="/now/" class="cta-link">about what I'm working on now <span aria-hidden="true">→</span></a>.
+In the meantime, check out {{< link url="/essays/" text="recent essays" style="cta" arrow="right" >}} or learn more {{< link url="/now/" text="about what I'm working on now" style="cta" arrow="right" >}}.
 
-<div class="back-link">
-<a href="/"><span aria-hidden="true">←</span> Back to home</a>
-</div>
+{{< back url="/" text="Back to home" >}}

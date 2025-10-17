@@ -7,26 +7,22 @@ hide_footer_signup: true
 
 Working on something in Bitcoin? Let's talk.
 
-<div class="contact-section">
-
-{{< contact-method
+{{< detail-pair
     label="Email"
     url="mailto:hello@shawnyeager.com"
-    text="hello@shawnyeager.com"
+    value="hello@shawnyeager.com"
 >}}
 
-{{< contact-method
+{{< detail-pair
     label="Signal"
     url="https://shawnyeager.com/signal"
-    text="shawnyeager.com/signal"
+    value="shawnyeager.com/signal"
 >}}
 
-{{< contact-method
+{{< detail-pair
     label="Calendar"
     url="https://cal.com/shawnyeager"
-    text="Book a meeting"
+    value="Book a meeting"
 >}}
 
-</div>
-
-<a href="/contact.vcf" class="vcard-link">Download contact card</a>
+{{< button url="/contact.vcf" text="Download contact card" variant="download" >}}
