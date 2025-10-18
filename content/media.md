@@ -10,21 +10,17 @@ Bio, photos, and contact information for journalists, conference organizers, and
 ### Short Bio (50 words)
 
 {{< card class="bio-text" >}}
-Shawn Yeager is a Bitcoin go-to-market and revenue leader. He hosts Trust Revolution, a podcast exploring trust in a decentralized future. Previously, he led sales and business development at Amboss, NYDIG Payments, and Bottlepay, creating over $300M in revenue.
+Shawn Yeager has created over $300M in value helping technology companies turn paradigm shifts into revenue—from Internet Explorer at Microsoft to Bitcoin companies like Amboss, NYDIG Payments, and Bottlepay. He hosts Trust Revolution podcast, exploring how we rethink trust for a decentralized future. 
 {{< /card >}}
 
 ### Extended Bio (150 words)
 
 {{< card class="bio-text" >}}
-Shawn Yeager is working toward a future built on Bitcoin. He operates, advises, and invests in Bitcoin startups, specializing in go-to-market strategy and revenue leadership.
-
-As host of Trust Revolution, Shawn explores how we can rethink trust for a decentralized future, featuring conversations with builders, thinkers, and operators in Bitcoin and beyond.
-
-Before focusing on Bitcoin, Shawn created high-impact partnerships and business development strategies across technology sectors—from browsers to data centers, cloud computing to connected devices, and streaming media to personal data platforms. His work has generated over $300M in revenue.
-
-In Bitcoin, Shawn has led sales and business development at Amboss (Lightning Network infrastructure), NYDIG Payments (institutional Bitcoin services), and Bottlepay (Lightning payments platform).
-
-He writes about Bitcoin strategy, partnerships, and building for the long term at shawnyeager.com.
+Shawn Yeager is working toward a future built on Bitcoin and freedom technology. He operates, advises, and invests in startups building technologies that increase human sovereignty.
+Previously, he led sales and partnerships at Amboss Technologies (Lightning Network infrastructure), NYDIG Payments (institutional Bitcoin services), and Bottlepay (Lightning payments platform).
+Before focusing on Bitcoin, Shawn spent 25+ years in tech business development—from Internet Explorer at Microsoft to enterprise software, data centers, IoT devices, and personal data infrastructure. His work has created over $300M in value helping companies turn paradigm shifts into revenue.
+He hosts Trust Revolution, exploring how we rethink trust for a decentralized future through conversations with builders and operators in Bitcoin and beyond.
+Shawn writes about Bitcoin strategy, partnerships, and building for the long term at shawnyeager.com.
 {{< /card >}}
 
 ### Professional Photo
