@@ -25,9 +25,9 @@ description: "A concise 1-2 sentence summary of the essay for SEO meta tags and 
         </div>
 
         <!-- Optional Footer CTA -->
-        {{ with .Params.footer_cta }}
+        {{ if .Params.cta }}
         <div class="essay-footer">
-            <p>{{ . | markdownify }}</p>
+            <p>Working on Bitcoin sales or go-to-market? <a href="mailto:hello@shawnyeager.com">Let's talk</a>.</p>
         </div>
         {{ end }}
 
