@@ -7,7 +7,7 @@ type: page
 layout: podcast
 ---
 
-{{< image src="/images/trust-revolution-cover.webp" alt="Trust Revolution Podcast" variant="inline" size="150px" >}}
+{{< image src="/images/trust-revolution-cover.webp" alt="Trust Revolution Podcast" variant="img-md" >}}
 
 Unfiltered conversations with builders, thinkers, and operators in Bitcoin and beyond. Exploring the systems we trust, why they work (or don't), and what comes next.
 
