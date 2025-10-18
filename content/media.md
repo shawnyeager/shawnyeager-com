@@ -18,7 +18,7 @@ Shawn Yeager has created over $300M in value helping technology companies turn p
 {{< card class="bio-text" >}}
 Shawn Yeager is working toward a future built on Bitcoin and freedom technology. He operates, advises, and invests in startups building technologies that increase human sovereignty.
 Previously, he led sales and partnerships at Amboss Technologies (Lightning Network infrastructure), NYDIG Payments (institutional Bitcoin services), and Bottlepay (Lightning payments platform).
-Before focusing on Bitcoin, Shawn spent 30 years in tech business development—from Internet Explorer at Microsoft to enterprise software, data centers, IoT devices, and personal data infrastructure. His work has created over $300M in value helping companies turn paradigm shifts into revenue.
+Before focusing on Bitcoin, Shawn spent 25 years in tech business development—from Internet Explorer at Microsoft to enterprise software, data centers, IoT devices, and personal data infrastructure. His work has created over $300M in value helping companies turn paradigm shifts into revenue.
 He hosts Trust Revolution, exploring how we rethink trust for a decentralized future through conversations with builders and operators in Bitcoin and beyond.
 Shawn writes about Bitcoin strategy, partnerships, and building for the long term at shawnyeager.com.
 {{< /card >}}
