@@ -7,6 +7,8 @@ hide_footer_signup: true
 
 Working on something in Bitcoin? Let's talk.
 
+<div class="contact-section">
+
 {{< detail-pair
     label="Email"
     url="mailto:hello@shawnyeager.com"
@@ -24,5 +26,7 @@ Working on something in Bitcoin? Let's talk.
     url="https://cal.com/shawnyeager"
     value="Book a meeting"
 >}}
+
+</div>
 
 {{< button url="/contact.vcf" text="Download contact card" variant="download" >}}

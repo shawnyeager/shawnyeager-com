@@ -33,19 +33,13 @@ High-resolution headshot available for download:
 
 {{< image src="/images/shawn-media.webp" alt="Shawn Yeager headshot" variant="img-lg circular-image" >}}
 
-{{< button url="#" text="Download high-res (JPG, 2000x2000px)" variant="download" >}}
+{{< button url="#" text="Download high-res (JPG, 2000x2000px)" variant="cta" >}}
 
 ### Contact
 
-{{< card class="contact-info" >}}
 {{< detail-pair label="Email" url="mailto:hello@shawnyeager.com" value="hello@shawnyeager.com" >}}
 
-{{< detail-pair label="Website" url="https://shawnyeager.com" value="shawnyeager.com" >}}
-
-{{< detail-pair label="Podcast" url="https://trustrevolution.co" value="trustrevolution.co" >}}
-
-{{< detail-pair label="Nostr" url="https://nostr.shawnyeager.com" value="nostr.shawnyeager.com" >}}
-{{< /card >}}
+{{< detail-pair label="Signal" url="https://shawnyeager.com/signal" value="shawnyeager.com/signal" >}}
 
 ### Current Focus
 
