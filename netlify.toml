@@ -1,0 +1,17 @@
+[build]
+  publish = "public"
+  command = 'git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/" && hugo mod clean && hugo --minify'
+
+[build.environment]
+  HUGO_VERSION = "0.151.0"
+  GO_VERSION = "1.23"
+  GOPROXY = "direct"
+
+[context.production.environment]
+  HUGO_ENV = "production"
+
+[context.deploy-preview]
+  command = "hugo --minify --buildFuture -b $DEPLOY_PRIME_URL"
+
+[context.branch-deploy]
+  command = "hugo --minify -b $DEPLOY_PRIME_URL"

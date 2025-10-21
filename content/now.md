@@ -11,7 +11,7 @@ updated: "October 2025"
 
 I'm currently hosting Trust Revolution, where I explore how we can rethink trust for a decentralized future. Recent episodes have covered the Lightning Network's role in scaling Bitcoin, institutional adoption challenges, and the evolution of self-custody solutions. Working on conversations about Bitcoin's role in emerging markets and the intersection of AI and decentralized systems.
 
-<a href="https://trustrevolution.co" class="cta-link">Listen at trustrevolution.co <span aria-hidden="true">→</span></a>
+{{< link url="https://trustrevolution.co" text="Listen at trustrevolution.co" style="cta" >}}
 
 ### Advisory & Operating Work
 

@@ -7,81 +7,43 @@ type: page
 
 Bio, photos, and contact information for journalists, conference organizers, and podcast hosts.
 
-<section class="media-section">
-
 ### Short Bio (50 words)
 
-<div class="bio-text">
-Shawn Yeager is a Bitcoin go-to-market and revenue leader. He hosts Trust Revolution, a podcast exploring trust in a decentralized future. Previously, he led sales and business development at Amboss, NYDIG Payments, and Bottlepay, creating over $300M in revenue.
-</div>
-
-</section>
-
-<section class="media-section">
+{{< card class="bio-text" >}}
+Shawn Yeager is working toward a future built on Bitcoin. He helps freedom-focused technology companies compete commercially against surveillance-based platforms. He's created over $300M in revenue over 30 years---leading sales and partnerships at Amboss, NYDIG Payments, and Bottlepay. He hosts Trust Revolution podcast.
+{{< /card >}}
 
 ### Extended Bio (150 words)
 
-<div class="bio-text">
-Shawn Yeager is working toward a future built on Bitcoin. He operates, advises, and invests in Bitcoin startups, specializing in go-to-market strategy and revenue leadership.<br><br>As host of Trust Revolution, Shawn explores how we can rethink trust for a decentralized future, featuring conversations with builders, thinkers, and operators in Bitcoin and beyond.<br><br>Before focusing on Bitcoin, Shawn created high-impact partnerships and business development strategies across technology sectors—from browsers to data centers, cloud computing to connected devices, and streaming media to personal data platforms. His work has generated over $300M in revenue.<br><br>In Bitcoin, Shawn has led sales and business development at Amboss (Lightning Network infrastructure), NYDIG Payments (institutional Bitcoin services), and Bottlepay (Lightning payments platform).<br><br>He writes about Bitcoin strategy, partnerships, and building for the long term at shawnyeager.com.
-</div>
+{{< card class="bio-text" >}}
+Shawn Yeager helps freedom-focused technology companies compete and win commercially against surveillance-based platforms. Over 30 years, he's worked on technology that increases human freedom, creating more than $300M in revenue.
 
-</section>
+Shawn specializes in revenue operations, strategic partnerships, and enterprise sales. Most recently, he led sales and partnerships at Amboss (Lightning Network infrastructure), NYDIG Payments (institutional Bitcoin services), and Bottlepay (Lightning payments).
 
-<section class="media-section">
+Shawn hosts Trust Revolution, a podcast exploring how Bitcoin and decentralized technologies are reshaping trust, sovereignty, and freedom. His writing on Bitcoin strategy, go-to-market, and building for the long term appears at shawnyeager.com.
+
+His work is guided by a belief that surveillance-based platforms dominate on distribution and user experience---and that freedom tech wins by being undeniably better at both.
+{{< /card >}}
 
 ### Professional Photo
 
 High-resolution headshot available for download:
 
-<img src="/images/shawn-media.webp" alt="Shawn Yeager headshot" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; display: block;">
+{{< image src="/images/shawn-media.webp" alt="Shawn Yeager headshot" variant="img-lg circular-image" >}}
 
-<a href="#" class="download-link">Download high-res (JPG, 2000x2000px) <span aria-hidden="true">→</span></a>
-
-</section>
-
-<section class="media-section">
+{{< button url="#" text="Download high-res (JPG, 2000x2000px)" variant="cta" >}}
 
 ### Contact
 
-<div class="contact-info">
-<div class="contact-info-clean">
+{{< detail-pair label="Email" url="mailto:hello@shawnyeager.com" value="hello@shawnyeager.com" >}}
 
-<div class="contact-item">
-<span class="contact-label">Email:</span>
-<a href="mailto:hello@shawnyeager.com">hello@shawnyeager.com</a>
-</div>
-
-<div class="contact-item">
-<span class="contact-label">Website:</span>
-<a href="https://shawnyeager.com">shawnyeager.com</a>
-</div>
-
-<div class="contact-item">
-<span class="contact-label">Podcast:</span>
-<a href="https://trustrevolution.co">trustrevolution.co</a>
-</div>
-
-<div class="contact-item">
-<span class="contact-label">Nostr:</span>
-<a href="https://nostr.shawnyeager.com">nostr.shawnyeager.com</a>
-</div>
-
-</div>
-</div>
-
-</section>
-
-<section class="media-section">
+{{< detail-pair label="Signal" url="https://shawnyeager.com/signal" value="shawnyeager.com/signal" >}}
 
 ### Current Focus
 
 - Host of Trust Revolution podcast
 - Go-to-market and revenue advisor for Bitcoin startups
 - Writing about Bitcoin strategy and decentralized trust
-
-</section>
-
-<section class="media-section">
 
 ### Topics I Speak & Write About
 
@@ -92,14 +54,8 @@ High-resolution headshot available for download:
 - Lightning Network adoption and infrastructure
 - Institutional Bitcoin services
 
-</section>
-
-<section class="media-section">
-
 ### About Trust Revolution
 
 Trust Revolution is a podcast exploring how we can rethink trust for a decentralized future. Through conversations with builders, thinkers, and operators in Bitcoin and beyond, we examine the systems we trust, why they work (or don't), and what comes next.
 
-[Listen at trustrevolution.co →](https://trustrevolution.co)
-
-</section>
+{{< link url="https://trustrevolution.co" text="Listen at trustrevolution.co" style="cta" >}}

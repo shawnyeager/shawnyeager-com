@@ -1,18 +1,22 @@
 {{ define "main" }}
     <!-- Bio -->
     <div class="bio">
-        I'm working toward a future built on Bitcoin. I operate, advise, and invest in startups doing the same. As a go-to-market and revenue leader, I've created over $300M in value.
+        {{ .Content }}
     </div>
 
-    <!-- Latest Essay -->
+    <!-- Featured or Latest Essay -->
     {{ $posts := where .Site.RegularPages "Type" "essays" }}
     {{ $posts = where $posts "Draft" false }}
+    {{ $featuredPost := where $posts "Params.featured" true }}
     {{ $latestPost := index $posts 0 }}
+    {{ if $featuredPost }}
+        {{ $latestPost = index $featuredPost 0 }}
+    {{ end }}
     {{ with $latestPost }}
     <section class="latest-essay">
         <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
         <p>{{ .Summary }}</p>
-        <a href="{{ .RelPermalink }}" class="read-more">Read more <span aria-hidden="true">→</span></a>
+        <p><a href="{{ .RelPermalink }}" class="cta-link">Read more <span aria-hidden="true">→</span></a></p>
     </section>
     {{ end }}
 
@@ -22,7 +26,7 @@
             <img src="/images/trust-revolution-cover.webp" alt="Trust Revolution Podcast" class="podcast-art">
             <div class="podcast-info">
                 <h3>{{ .Site.Params.podcast_name }}</h3>
-                <p>{{ .Site.Params.podcast_description }}</p>
+                <p class="tagline">{{ .Site.Params.podcast_description }}</p>
             </div>
         </div>
         <div class="podcast-links">
@@ -48,7 +52,7 @@
             </a>
         </div>
         {{ end }}
-        <a href="{{ "essays" | relURL }}" class="all-essays">All essays <span aria-hidden="true">→</span></a>
+        <p><a href="{{ "essays" | relURL }}" class="cta-link">All essays <span aria-hidden="true">→</span></a></p>
     </section>
     {{ else }}
     <section class="recent-essays">

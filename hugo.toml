@@ -11,9 +11,10 @@ defaultContentLanguage = "en"
 enableEmoji = true
 
 # Hugo Module - Theme
+# Note: hugo.work in ~/Work/ automatically redirects to local theme during development
 [module]
   [[module.imports]]
-    path = "/home/shawn/Work/shawnyeager-theme"  # Local path for testing
+    path = "github.com/shawnyeager/tangerine-theme"
 
 # Pagination
 [pagination]
@@ -43,28 +44,34 @@ enableEmoji = true
 [params]
   description = "Bitcoin go-to-market and revenue leader. Host of Trust Revolution podcast. Operator, advisor, investor in Bitcoin startups."
   author = "Shawn Yeager"
-  
-  # Custom CSS
-  custom_css = ["css/custom.css"]
+
+  # Theme configuration
+  content_type = "essays"         # Content type for parameterized templates
+  favicon_style = "solid"         # Favicon style: "solid" or "outlined"
+  noindex = false                 # Block search engines (false = allow indexing)
 
   # Reading time display (used in layouts/essays/single.html)
   show_read_time = true           # Show reading time on essays
+
+  # Email signup (footer)
+  show_email_signup = true        # Show email subscription form in footer
+  email_signup_text = "I send new essays and updates via email."
+  email_signup_action = "https://buttondown.com/api/emails/embed-subscribe/shawnyeager"
 
   # Social/contact links
   nostr = "https://nostr.shawnyeager.com"
   github = "https://github.com/shawnyeager"
   email = "hello@shawnyeager.com"
-  newsletter = "https://buttondown.com/shawnyeager"
-  
+
   # Site-specific
   podcast_name = "Trust Revolution Podcast"
   podcast_url = "https://trustrevolution.co"
   podcast_rss = "https://fountain.fm/show/Mk0fJte5vrfiDQ5RyCZd"
   podcast_description = "Rethinking trust for a decentralized future"
-  
-  # Secondary site link
-  notes_site_url = "https://shawnyeager.org"
-  notes_site_name = "Notes"
+
+  # Secondary site link (for footer cross-link)
+  secondary_site_url = "https://shawnyeager-org.netlify.app"
+  secondary_site_name = "Notes"
 
 # Menu configuration
 [menu]
@@ -119,7 +126,7 @@ enableEmoji = true
 
 # Build configuration
 [build]
-  writeStats = true
+  writeStats = false
   
 # Cache configuration
 [caches]
