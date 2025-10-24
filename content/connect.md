@@ -5,7 +5,7 @@ type: "page"
 hide_footer_signup: true
 ---
 
-Working on something in Bitcoin? Let's talk.
+I enjoy talking with people building in Bitcoin and freedom tech. Whether you're wrestling with go-to-market strategy, need a sounding board on partnerships, or just want to compare notes on what's working---reach out.
 
 <div class="contact-section">
 
