@@ -1,0 +1,148 @@
+# Hugo Configuration for shawnyeager.com
+# Professional site - The Gallery (finished work)
+# Version 1.0 - October 2025
+
+baseURL = "https://shawnyeager.com/"
+languageCode = "en-us"
+title = "Shawn Yeager"
+defaultContentLanguage = "en"
+
+# Enable emoji support
+enableEmoji = true
+
+# Hugo Module - Theme
+# Note: hugo.work in ~/Work/ automatically redirects to local theme during development
+[module]
+  [[module.imports]]
+    path = "github.com/shawnyeager/tangerine-theme"
+
+# Pagination
+[pagination]
+  pagerSize = 20
+
+# Permalinks - clean URLs without dates
+# Use section name since content is in content/essays/
+[permalinks]
+  essays = "/:contentbasename/"
+
+# Taxonomies - matches frontmatter usage (topics: [...])
+[taxonomies]
+  topic = "topics"
+  tag = "tags"
+
+# Output formats
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+
+# RSS configuration
+[outputFormats.RSS]
+  mediaType = "application/rss+xml"
+  baseName = "feed"
+
+# Theme parameters
+[params]
+  description = "Bitcoin go-to-market and revenue leader. Previously led sales at Amboss Technologies, NYDIG Payments, and Bottlepay. Hosts Trust Revolution podcast."
+  author = "Shawn Yeager"
+
+  # Theme configuration
+  content_type = "essays"         # Content type for parameterized templates
+  favicon_style = "solid"         # Favicon style: "solid" or "outlined"
+  noindex = false                 # Block search engines (false = allow indexing)
+
+  # Reading time display (used in layouts/essays/single.html)
+  show_read_time = true           # Show reading time on essays
+
+  # Email signup (footer)
+  show_email_signup = true        # Show email subscription form in footer
+  email_signup_text = "I send new essays and updates via email."
+  email_signup_action = "https://buttondown.com/api/emails/embed-subscribe/shawnyeager"
+
+  # Social/contact links
+  nostr = "https://nostr.shawnyeager.com"
+  github = "https://github.com/shawnyeager"
+  email = "hello@shawnyeager.com"
+
+  # Open Graph image for social sharing (1200x630px)
+  og_image = "/images/og-image.png"
+
+  # Site-specific
+  podcast_name = "Trust Revolution Podcast"
+  podcast_url = "https://trustrevolution.co"
+  podcast_rss = "https://fountain.fm/show/Mk0fJte5vrfiDQ5RyCZd"
+  podcast_description = "Rethinking trust for a decentralized future"
+
+  # Secondary site link (for footer cross-link)
+  secondary_site_url = "https://shawnyeager.org"
+  secondary_site_name = "Notes"
+
+# Menu configuration
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  
+  [[menu.main]]
+    name = "Essays"
+    url = "/essays/"
+    weight = 2
+  
+  [[menu.main]]
+    name = "Now"
+    url = "/now/"
+    weight = 3
+
+# Image processing (requires Hugo Extended)
+[imaging]
+  quality = 85
+  resampleFilter = "Lanczos"
+  anchor = "Smart"
+
+[imaging.exif]
+  disableDate = false
+  disableLatLong = true           # Remove location data from images
+
+# Markdown configuration
+[markup.goldmark.renderer]
+unsafe = true                # Allow HTML in markdown
+
+[markup.goldmark.extensions.extras.mark]
+enable = true
+
+[markup.highlight]
+style = "monokailight"         # Syntax highlighting style
+lineNos = false
+lineNumbersInTable = false
+
+# Privacy configuration
+[privacy]
+  [privacy.youtube]
+    privacyEnhanced = true
+
+# Security
+[security]
+  enableInlineShortcodes = false
+  [security.exec]
+    allow = ['^(dart-)?sass(-embedded)?$', '^go$', '^npx$', '^postcss$']
+  [security.funcs]
+    getenv = ['^HUGO_', '^CI$']
+
+# Build configuration
+[build]
+  writeStats = false
+  
+# Cache configuration
+[caches]
+  [caches.getjson]
+    dir = ":cacheDir/:project"
+    maxAge = "24h"
+  [caches.getcsv]
+    dir = ":cacheDir/:project"
+    maxAge = "24h"
+  [caches.images]
+    dir = ":cacheDir/:project"
+    maxAge = -1
+  [caches.assets]
+    dir = ":cacheDir/:project"
+    maxAge = -1
