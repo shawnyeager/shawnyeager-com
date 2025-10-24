@@ -50,6 +50,9 @@ enableEmoji = true
   favicon_style = "solid"         # Favicon style: "solid" or "outlined"
   noindex = false                 # Block search engines (false = allow indexing)
 
+  # Analytics
+  plausible_script_id = "pa-Qxf1mpF6qNZ8714Ucvs50"  # Plausible analytics
+
   # Reading time display (used in layouts/essays/single.html)
   show_read_time = true           # Show reading time on essays
 
