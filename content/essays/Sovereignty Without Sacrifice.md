@@ -6,7 +6,7 @@ topics: [bitcoin, product, go-to-market]
 tags: []
 cta: false
 featured: true
-draft: true
+draft: false
 ---
 You can have fast payments or private payments. Good UX or self-custody. Censorship resistance or features people actually use. That's been the conventional wisdom for years.
 
