@@ -22,7 +22,7 @@ We're not competing with those systems from a disadvantage. Lightning is faster 
 
 ## The Two Traps We Can't Afford
 
-The first trap is complacency. "There's no need to rush. Eventually, people will wake up and demand sovereignty." This assumes that time is on our side. It isn't. Central Bank Digital Currencies are coming. Platform regulation is tightening. Network effects are compounding for incumbent systems. Every day that centralized systems improve their UX while we accept "worse but more sovereign," the gap widens and the switching costs grow.
+The first trap is complacency. "There's no need to rush. Eventually, people will wake up and demand sovereignty." This assumes that time is on our side. It isn't. Central Bank Digital Currencies are coming. Platform regulation is tightening. Network effects are compounding for incumbent systems. Every day that centralized platforms improve their UX while we accept "worse but more sovereign," the gap widens and the switching costs grow.
 
 The second trap is elitism. "If they don't get it, they don't deserve it. We're building for people who understand what matters." I've seen this attitude kill adoption. Customers explicitly choosing custodial solutions over self-custody because non-custodial felt too risky, even dangerous. One wrong move and their money disappears. The custodial option just worked, despite the trade-offs.
 
@@ -108,7 +108,7 @@ Start with one. Build momentum. Keep going.
 
 Bitcoin payments become the default when they're *obviously* better---faster settlement, lower fees, better privacy, no chargebacks, no intermediary risk. People use Nostr when it's the best social platform, not because they're making a political statement. Self-custody wins when the tools are more secure *and* more usable than traditional banking.
 
-That world is possible, but it won't build itself. The technology exists. The talent exists. We need the collective commitment to building freedom tech that wins on merit, not martyrdom. Products that solve customer problems first, with sovereignty as the inevitable result.
+The technology exists. The talent exists. We need the collective commitment to building freedom tech that wins on merit, not martyrdom. Products that solve customer problems first, with sovereignty as the inevitable result.
 
 This is a five-to-ten-year project. The infrastructure companies building today are laying groundwork that consumer products will build on tomorrow. The consumer products shipping today are teaching us what works and what doesn't. Every improvement compounds. Every UX breakthrough makes the next one easier.
 
@@ -120,6 +120,6 @@ Sovereignty without sacrifice. That's the goal.
 
 To the Bitcoin startups, Nostr developers, Lightning infrastructure teams, and freedom tech builders working on this right now: you're building the financial, identity, and communication infrastructure that could define the next century. The protocols you've built work. They're secure, they're fast, they're censorship-resistant. That's the hard part done.
 
-Make them accessible. Make them excellent. Make them usable. Make them undeniable.
+Make them accessible. Make them usable. Make them undeniable.
 
 Then we win.
