@@ -123,7 +123,6 @@ To the Bitcoin startups, Nostr developers, Lightning infrastructure teams, and f
 Make them accessible. Make them usable. Make them undeniable.
 
 Then we win.
-
-- - -
-
-<!-- _Thanks to Matt O'Dell, Matthew Ramsden, Derek Ross, and XYZ for feedback on drafts of this essay._ -->
+<!--
+{{< acknowledgement >}}Thanks to Steve Myers, Matt O'Dell, Matthew Ramsden, Derek Ross, and XYZ for feedback on drafts of this essay.{{< /acknowledgement >}}
+-->
