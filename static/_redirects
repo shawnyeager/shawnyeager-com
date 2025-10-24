@@ -4,7 +4,7 @@ https://connect.shawnyeager.com/*    https://shawnyeager.com/connect     301!
 https://nostr.shawnyeager.com/*      https://primal.net/shawn            302!
 
 # Path redirects
-/connect        /contact
+/contact        /connect
 /pubkey         /assets/public-key.asc
 
 # External service redirects
