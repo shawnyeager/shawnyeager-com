@@ -40,7 +40,7 @@ The next layer: making these systems accessible. Freedom tech must win on every 
 
 Lightning is cheaper than Visa and faster than Venmo. The protocol delivers on its promises. But poor UX creates delays and failures that hide these advantages. Business customers get lost in channel management, normal users can't figure out liquidity. The technology that works brilliantly under the hood never reaches its potential because the user interfaces fail.
 
-Consumer wallet companies switching to solutions like Spark proves how badly the market wants Lightning UX solved. That demand is real. We need to meet it without the compromises. Winning means payments that just work, with no mental model of Lightning required.
+Consumer wallet companies are adopting Spark---which trades Lightning's trustlessness for simpler UX---proving how badly the market wants Lightning UX solved. That demand is real. We need to meet it without the compromises.
 
 ### Social Media
 
