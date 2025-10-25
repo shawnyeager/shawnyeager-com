@@ -96,7 +96,7 @@ What does this look like in practice?
 
 **Identify one thing your product does better than the centralized alternative.** Not just better for people who care about sovereignty, but better for everyone. Make it faster, cheaper, simpler, and more reliable. Then build everything else around that one undeniable advantage.
 
-**Find your first beachhead community.** Don't try to market everywhere at once. Find one community where your product solves a real problem today---a subreddit, a Telegram group, a local Bitcoin meetup. Become helpful there. Let organic word-of-mouth do the early lifting---distribution starts narrow.
+**Find your first beachhead community.** Don't try to market to everyone at once. Find one community where your product solves a real problem today---a subreddit, a Telegram group, a local Bitcoin meetup. Become helpful there. Let organic word-of-mouth do the early lifting---distribution starts narrow.
 
 **Build for viral loops, not just viral moments.** One-time publicity spikes don't build businesses. Design your product so that using it naturally exposes others to it. Payment requests that show the recipient what wallet you're using. Social posts that demonstrate features in action. Make every satisfied user a distribution channel.
 
