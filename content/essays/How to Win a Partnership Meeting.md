@@ -1,7 +1,7 @@
 ---
 title: "How to Win a Partnership Meeting"
 description: "Getting the meeting isn't the victory. Partnership meetings are won or lost in the preparation, not the presentation."
-date: 2025-10-22:19:01-05:00
+date: 2025-10-22T19:01-05:00
 slug: how-to-win-a-partnership-meeting
 topics: [partnerships, strategy]
 tags: []
