@@ -60,7 +60,7 @@ Building sovereignty without sacrifice requires shifts in how freedom tech compa
 
 User experience can't be an afterthought. It must be the primary competitive advantage. Hire world-class designers. Conduct extensive user research. Iterate relentlessly. The products that win will be the ones that feel as polished as PayPal while delivering Bitcoin's resilience.
 
-**Make product decisions that drive adoption.** Every feature decision should answer: does this make the product obviously better for someone who doesn't care about sovereignty yet? If the answer is no, question whether it belongs in v1. Primal doesn't violate Nostr. It just makes Nostr usable.
+**Make product decisions that drive adoption.** Every feature decision should answer: does this make the product obviously better for someone who doesn't yet care about sovereignty? If the answer is no, question whether it belongs in v1. Primal doesn't violate Nostr. It just makes Nostr usable.
 
 **Reach beyond true believers.** Most freedom tech companies market exclusively to people who already understand why sovereignty matters. This guarantees a tiny addressable market. Winning means marketing to people who just want better payments, better social media, better financial tools---who discover the sovereignty benefits after they're already using the product.
 
