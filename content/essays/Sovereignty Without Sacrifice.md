@@ -10,7 +10,7 @@ draft: false
 ---
 You can have easy payments or private payments. Good UX or self-custody. Censorship resistance or features people actually use. That's been the conventional wisdom for years.
 
-But it’s a false choice. The protocols are built. Bitcoin works; Lightning works; and Nostr works. The hardest technical problems are solved. What remains is a different kind of challenge: making these products available and accessible to people who don’t care about self-sovereignty---yet.
+But it’s a false choice. The protocols are built. Bitcoin works. Lightning works. Nostr works. The hardest technical problems are solved. What remains is a different kind of challenge: making these products available and accessible to people who don’t care about self-sovereignty---yet.
 
 <!--more-->
 
@@ -22,7 +22,7 @@ We're not competing with those systems from a disadvantage. Lightning is faster 
 
 ## The Two Traps We Can't Afford
 
-The first trap is complacency. "There's no need to rush. Eventually, people will wake up and demand sovereignty." This assumes that time is on our side. It isn't. Central Bank Digital Currencies are coming. Platform regulation is tightening. Network effects are compounding for incumbent systems. Every day that centralized platforms improve their UX while we accept 'worse but more sovereign,' the gap widens and the switching costs grow.
+The first trap is complacency. "There's no need to rush. Eventually, people will wake up and demand sovereignty." This assumes that time is on our side. It isn't. Central Bank Digital Currencies are coming. Platform regulation is tightening. Network effects are compounding for incumbent systems. Every day that centralized platforms improve their UX while we accept 'worse but more sovereign', the gap widens and the switching costs grow.
 
 The second trap is elitism. "If they don't get it, they don't deserve it. We're building for people who understand what matters." I've seen this attitude kill adoption. Customers explicitly choose custodial solutions over self-custody because non-custodial options feel too risky, even dangerous---one wrong move and their money disappears. The custodial option simply worked, despite the trade-offs.
 
@@ -38,7 +38,7 @@ The next layer is making these systems accessible. Freedom tech must win on ever
 
 ### Payments 
 
-Lightning is cheaper than Visa and faster than Venmo. The protocol delivers on its promises. However, poor UX creates delays and failures that hide these advantages. Business customers get lost in channel management, normal users can't figure out liquidity. The technology that works brilliantly under the hood never reaches its potential because the user interfaces fail.
+Lightning is cheaper than Visa and faster than Venmo. The protocol delivers on its promises. However, poor UX creates delays and failures that hide these advantages. Business customers get lost in channel management; normal users can't figure out liquidity. The technology that works brilliantly under the hood never reaches its potential because the user interfaces fail.
 
 Consumer wallet companies are adopting Spark---which trades Lightning's trustlessness for simpler UX---proving how badly the market wants Lightning UX solved. That demand is real. We need to meet it without the compromises.
 
@@ -74,19 +74,19 @@ The best protocol in the world accomplishes nothing if nobody uses it. We have t
 
 We won't get there overnight. Building products that compete on every dimension while maintaining sovereignty takes years, not months. But we're at an inflection point, and the trends are clear.
 
-CBDCs are coming. When governments launch programmable money with perfect surveillance and control, they'll either launch it with world-class UX and deep integrations, or mandate it by dictate, so UX won't matter. If our answer is Bitcoin wallets that require understanding seed phrase security models, we'll have missed the window.
+CBDCs are coming. When governments launch programmable money with perfect surveillance and control, they'll either launch it with world-class UX and deep integrations or mandate it by dictate, so UX won't matter. If our answer is Bitcoin wallets that require understanding seed phrase security models, we'll have missed the window.
 
 Platform regulation is tightening. As governments gain more control over centralized social platforms, those platforms will become better at making compliance feel frictionless---or at least normal. If our answer is social protocols that require technical expertise to use, we won't even be part of the conversation.
 
 Network effects compound. Every day that centralized payment systems, social platforms, and financial infrastructure deepen their integration and improve their experience, the switching costs for users increase. The window for credible alternatives gets smaller.
 
-The stakes couldn't be higher. Fix the money, fix the world---but only if we actually win commercially. Having better technology that nobody uses doesn't fix anything. We need technology that's so plainly superior that adoption becomes inevitable, not ideological.
+The stakes couldn't be higher. Fix the money, fix the world---but only if we actually win in the marketplace. Having better technology that nobody uses doesn't fix anything. We need technology that's so plainly superior that adoption becomes inevitable, not ideological.
 
 ## Start Here
 
 What does this look like in practice?
 
-**Hire for UX before you hire your fifth engineer.** World-class design isn't a luxury. It's the difference between a product people tolerate and one they actually choose. Find designers who've shipped consumer products that millions use. Pay them what they're worth.
+**Hire for UX before you hire your fifth engineer.** World-class design isn't a luxury. It's the difference between a product people tolerate and one they actually choose. Find designers who've shipped consumer products used by millions. Pay them what they're worth.
 
 **Watch real users struggle with your product.** Not Bitcoin enthusiasts. Not technical early adopters. People who use PayPal and think it works fine. Sit them down, give them a task, and watch where they get confused. Don't explain. Don't help. Just watch. Then fix what breaks.
 
