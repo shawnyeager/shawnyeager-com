@@ -44,7 +44,7 @@ Consumer wallet companies are adopting Spark---which trades Lightning's trustles
 
 ### Social Media
 
-Primal is showing how consumer-grade UX can hide protocol complexity. Clean interface. Fast performance. Features that compete with Twitter. And predictably, they're getting dragged by purists who knock design decisions that favor UX over strict adherence to Nostr protocols. This tension points to the problem. We need products that win on user experience first, with decentralization as the foundation---not decentralization as cover for poor UX.
+Primal is showing how consumer-grade UX can hide protocol complexity. Clean interface. Fast performance. Features that compete with Twitter. And predictably, they get dragged by purists who knock design decisions that favor UX over strict adherence to Nostr protocols. This tension points to the problem. We need products that win on user experience first, with decentralization as the foundation---not decentralization as cover for poor UX.
 
 ### Self-Custody
 
@@ -118,7 +118,7 @@ The window to build viable alternatives is real. It's not closing tomorrow, but 
 
 Sovereignty without sacrifice. That's the goal.
 
-To the Bitcoin startups, Nostr developers, Lightning infrastructure teams, and freedom tech builders working on this right now: you're building the financial, identity, and communication infrastructure that could define the next century. The protocols you've built work. They're secure, they're fast, they're censorship-resistant. That's the hard part done.
+To the Bitcoin startups, Nostr developers, Lightning infrastructure teams, and freedom tech builders working on this right now: you are building the financial, identity, and communication infrastructure that can define the next century. The protocols you've built work. They're secure, they're fast, they're censorship-resistant. That's the hard part done.
 
 Make them accessible. Make them usable. Make them undeniable.
 
