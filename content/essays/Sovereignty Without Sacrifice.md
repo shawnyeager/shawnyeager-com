@@ -84,7 +84,7 @@ The stakes couldn't be higher. Fix the money, fix the world---but only if we act
 
 ## Start Here
 
-So what does this look like in practice?
+What does this look like in practice?
 
 **Hire for UX before you hire your fifth engineer.** World-class design isn't a luxury. It's the difference between a product people tolerate and one they actually choose. Find designers who've shipped consumer products that millions use. Pay them what they're worth.
 
