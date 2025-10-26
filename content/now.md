@@ -19,11 +19,11 @@ Working with several Bitcoin and freedom tech startups on go-to-market strategy 
 
 ## Writing
 
-Publishing one essay per month on Bitcoin go-to-market, partnerships, and revenue leadership. Current topics I'm exploring:
+Publishing one essay per month on Bitcoin go-to-market, partnerships, and revenue leadership. Recent essays cover Bitcoin sales methodology and partnership tactics. Coming topics include:
 
-- Why traditional SaaS playbooks don't work for Bitcoin
 - Building trust in sales when selling "trustless" systems
-- The unique challenges of revenue leadership in Bitcoin
+- Product-market fit challenges in Bitcoin companies
+- Revenue models for Bitcoin infrastructure
 
 ## Learning & thinking about
 
