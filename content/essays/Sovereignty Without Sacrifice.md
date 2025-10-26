@@ -1,5 +1,5 @@
 ---
-title: Sovereignty Without Sacrifice
+title: Sovereignty without sacrifice
 description: "Freedom tech loses when it demands sacrifice. Winning means building products that are better on every dimension—not just principles."
 date: 2025-10-23T11:30:00Z
 topics: [bitcoin, product, go-to-market]
@@ -20,7 +20,7 @@ Meanwhile, centralized platforms get smoother, faster, and more deeply integrate
 
 We're not competing with those systems from a disadvantage. Lightning is faster and cheaper. Nostr can't be censored. Bitcoin can't be debased. The question isn't whether our technology is better. It's whether people can actually use it.
 
-## The Two Traps We Can't Afford
+## The two traps we can't afford
 
 The first trap is complacency. "There's no need to rush. Eventually, people will wake up and demand sovereignty." This assumes that time is on our side. It isn't. Central Bank Digital Currencies are coming. Platform regulation is tightening. Network effects are compounding for incumbent systems. Every day that centralized systems improve their UX while we accept "worse but more sovereign," the gap widens and the switching costs grow.
 
@@ -30,7 +30,7 @@ When the self-sovereign option spooks users while the centralized option feels s
 
 The systems we're competing against keep improving---better UX, deeper integration, more magical experiences. We can't win by waiting for people to care more about sovereignty. We have to build products that are better at solving their actual problems.
 
-## Protocols Built. Products Needed.
+## Protocols built. Products needed.
 
 The Bitcoin network has operated for over fifteen years without meaningful downtime. Lightning Network routes payments in milliseconds with fees measured in satoshis. Nostr demonstrates that censorship-resistant social media can actually work. These are remarkable technical achievements.
 
@@ -42,17 +42,17 @@ Lightning is cheaper than Visa and faster than Venmo. The protocol delivers on i
 
 Consumer wallet companies switching to solutions like Spark proves how badly the market wants Lightning UX solved. That demand is real. We need to meet it without the compromises. Winning means payments that just work, with no mental model of Lightning required.
 
-### Social Media
+### Social media
 
 Primal is showing how consumer-grade UX can hide protocol complexity. Clean interface. Fast performance. Features that compete with Twitter. And predictably, they're getting dragged by purists who knock design decisions that favor UX over strict adherence to Nostr protocols. This tension points to the problem. We need products that win on user experience first, with decentralization as the foundation---not decentralization as cover for poor UX.
 
-### Self-Custody
+### Self-custody
 
 Holding your own Bitcoin should be more secure _and_ easier than trusting a bank. Right now, self-custody terrifies normal people---and rightfully so. One mistake and your money is gone forever. But products like Block's Bitkey show this is solvable. Hardware wallet security with smartphone simplicity. Recovery without seed phrases that most users will inevitably lose or mishandle.
 
 We can clear these hurdles with a commitment to commercial excellence that matches our technical achievements.
 
-## UX as a Competitive Weapon
+## UX as a competitive weapon
 
 Distribution gets people to try your product. UX determines if they stay and tell others.
 
@@ -70,7 +70,7 @@ User experience can't be an afterthought. It must be the primary competitive adv
 
 The best protocol in the world that nobody uses accomplishes nothing. We have to win commercially to win ideologically.
 
-## The Window Is Closing
+## The window is closing
 
 We won't get there overnight. Building products that compete on every dimension while maintaining sovereignty takes years, not months. But we're at an inflection point, and the trends are clear.
 
@@ -82,7 +82,7 @@ Network effects compound. Every day that centralized payment systems, social pla
 
 The stakes couldn't be higher. Fix the money, fix the world---but only if we actually win commercially. Having better technology that nobody uses doesn't fix anything. We need technology that's so plainly superior that adoption becomes inevitable, not ideological.
 
-## Start Here
+## Start here
 
 So what does this look like in practice?
 
@@ -104,7 +104,7 @@ So what does this look like in practice?
 
 Start with one. Build momentum. Keep going.
 
-## How We Win
+## How we win
 
 Bitcoin payments become the default when they're *obviously* better---faster settlement, lower fees, better privacy, no chargebacks, no intermediary risk. People use Nostr when it's the best social platform, not because they're making a political statement. Self-custody wins when the tools are more secure *and* more usable than traditional banking.
 

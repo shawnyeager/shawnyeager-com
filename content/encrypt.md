@@ -1,5 +1,5 @@
 ---
-title: "Encrypt It"
+title: "Encrypt it"
 description: "Public keys and encryption contact information for secure communication with Shawn Yeager."
 date: 2025-10-14
 type: page

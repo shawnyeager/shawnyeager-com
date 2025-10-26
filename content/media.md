@@ -7,13 +7,13 @@ type: page
 
 Bio, photos, and contact information for journalists, conference organizers, and podcast hosts.
 
-## Short Bio (50 words)
+## Short bio (50 words)
 
 {{< card class="bio-text" >}}
 Shawn Yeager has built his career around technology that increases human freedom, generating more than $300M in revenue. Most recently, he led sales and partnerships at Amboss Technologies, NYDIG Payments, and Bottlepay. He helps Bitcoin and freedom tech startups compete commercially against Surveillance Economy platforms. He hosts Trust Revolution podcast.
 {{< /card >}}
 
-## Extended Bio (150 words)
+## Extended bio (150 words)
 
 {{< card class="bio-text" >}}
 Shawn Yeager helps Bitcoin and freedom tech startups compete and win commercially against Surveillance Economy platforms. He's built his career around technology that increases human freedom. Over 30 years, that work has generated more than $300M in revenue.
@@ -25,7 +25,7 @@ Shawn hosts Trust Revolution, a podcast exploring how Bitcoin and decentralized 
 His work is guided by a belief that Surveillance Economy platforms own distribution and user experience—and that freedom tech wins by being undeniably better at both.
 {{< /card >}}
 
-## Professional Photo
+## Professional photo
 
 High-resolution headshot available for download:
 
@@ -39,13 +39,13 @@ High-resolution headshot available for download:
 
 {{< detail-pair label="Signal" url="https://shawnyeager.com/signal" value="shawnyeager.com/signal" >}}
 
-## Current Focus
+## Current focus
 
 - Host of Trust Revolution podcast
 - Go-to-market and revenue advisor for Bitcoin startups
 - Writing about Bitcoin strategy and decentralized trust
 
-## Topics I Speak & Write About
+## Topics I speak & write about
 
 - Bitcoin go-to-market and sales strategy
 - Revenue leadership for Bitcoin startups

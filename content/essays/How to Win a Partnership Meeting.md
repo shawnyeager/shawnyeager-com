@@ -1,5 +1,5 @@
 ---
-title: "How to Win a Partnership Meeting"
+title: "How to win a partnership meeting"
 description: "Getting the meeting isn't the victory. Partnership meetings are won or lost in the preparation, not the presentation."
 date: 2025-10-22T12:19:01-05:00
 slug: how-to-win-a-partnership-meeting
@@ -17,7 +17,7 @@ I've sat through hundreds of partnership pitches---on both sides of the table. T
 Most people walk into partnership meetings with a generic pitch and hope for chemistry. Then they're surprised when nothing happens afterward. The meeting felt good. Everyone was enthusiastic. But the deal stalls.
 
 Partnership meetings are won or lost in the preparation, not the presentation.
-## Research Before Strategy
+## Research before strategy
 
 Before you think about what you'll say, understand who you're talking to. Not just the company—the person.
 
@@ -28,7 +28,7 @@ Look at their social media. What do they share? What do they care about? I once 
 Find their interviews or writing. If they've spoken publicly about strategy or priorities, you have a window into what matters to them. Use it.
 
 You're not being manipulative. You're just not wasting their time. If you understand what they care about, you can have a real conversation instead of pitching into the void.
-## Tailor the Pitch to Their Reality
+## Tailor the pitch to their reality
 
 Generic pitches signal you don't understand their business. And if you don't understand their business, why would they partner with you?
 
@@ -37,7 +37,7 @@ I don't mean changing your opening slide. I mean rethinking your entire framing 
 If they're under pressure to hit Q4 numbers, frame your pitch around revenue impact and speed to market. If they just launched a new product line, show how you extend it. If they're dealing with operational complexity, position yourself as simplification.
 
 Your pitch should sound like it was written for them. Because it was.
-## Know Your Ask
+## Know your ask
 
 Most partnership pitches are vague about what they actually want. "Let's explore working together." "We should find ways to collaborate." This is polite, but it's useless.
 
@@ -46,7 +46,7 @@ Get specific about what you want: distribution through their channel, co-marketi
 You won't get it in the first meeting. But you need to plant it. If you're unclear about what you want, they'll fill the gap with what's easiest for them---which is usually nothing.
 
 State what success looks like. Give them a clear picture of the outcome you're building toward. Then you're asking them to evaluate whether they want the same thing.
-## Probe for Objections Early
+## Probe for objections early
 
 The worst partnerships are the ones that die slowly. Months of back-and-forth before someone finally admits there's a deal-killer they knew about in week one.
 
@@ -55,7 +55,7 @@ Ask hard questions early: "What's your biggest concern about this?" "What would 
 You're looking for honest objections. If they exist, surface them now. If there's no fit, finding out in meeting one is better than finding out after three months of work.
 
 You also build credibility. People who ask hard questions are serious. People who only pitch are selling.
-## Understand Their Decision Process
+## Understand their decision process
 
 Large organizations are complex machines. Your contact might love the idea, but that doesn't mean anything happens.
 
@@ -64,14 +64,14 @@ Ask: "If we decide to move forward, what's the process?" "Who else needs to be i
 Beyond timelines, you're understanding if this is even possible. If they say "lots of stakeholders" and can't name them, or if they've never done something like this before, you're looking at a long, uncertain path.
 
 Better to know that now.
-## Close With What's Next
+## Close with what's next
 
 Don't leave the meeting without clarity on next steps. Not vague follow-up, but specific commitments.
 
 "I'll send you X by Friday." "You'll connect me with Y by end of month." "We'll both review Z and talk again in two weeks."
 
 Get agreement. Get dates. Then do exactly what you said you would, when you said you would.
-## The Day After: Send the Recap
+## The day after: send the recap
 
 Email them the next day. Not a thank-you note. A recap.
 
@@ -80,7 +80,7 @@ Restate the key points: what you discussed, what you agreed to, what the next st
 The recap confirms everyone heard the same thing, establishes you as someone who follows through, and creates accountability for both sides.
 
 Most people skip this step. It's a mistake. The recap is where alignment either solidifies or breaks apart. If your summary doesn't match theirs, you'll find out immediately instead of three weeks later.
-## Why This Matters
+## Why this matters
 
 Partnerships fail because people treat them casually. They get the meeting, show up with a generic pitch, leave with vague enthusiasm, and wonder why nothing happens.
 

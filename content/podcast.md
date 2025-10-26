@@ -11,7 +11,7 @@ layout: podcast
 
 Unfiltered conversations with builders, thinkers, and operators in Bitcoin and beyond. Exploring the systems we trust, why they work (or don't), and what comes next.
 
-### Listen & Subscribe
+### Listen & subscribe
 
 {{< link-grid >}}
 [Fountain](https://fountain.fm/show/Mk0fJte5vrfiDQ5RyCZd)
@@ -22,7 +22,7 @@ Unfiltered conversations with builders, thinkers, and operators in Bitcoin and b
 [Pocket Casts](https://pocketcasts.com/podcast/trust-revolution/b34ae280-e76a-013d-1b17-0acc26574db2)
 {{< /link-grid >}}
 
-### RSS Feed
+### RSS feed
 
 Copy this URL to subscribe in any podcast app:
 
