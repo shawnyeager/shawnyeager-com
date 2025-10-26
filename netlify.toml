@@ -15,3 +15,8 @@
 
 [context.branch-deploy]
   command = 'git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/" && hugo mod clean && hugo --gc --minify -b $DEPLOY_PRIME_URL'
+
+[[headers]]
+for = "/.well-known/*"
+[headers.values]
+Access-Control-Allow-Origin = "*"

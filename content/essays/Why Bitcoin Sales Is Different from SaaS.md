@@ -6,7 +6,7 @@ slug: why-bitcoin-sales-is-different-from-saas
 topics: [bitcoin, sales]
 tags: []
 cta: true
-featured: true
+featured: false
 draft: false
 ---
 
