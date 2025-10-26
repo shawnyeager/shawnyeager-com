@@ -118,7 +118,7 @@ The window to build viable alternatives is real. It's not closing tomorrow, but 
 
 Sovereignty without sacrifice. That's the goal.
 
-To the Bitcoin startups, Nostr developers, Lightning infrastructure teams, and freedom tech builders working on this right now: you are building the financial, identity, and communication infrastructure that can define the next century. The protocols you've built work. They're secure, they're fast, they're censorship-resistant. That's the hard part done.
+To the Bitcoin startups, Nostr developers, Lightning infrastructure teams, and freedom tech builders working on this right now: you are building the financial, identity, and communication infrastructure that could define the next century. The protocols you've built work. They're secure, they're fast, they're censorship-resistant. That's the hard part done.
 
 Make them accessible. Make them usable. Make them undeniable.
 
