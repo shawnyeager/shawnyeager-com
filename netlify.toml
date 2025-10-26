@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = 'git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/" && hugo mod clean && hugo --minify'
+  command = 'git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/" && hugo mod clean && hugo --gc --minify'
 
 [build.environment]
   HUGO_VERSION = "0.152.0"
@@ -11,7 +11,7 @@
   HUGO_ENV = "production"
 
 [context.deploy-preview]
-  command = 'git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/" && hugo mod clean && hugo --minify --buildFuture -b $DEPLOY_PRIME_URL'
+  command = 'git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/" && hugo mod clean && hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL'
 
 [context.branch-deploy]
-  command = 'git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/" && hugo mod clean && hugo --minify -b $DEPLOY_PRIME_URL'
+  command = 'git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/" && hugo mod clean && hugo --gc --minify -b $DEPLOY_PRIME_URL'
