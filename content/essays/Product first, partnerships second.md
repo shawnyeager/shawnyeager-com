@@ -22,7 +22,7 @@ It rarely works. Not because partnerships are wrong. Because the timing is wrong
 
 Bitcoin startups face intense pressure to show traction. Investors want growth. The team wants validation. The market window feels urgent.
 
-But building products that can compete takes time. The companies I've seen skip that work and jump straight to partnerships—trying to use partnerships to compensate for product immaturity rather than amplify product strength.
+But building products that can compete takes time. Instead of building products that compete, they chase partnerships. They're trying to use distribution to compensate for product gaps.
 
 The logic goes: "If we can just get distribution through a big partner, we'll prove the model works. Then we'll fix the product."
 
@@ -30,7 +30,7 @@ Potential partners see through this immediately.
 
 ## Partners evaluate by traditional standards
 
-Traditional companies evaluate partnership opportunities using traditional standards: Does the product work reliably? Is it competitive? Will our customers actually use this? Will support be manageable?
+Traditional companies evaluate partnership opportunities using standard criteria: Does the product work reliably? Is it competitive? Will our customers actually use this? Will support be manageable?
 
 Bitcoin's advantages—sovereignty, censorship resistance, no intermediaries—don't answer these questions. A partner doesn't care that your payment solution is trustless if it's slower, more confusing, and less reliable than what they already offer.
 
@@ -82,7 +82,7 @@ The difference wasn't pitch quality or relationship strength. It was product rea
 
 ## Smart partners won't compromise
 
-What works for products in Bitcoin works for partnerships: win on traditional metrics first. Make Bitcoin's advantages the bonus, not the trade-off.
+What works for products in Bitcoin works for partnerships: win on the basics first. Make Bitcoin's advantages the bonus, not the trade-off.
 
 Partners won't sacrifice reliability, product design, or economics for sovereignty. They'll choose sovereignty when it comes with better products, not instead of better products.
 
