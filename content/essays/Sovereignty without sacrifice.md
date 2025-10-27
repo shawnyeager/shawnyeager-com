@@ -23,7 +23,7 @@ We're not competing with those systems from a disadvantage. Lightning is faster 
 
 ## The two traps we can't afford
 
-The first trap is complacency. "There's no need to rush. Eventually, people will wake up and demand sovereignty." This assumes that time is on our side. It isn't. Central Bank Digital Currencies are coming. Platform regulation is tightening. Network effects are compounding for incumbent systems. Every day centralized platforms improve their UX while we accept 'worse but more sovereign'. The gap widens and the switching costs grow.
+The first trap is complacency. "There's no need to rush. Eventually, people will wake up and demand sovereignty." This assumes that time is on our side. It isn't. Central Bank Digital Currencies are coming. Platform regulation is tightening. Network effects are compounding for incumbent systems. Every day centralized platforms improve their UX while we accept 'worse but more sovereign.' The gap widens, and the switching costs grow.
 
 The second trap is elitism. "If they don't get it, they don't deserve it. We're building for people who understand what matters." I've seen this attitude kill adoption. Customers explicitly choose custodial solutions over self-custody because non-custodial options feel too risky, even dangerous---one wrong move and their money disappears. The custodial option simply worked, despite the trade-offs.
 
