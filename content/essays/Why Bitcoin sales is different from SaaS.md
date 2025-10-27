@@ -1,6 +1,6 @@
 ---
 title: "Why Bitcoin sales is different from SaaS"
-description: "Most Bitcoin companies try to apply traditional SaaS playbooks. This rarely works. Bitcoin sales requires a fundamentally different approach because you're selling a paradigm shift."
+description: "Most Bitcoin companies try to apply traditional SaaS playbooks. This rarely works. Bitcoin sales requires a fundamentally different approach because you're asking buyers to rethink how money works."
 date: 2025-10-15T10:00:00-05:00
 slug: why-bitcoin-sales-is-different-from-saas
 topics: [bitcoin, sales]
@@ -10,7 +10,7 @@ featured: false
 draft: false
 ---
 
-Most Bitcoin companies try to apply traditional SaaS playbooks to selling Bitcoin infrastructure. This rarely works. Bitcoin sales requires a fundamentally different approach because you're selling a paradigm shift in how money and trust work, not just software.
+Most Bitcoin companies try to apply traditional SaaS playbooks to selling Bitcoin infrastructure. This rarely works. Bitcoin sales requires a fundamentally different approach because you're asking buyers to rethink how money and trust work, not just evaluate software.
 
 <!--more-->
 
@@ -22,13 +22,13 @@ In traditional SaaS, prospects understand the problem you're solving. They're co
 
 In Bitcoin sales, you're often starting further back. Prospects don't just need to understand your product---they need to understand Bitcoin itself. Why self-custody matters. Why the Lightning Network changes payment economics. Why immutability is a feature, not a bug.
 
-You get a fundamentally different sales motion. You're educating buying committees—sometimes entire departments—while working through sales cycles. Your sales team needs to be part educator, part consultant, part technologist.
+This creates a fundamentally different sales motion. You're educating buying committees—sometimes entire departments—while working through sales cycles. Your sales team needs to be part educator, part consultant, part technologist.
 
 ## The trust paradox
 
 Bitcoin is designed to minimize trust. That's the whole point---trustless by design, permissionless by default. But selling Bitcoin solutions requires building enormous amounts of trust.
 
-You're asking companies to reconsider their entire monetary infrastructure. To custody assets in ways that feel uncomfortable. To adopt technology that their compliance team is nervous about. To work with startups instead of established vendors.
+You're asking companies to reconsider their entire monetary infrastructure. Custody assets differently. Adopt technology compliance teams fear. Trust startups over established vendors.
 
 Bitcoin sales cycles are longer, more complex, and more relationship-dependent than typical SaaS. You can't growth-hack your way through this. You need expertise. Patience. Credibility.
 
@@ -41,31 +41,22 @@ Enterprise Bitcoin adoption faces unique obstacles that don't exist in tradition
 - **Risk aversion** -- CFOs are compensated for stability, not innovation
 - **Education gaps** -- Decision-makers often don't understand the technology deeply enough to evaluate solutions
 
-So your sales process needs to involve more stakeholders, longer education cycles, and more hand-holding than typical enterprise software deals.
+Your sales process needs to involve more stakeholders, longer education cycles, and more hand-holding than typical enterprise software deals.
 
-## What actually works
+The companies making progress aren't doing anything revolutionary. They're applying what works in complex enterprise sales to Bitcoin's unique challenges.
 
-Bitcoin sales present a dual challenge: enterprise adoption of emerging technology and reconceptualizing what money is. The approach:
+I led payments sales for a company selling Bitcoin custody and payments infrastructure to financial services institutions. The team knew from the start we needed to lead with education. The founders understood the customer segment well enough to know nobody was ready to buy immediately. Even with that approach, it still took longer than expected.
 
-**1. Lead with education, not product.**
-Create content that helps prospects understand Bitcoin before they need your solution. Blog posts, workshops, office hours. Build trust by being helpful, not just selling.
+The education wasn't generic Bitcoin content. It was enablement materials designed specifically for internal selling. We built playbooks that helped prospects make the case to their executives. Solution blueprints they could present to boards. Artifacts that answered the questions compliance and legal would ask before anyone asked them.
 
-**2. Sell outcomes, not features.**
-Don't pitch "Lightning Network infrastructure." Pitch "instant settlement with 90% lower fees." Instead of "self-custody," sell "complete control over your treasury with zero counterparty risk."
+Our buyers weren't just evaluating whether Bitcoin worked. They were evaluating whether they could convince ten other stakeholders to say yes. If they had to build those cases themselves, deals moved at a snail's pace. Constant hurry-up-and-wait while they tried to create their own internal materials.
 
-**3. Build internal champions.**
-You need someone inside the organization who believes in Bitcoin and will advocate internally. They'll do the education work you can't. Find them early, support them well.
+When we gave them the artifacts to enable that internal work, sales cycles compressed to 6 to 9 months. Longer than anyone wanted, but faster than you'd expect given the complexity. And we could handle more pipeline because the approach wasn't bespoke every time. We won POCs. Deals advanced. We closed deals.
 
-**4. Expect longer cycles.**
-Bitcoin deals take 12-18 months, not 3-6. Budget accordingly. Structure your team for longer sales cycles. Don't optimize for velocity—optimize for conversion.
-
-**5. Partner strategically.**
-Bitcoin adoption often requires multiple vendors---custody, infrastructure, compliance, analytics. Build relationships with complementary providers. Make it easy for prospects to see the full stack.
+The company that helps prospects navigate internal politics and stakeholder complexity wins the deal. The one that just explains why Bitcoin is technically superior doesn't.
 
 ## The opportunity
 
-Bitcoin sales is harder than SaaS. It's slower, more complex, and requires deeper expertise. That's also the opportunity.
+Bitcoin sales is harder than SaaS. It's slower, more complex, and requires deeper expertise. Figuring out how to do it well creates lasting advantage.
 
 The companies that figure out how to sell Bitcoin effectively will build businesses that last. High barriers to entry mean substantial rewards for getting it right.
-
-We're still early. If you're building a Bitcoin company, don't just copy SaaS frameworks. Build something better.

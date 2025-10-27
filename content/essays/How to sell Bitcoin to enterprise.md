@@ -10,6 +10,19 @@ featured: false
 draft: true
 ---
 
+<!--
+EDITING NOTE: Convert from guide to essay format
+- Pivot to CAREER RISK LENS as organizing principle (not comprehensive coverage)
+- Everything supports that central insight: buyers evaluate career risk, not just technical merit
+- Make it observational/narrative, not prescriptive
+- Why education matters? De-risks the decision
+- Why artifacts/playbooks work? Give buyers ammunition to defend internally
+- Why cycles are long? Career risk takes time to mitigate
+- Why champions matter? Someone has to stake political capital
+- Companion to SaaS essay (don't re-explain why Bitcoin is different)
+- Focus on what you learned executing enterprise deals
+-->
+
 # How to sell Bitcoin to enterprise
 
 Enterprise Bitcoin sales is different. You're asking buyers to bet their careers on rethinking money and how to move it.
