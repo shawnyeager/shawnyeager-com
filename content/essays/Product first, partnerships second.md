@@ -84,9 +84,9 @@ The difference wasn't pitch quality or relationship strength. It was product rea
 
 What works for products in Bitcoin works for partnerships: win on the basics first. Make Bitcoin's advantages the bonus, not the trade-off.
 
-Partners won't sacrifice reliability, product design, or economics for sovereignty. They'll choose sovereignty when it comes with better products, not instead of better products.
+Partners won't sacrifice reliability, product design, or economics for Bitcoin's native properties. They'll choose Bitcoin when it comes with better products, not instead of better products.
 
-This is the same challenge consumer Bitcoin products face. Make Bitcoin obviously better on every dimension that matters to the user. Then sovereignty isn't a trade-off—it's a bonus.
+This is the same challenge consumer Bitcoin products face. Make Bitcoin obviously better on every dimension that matters to the user. Then better money isn't a trade-off—it's a bonus.
 
 Partnerships work the same way: build the product first, prove it works with real customers, get the metrics that demonstrate reliability and viability, then pursue partnerships to amplify what's already working.
 
