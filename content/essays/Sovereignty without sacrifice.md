@@ -15,7 +15,7 @@ But it’s a false choice. The protocols are built. Bitcoin works. Lightning wor
 
 <!--more-->
 
-I've spent several years leading sales and go-to-market at Bitcoin infrastructure companies, and I've watched this pattern repeat. Normal business customers can't see the value through a thicket of technical obfuscation. The concepts, terminology, and complexity baffle them. They want better payments. Instead, we give them liquidity management, routing, and channel rebalancing. Industry players continue to struggle with closing this gap.
+I've spent several years leading sales and go-to-market at Bitcoin infrastructure companies, and I've seen this repeatedly. Normal business customers can't see the value through a thicket of technical obfuscation. The concepts, terminology, and complexity baffle them. They want better payments. Instead, we give them liquidity management, routing, and channel rebalancing. Industry players continue to struggle with closing this gap.
 
 Meanwhile, centralized platforms get smoother, faster, and more deeply integrated into daily life. Apple Pay works everywhere. Instagram launches new features weekly. Neobanks make sending money trivially easy. 
 
@@ -97,7 +97,7 @@ Distribution begins with a beachhead. One community where the product solves a r
 
 Viral loops matter more than viral moments. One-time publicity spikes don't build sustainable businesses. The products that spread are designed so that using them naturally exposes others to them. Payment requests that show what wallet you're using. Social posts that demonstrate features in action. Every satisfied user becomes a distribution channel.
 
-The pattern is consistent: start narrow, prove value, compound growth. None of this is novel—it hasn't been systematically applied to freedom tech yet.
+Start narrow, prove value, compound growth. This approach works. None of this is novel—it hasn't been systematically applied to freedom tech yet.
 
 ## Sovereignty without sacrifice
 
