@@ -101,7 +101,11 @@ The pattern is consistent: start narrow, prove value, compound growth. None of t
 
 ## Sovereignty without sacrifice
 
-Bitcoin payments become the default when they're *obviously* better---faster settlement, lower fees, better privacy, no chargebacks, no intermediary risk. People use Nostr when it's the best social platform, not because they're making a political statement. Self-custody wins when the tools are more secure *and* more usable than traditional banking.
+Bitcoin payments become the default when they're *obviously* better---faster settlement, lower fees, better privacy, no chargebacks, no intermediary risk.
+
+People use Nostr when it's the best social platform, not because they're making a political statement.
+
+Self-custody wins when the tools are more secure *and* more usable than traditional banking.
 
 The technology exists. The talent exists. We need the collective commitment to building freedom tech that wins on merit, not martyrdom. Products that solve customer problems first, with sovereignty as the inevitable result.
 
@@ -116,6 +120,7 @@ To the Bitcoin startups, Nostr developers, Lightning infrastructure teams, and f
 Make them accessible. Make them usable. Make them undeniable.
 
 Then we win.
+
 {{< acknowledgement >}}
 Thanks to Steven DeLorme, Fran, Marks, Steve Myers, Matt O'Dell, Matthew Ramsden, and Derek Ross for feedback on drafts of this essay.
 {{< /acknowledgement >}}
