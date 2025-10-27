@@ -41,7 +41,9 @@ Lightning is cheaper than Visa and faster than Venmo. The protocol delivers on i
 
 Consumer wallet companies are adopting Spark---which trades Lightning's trustlessness for simpler UX---proving how badly the market wants Lightning UX solved. That demand is real. We need to meet it without fundamental compromises.
 
-Nostr's identity and communication infrastructure enables everything from social feeds to messaging to publishing. Primal demonstrates how consumer-grade UX can hide this protocol complexity for social media. It offers a clean interface, fast performance, and features that compete with Twitter. Predictably, they get criticized by purists who oppose design decisions that favor UX over strict adherence to Nostr protocols. This tension illustrates the broader problem. We need products that win on user experience first, with decentralization as the foundation rather than as cover for poor UX.
+Nostr's identity and communication infrastructure enables everything from social feeds to messaging to publishing. Primal demonstrates how consumer-grade UX can hide this protocol complexity for social media. It offers a clean interface, fast performance, and features that compete with Twitter. Predictably, they get criticized by purists who oppose design decisions that favor UX over strict adherence to Nostr protocols.
+
+This tension illustrates the broader problem. We need products that win on user experience first, with decentralization as the foundation rather than as cover for poor UX.
 
 Holding your own Bitcoin should be more secure _and_ easier than trusting a bank. Currently, self-custody terrifies normal people, and rightfully so. One mistake and your money is gone forever. But products like Block's Bitkey show this is solvable. They combine hardware wallet security with smartphone simplicity. They enable recovery without seed phrases, which most users will inevitably lose or mishandle.
 
