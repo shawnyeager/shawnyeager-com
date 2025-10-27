@@ -65,7 +65,7 @@ What I've learned from decades in sales: customers don't care about a paradigm s
 
 We can't win by being better at one thing (sovereignty) while being worse at everything else (speed, cost, UX, features). We have to be better at everything—or at minimum, comparable on the basics while being superior on sovereignty.
 
-The best protocol in the world accomplishes nothing if nobody uses it. We have to win commercially to win ideologically—and the window to do that is closing.
+The best protocol in the world accomplishes nothing if nobody uses it. We have to win commercially to win ideologically.
 
 ## The window is closing
 
@@ -77,7 +77,7 @@ Platform regulation is tightening. As governments gain more control over central
 
 Network effects compound. Every day that centralized payment systems, social platforms, and financial infrastructure deepen their integration and improve their experience, the switching costs for users increase. The window for credible alternatives gets smaller.
 
-The stakes couldn't be higher. Fix the money, fix the world---but only if we actually win in the marketplace. Having better technology that nobody uses doesn't fix anything. We need technology that's so plainly superior that adoption becomes inevitable, not ideological. Some companies are already figuring this out.
+The stakes couldn't be higher. Fix the money, fix the world---but only if we actually win in the marketplace. Having better technology that nobody uses doesn't fix anything. We need technology that's so plainly superior that adoption becomes inevitable. Some companies are already figuring this out.
 
 ## What I've seen work
 
@@ -85,21 +85,21 @@ The companies making progress on this aren't doing anything revolutionary. They'
 
 They hire for UX before their fifth engineer. World-class design isn't a luxury when competing against PayPal and Cash App. It's the difference between a product people tolerate and one they choose. The designers who get this right have shipped consumer products to millions of users. They know what "obviously better" looks like.
 
-They watch real users struggle with their product. Not Bitcoin enthusiasts who'll tolerate rough edges. People who use PayPal and think it works fine. The winning companies sit these users down, give them a task, watch where they get confused. They don't explain, don't help, just watch. Then they build for how users actually work.
+Winning companies watch real users struggle with their product. Not Bitcoin enthusiasts who'll tolerate rough edges, but people who use PayPal and think it works fine. They sit users down, give them a task, watch where they get confused. They don't explain, don't help, just watch. Then they build for how users actually work.
 
-Activation matters more than signups. How many people who install a wallet actually fund it and make a payment? How many who create a Nostr key pair actually post something? The gap between signup and real usage is where most adoption dies. The companies that survive identify those specific breaking points and fix them.
+Activation matters more than signups. How many people who install a wallet actually fund it and make a payment? How many who create a Nostr key pair actually post something? The gap between signup and real usage is where most adoption dies. The startups that thrive identify those specific breaking points and fix them.
 
-The ones that scale track what actually drives adoption. Which acquisition channels bring users who activate? Which communities send people who stick around? Most freedom tech companies spread effort across too many channels without knowing which ones work. Double down on what drives real usage and cut the rest.
+The companies that scale track what actually drives adoption. Which acquisition channels bring users who activate? Which communities send people who stick around? Most freedom tech startups spread effort across too many channels without knowing which ones work. Double down on what drives real usage and cut the rest.
 
 The best companies steal shamelessly from products that work. Stripe's onboarding. Cash App's simplicity. Notion's interface design. They study what makes consumer products feel effortless, then apply those patterns to freedom tech. The wheel doesn't need reinventing.
 
 Winning starts with one undeniable advantage. Not better for people who care about sovereignty. Better for everyone. Faster, cheaper, simpler, more reliable. The companies that gain traction build everything else around that single thing their product does obviously better than centralized alternatives.
 
-Distribution begins with a beachhead. One community where the product solves a real problem today—a subreddit, a Telegram group, a local Bitcoin meetup. Start narrow. Let organic word-of-mouth compound from there.
+Distribution begins with a beachhead. One community where the product solves a real problem today---a subreddit, a Telegram group, a local Bitcoin meetup. Start narrow. Let organic word-of-mouth compound from there.
 
 Viral loops matter more than viral moments. One-time publicity spikes don't build sustainable businesses. The products that spread are designed so that using them naturally exposes others to them. Payment requests that show what wallet you're using. Social posts that demonstrate features in action. Every satisfied user becomes a distribution channel.
 
-Start narrow, prove value, compound growth. This approach works. None of this is novel—it hasn't been systematically applied to freedom tech yet.
+Start narrow, prove value, compound growth. This approach works. None of this is novel---it hasn't been systematically applied to freedom tech yet.
 
 ## Sovereignty without sacrifice
 
