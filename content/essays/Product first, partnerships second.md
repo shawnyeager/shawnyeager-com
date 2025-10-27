@@ -10,7 +10,7 @@ featured: false
 draft: false
 ---
 
-Most Bitcoin startups chase partnerships too early. I've seen this across the companies I've worked with and advised. The outcomes are often the same. The product has gaps---UX is rough, reliability issues persist, features are missing. But the company needs distribution, needs validation, needs someone else's reach.
+Most Bitcoin startups chase partnerships too early. The outcomes are often the same. The product has gaps---UX is rough, reliability issues persist, features are missing. But the company needs distribution, needs validation, needs someone else's reach.
 
 So they chase partnerships. Big partners. Traditional companies with established customer bases. The pitch is always some version of: "Partner with us to bring Bitcoin to your customers."
 
@@ -40,11 +40,11 @@ The companies that succeeded in these meetings came with products that were obvi
 
 ## The open protocol problem
 
-Bitcoin partnerships face a structural challenge that traditional software partnerships don't: you're building on an open, permissionless protocol.
+Bitcoin partnerships face a structural challenge that traditional software partnerships don't: Bitcoin startups build on an open, permissionless protocol.
 
 In traditional software, you can offer exclusive partnerships. "Partner with us, and we'll give you exclusive access to our platform in your vertical." That creates real value for the partner. They're getting something their competitors can't get.
 
-In Bitcoin, anyone can build on the same rails. You can't offer true exclusivity. A partner knows that even if they integrate your Lightning infrastructure today, ten competitors could launch similar products tomorrow using the same underlying protocol.
+In Bitcoin, anyone can build on the same rails. True exclusivity isn't possible. A partner knows that even if they integrate your Lightning infrastructure today, ten competitors could launch similar products tomorrow using the same underlying protocol.
 
 This isn't a problem if your product is meaningfully better. Partners will choose you because you execute better, have better talent, provide better support. But if your main pitch is "be first to Bitcoin," and your product isn't superior on traditional dimensions, why would they take the risk?
 
@@ -96,7 +96,7 @@ Partnerships don't fix weak products. They expose them.
 
 Bitcoin companies face real pressure. The technology is ready. The market window is open. Competitors are moving. Waiting feels dangerous.
 
-But chasing partnerships with immature products is more dangerous. Failed partnership discussions damage credibility. Partners remember products that wasted their time. When you come back later with a better product, they're skeptical.
+But chasing partnerships with immature products is more dangerous. Failed partnership discussions damage credibility. Partners remember products that wasted their time. When that company comes back later with a better product, they're skeptical.
 
 The companies that win take the time to get the product right first. They resist the pressure to chase validation through partnerships before they're ready. They build products that win on merit, then use partnerships to scale.
 

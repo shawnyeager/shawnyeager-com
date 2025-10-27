@@ -15,7 +15,7 @@ But it’s a false choice. The protocols are built. Bitcoin works. Lightning wor
 
 <!--more-->
 
-I've spent several years leading sales and go-to-market at Bitcoin infrastructure companies, and I've seen this repeatedly. Normal business customers can't see the value through a thicket of technical obfuscation. The concepts, terminology, and complexity baffle them. They want better payments. Instead, we give them liquidity management, routing, and channel rebalancing. Industry players continue to struggle with closing this gap.
+Leading sales at Bitcoin infrastructure companies taught me this: Normal business customers can't see the value through a thicket of technical obfuscation. The concepts, terminology, and complexity baffle them. They want better payments. Instead, we give them liquidity management, routing, and channel rebalancing. Industry players continue to struggle with closing this gap.
 
 Meanwhile, centralized platforms get smoother, faster, and more deeply integrated into daily life. Apple Pay works everywhere. Instagram launches new features weekly. Neobanks make sending money trivially easy. 
 
@@ -49,7 +49,7 @@ We can clear these hurdles with a commitment to commercial excellence that match
 
 ## UX as a competitive weapon
 
-Distribution gets people to try your product. UX determines if they stay and tell others.
+Distribution gets people to try a product. UX determines if they stay and tell others.
 
 Building sovereignty without sacrifice means treating UX as the primary competitive advantage, not an afterthought. While great progress has been made at the protocol layer, the frontier has moved. Now it's time to focus on UX and distribution.
 
@@ -81,11 +81,11 @@ The stakes couldn't be higher. Fix the money, fix the world---but only if we act
 
 The companies making progress on this aren't doing anything revolutionary. They're doing the obvious things consumer product companies learned years ago—just applying them to freedom tech.
 
-They hire for UX before their fifth engineer. World-class design isn't a luxury when you're competing against PayPal and Cash App. It's the difference between a product people tolerate and one they choose. The designers who get this right have shipped consumer products to millions of users. They know what "obviously better" looks like.
+They hire for UX before their fifth engineer. World-class design isn't a luxury when competing against PayPal and Cash App. It's the difference between a product people tolerate and one they choose. The designers who get this right have shipped consumer products to millions of users. They know what "obviously better" looks like.
 
 They watch real users struggle with their product. Not Bitcoin enthusiasts who'll tolerate rough edges. People who use PayPal and think it works fine. The winning companies sit these users down, give them a task, watch where they get confused. They don't explain, don't help, just watch. Then they build for how users actually work.
 
-Activation matters more than signups. How many people who install your wallet actually fund it and make a payment? How many who create a Nostr key pair actually post something? The gap between signup and real usage is where most adoption dies. The companies that survive identify those specific breaking points and fix them.
+Activation matters more than signups. How many people who install a wallet actually fund it and make a payment? How many who create a Nostr key pair actually post something? The gap between signup and real usage is where most adoption dies. The companies that survive identify those specific breaking points and fix them.
 
 The ones that scale track what actually drives adoption. Which acquisition channels bring users who activate? Which communities send people who stick around? Most freedom tech companies spread effort across too many channels without knowing which ones work. Double down on what drives real usage and cut the rest.
 
