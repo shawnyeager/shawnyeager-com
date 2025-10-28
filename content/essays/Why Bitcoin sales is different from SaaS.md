@@ -1,6 +1,6 @@
 ---
 title: "Why Bitcoin sales is different from SaaS"
-description: "Most Bitcoin companies try to apply traditional SaaS playbooks. This rarely works. Bitcoin sales requires a different approach because you're asking buyers to rethink how money works."
+description: "Bitcoin sales differs from SaaS because you're asking buyers to rethink money itself, not just evaluate software."
 date: 2025-10-15T10:00:00-05:00
 slug: why-bitcoin-sales-is-different-from-saas
 topics: [bitcoin, sales]
