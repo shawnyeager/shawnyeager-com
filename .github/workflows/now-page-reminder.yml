@@ -1,0 +1,63 @@
+name: Now Page Reminder
+
+on:
+  # Run weekly on Mondays at 9 AM CDT (2 PM UTC)
+  schedule:
+    - cron: '0 14 * * 1'
+
+  # Allow manual triggering
+  workflow_dispatch:
+
+jobs:
+  check-now-page:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Need full history to check last commit date
+
+      - name: Check now page freshness
+        id: check
+        run: |
+          # Get the last commit date for content/now.md
+          LAST_UPDATE=$(git log -1 --format=%ct content/now.md)
+          CURRENT_TIME=$(date +%s)
+          DAYS_OLD=$(( ($CURRENT_TIME - $LAST_UPDATE) / 86400 ))
+
+          echo "days_old=$DAYS_OLD" >> $GITHUB_OUTPUT
+          echo "Now page is $DAYS_OLD days old"
+
+          if [ $DAYS_OLD -gt 30 ]; then
+            echo "stale=true" >> $GITHUB_OUTPUT
+            echo "⚠️ Now page is stale (>30 days)"
+          else
+            echo "stale=false" >> $GITHUB_OUTPUT
+            echo "✓ Now page is fresh"
+          fi
+
+      - name: Create reminder issue
+        if: steps.check.outputs.stale == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const daysOld = '${{ steps.check.outputs.days_old }}';
+
+            // Check if reminder issue already exists
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'now-page'
+            });
+
+            if (issues.data.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: 'Time to update the /now page',
+                body: `The \`/now\` page hasn't been updated in ${daysOld} days.\n\nPer the site convention, it should be updated monthly.\n\nEdit: \`content/now.md\``,
+                labels: ['maintenance', 'now-page']
+              });
+            }

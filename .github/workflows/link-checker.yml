@@ -1,0 +1,45 @@
+name: Link Checker
+
+on:
+  # Run on PRs to catch broken links before merge
+  pull_request:
+    paths:
+      - 'content/**/*.md'
+
+  # Run weekly on Mondays to catch link rot
+  schedule:
+    - cron: '0 9 * * 1'
+
+  # Allow manual triggering
+  workflow_dispatch:
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check links in markdown files
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # Check all markdown files in content directory
+          args: --verbose --no-progress 'content/**/*.md'
+          # Fail on broken links
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'Broken links detected',
+              body: 'The link checker found broken links. Check the [workflow run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details.',
+              labels: ['maintenance', 'links']
+            })

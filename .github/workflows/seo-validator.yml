@@ -1,0 +1,40 @@
+name: SEO Validator
+
+on:
+  # Run on PRs to catch missing SEO fields before merge
+  pull_request:
+    paths:
+      - 'content/essays/**/*.md'
+
+  # Run on push to master to validate all essays
+  push:
+    branches:
+      - master
+    paths:
+      - 'content/essays/**/*.md'
+
+  # Allow manual triggering
+  workflow_dispatch:
+
+jobs:
+  validate-seo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run SEO validator
+        run: .github/scripts/validate-seo.sh
+
+      - name: Comment on PR with results
+        if: failure() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '❌ SEO validation failed. Please check the [workflow run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details.\n\nCommon issues:\n- Missing `description` field (required for social sharing)\n- Missing `title` or `date`\n- Description too short (<50 chars) or too long (>160 chars)'
+            })
