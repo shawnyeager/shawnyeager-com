@@ -22,7 +22,7 @@ Shawn specializes in revenue operations, strategic partnerships, and enterprise 
 
 Shawn hosts Trust Revolution, a podcast exploring how Bitcoin and decentralized technologies are reshaping trust, sovereignty, and freedom. His writing on Bitcoin strategy, go-to-market, and building for the long term appears at shawnyeager.com.
 
-His work is guided by a belief that Surveillance Economy platforms own distribution and user experience—and that freedom tech wins by being undeniably better at both.
+His work is guided by a belief that Surveillance Economy platforms own distribution and user experience---and that freedom tech wins by being undeniably better at both.
 {{< /card >}}
 
 ## Professional photo

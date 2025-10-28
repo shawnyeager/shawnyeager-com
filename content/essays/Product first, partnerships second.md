@@ -30,7 +30,7 @@ Potential partners see through this immediately.
 
 Traditional companies evaluate partnership opportunities using standard criteria: Does the product work reliably? Is it competitive? Will our customers actually use this? Will support be manageable?
 
-Bitcoin's advantages---sovereignty, censorship resistance, no intermediaries—don't answer these questions. A partner doesn't care that the payment solution is trustless if it's slower, more confusing, and less reliable than what they already offer.
+Bitcoin's advantages---sovereignty, censorship resistance, no intermediaries---don't answer these questions. A partner doesn't care that the payment solution is trustless if it's slower, more confusing, and less reliable than what they already offer.
 
 I've sat in meetings where Bitcoin startups pitched "revolutionary technology" while the partner's team tested the product and found basic functionality broken. The pitch focused on Bitcoin's principles. The partner's questions focused on whether the thing actually worked.
 
@@ -48,11 +48,11 @@ This isn't a problem if the product is meaningfully better. Partners will choose
 
 ## Product readiness comes first
 
-The partnerships that work happen when the product is ready. Not perfect—ready. Companies that close partnerships have certain things in place first. Companies that fail don't.
+The partnerships that work happen when the product is ready. Not perfect---ready. Companies that close partnerships have certain things in place first. Companies that fail don't.
 
 Partnerships close when reliability is proven. Companies come to discussions with uptime metrics, transaction success rates, and support response times from real customers. The ones that fail promise reliability without proof.
 
-I've watched partners reject products with superior technology because the UX couldn't compete. Bitcoin's complexity has to be invisible. When customers see faster payments and lower fees---and happen to be using Bitcoin under the hood—that works. When partners have to ask their customers to sacrifice experience for principles, that fails.
+I've watched partners reject products with superior technology because the UX couldn't compete. Bitcoin's complexity has to be invisible. When customers see faster payments and lower fees---and happen to be using Bitcoin under the hood---that works. When partners have to ask their customers to sacrifice experience for principles, that fails.
 
 The economics have to work. Revenue share that makes sense. Implementation costs that are reasonable. A real business model, not just an experiment. Companies that pitch vision without viable economics don't close deals.
 

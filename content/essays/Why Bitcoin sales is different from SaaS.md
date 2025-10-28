@@ -22,7 +22,7 @@ In traditional SaaS, prospects understand the problem you're solving. They're co
 
 In Bitcoin sales, you're often starting further back. Prospects don't just need to understand your product---they need to understand Bitcoin itself. Why self-custody matters. Why the Lightning Network changes payment economics. Why immutability is a feature, not a bug.
 
-This changes the sales motion entirely. You're educating buying committees—sometimes entire departments—while working through sales cycles. Your sales team needs to be part educator, part consultant, part technologist.
+This changes the sales motion entirely. You're educating buying committees---sometimes entire departments---while working through sales cycles. Your sales team needs to be part educator, part consultant, part technologist.
 
 ## The trust paradox
 
@@ -59,4 +59,4 @@ The company that helps prospects navigate internal politics and stakeholder comp
 
 Those wins accumulate into expertise. They reveal which objections actually matter and which are smoke screens. They expose what moves deals forward versus what sounds good in theory. Frameworks for navigating regulatory uncertainty emerge from real experience, not theory. That knowledge becomes playbooks. Sales motions. Institutional muscle memory that new competitors can't replicate by hiring someone who worked at a SaaS company.
 
-The accumulated expertise becomes your moat. Not because Bitcoin is proprietary—it's open and permissionless. Because knowing how to sell it effectively is rare, hard-won, and impossible to acquire without closing the deals yourself. The companies investing in figuring this out now build a head start that's hard to catch.
+The accumulated expertise becomes your moat. Not because Bitcoin is proprietary---it's open and permissionless. Because knowing how to sell it effectively is rare, hard-won, and impossible to acquire without closing the deals yourself. The companies investing in figuring this out now build a head start that's hard to catch.

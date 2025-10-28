@@ -1,6 +1,6 @@
 ---
 title: Sovereignty without sacrifice
-description: "Freedom tech loses when it demands sacrifice. Winning means building products that are better on every dimension—not just principles."
+description: "Freedom tech loses when it demands sacrifice. Winning means building products that are better on every dimension---not just principles."
 date: 2025-10-31T06:00:00-05:00
 slug: sovereignty-without-sacrifice
 topics: [bitcoin, product, go-to-market]
@@ -59,11 +59,11 @@ User experience can't be secondary. The products that win will feel as polished 
 
 Every product decision has to drive adoption. Every feature decision should answer: does this make the product obviously better for someone who doesn't yet care about sovereignty? If the answer is no, question whether it belongs in v1. Primal doesn't violate Nostr. It makes Nostr usable.
 
-Most freedom tech companies market exclusively to people who already understand why sovereignty matters. That guarantees a tiny addressable market. Winning means marketing to people who just want better payments, better social media, better financial tools—who discover the sovereignty benefits after they're already using the product.
+Most freedom tech companies market exclusively to people who already understand why sovereignty matters. That guarantees a tiny addressable market. Winning means marketing to people who just want better payments, better social media, better financial tools---who discover the sovereignty benefits after they're already using the product.
 
 What I've learned from decades in sales: customers don't care about a paradigm shift until they experience a product that works better than what they're using now. Meet them where they are. Start with what fits their expectations and actual needs. Let them discover the sovereignty benefits through use. That's not compromising on Bitcoin's principles. It's sequencing the conversation correctly.
 
-We can't win by being better at one thing (sovereignty) while being worse at everything else (speed, cost, UX, features). We have to be better at everything—or at minimum, comparable on the basics while being superior on sovereignty.
+We can't win by being better at one thing (sovereignty) while being worse at everything else (speed, cost, UX, features). We have to be better at everything---or at minimum, comparable on the basics while being superior on sovereignty.
 
 The best protocol in the world accomplishes nothing if nobody uses it. We have to win commercially to win ideologically.
 
@@ -81,7 +81,7 @@ The stakes couldn't be higher. Fix the money, fix the world---but only if we act
 
 ## What I've seen work
 
-The companies making progress on this aren't doing anything revolutionary. They're doing the obvious things consumer product companies learned years ago—just applying them to freedom tech.
+The companies making progress on this aren't doing anything revolutionary. They're doing the obvious things consumer product companies learned years ago---just applying them to freedom tech.
 
 They hire for UX before their fifth engineer. World-class design isn't a luxury when competing against PayPal and Cash App. It's the difference between a product people tolerate and one they choose. The designers who get this right have shipped consumer products to millions of users. They know what "obviously better" looks like.
 

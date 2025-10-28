@@ -22,11 +22,11 @@ This isn't a GTM problem. It's a product problem. And no amount of sales experti
 
 ## The misdiagnosis pattern
 
-Most founders believe their problem is distribution. They think: "If we just had better sales execution, stronger marketing, more partnerships—we'd win."
+Most founders believe their problem is distribution. They think: "If we just had better sales execution, stronger marketing, more partnerships---we'd win."
 
 But here's what's actually happening: Customers don't want what you're selling.
 
-Not because they don't understand Bitcoin. Not because they haven't been educated properly. Because you built something that doesn't solve the job they need done—or solves it worse than existing alternatives.
+Not because they don't understand Bitcoin. Not because they haven't been educated properly. Because you built something that doesn't solve the job they need done---or solves it worse than existing alternatives.
 
 The Bitcoin-specific version looks like this: You built for people who care about monetary sovereignty. But customers are hiring your product to send money instantly. Those are different jobs. One requires understanding UTXOs and channel liquidity. The other requires tapping a button and having it work.
 
@@ -40,7 +40,7 @@ A Lightning wallet's job isn't "let me manage channels and routing." The job is 
 
 When your product requires customers to care about your implementation details to use it successfully, you have a product problem. When they need to understand your architecture to accomplish their goal, you have a product problem. When the learning curve blocks them from doing the job they hired you for, you have a product problem.
 
-This is why "we just need to educate users" is a losing strategy. You're asking people to learn your system instead of building a system that does their job. Venmo doesn't require education. It just works. Your Lightning wallet needs to do the same job, better—not the same job worse with better architecture that nobody sees.
+This is why "we just need to educate users" is a losing strategy. You're asking people to learn your system instead of building a system that does their job. Venmo doesn't require education. It just works. Your Lightning wallet needs to do the same job, better---not the same job worse with better architecture that nobody sees.
 
 Look at Spark's Lightning implementation. They chose trust compromises specifically because the UX gap for pure Lightning was too large. Users weren't hiring Spark to "experience trustless payments." They were hiring it to "send money instantly in their favorite app." Spark understood the job and made tradeoffs to do that job better than alternatives.
 
@@ -64,7 +64,7 @@ Those aren't UX problems. They're product-market fit problems. Your product is a
 
 Your product must win on the job customers care about first. Not eventually. Not after they understand Bitcoin. First.
 
-If you're building Lightning payments, you need to beat Venmo at sending money instantly. Not "beat Venmo if you care about sovereignty." Actually beat Venmo on speed, cost, and ease of use. The sovereignty becomes the bonus feature—the reason to stick around after you've already won on the basics.
+If you're building Lightning payments, you need to beat Venmo at sending money instantly. Not "beat Venmo if you care about sovereignty." Actually beat Venmo on speed, cost, and ease of use. The sovereignty becomes the bonus feature---the reason to stick around after you've already won on the basics.
 
 This is the "Sovereignty Without Sacrifice" standard. Products that are better at everything that matters to users, that happen to be more sovereign. Not products that are more sovereign but worse at everything users actually need.
 
@@ -78,7 +78,7 @@ If you're struggling with commercial traction, stop assuming it's distribution. 
 
 Does our product do the customer's job better than their current solution?
 
-Not "does it have better architecture." Not "is it more aligned with Bitcoin principles." Does it actually solve their problem better—faster, cheaper, easier, more reliably—than what they use today?
+Not "does it have better architecture." Not "is it more aligned with Bitcoin principles." Does it actually solve their problem better---faster, cheaper, easier, more reliably---than what they use today?
 
 If the answer is no, or if the answer requires extensive customer education to become yes, you have product work to do before you scale GTM.
 
@@ -94,7 +94,7 @@ Most Bitcoin products aren't ready to scale. They're technically impressive. Arc
 
 But they don't do the basic job better than centralized alternatives. They ask users to understand complexity that should be hidden. They optimize for purity over usability. They serve the 5% who already care about sovereignty instead of the 95% who just need to get something done.
 
-You can't fix this with better sales. You fix it by building a product that does the job customers are hiring you for—and does it obviously, undeniably better than what they use today.
+You can't fix this with better sales. You fix it by building a product that does the job customers are hiring you for---and does it obviously, undeniably better than what they use today.
 
 Only then does GTM matter. Only then can sales execution make a difference. Only then are you ready to scale.
 
