@@ -25,8 +25,8 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           # Check all markdown files in content directory
-          # Accept 403 as valid (many sites like Substack block bots but links work for users)
-          args: --verbose --no-progress --accept 403 'content/**/*.md'
+          # Accept 200-299 (success) and 403 (sites that block bots but work for users)
+          args: --verbose --no-progress --accept '200..299,403' 'content/**/*.md'
           # Fail on broken links
           fail: true
         env:
