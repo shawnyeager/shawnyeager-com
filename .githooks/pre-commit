@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Pre-commit hook to auto-fix smart punctuation in markdown files
-# Converts smart punctuation to plain ASCII so Hugo can handle typography
+# Pre-commit hook to auto-fix markdown issues
+# 1. Uses markdownlint-cli2 --fix for standard formatting (respects .markdownlint.json)
+# 2. Custom smart punctuation cleanup (markdownlint doesn't handle this)
 
 set -e
 
@@ -12,10 +13,35 @@ if [ -z "$STAGED_MD_FILES" ]; then
   exit 0
 fi
 
+echo "🔍 Auto-fixing markdown issues in staged files..."
+echo ""
+
 FIXED=false
 
-echo "🔍 Checking staged markdown files for smart punctuation..."
+# Step 1: Run markdownlint-cli2 --fix on staged files
+# This respects .markdownlint.json and fixes:
+# - MD009: Trailing spaces
+# - MD010: Hard tabs
+# - MD012: Multiple blank lines
+# - MD018/019: Heading spacing
+# - MD023: Indented headings
+# - MD047: Missing trailing newline
+# - Plus 25+ other fixable rules
+if command -v markdownlint-cli2 &> /dev/null; then
+  echo "📋 Running markdownlint-cli2 --fix..."
+  for file in $STAGED_MD_FILES; do
+    if [ -f "$file" ]; then
+      # Run markdownlint with --fix, suppress output unless there are unfixable errors
+      if markdownlint-cli2 --fix "$file" 2>&1 | grep -v "^markdownlint-cli2" | grep -v "^Finding:" | grep -v "^Linting:" | grep -v "^Summary: 0 error"; then
+        FIXED=true
+      fi
+    fi
+  done
+  echo ""
+fi
 
+# Step 2: Fix smart punctuation (markdownlint doesn't have rules for this)
+echo "✨ Fixing smart punctuation..."
 for file in $STAGED_MD_FILES; do
   if [ ! -f "$file" ]; then
     continue
@@ -72,16 +98,20 @@ for file in $STAGED_MD_FILES; do
     CHANGES=true
   fi
 
-  # Re-stage the file if it was modified
   if [ "$CHANGES" = true ]; then
-    git add "$file"
     FIXED=true
   fi
 done
 
+# Re-stage all fixed files
 if [ "$FIXED" = true ]; then
   echo ""
-  echo "✅ Auto-fixed smart punctuation. Changes have been staged."
+  for file in $STAGED_MD_FILES; do
+    if [ -f "$file" ]; then
+      git add "$file"
+    fi
+  done
+  echo "✅ Auto-fixed markdown issues. Changes have been staged."
   echo ""
 fi
 
