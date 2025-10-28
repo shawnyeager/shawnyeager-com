@@ -17,7 +17,7 @@ But it's a false choice. The protocols are built. Bitcoin works. Lightning works
 
 Leading sales at Bitcoin infrastructure companies taught me this: Normal business customers can't see the value through a thicket of technical obfuscation. The concepts, terminology, and complexity baffle them. They want better payments. Instead, we give them liquidity management, routing, and channel rebalancing. Industry players continue to struggle with closing this gap.
 
-Meanwhile, centralized platforms get smoother, faster, and more deeply integrated into daily life. Apple Pay works everywhere. Instagram launches new features weekly. Neobanks make sending money trivially easy. 
+Meanwhile, centralized platforms get smoother, faster, and more deeply integrated into daily life. Apple Pay works everywhere. Instagram launches new features weekly. Neobanks make sending money trivially easy.
 
 We're not competing with those systems from a disadvantage. Lightning is faster and cheaper. Nostr can't be censored. Bitcoin can't be debased. The question isn't whether our technology is better. It's whether people can actually use it. Two traps prevent us from getting there.
 
