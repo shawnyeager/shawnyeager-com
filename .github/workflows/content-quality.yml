@@ -1,0 +1,37 @@
+name: Content Quality
+
+on:
+  # Run on PRs to catch issues before merge
+  pull_request:
+    paths:
+      - 'content/**/*.md'
+      - '*.md'
+
+  # Run on push to master to validate all content
+  push:
+    branches:
+      - master
+    paths:
+      - 'content/**/*.md'
+      - '*.md'
+
+  # Run weekly on Mondays to catch link rot
+  schedule:
+    - cron: '0 9 * * 1'
+
+  # Allow manual triggering
+  workflow_dispatch:
+
+jobs:
+  link-check:
+    uses: shawnyeager/shared-workflows/.github/workflows/hugo-link-checker.yml@master
+
+  markdown-lint:
+    uses: shawnyeager/shared-workflows/.github/workflows/hugo-markdown-linter.yml@master
+
+  seo-validator:
+    uses: shawnyeager/shared-workflows/.github/workflows/hugo-content-validator.yml@master
+    with:
+      content_path: 'content/essays'
+      content_type: 'essays'
+      require_description: true
