@@ -3,7 +3,7 @@
 
 [tools]
 # Core tools
-node = "25.0.0"
+node = "latest"
 hugo-extended = "0.152.2"
 
 # NPM packages (per-project)
