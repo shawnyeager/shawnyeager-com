@@ -11,7 +11,7 @@ draft: false
 ---
 You can have easy payments or private payments. Good UX or self-custody. Censorship resistance or features people actually use. That's been the conventional wisdom for years.
 
-But it’s a false choice. The protocols are built. Bitcoin works. Lightning works. Nostr works. The hardest technical problems are solved. What remains is a different kind of challenge: making these products available and accessible to people who don’t care about self-sovereignty---yet.
+But it's a false choice. The protocols are built. Bitcoin works. Lightning works. Nostr works. The hardest technical problems are solved. What remains is a different kind of challenge: making these products available and accessible to people who don't care about self-sovereignty---yet.
 
 <!--more-->
 
