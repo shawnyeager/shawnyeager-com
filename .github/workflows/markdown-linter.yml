@@ -34,9 +34,18 @@ jobs:
       - name: Install markdownlint-cli2
         run: npm install -g markdownlint-cli2
 
+      - name: Check for Obsidian wikilinks
+        run: |
+          if grep -rn --include="*.md" '\[\[.*\]\]' content/; then
+            echo "❌ Found Obsidian wikilinks. Convert to standard markdown links: [text](url)"
+            exit 1
+          fi
+
       - name: Check for hardcoded smart punctuation
         run: |
-          if grep -rn --include="*.md" $'[–—'\''\u2018\u2019\u201c\u201d\u2026]' content/; then
+          # Pattern: en dash (–), em dash (—), curly quotes ('')("")，ellipsis (…)
+          PATTERN=$(printf '[–—\xe2\x80\x98\xe2\x80\x99\xe2\x80\x9c\xe2\x80\x9d\xe2\x80\xa6]')
+          if grep -rn --include="*.md" "$PATTERN" content/; then
             echo "❌ Found hardcoded smart punctuation. Use -- for en dash, --- for em dash, straight quotes, and ... for ellipsis. Let Hugo convert them."
             exit 1
           fi
