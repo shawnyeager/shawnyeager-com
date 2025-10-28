@@ -30,6 +30,11 @@ FIXED=false
 if command -v markdownlint-cli2 &> /dev/null; then
   echo "📋 Running markdownlint-cli2 --fix..."
   for file in $STAGED_MD_FILES; do
+    # Skip CLAUDE.md and README.md (same as GitHub Action)
+    if [[ "$file" == "CLAUDE.md" || "$file" == "README.md" ]]; then
+      continue
+    fi
+
     if [ -f "$file" ]; then
       # Run markdownlint with --fix, suppress output unless there are unfixable errors
       if markdownlint-cli2 --fix "$file" 2>&1 | grep -v "^markdownlint-cli2" | grep -v "^Finding:" | grep -v "^Linting:" | grep -v "^Summary: 0 error"; then
@@ -43,6 +48,11 @@ fi
 # Step 2: Fix smart punctuation (markdownlint doesn't have rules for this)
 echo "✨ Fixing smart punctuation..."
 for file in $STAGED_MD_FILES; do
+  # Skip CLAUDE.md and README.md (same as GitHub Action)
+  if [[ "$file" == "CLAUDE.md" || "$file" == "README.md" ]]; then
+    continue
+  fi
+
   if [ ! -f "$file" ]; then
     continue
   fi
