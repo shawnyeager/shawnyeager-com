@@ -40,15 +40,15 @@ The companies that succeeded in these meetings came with products that were obvi
 
 Bitcoin partnerships face a structural challenge that traditional software partnerships don't: Bitcoin startups build on an open, permissionless protocol.
 
-In traditional software, you can offer exclusive partnerships. "Partner with us, and we'll give you exclusive access to our platform in their vertical." That creates real value for the partner. They're getting something their competitors can't get.
+In traditional software, you can offer preferred status. "Partner with us, and we'll give you exclusive access to our platform in your vertical." That creates real value for the partner. They're getting something their competitors can't get.
 
 In Bitcoin, anyone can build on the same rails. True exclusivity isn't possible. A partner knows that even if they integrate a specific Lightning implementation today, ten competitors could launch similar products tomorrow using the same underlying protocol.
 
-This isn't a problem if the product is meaningfully better. Partners will choose you because you execute better, have better talent, provide better support. But if the main pitch is "be first to Bitcoin," and the product isn't superior on traditional dimensions, why would they take the risk?
+This isn't a problem if the product is meaningfully better. Partners will choose you because you execute better, have better talent, provide better support. But if the main pitch is "be first to Bitcoin," and the product isn't superior by traditional measures, why would they take the risk?
 
 ## Product readiness comes first
 
-The partnerships that work happen when the product is ready. Not perfect---ready. Companies that close partnerships have certain things in place first. Companies that fail don't.
+The partnerships that work happen when the product is ready. Not perfect---ready. Companies that close these deals have certain things in place first. Companies that fail don't.
 
 Partnerships close when reliability is proven. Companies come to discussions with uptime metrics, transaction success rates, and support response times from real customers. The ones that fail promise reliability without proof.
 
@@ -58,7 +58,7 @@ The economics have to work. Revenue share that makes sense. Implementation costs
 
 Operational burden matters. Partners need documented integrations, systems that work, people who can help their teams succeed. They won't take on that chaos.
 
-These aren't Bitcoin-specific requirements. They're basic partnership requirements. But Bitcoin companies skip them, assuming Bitcoin's advantages will override product gaps.
+These aren't Bitcoin-specific requirements. They're basic partnership requirements. But Bitcoin startups too often skip them, assuming Bitcoin's advantages will override product gaps.
 
 They don't.
 
