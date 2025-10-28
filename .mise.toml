@@ -1,0 +1,14 @@
+# mise (https://mise.jdx.dev) configuration
+# Auto-installs tools when you cd into this directory
+
+[tools]
+# Core tools
+node = "25.0.0"
+hugo-extended = "0.152.2"
+
+# NPM packages (per-project)
+"npm:markdownlint-cli2" = "latest"
+
+[env]
+# Ensure npm global packages are in PATH
+_.path = ["./node_modules/.bin", "$PATH"]

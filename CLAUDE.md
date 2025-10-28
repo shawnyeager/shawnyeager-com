@@ -45,23 +45,37 @@ hugo mod get -u
 hugo mod tidy
 ```
 
-## Git Hooks
+## One-time Setup After Cloning
 
-This repo uses a pre-commit hook to automatically fix smart punctuation in markdown files before commits.
+After cloning this repo on a new machine, run:
 
-**One-time setup:**
 ```bash
-git config core.hooksPath .githooks
+./scripts/setup.sh
 ```
 
-**What it fixes automatically:**
+This configures:
+- Git hooks path (for pre-commit auto-fixing)
+- Verifies mise tools are installed (node, hugo-extended, markdownlint-cli2)
+
+**What the pre-commit hook fixes automatically:**
+
+*Markdown formatting (via markdownlint-cli2):*
+- MD009: Trailing spaces
+- MD010: Hard tabs
+- MD012: Multiple blank lines
+- MD018/019: Heading spacing
+- MD023: Indented headings
+- MD047: Missing trailing newline
+- Plus 25+ other fixable rules (respects `.markdownlint.json`)
+
+*Smart punctuation (custom cleanup):*
 - Curly apostrophes (') → straight apostrophes (')
 - Curly quotes ("") → straight quotes ("")
 - Em dashes (---) → triple hyphens (---)
 - En dashes (--) → double hyphens (--)
 - Ellipsis (...) → three periods (...)
 
-The hook runs on staged `.md` files only. It shows what it fixed and re-stages the changes. This prevents CI failures from hardcoded smart punctuation while keeping full visibility into what changed.
+The hook runs on staged `.md` files only, shows what it fixed, and re-stages changes. This prevents CI failures while keeping full visibility into changes.
 
 **Note:** If you paste content from external sources (Google Docs, Medium, etc.), the hook will clean it up automatically before the commit completes.
 
