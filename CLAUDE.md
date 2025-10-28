@@ -26,7 +26,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-**shawnyeager.com** - "The Gallery" for finished essays and professional content. Built with Hugo, using a shared theme module. Sister site to shawnyeager.org (the "Workshop" for notes).
+**shawnyeager.com** - "The Gallery" for finished essays and professional content. Built with Hugo, using a shared theme module. Sister site to notes.shawnyeager.com (the "Workshop" for notes).
 
 ## Development Commands
 

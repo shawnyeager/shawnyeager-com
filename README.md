@@ -9,7 +9,7 @@
 
 This is the public-facing side of a two-site system:
 - **shawnyeager.com** (this site) — Polished essays and published work
-- **[shawnyeager.org](https://shawnyeager.org)** — Rough notes and explorations
+- **[notes.shawnyeager.com](https://notes.shawnyeager.com)** — Rough notes and explorations
 
 Content here is indexed by search engines and represents the professional brand. Essays are organized by topics and tags for browsing.
 
@@ -118,6 +118,6 @@ The Gallery is for finished work. Essays here are polished, professional, and pu
 
 **Shawn Yeager**
 Essays: [shawnyeager.com](https://shawnyeager.com)
-Notes: [shawnyeager.org](https://shawnyeager.org)
+Notes: [notes.shawnyeager.com](https://notes.shawnyeager.com)
 Nostr: [shawnyeager.com/connect](https://shawnyeager.com/connect)
 GitHub: [@shawnyeager](https://github.com/shawnyeager)

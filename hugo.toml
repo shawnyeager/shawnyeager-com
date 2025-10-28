@@ -76,7 +76,7 @@ enableEmoji = true
   podcast_description = "Rethinking trust for a decentralized future"
 
   # Secondary site link (for footer cross-link)
-  secondary_site_url = "https://shawnyeager.org"
+  secondary_site_url = "https://notes.shawnyeager.com"
   secondary_site_name = "Notes"
 
 # Menu configuration
