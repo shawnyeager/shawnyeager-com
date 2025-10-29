@@ -205,9 +205,9 @@ static/
 # Theme behavior
 [params]
   content_type = "essays"         # Parameterizes theme templates
-  favicon_style = "solid"         # Solid square (vs "outlined" on .org)
-  noindex = false                 # Allow search indexing (true on .org)
-  show_read_time = true           # Show reading time (false on .org)
+  favicon_style = "solid"         # Solid square (vs "outlined" on .notes)
+  noindex = false                 # Allow search indexing (true on .notes)
+  show_read_time = true           # Show reading time (false on .notes)
   show_email_signup = true        # Footer newsletter form
 
 # Taxonomies
@@ -222,8 +222,8 @@ static/
 
 ### Theme Configuration Differences
 
-| Parameter | .com (Gallery) | .org (Workshop) |
-|-----------|----------------|-----------------|
+| Parameter | .com (Gallery) | .notes (Workshop) |
+|-----------|----------------|-------------------|
 | `favicon_style` | `"solid"` | `"outlined"` |
 | `noindex` | `false` | `true` |
 | `show_read_time` | `true` | `false` |
@@ -250,7 +250,7 @@ Environment variable `GITHUB_TOKEN` must be set in Netlify dashboard.
 ## Related Repositories
 
 - **tangerine-theme** (`github.com/shawnyeager/tangerine-theme`): Shared theme module with layouts, CSS, partials
-- **shawnyeager-org** (`github.com/shawnyeager/shawnyeager-org`): Sister site for work-in-progress notes
+- **shawnyeager-notes** (`github.com/shawnyeager/shawnyeager-notes`): Sister site for work-in-progress notes
 - **hugo-sites-project** (`~/Work/hugo-sites-project`): Archived monorepo with design specs and mockups
 
 ## Critical Constraints
