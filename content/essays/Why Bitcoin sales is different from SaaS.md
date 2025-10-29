@@ -1,20 +1,21 @@
 ---
-title: "Why Bitcoin sales is different from SaaS"
-description: "Bitcoin sales differs from SaaS because you're asking buyers to rethink money itself, not just evaluate software."
+title: Why Bitcoin sales is different from SaaS
+description: Bitcoin sales differs from SaaS because you're asking buyers to rethink money itself, not just evaluate software.
 date: 2025-10-15T10:00:00-05:00
 slug: why-bitcoin-sales-is-different-from-saas
-topics: [bitcoin, sales]
+topics:
+  - bitcoin
+  - sales
 tags: []
-cta: true
 featured: false
+cta: true
 draft: false
 ---
-
 Most Bitcoin companies try to apply standard SaaS approaches to selling Bitcoin infrastructure. This rarely works. Bitcoin sales requires a fundamentally different approach because you're asking buyers to rethink how money and trust work, not just evaluate software.
 
 <!--more-->
 
-Decades selling tech and SaaS products taught me what enterprise sales looks like. Bitcoin sales is fundamentally different. Founders set their go-to-market expectations based on SaaS playbooks, hire for SaaS experience, and wonder why their pipeline stalls. The problem isn't execution. It's that Bitcoin isn't SaaS.
+Decades selling SaaS products taught me what enterprise sales looks like. Bitcoin sales is different. Founders set their go-to-market expectations based on SaaS playbooks, hire for SaaS experience, and wonder why their pipeline stalls. The problem isn't execution. It's that Bitcoin isn't SaaS.
 
 ## The education problem
 
