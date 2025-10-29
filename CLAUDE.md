@@ -39,10 +39,35 @@ hugo --minify
 
 # Create new essay
 hugo new content/essays/essay-slug.md
+```
 
-# Update Hugo modules (theme)
-hugo mod get -u
-hugo mod tidy
+## ⚠️ CRITICAL: Hugo Module Management
+
+**NEVER run `hugo mod tidy` when `/home/shawn/Work/hugo.work` exists!**
+
+The hugo.work workspace file causes `hugo mod tidy` to remove the `require` statement from go.mod because it sees the module as satisfied by the workspace. This breaks Netlify builds which don't have the workspace.
+
+**Correct workflow for updating theme version:**
+
+```bash
+# To update theme version:
+hugo mod get github.com/shawnyeager/tangerine-theme@v1.18.1
+
+# Verify go.mod has require line:
+grep "require github.com/shawnyeager/tangerine-theme" go.mod
+
+# NEVER run: hugo mod tidy (in workspace context)
+```
+
+**Why this happens:**
+- Local dev uses `/home/shawn/Work/hugo.work` which redirects to local theme
+- `hugo mod tidy` sees module satisfied by workspace and removes require
+- Netlify doesn't have hugo.work, needs go.mod require to fetch from GitHub
+- Result: Netlify builds use wrong version or fail entirely
+
+**Automated safeguards:**
+- Pre-commit hook validates go.mod has theme require
+- GitHub Actions CI validates module requirements on push
 ```
 
 ## One-time Setup After Cloning
