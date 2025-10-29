@@ -1,22 +1,21 @@
 ---
-title: "Media"
-description: "Bio, photos, and contact information for journalists, conference organizers, and podcast hosts. Bitcoin go-to-market leader and Trust Revolution podcast host."
+title: Media
+description: Bio, photos, and contact information for journalists, conference organizers, and podcast hosts. Bitcoin go-to-market leader and Trust Revolution podcast host.
 date: 2025-10-11
 type: page
 ---
-
 Bio, photos, and contact information for journalists, conference organizers, and podcast hosts.
 
 ## Short bio (50 words)
 
 {{< card class="bio-text" >}}
-Shawn Yeager has built his career around technology that increases human freedom, generating more than $300M in revenue. Most recently, he led sales and partnerships at Amboss Technologies, NYDIG Payments, and Bottlepay. He helps Bitcoin and freedom tech startups compete commercially against Surveillance Economy platforms. He hosts Trust Revolution podcast.
+Shawn Yeager built his career around technology that increases human freedom, generating more than $300M in revenue. Most recently, he led sales and partnerships at Amboss Technologies, NYDIG Payments, and Bottlepay. He helps Bitcoin and freedom tech startups compete commercially against Surveillance Economy platforms. He hosts Trust Revolution podcast.
 {{< /card >}}
 
 ## Extended bio (150 words)
 
 {{< card class="bio-text" >}}
-Shawn Yeager helps Bitcoin and freedom tech startups compete and win commercially against Surveillance Economy platforms. He's built his career around technology that increases human freedom. Over 30 years, that work has generated more than $300M in revenue.
+Shawn Yeager helps Bitcoin and freedom tech startups compete and win commercially against Surveillance Economy platforms. He built his career around technology that increases human freedom. Over 30 years, that work generated more than $300M in revenue.
 
 Shawn specializes in revenue operations, strategic partnerships, and enterprise sales. Most recently, he led sales and partnerships at Amboss Technologies (Lightning Network infrastructure), NYDIG Payments (institutional Bitcoin services), and Bottlepay (Lightning payments).
 
