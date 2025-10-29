@@ -1,20 +1,22 @@
 ---
-title: "Product first, partnerships second"
-description: "Bitcoin partnerships succeed when product readiness comes first. Prove the product in market, then use partnerships to scale."
+title: Product first, partnerships second
+description: Bitcoin partnerships succeed when product readiness comes first. Prove the product in market, then use partnerships to scale.
 date: 2025-10-27T16:30:00Z
 slug: product-first-partnerships-second
-topics: [bitcoin, partnerships, product]
+topics:
+  - bitcoin
+  - partnerships
+  - product
 tags: []
-cta: true
 featured: false
+cta: true
 draft: false
 ---
-
 Most Bitcoin startups chase partnerships too early. The outcomes are often the same. The product has gaps---UX is rough, reliability issues persist, features are missing. But the company needs distribution, needs validation, needs someone else's reach.
 
-So they chase partnerships. Big partners. Traditional companies with established customer bases. The pitch is always some version of: "Partner with us to bring Bitcoin to your customers."
+So they chase partnerships. Big partners. Traditional companies with established customer bases. The pitch is some version of "Partner with us to bring Bitcoin to your customers."
 
-It rarely works. Not because partnerships are wrong. Because the timing is wrong and the product isn't ready.
+It rarely works. Not because the pitch is wrong. Because the timing is wrong and the product isn't ready.
 
 <!--more-->
 
