@@ -1,12 +1,15 @@
 ---
 title: Sovereignty without sacrifice
-description: "Freedom tech loses when it demands sacrifice. Winning means building products that are better on every dimension---not just principles."
+description: Freedom tech loses when it demands sacrifice. Winning means building products that are better on every dimension---not just principles.
 date: 2025-10-31T06:00:00-05:00
 slug: sovereignty-without-sacrifice
-topics: [bitcoin, product, go-to-market]
+topics:
+  - bitcoin
+  - product
+  - go-to-market
 tags: []
-cta: false
 featured: true
+cta: false
 draft: false
 ---
 You can have easy payments or private payments. Good UX or self-custody. Censorship resistance or features people actually use. That's been the conventional wisdom for years.
@@ -15,7 +18,7 @@ But it's a false choice. The protocols are built. Bitcoin works. Lightning works
 
 <!--more-->
 
-Leading sales at Bitcoin infrastructure companies taught me this: Normal business customers can't see the value through a thicket of technical obfuscation. The concepts, terminology, and complexity baffle them. They want better payments. Instead, we give them liquidity management, routing, and channel rebalancing. Industry players continue to struggle with closing this gap.
+Leading sales at Bitcoin infrastructure companies taught me this: normal business customers can't see the value through a thicket of technical obfuscation. The concepts, terminology, and complexity baffle them. They want better payments. We give them liquidity management, routing, and channel rebalancing. Industry players continue to struggle with closing this gap.
 
 Meanwhile, centralized platforms get smoother, faster, and more deeply integrated into daily life. Apple Pay works everywhere. Instagram launches new features weekly. Neobanks make sending money trivially easy.
 
@@ -41,11 +44,11 @@ Lightning is cheaper than Visa and faster than Venmo. The protocol delivers on i
 
 Consumer wallet companies are adopting Spark---which trades Lightning's trustlessness for simpler UX---proving how badly the market wants Lightning UX solved. That demand is real. We need to meet it without fundamental compromises.
 
-Nostr's identity and communication infrastructure enables everything from social feeds to messaging to publishing. Primal demonstrates how consumer-grade UX can hide this protocol complexity for social media. It offers a clean interface, fast performance, and features that compete with Twitter. Predictably, they get criticized by purists who oppose design decisions that favor UX over strict adherence to Nostr protocols.
+Nostr's identity and communication infrastructure enable everything from social feeds to messaging to publishing. Primal demonstrates how consumer-grade UX can hide this protocol complexity for social media. It offers a clean interface, fast performance, and features that compete with X. Predictably, they get criticized by purists who oppose design decisions that favor UX over strict adherence to Nostr protocols.
 
 This tension illustrates the broader problem. We need products that win on user experience first, with decentralization as the foundation rather than as cover for poor UX.
 
-Holding your own Bitcoin should be more secure _and_ easier than trusting a bank. Currently, self-custody terrifies normal people, and rightfully so. One mistake and your money is gone forever. But products like Block's Bitkey show this is solvable. They combine hardware wallet security with smartphone simplicity. They enable recovery without seed phrases, which most users will inevitably lose or mishandle.
+Holding your Bitcoin should be more secure _and_ easier than trusting a bank. Currently, self-custody terrifies normal people, and rightfully so. One mistake and your money is gone forever. But products like Block's Bitkey show this is solvable. They combine hardware wallet security with smartphone simplicity. They enable recovery without seed phrases, which most users will inevitably lose or mishandle.
 
 We can clear these hurdles with a commitment to commercial excellence that matches our technical achievements.
 
@@ -85,7 +88,7 @@ The companies making progress on this aren't doing anything revolutionary. They'
 
 They hire for UX before their fifth engineer. World-class design isn't a luxury when competing against PayPal and Cash App. It's the difference between a product people tolerate and one they choose. The designers who get this right have shipped consumer products to millions of users. They know what "obviously better" looks like.
 
-Winning companies watch real users struggle with their product. Not Bitcoin enthusiasts who'll tolerate rough edges, but people who use PayPal and think it works fine. They sit users down, give them a task, watch where they get confused. They don't explain, don't help, just watch. Then they build for how users actually work.
+Winning companies watch real users struggle with their product. Not Bitcoin enthusiasts who'll tolerate rough edges, but people who use PayPal and think it works fine. They sit users down, give them a task, and watch where they get confused. They don't explain, don't help, just watch. Then they build for how users actually work.
 
 Activation matters more than signups. How many people who install a wallet actually fund it and make a payment? How many who create a Nostr key pair actually post something? The gap between signup and real usage is where most adoption dies. The startups that thrive identify those specific breaking points and fix them.
 
@@ -103,11 +106,11 @@ Start narrow, prove value, compound growth. This approach works. None of this is
 
 ## Sovereignty without sacrifice
 
-Bitcoin payments become the default when they're *obviously* better---faster settlement, lower fees, better privacy, no chargebacks, no intermediary risk.
+Bitcoin payments become the default when they're _obviously_ better---faster settlement, lower fees, better privacy, no chargebacks, no intermediary risk.
 
 People use Nostr when it's the best social platform, not because they're making a political statement.
 
-Self-custody wins when the tools are more secure *and* more usable than traditional banking.
+Self-custody wins when the tools are more secure _and_ more usable than traditional banking.
 
 The technology exists. The talent exists. We need the collective commitment to building freedom tech that wins on merit, not martyrdom. Products that solve customer problems first, with sovereignty as the inevitable result.
 
