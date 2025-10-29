@@ -49,16 +49,26 @@ collections:
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
 
-      - label: "Now"
-        name: "now"
-        file: "content/now.md"
+      - label: "Connect"
+        name: "connect"
+        file: "content/connect.md"
         fields:
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Description", name: "description", widget: "string"}
           - {label: "Date", name: "date", widget: "datetime"}
           - {label: "Type", name: "type", widget: "hidden", default: "page"}
-          - {label: "Layout", name: "layout", widget: "hidden", default: "now"}
-          - {label: "Updated", name: "updated", widget: "string", hint: "e.g., October 2025"}
+          - {label: "Hide Footer Signup", name: "hide_footer_signup", widget: "boolean", default: true}
+          - {label: "Body", name: "body", widget: "markdown"}
+
+      - label: "Encrypt"
+        name: "encrypt"
+        file: "content/encrypt.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "string"}
+          - {label: "Date", name: "date", widget: "datetime"}
+          - {label: "Type", name: "type", widget: "hidden", default: "page"}
+          - {label: "Hide Footer Signup", name: "hide_footer_signup", widget: "boolean", default: true}
           - {label: "Body", name: "body", widget: "markdown"}
 
       - label: "Media"
@@ -72,15 +82,16 @@ collections:
           - {label: "Hide Footer Signup", name: "hide_footer_signup", widget: "boolean", default: true}
           - {label: "Body", name: "body", widget: "markdown"}
 
-      - label: "Connect"
-        name: "connect"
-        file: "content/connect.md"
+      - label: "Now"
+        name: "now"
+        file: "content/now.md"
         fields:
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Description", name: "description", widget: "string"}
           - {label: "Date", name: "date", widget: "datetime"}
           - {label: "Type", name: "type", widget: "hidden", default: "page"}
-          - {label: "Hide Footer Signup", name: "hide_footer_signup", widget: "boolean", default: true}
+          - {label: "Layout", name: "layout", widget: "hidden", default: "now"}
+          - {label: "Updated", name: "updated", widget: "string", hint: "e.g., October 2025"}
           - {label: "Body", name: "body", widget: "markdown"}
 
       - label: "Podcast"
@@ -91,17 +102,6 @@ collections:
           - {label: "Description", name: "description", widget: "string"}
           - {label: "Date", name: "date", widget: "datetime"}
           - {label: "Type", name: "type", widget: "hidden", default: "podcast"}
-          - {label: "Body", name: "body", widget: "markdown"}
-
-      - label: "Encrypt"
-        name: "encrypt"
-        file: "content/encrypt.md"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Description", name: "description", widget: "string"}
-          - {label: "Date", name: "date", widget: "datetime"}
-          - {label: "Type", name: "type", widget: "hidden", default: "page"}
-          - {label: "Hide Footer Signup", name: "hide_footer_signup", widget: "boolean", default: true}
           - {label: "Body", name: "body", widget: "markdown"}
 
       - label: "Subscribed"
