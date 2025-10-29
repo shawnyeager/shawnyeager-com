@@ -1,11 +1,11 @@
 ---
-title: "Connect"
-description: "Get in touch about Bitcoin projects. Email, Signal, or book a meeting directly."
-type: "page"
+title: Connect
+description: Get in touch about Bitcoin projects. Email, Signal, or book a meeting directly.
+date: 2025-10-29T07:27:00
+type: page
 hide_footer_signup: true
 ---
-
-I enjoy talking with people building in Bitcoin and freedom tech. Whether you're wrestling with go-to-market strategy, need a sounding board on partnerships, or just want to compare notes on what's working---reach out.
+I enjoy speaking with builders in Bitcoin and freedom tech. Whether you're wrestling with go-to-market strategy, need a sounding board on partnerships, or just want to compare notes on what's working---reach out.
 
 <div class="contact-section">
 
