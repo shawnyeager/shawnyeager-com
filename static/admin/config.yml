@@ -42,6 +42,13 @@ collections:
     label: "Pages"
     label_singular: "Page"
     files:
+      - label: "Homepage"
+        name: "homepage"
+        file: "content/_index.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+
       - label: "Now"
         name: "now"
         file: "content/now.md"
