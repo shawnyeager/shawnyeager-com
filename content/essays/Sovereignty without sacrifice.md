@@ -80,7 +80,7 @@ That's what we're racing against. Bitcoin's been live since 2009. Lightning sinc
 
 We have maybe five years before CBDCs entrench, before network effects compound, before switching costs compound dramatically. That's the window. Every product decision matters. UX can't be an afterthought. Commercial excellence has to match technical excellence.
 
-The stakes couldn't be higher. Fix the money, fix the world---but only if we actually win in the marketplace. Having better technology that nobody uses doesn't fix anything. We need technology that's so plainly superior that adoption becomes inevitable. Some companies are already figuring this out.
+The stakes couldn't be higher. Fix the money, fix the world---but only if we actually win in the marketplace. Having better technology that nobody uses doesn't fix anything. We need products so plainly superior that adoption becomes inevitable. Some companies are already figuring this out.
 
 ## What I've seen work
 
