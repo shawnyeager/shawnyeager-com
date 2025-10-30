@@ -74,11 +74,11 @@ The best protocol in the world accomplishes nothing if nobody uses it. We have t
 
 We won't get there overnight. Building products that compete on every dimension while maintaining sovereignty takes years, not months. But we're at an inflection point, and the trends are clear.
 
-CBDCs are coming. When governments launch programmable money with perfect surveillance and control, they'll either launch it with world-class UX and deep integrations or mandate it by dictate, so UX won't matter. If our answer is Bitcoin wallets that require understanding seed phrase security models, we'll have missed the window.
+CBDCs aren't theoretical. China's digital yuan already has millions of users. The ECB targets 2026 for the launch decision. Brazil and India roll out in 2025-2026. These systems have government resources, zero self-custody UX problems, and institutional backing.
 
-Platform regulation is tightening. As governments gain more control over centralized social platforms, those platforms will become better at making compliance feel frictionless---or at least normal. Social protocols that require technical expertise won't even be part of the conversation.
+That's what we're racing against. Bitcoin's been live since 2009. Lightning since 2018. The protocols work. But achieving world-class UX on top of working protocols still takes years of sustained iteration. Apple Pay took 15 years of mobile payments development before launch, then another decade to reach 5.6% of retail sales. Venmo needed 7 years just to add basic merchant payments. Lightning's seven years in---90% of transactions still require custodial solutions because self-custody UX remains too hard.
 
-Network effects compound. Every day that centralized payment systems, social platforms, and financial infrastructure deepen their integration and improve their experience, the switching costs for users increase. The window for credible alternatives gets smaller.
+We have maybe five years before CBDCs entrench, before network effects compound, before switching costs compound dramatically. That's the window. Every product decision matters. UX can't be an afterthought. Commercial excellence has to match technical excellence.
 
 The stakes couldn't be higher. Fix the money, fix the world---but only if we actually win in the marketplace. Having better technology that nobody uses doesn't fix anything. We need technology that's so plainly superior that adoption becomes inevitable. Some companies are already figuring this out.
 
@@ -106,7 +106,7 @@ Start narrow, prove value, compound growth. This approach works. None of this is
 
 ## Sovereignty without sacrifice
 
-Bitcoin payments become the default when they're _obviously_ better---faster settlement, lower fees, better privacy, no chargebacks, no intermediary risk.
+Bitcoin payments become the default when they're _obviously_ better---faster settlement, lower fees, better privacy, no chargebacks, and no intermediary risk.
 
 People use Nostr when it's the best social platform, not because they're making a political statement.
 
@@ -114,7 +114,7 @@ Self-custody wins when the tools are more secure _and_ more usable than traditio
 
 The technology exists. The talent exists. We need the collective commitment to building freedom tech that wins on merit, not martyrdom. Products that solve customer problems first, with sovereignty as the inevitable result.
 
-It will take five to ten years. The infrastructure companies building today are laying groundwork that consumer products will build on tomorrow. The consumer products shipping today are teaching us what works and what doesn't. Every improvement compounds, and every UX breakthrough makes the next one easier.
+The infrastructure companies building today are laying groundwork that consumer products will build on tomorrow. The consumer products shipping today are teaching us what works and what doesn't. Every improvement compounds, and every UX breakthrough makes the next one easier.
 
 But we have to reject both traps. We can't afford complacency---the assumption that we have time to wait for people to "wake up." And we can't afford elitism---the attitude that excludes anyone who doesn't already understand why sovereignty matters. Both guarantee we stay niche while the world adopts worse systems with better experiences.
 
