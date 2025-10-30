@@ -12,7 +12,7 @@ featured: false
 cta: true
 draft: false
 ---
-Most Bitcoin startups chase partnerships too early. The outcomes are often the same. The product has gaps---UX is rough, reliability issues persist, features are missing. But the company needs distribution, needs validation, needs someone else's reach.
+Most Bitcoin startups chase partnerships too early. The outcomes are the same. The product has gaps---UX is rough, reliability issues persist, features are missing. But the company needs distribution, needs validation, needs someone else's reach.
 
 So they chase partnerships. Big partners. Traditional companies with established customer bases. The pitch is some version of "Partner with us to bring Bitcoin to your customers."
 
