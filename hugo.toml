@@ -40,10 +40,17 @@ enableEmoji = true
   mediaType = "application/rss+xml"
   baseName = "feed"
 
+# Copyright notice
+copyright = "Copyright © 2025, Shawn Yeager"
+
 # Theme parameters
 [params]
   description = "Bitcoin go-to-market and revenue leader. Previously led sales at Amboss Technologies, NYDIG Payments, and Bottlepay. Hosts Trust Revolution podcast."
-  author = "Shawn Yeager"
+
+  # Author information (used in RSS feeds)
+  [params.author]
+    name = "Shawn Yeager"
+    email = "hello@shawnyeager.com"
 
   # Theme configuration
   content_type = "essays"         # Content type for parameterized templates
