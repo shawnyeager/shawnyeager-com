@@ -71,7 +71,6 @@ copyright = "Copyright © 2025, Shawn Yeager"
   # Social/contact links
   nostr = "https://nostr.shawnyeager.com"
   github = "https://github.com/shawnyeager"
-  email = "hello@shawnyeager.com"
 
   # Open Graph image for social sharing (1200x630px)
   og_image = "/images/og-image.png"
