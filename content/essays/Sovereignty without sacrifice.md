@@ -26,13 +26,13 @@ We're not competing with those systems from a disadvantage. Lightning is faster 
 
 ## The two traps we can't afford
 
-The first trap is complacency. "There's no need to rush. Eventually, people will wake up and demand sovereignty." This assumes that time is on our side. It isn't. Central Bank Digital Currencies are coming. Platform regulation is tightening. Network effects are compounding for incumbent systems. Every day centralized platforms improve their UX while we accept 'worse but more sovereign.' The gap widens, and the switching costs grow.
+The first trap is complacency. "There's no need to rush. Eventually, people will wake up and demand self-sovereignty." This assumes that time is on our side. It isn't. Central Bank Digital Currencies are coming. Platform regulation is tightening. Network effects are compounding for incumbent systems. Every day centralized platforms improve their UX while we accept 'worse but more sovereign.' The gap widens, and the switching costs grow.
 
 The second trap is elitism. "If they don't get it, they don't deserve it. We're building for people who understand what matters." I've seen this attitude kill adoption. Customers explicitly choose custodial solutions over self-custody because non-custodial options feel too risky, even dangerous---one wrong move and their money disappears. The custodial option simply worked, despite the trade-offs.
 
 When the self-sovereign option spooks users while the centralized option feels safe, we haven't built freedom tech. We've built a hobby for risk-tolerant technical elites.
 
-The systems we're competing against keep improving---better UX, deeper integration, more magical experiences. We can't win by waiting for people to care more about sovereignty. We have to build products that are better at solving their actual problems.
+The systems we're competing against keep improving---better UX, deeper integration, more magical experiences. We can't win by waiting for people to care more about sound money. We have to build products that are better at solving their actual problems.
 
 ## Protocols built. Products needed.
 
@@ -60,19 +60,19 @@ Building sovereignty without sacrifice means treating UX as the primary competit
 
 User experience can't be secondary. The products that win will feel as polished as PayPal while delivering Bitcoin's resilience. That means hiring world-class designers. Conducting extensive user research. Iterating relentlessly on what actually works.
 
-Every product decision has to drive adoption. Every feature decision should answer: does this make the product obviously better for someone who doesn't yet care about sovereignty? If the answer is no, question whether it belongs in v1. Primal doesn't violate Nostr. It makes Nostr usable.
+Every product decision has to drive adoption. Every feature decision should answer: does this make the product obviously better for someone who doesn't yet care about permissionless protocols? If the answer is no, question whether it belongs in v1. Primal doesn't violate Nostr. It makes Nostr usable.
 
-Most freedom tech companies market exclusively to people who already understand why sovereignty matters. That guarantees a tiny addressable market. Winning means marketing to people who just want better payments, better social media, better financial tools---who discover the sovereignty benefits after they're already using the product.
+Most freedom tech companies market exclusively to people who already understand why self-sovereignty matters. That guarantees a tiny addressable market. Winning means marketing to people who just want better payments, better social media, better financial tools---who discover the inherent benefits after they're already using the product.
 
-What I've learned from decades in sales: customers don't care about a paradigm shift until they experience a product that works better than what they're using now. Meet them where they are. Start with what fits their expectations and actual needs. Let them discover the sovereignty benefits through use. That's not compromising on Bitcoin's principles. It's sequencing the conversation correctly.
+What I've learned from decades in sales: customers don't care about a paradigm shift until they experience a product that works better than what they're using now. Meet them where they are. Start with what fits their expectations and actual needs. Let them discover the benefits through use. That's not compromising on Bitcoin's principles. It's sequencing the conversation correctly.
 
-We can't win by being better at one thing (sovereignty) while being worse at everything else (speed, cost, UX, features). We have to be better at everything---or at minimum, comparable on the basics while being superior on sovereignty.
+We can't win by being better at one thing (self-sovereignty) while being worse at everything else (speed, cost, UX, features). We have to be better at everything---or at minimum, comparable on the basics while being superior on self-sovereignty.
 
 The best protocol in the world accomplishes nothing if nobody uses it. We have to win commercially to win ideologically.
 
 ## The window is closing
 
-We won't get there overnight. Building products that compete on every dimension while maintaining sovereignty takes years, not months. But we're at an inflection point, and the trends are clear.
+We won't get there overnight. Building products that compete on every dimension takes years, not months. But we're at an inflection point, and the trends are clear.
 
 CBDCs aren't theoretical. China's digital yuan already has millions of users. The ECB targets 2026 for the launch decision. Brazil and India roll out in 2025-2026. These systems have government resources, zero self-custody UX problems, and institutional backing.
 
@@ -96,7 +96,7 @@ The companies that scale track what actually drives adoption. Which acquisition 
 
 The best companies steal shamelessly from products that work. Stripe's onboarding. Cash App's simplicity. Notion's interface design. They study what makes consumer products feel effortless, then apply those patterns to freedom tech. The wheel doesn't need reinventing.
 
-Winning starts with one undeniable advantage. Not better for people who care about sovereignty. Better for everyone. Faster, cheaper, simpler, more reliable. The companies that gain traction build everything else around that single thing their product does obviously better than centralized alternatives.
+Winning starts with one undeniable advantage. Not better for people who care about self-custody. Better for everyone. Faster, cheaper, simpler, more reliable. The companies that gain traction build everything else around that single thing their product does obviously better than centralized alternatives.
 
 Distribution begins with a beachhead. One community where the product solves a real problem today---a subreddit, a Telegram group, a local Bitcoin meetup. Start narrow. Let organic word-of-mouth compound from there.
 
@@ -112,11 +112,11 @@ People use Nostr when it's the best social platform, not because they're making 
 
 Self-custody wins when the tools are more secure _and_ more usable than traditional banking.
 
-The technology exists. The talent exists. We need the collective commitment to building freedom tech that wins on merit, not martyrdom. Products that solve customer problems first, with sovereignty as the inevitable result.
+The technology exists. The talent exists. We need the collective commitment to building freedom tech that wins on merit, not martyrdom. Products that solve customer problems first, with self-sovereignty as the inevitable result.
 
 The infrastructure companies building today are laying groundwork that consumer products will build on tomorrow. The consumer products shipping today are teaching us what works and what doesn't. Every improvement compounds, and every UX breakthrough makes the next one easier.
 
-But we have to reject both traps. We can't afford complacency---the assumption that we have time to wait for people to "wake up." And we can't afford elitism---the attitude that excludes anyone who doesn't already understand why sovereignty matters. Both guarantee we stay niche while the world adopts worse systems with better experiences.
+But we have to reject both traps. We can't afford complacency---the assumption that we have time to wait for people to "wake up." And we can't afford elitism---the attitude that excludes anyone who doesn't already understand why permissionless protocols matter. Both guarantee we stay niche while the world adopts worse systems with better experiences.
 
 The window to build viable alternatives is real. It's not closing tomorrow, but it will close. And the opportunity is extraordinary.
 
