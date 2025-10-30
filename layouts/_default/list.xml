@@ -1,7 +1,7 @@
 {{- $pctx := . -}}
 {{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
-{{- /* Filter to only include essays - exclude standalone pages */ -}}
-{{- $pages := where $pctx.RegularPages "Section" "essays" -}}
+{{- /* Get pages based on context */ -}}
+{{- $pages := .Pages -}}
 {{- if not hugo.IsServer -}}
 {{- $pages = where $pages "Draft" false -}}
 {{- end -}}
@@ -14,7 +14,7 @@
   <channel>
     <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
     <link>{{ .Permalink }}</link>
-    <description>{{ .Site.Params.description }}</description>
+    <description>{{ if eq .Title .Site.Title }}{{ .Site.Params.description }}{{ else }}Essays about {{ .Title | lower }} on {{ .Site.Title }}{{ end }}</description>
     <generator>Hugo -- gohugo.io</generator>{{ with .Site.LanguageCode }}
     <language>{{.}}</language>{{end}}{{ with .Site.Params.author.email }}
     <managingEditor>{{.}}{{ with $.Site.Params.author.name }} ({{.}}){{end}}</managingEditor>{{end}}{{ with .Site.Params.author.email }}
@@ -24,12 +24,12 @@
     {{- with .OutputFormats.Get "RSS" -}}
     {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{- end -}}
-    <ttl>1440</ttl>
+    <ttl>1440</ttl>{{ with .Site.Params.og_image }}
     <image>
-      <url>{{ .Site.Params.og_image | absURL }}</url>
-      <title>{{ .Site.Title }}</title>
-      <link>{{ .Site.BaseURL }}</link>
-    </image>
+      <url>{{ . | absURL }}</url>
+      <title>{{ $.Site.Title }}</title>
+      <link>{{ $.Site.BaseURL }}</link>
+    </image>{{ end }}
     {{ range $pages }}
     <item>
       <title>{{ .Title }}</title>

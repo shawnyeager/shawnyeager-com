@@ -33,24 +33,20 @@ enableEmoji = true
 # Output formats
 [outputs]
   home = ["HTML", "RSS"]
-  section = ["HTML", "RSS"]
+  section = ["HTML"]
 
 # RSS configuration
 [outputFormats.RSS]
   mediaType = "application/rss+xml"
   baseName = "feed"
 
-# Copyright notice
-copyright = "Copyright © 2025, Shawn Yeager"
-
 # Theme parameters
 [params]
+  copyright = "Copyright © 2025, Shawn Yeager"
   description = "Bitcoin go-to-market and revenue leader. Previously led sales at Amboss Technologies, NYDIG Payments, and Bottlepay. Hosts Trust Revolution podcast."
 
-  # Author information (used in RSS feeds)
-  [params.author]
-    name = "Shawn Yeager"
-    email = "hello@shawnyeager.com"
+  # Open Graph image for social sharing (1200x630px)
+  og_image = "/images/og-image.png"
 
   # Theme configuration
   content_type = "essays"         # Content type for parameterized templates
@@ -72,9 +68,6 @@ copyright = "Copyright © 2025, Shawn Yeager"
   nostr = "https://nostr.shawnyeager.com"
   github = "https://github.com/shawnyeager"
 
-  # Open Graph image for social sharing (1200x630px)
-  og_image = "/images/og-image.png"
-
   # Site-specific
   podcast_name = "Trust Revolution podcast"
   podcast_url = "https://trustrevolution.co"
@@ -84,6 +77,11 @@ copyright = "Copyright © 2025, Shawn Yeager"
   # Secondary site link (for footer cross-link)
   secondary_site_url = "https://notes.shawnyeager.com"
   secondary_site_name = "Notes"
+
+  # Author information (used in RSS feeds)
+  [params.author]
+    name = "Shawn Yeager"
+    email = "hello@shawnyeager.com"
 
 # Menu configuration
 [menu]
