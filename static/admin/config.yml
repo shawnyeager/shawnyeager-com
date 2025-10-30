@@ -25,6 +25,16 @@ collections:
     slug: "{{slug}}"
     editor:
       preview: true
+    view_filters:
+      - label: "Drafts"
+        field: draft
+        pattern: true
+      - label: "Published"
+        field: draft
+        pattern: false
+    view_groups:
+      - label: "Draft Status"
+        field: draft
     fields:
       - {label: "Title", name: "title", widget: "string", required: true}
       - {label: "Description", name: "description", widget: "string", required: true, hint: "Used for SEO meta description and Open Graph tags"}
