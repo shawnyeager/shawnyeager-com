@@ -7,7 +7,9 @@
     <!-- All Essays -->
     <section class="recent-essays">
         {{ $posts := where .Pages "Type" "essays" }}
+        {{ if not hugo.IsServer }}
         {{ $posts = where $posts "Draft" false }}
+        {{ end }}
         {{ $paginator := .Paginate $posts }}
         {{ range $paginator.Pages }}
         <div class="essay-item">

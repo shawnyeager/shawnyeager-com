@@ -2,6 +2,9 @@
 {{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
 {{- /* Filter to only include essays - exclude standalone pages */ -}}
 {{- $pages := where $pctx.RegularPages "Section" "essays" -}}
+{{- if not hugo.IsServer -}}
+{{- $pages = where $pages "Draft" false -}}
+{{- end -}}
 {{- $limit := .Site.Config.Services.RSS.Limit -}}
 {{- if ge $limit 1 -}}
 {{- $pages = $pages | first $limit -}}

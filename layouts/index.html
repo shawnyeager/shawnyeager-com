@@ -6,7 +6,9 @@
 
     <!-- Featured or Latest Essay -->
     {{ $posts := where .Site.RegularPages "Type" "essays" }}
+    {{ if not hugo.IsServer }}
     {{ $posts = where $posts "Draft" false }}
+    {{ end }}
     {{ $featuredPost := where $posts "Params.featured" true }}
     {{ $latestPost := index $posts 0 }}
     {{ $isFeatured := false }}
