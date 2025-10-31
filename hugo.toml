@@ -63,6 +63,7 @@ enableEmoji = true
   show_email_signup = true        # Show email subscription form in footer
   email_signup_text = "I send new essays and updates via email."
   email_signup_action = "https://buttondown.com/api/emails/embed-subscribe/shawnyeager"
+  plausible_form_event = "Form+Submission"  # Plausible custom event for newsletter signup
 
   # Social/contact links
   nostr = "https://nostr.shawnyeager.com"
