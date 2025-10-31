@@ -13,6 +13,6 @@
     <div class="page-body">
         {{ $content := .Content }}
         {{ $content = replace $content "<!-- FOLLOWING_ALONG -->" "" }}
-        {{ $content | safeHTML }}
+        {{ $content }}
     </div>
 {{ end }}
