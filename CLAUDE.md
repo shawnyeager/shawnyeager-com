@@ -45,53 +45,36 @@ hugo new content/essays/essay-slug.md
 
 ### Why This Matters
 
-This site uses Hugo Modules to import the tangerine-theme. There's a critical footgun: the `hugo.work` file in your home directory (`/home/shawn/Work/hugo.work`) redirects module imports locally during development, BUT `hugo mod tidy` removes the `require` statement from go.mod because it sees the module as satisfied by the workspace. This breaks Netlify builds which don't have hugo.work.
+This site uses Hugo Modules to import the tangerine-theme. A **workspace file** (`/home/shawn/Work/hugo.work`) is set up to redirect module imports locally during development, BUT `hugo mod tidy` removes the `require` statement from go.mod because it sees the module as satisfied by the workspace. This breaks Netlify builds which don't have hugo.work.
 
-### Local Development (Recommended)
+### Local Development (Current Setup)
 
-When working on both this site and the theme simultaneously:
+The workspace is **already configured** at `/home/shawn/Work/hugo.work`. This means:
 
-1. **Enable local theme path in `hugo.toml`** (line 17):
+1. **hugo.toml always uses GitHub URL** (line 17):
 ```toml
 [module]
   [[module.imports]]
-    path = "/home/shawn/Work/tangerine-theme"  # Local development
+    path = "github.com/shawnyeager/tangerine-theme"  # Production URL
 ```
 
-2. **Verify hugo.work exists**: `/home/shawn/Work/hugo.work`
+2. **hugo.work redirects locally** to `/home/shawn/Work/tangerine-theme` during development
 
-3. **Run with local theme**: `hugo server -D`
+3. **Just run normally**:
+```bash
+hugo server -D                    # Works with local theme via hugo.work
+hugo --minify                     # Builds with local theme
+```
 
 4. **NEVER run**: `hugo mod tidy` (this removes the require statement!)
 
-### Production Mode (GitHub URL)
-
-When ready to deploy or not modifying the theme:
-
-1. **Switch to GitHub URL in `hugo.toml`** (line 17):
-```toml
-[module]
-  [[module.imports]]
-    path = "github.com/shawnyeager/tangerine-theme"  # Production
-```
-
-2. **Verify go.mod has require line**:
-```bash
-grep "require github.com/shawnyeager/tangerine-theme" go.mod
-# Output: require github.com/shawnyeager/tangerine-theme v1.18.5
-```
-
-3. **Update to latest version**:
-```bash
-hugo mod get github.com/shawnyeager/tangerine-theme@latest
-hugo --minify  # Test locally before committing
-```
-
 ### Updating Theme Version
 
+When the theme is updated:
+
 ```bash
-# Get specific version (use GitHub mode above first)
-hugo mod get github.com/shawnyeager/tangerine-theme@v1.18.1
+# Update to latest version
+hugo mod get github.com/shawnyeager/tangerine-theme@latest
 
 # Verify go.mod updated
 grep "require github.com/shawnyeager/tangerine-theme" go.mod
@@ -100,8 +83,15 @@ grep "require github.com/shawnyeager/tangerine-theme" go.mod
 hugo --minify
 
 # Pre-commit hook validates this automatically
-git add go.mod && git commit -m "chore: update tangerine-theme to v1.18.1"
+git add go.mod && git commit -m "chore: update tangerine-theme to v1.18.6"
 ```
+
+### Why hugo.work Exists
+
+The workspace file allows local development on the theme while keeping the GitHub URL in `hugo.toml`. This solves the critical problem: Netlify doesn't have `hugo.work`, so it needs the explicit `require` statement in go.mod to fetch the theme from GitHub.
+
+- **Local:** hugo.work redirects → local theme at `/home/shawn/Work/tangerine-theme`
+- **Production:** go.mod require → fetches from GitHub
 
 ### Troubleshooting
 
@@ -109,8 +99,8 @@ git add go.mod && git commit -m "chore: update tangerine-theme to v1.18.1"
 |---------|-------|-----|
 | `hugo: WARN Module not found` | URL misspelled or version wrong | Check module path spelling in hugo.toml |
 | Netlify build fails but local works | go.mod missing require statement | Run `hugo mod get github.com/shawnyeager/tangerine-theme@latest` |
-| Changes to theme don't appear | Still using GitHub URL | Switch to local path in hugo.toml |
-| `hugo mod tidy` removes require | hugo.work present and loaded | Never run `hugo mod tidy` in workspace context |
+| Changes to theme don't appear | Theme not at expected local path | Verify `/home/shawn/Work/tangerine-theme` exists and is up to date |
+| `hugo mod tidy` removes require | Hugo workspace redirecting | Never run `hugo mod tidy` when `/home/shawn/Work/hugo.work` exists |
 
 **Automated safeguards:**
 - Pre-commit hook validates go.mod has theme require
@@ -180,10 +170,39 @@ This site overrides specific theme templates in `layouts/`:
 - **`page/single.html`**: Generic pages (now, media, connect, etc.)
 - **`_default/now.html`**: Special layout for /now page
 - **`_default/podcast.html`**: Special layout for /podcast page
+- **`partials/page-title.html`**: Smart page title visibility logic (see below)
 - **`partials/topic-list.html`**: Topics navigation component
 - **`shortcodes/contact-method.html`**: Contact link component
 
 Templates fall back to theme module if not overridden locally.
+
+### Page Title Visibility System
+
+All page templates use the `page-title.html` partial for semantic H1 titles with smart visibility:
+
+**Logic:**
+- **Essays (individual):** Type=essays AND Kind!=section → Show H1 title (visible)
+- **Essays section listing:** Type=essays AND Kind=section → Hide H1 title (sr-only)
+- **Pages (with show_title flag):** Frontmatter `show_title: true` → Show H1 title (visible)
+- **Pages (default):** No show_title flag → Hide H1 title (sr-only)
+
+**In templates:** Use `{{ partial "page-title.html" . }}`
+
+**In frontmatter:** Add `show_title: true` to show page title visually
+
+**Current visible title pages:**
+- Individual essays (automatic via type)
+- /now (has `show_title: true`)
+- /podcast (has `show_title: true`)
+
+**Current hidden title pages (utility pages):**
+- /essays/ listing (section type)
+- /media (utility page)
+- /connect (utility page)
+- /encrypt (utility page)
+- /subscribed (utility page)
+
+**Reference:** See `layouts/partials/PAGE_TITLE_SWITCH.md` for complete documentation.
 
 ### Content Architecture
 
