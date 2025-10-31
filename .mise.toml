@@ -4,8 +4,9 @@
 [tools]
 # Core tools for builds
 node = "latest"
-hugo-extended = "0.152.2"
 
+# Note: Hugo version is set in netlify.toml for Netlify builds.
+# For local dev, install Hugo via: mise use -g hugo-extended@0.152.2
 # Note: markdownlint-cli2 is used by pre-commit hooks (local dev only).
 # Install manually if needed: npm install -g markdownlint-cli2
 
