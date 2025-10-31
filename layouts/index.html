@@ -17,9 +17,9 @@
         {{ $isFeatured = true }}
     {{ end }}
     {{ with $latestPost }}
-     <section class="latest-essay">
-         <h2 class="essay-section-header">{{ if $isFeatured }}Featured Essay{{ else }}Latest Essay{{ end }}</h2>
-         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+    <section class="latest-essay">
+        <div class="essay-section-header">{{ if $isFeatured }}Featured Essay{{ else }}Latest Essay{{ end }}</div>
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
         <p>{{ .Summary }}</p>
         <p><a href="{{ .RelPermalink }}" class="cta-link">Read more <span aria-hidden="true">→</span></a></p>
     </section>
@@ -27,10 +27,10 @@
 
     <!-- Podcast Feature Box -->
     <section class="podcast">
-         <div class="podcast-header">
-             <img src="/images/trust-revolution-cover.webp" alt="Trust Revolution Podcast" class="podcast-art">
-             <div class="podcast-info">
-                 <h2>{{ .Site.Params.podcast_name }}</h2>
+        <div class="podcast-header">
+            <img src="/images/trust-revolution-cover.webp" alt="Trust Revolution Podcast" class="podcast-art">
+            <div class="podcast-info">
+                <h3>{{ .Site.Params.podcast_name }}</h3>
                 <p class="tagline">{{ .Site.Params.podcast_description }}</p>
             </div>
         </div>
@@ -40,23 +40,23 @@
         </div>
     </section>
 
-     <!-- Recent Essays -->
-     {{ if $posts }}
-     <section class="recent-essays">
-         <h3 class="section-label-small">Recent Essays</h3>
+    <!-- Recent Essays -->
+    {{ if $posts }}
+    <section class="recent-essays">
+        <div class="section-label-small">Recent Essays</div>
         {{ range first 5 $posts }}
         <div class="essay-item">
-             <a href="{{ .RelPermalink }}">
-                 <span class="essay-date">{{ .Date.Format "Jan 2, 2006" }}</span>
-                 <span class="essay-title">{{ .Title }}</span>
-             </a>
+            <a href="{{ .RelPermalink }}">
+                <span class="essay-date">{{ .Date.Format "2006 · 01" }}</span>
+                <span class="essay-title">{{ .Title }}</span>
+            </a>
         </div>
         {{ end }}
         <p><a href="{{ "essays" | relURL }}" class="cta-link">All essays <span aria-hidden="true">→</span></a></p>
     </section>
-     {{ else }}
-     <section class="recent-essays">
-         <h3 class="section-label-small">Recent Essays</h3>
+    {{ else }}
+    <section class="recent-essays">
+        <div class="section-label-small">Recent Essays</div>
         <p>No essays published yet.</p>
     </section>
     {{ end }}
