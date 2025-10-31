@@ -13,10 +13,10 @@
         {{ $paginator := .Paginate $posts }}
         {{ range $paginator.Pages }}
         <div class="essay-item">
-            <a href="{{ .RelPermalink }}">
-                <span class="essay-date">{{ .Date.Format "2006 · 01" }}</span>
-                <span class="essay-title">{{ .Title }}</span>
-            </a>
+             <a href="{{ .RelPermalink }}">
+                 <span class="essay-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+                 <span class="essay-title">{{ .Title }}</span>
+             </a>
         </div>
         {{ end }}
     </section>

@@ -46,10 +46,10 @@
         <div class="section-label-small">Recent Essays</div>
         {{ range first 5 $posts }}
         <div class="essay-item">
-            <a href="{{ .RelPermalink }}">
-                <span class="essay-date">{{ .Date.Format "2006 · 01" }}</span>
-                <span class="essay-title">{{ .Title }}</span>
-            </a>
+             <a href="{{ .RelPermalink }}">
+                 <span class="essay-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+                 <span class="essay-title">{{ .Title }}</span>
+             </a>
         </div>
         {{ end }}
         <p><a href="{{ "essays" | relURL }}" class="cta-link">All essays <span aria-hidden="true">→</span></a></p>
