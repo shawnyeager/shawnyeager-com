@@ -36,7 +36,7 @@ The systems we're competing against keep improving---better UX, deeper integrati
 
 ## Protocols built. Products needed.
 
-The Bitcoin network has operated for over fifteen years without meaningful downtime. Lightning Network routes payments in milliseconds with fees measured in satoshis. Nostr provides censorship-resistant infrastructure for identity and communication. These are remarkable technical achievements.
+The Bitcoin network has operated for over sixteen  years without meaningful downtime. Lightning Network routes payments in milliseconds with fees measured in satoshis. Nostr provides censorship-resistant infrastructure for identity and communication. These are remarkable technical achievements.
 
 The next layer is making these technologies accessible. Freedom tech must win on every dimension, not just principle.
 
