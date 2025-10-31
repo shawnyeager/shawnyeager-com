@@ -235,7 +235,7 @@ static/
 **Deploy trigger:** Push to `master` branch
 **Build command:** `hugo --minify` (with GITHUB_TOKEN for private theme module)
 **Publish directory:** `public/`
-**Hugo version:** 0.151.0 (set in `netlify.toml`)
+**Hugo version:** 0.152.2 (set in `netlify.toml`)
 
 ### Netlify Build Configuration
 

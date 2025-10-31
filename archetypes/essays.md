@@ -1,10 +1,11 @@
 ---
 title: "{{ replace .File.ContentBaseName "-" " " | title }}"
+description: ""  # REQUIRED: 1-2 sentence summary for SEO meta tags and social sharing
 date: {{ .Date }}
-topics: []
-tags: []
-cta: true
-featured: false
+topics: []        # Taxonomy: e.g., ["Bitcoin", "Strategy"]
+tags: []          # For filtering: e.g., ["go-to-market", "sales"]
+cta: true         # Show "Let's talk" CTA in footer
+featured: false   # Set true to feature on homepage
 draft: true
 ---
 
