@@ -27,10 +27,10 @@
 
     <!-- Podcast Feature Box -->
     <section class="podcast">
+        <h2>{{ .Site.Params.podcast_name }}</h2>
         <div class="podcast-header">
             <img src="/images/trust-revolution-cover.webp" alt="Trust Revolution Podcast" class="podcast-art">
             <div class="podcast-info">
-                <h2>{{ .Site.Params.podcast_name }}</h2>
                 <p class="tagline">{{ .Site.Params.podcast_description }}</p>
             </div>
         </div>
@@ -40,10 +40,10 @@
         </div>
     </section>
 
-     <!-- Recent Essays -->
-     {{ if $posts }}
-     <section class="recent-essays">
-         <h3 class="section-label-small">Recent Essays</h3>
+      <!-- Recent Essays -->
+      {{ if $posts }}
+      <section class="recent-essays">
+          <h2 class="section-label-small">Recent Essays</h2>
          {{ range first 5 $posts }}
          <div class="essay-item">
              <a href="{{ .RelPermalink }}">
@@ -54,10 +54,10 @@
          {{ end }}
          <p><a href="{{ "essays" | relURL }}" class="cta-link">All essays <span aria-hidden="true">→</span></a></p>
      </section>
-     {{ else }}
-     <section class="recent-essays">
-         <h3 class="section-label-small">Recent Essays</h3>
-         <p>No essays published yet.</p>
-     </section>
-     {{ end }}
+      {{ else }}
+      <section class="recent-essays">
+          <h2 class="section-label-small">Recent Essays</h2>
+          <p>No essays published yet.</p>
+      </section>
+      {{ end }}
 {{ end }}

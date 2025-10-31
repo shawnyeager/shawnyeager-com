@@ -1,4 +1,7 @@
 {{ define "main" }}
+    <!-- Page Title -->
+    <h1 class="page-title">Essays</h1>
+
     <!-- Topics -->
     {{ if .Site.Taxonomies.topics }}
     {{ partial "topic-list.html" (dict "context" . "heading" "Browse by Topic") }}
