@@ -43,32 +43,78 @@ hugo new content/essays/essay-slug.md
 
 ## ⚠️ CRITICAL: Hugo Module Management
 
-**NEVER run `hugo mod tidy` when `/home/shawn/Work/hugo.work` exists!**
+### Why This Matters
 
-The hugo.work workspace file causes `hugo mod tidy` to remove the `require` statement from go.mod because it sees the module as satisfied by the workspace. This breaks Netlify builds which don't have the workspace.
+This site uses Hugo Modules to import the tangerine-theme. There's a critical footgun: the `hugo.work` file in your home directory (`/home/shawn/Work/hugo.work`) redirects module imports locally during development, BUT `hugo mod tidy` removes the `require` statement from go.mod because it sees the module as satisfied by the workspace. This breaks Netlify builds which don't have hugo.work.
 
-**Correct workflow for updating theme version:**
+### Local Development (Recommended)
 
-```bash
-# To update theme version:
-hugo mod get github.com/shawnyeager/tangerine-theme@v1.18.1
+When working on both this site and the theme simultaneously:
 
-# Verify go.mod has require line:
-grep "require github.com/shawnyeager/tangerine-theme" go.mod
-
-# NEVER run: hugo mod tidy (in workspace context)
+1. **Enable local theme path in `hugo.toml`** (line 17):
+```toml
+[module]
+  [[module.imports]]
+    path = "/home/shawn/Work/tangerine-theme"  # Local development
 ```
 
-**Why this happens:**
-- Local dev uses `/home/shawn/Work/hugo.work` which redirects to local theme
-- `hugo mod tidy` sees module satisfied by workspace and removes require
-- Netlify doesn't have hugo.work, needs go.mod require to fetch from GitHub
-- Result: Netlify builds use wrong version or fail entirely
+2. **Verify hugo.work exists**: `/home/shawn/Work/hugo.work`
+
+3. **Run with local theme**: `hugo server -D`
+
+4. **NEVER run**: `hugo mod tidy` (this removes the require statement!)
+
+### Production Mode (GitHub URL)
+
+When ready to deploy or not modifying the theme:
+
+1. **Switch to GitHub URL in `hugo.toml`** (line 17):
+```toml
+[module]
+  [[module.imports]]
+    path = "github.com/shawnyeager/tangerine-theme"  # Production
+```
+
+2. **Verify go.mod has require line**:
+```bash
+grep "require github.com/shawnyeager/tangerine-theme" go.mod
+# Output: require github.com/shawnyeager/tangerine-theme v1.18.5
+```
+
+3. **Update to latest version**:
+```bash
+hugo mod get github.com/shawnyeager/tangerine-theme@latest
+hugo --minify  # Test locally before committing
+```
+
+### Updating Theme Version
+
+```bash
+# Get specific version (use GitHub mode above first)
+hugo mod get github.com/shawnyeager/tangerine-theme@v1.18.1
+
+# Verify go.mod updated
+grep "require github.com/shawnyeager/tangerine-theme" go.mod
+
+# Test build locally
+hugo --minify
+
+# Pre-commit hook validates this automatically
+git add go.mod && git commit -m "chore: update tangerine-theme to v1.18.1"
+```
+
+### Troubleshooting
+
+| Problem | Cause | Fix |
+|---------|-------|-----|
+| `hugo: WARN Module not found` | URL misspelled or version wrong | Check module path spelling in hugo.toml |
+| Netlify build fails but local works | go.mod missing require statement | Run `hugo mod get github.com/shawnyeager/tangerine-theme@latest` |
+| Changes to theme don't appear | Still using GitHub URL | Switch to local path in hugo.toml |
+| `hugo mod tidy` removes require | hugo.work present and loaded | Never run `hugo mod tidy` in workspace context |
 
 **Automated safeguards:**
 - Pre-commit hook validates go.mod has theme require
 - GitHub Actions CI validates module requirements on push
-```
 
 ## One-time Setup After Cloning
 
