@@ -1,6 +1,6 @@
 {{ define "main" }}
-    <!-- Page Title (hidden visually, available to screen readers) -->
-    <h1 class="sr-only">{{ .Title }}</h1>
+    <!-- Page Title (smart visibility: show_title frontmatter flag controls display) -->
+    {{ partial "page-title.html" . }}
 
     <!-- Page Content -->
     <div class="page-body">

@@ -5,6 +5,7 @@ subtitle: "Rethinking trust for a decentralized future"
 date: 2025-10-11
 type: page
 layout: podcast
+show_title: true
 ---
 
 {{< image src="/images/trust-revolution-cover.webp" alt="Trust Revolution Podcast" variant="img-md" >}}

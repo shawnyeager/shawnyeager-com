@@ -1,6 +1,6 @@
 {{ define "main" }}
-    <!-- Page Title and Subtitle (visible - podcast is a featured section) -->
-    <h1 class="page-title">{{ .Title }}</h1>
+    <!-- Page Title and Subtitle (smart visibility: show_title frontmatter flag controls display) -->
+    {{ partial "page-title.html" . }}
     <p class="page-subtitle">{{ .Params.subtitle }}</p>
 
     <!-- Page Content -->

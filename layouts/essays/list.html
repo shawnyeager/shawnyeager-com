@@ -1,6 +1,6 @@
 {{ define "main" }}
-    <!-- Page Title (hidden visually, available to screen readers) -->
-    <h1 class="sr-only">Essays</h1>
+    <!-- Page Title (smart visibility: essays type always shows title) -->
+    {{ partial "page-title.html" . }}
 
     <!-- Topics -->
     {{ if .Site.Taxonomies.topics }}

@@ -6,8 +6,8 @@
     </div>
     {{ end }}
 
-    <!-- Page Title -->
-    <h1 class="page-title">{{ .Title }}</h1>
+    <!-- Page Title (smart visibility: show_title frontmatter flag controls display) -->
+    {{ partial "page-title.html" . }}
 
     <!-- Page Content wrapped in sections -->
     <div class="page-body">

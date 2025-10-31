@@ -1,0 +1,18 @@
+{{/* 
+Semantic page title helper - handles visibility based on content type and frontmatter
+
+Essays: Always visible (articles need prominent titles)
+Pages: Conditional visibility via show_title frontmatter flag
+  - Default: sr-only (screen-reader only, no visual noise)
+  - show_title: true → visible (for feature pages like /now, /podcast)
+*/}}
+{{ if eq .Type "essays" }}
+    <h1 class="page-title">{{ .Title }}</h1>
+{{ else }}
+    {{ $showTitle := .Params.show_title | default false }}
+    {{ if $showTitle }}
+        <h1 class="page-title">{{ .Title }}</h1>
+    {{ else }}
+        <h1 class="sr-only">{{ .Title }}</h1>
+    {{ end }}
+{{ end }}
