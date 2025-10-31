@@ -1,8 +1,10 @@
 name: Scheduled Netlify Build
 
 on:
-  # Schedule builds - runs every Friday at 6:30 AM CDT (11:30 AM UTC)
-  # Note: GitHub Actions uses UTC and doesn't adjust for daylight saving time
+  # Schedule builds - runs every Friday at 11:30 AM UTC
+  # This is equivalent to:
+  #   - 6:30 AM CDT (March - early November, daylight saving time)
+  #   - 5:30 AM CST (early November - March, standard time)
   schedule:
     - cron: '30 11 * * 5'
 
