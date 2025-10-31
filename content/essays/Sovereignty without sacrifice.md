@@ -74,7 +74,7 @@ The best protocol in the world accomplishes nothing if nobody uses it. We have t
 
 We won't get there overnight. Building products that compete on every dimension takes years, not months. But we're at an inflection point, and the trends are clear.
 
-CBDCs aren't theoretical. China's digital yuan already has millions of users. The ECB targets 2026 for the launch decision. Brazil and India roll out in 2025-2026. These systems have government resources, zero self-custody UX problems, and institutional backing.
+CBDCs aren't theoretical. China's digital yuan has a reported 225 million users. The ECB targets 2026 for their launch decision. Brazil and India roll out in 2025-2026. These systems have government resources, zero self-custody UX problems, and institutional backing.
 
 That's what we're racing against. Bitcoin's been live since 2009. Lightning since 2018. The protocols work. But achieving world-class UX on top of working protocols still takes years of sustained iteration. Apple Pay took 15 years of mobile payments development before launch, then another decade to reach 5.6% of retail sales. Venmo needed 7 years just to add basic merchant payments. Lightning's seven years in---90% of transactions still require custodial solutions because self-custody UX remains too hard.
 
