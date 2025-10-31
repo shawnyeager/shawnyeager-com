@@ -45,8 +45,9 @@ enableEmoji = true
   copyright = "Copyright © 2025, Shawn Yeager"
   description = "Bitcoin go-to-market and revenue leader. Previously led sales at Amboss Technologies, NYDIG Payments, and Bottlepay. Hosts Trust Revolution podcast."
 
-  # Open Graph image for social sharing (1200x630px)
-  og_image = "/images/og-image.png"
+  # Open Graph configuration for social sharing
+  og_image = "/images/og-image.png"  # 1200x630px recommended
+  og_type = "website"                # Default; overridden to "article" for essays
 
   # Theme configuration
   content_type = "essays"         # Content type for parameterized templates
