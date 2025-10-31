@@ -2,12 +2,12 @@
 # Auto-installs tools when you cd into this directory
 
 [tools]
-# Core tools
+# Core tools for builds
 node = "latest"
 hugo-extended = "0.152.2"
 
-# NPM packages (per-project)
-"npm:markdownlint-cli2" = "latest"
+# Note: markdownlint-cli2 is used by pre-commit hooks (local dev only).
+# Install manually if needed: npm install -g markdownlint-cli2
 
 [env]
 # Ensure npm global packages are in PATH
