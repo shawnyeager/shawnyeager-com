@@ -20,10 +20,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-       - name: Verify Go version consistency
-         run: |
-           GO_MOD_VERSION=$(grep "^go " go.mod | awk '{print $2}')
-           NETLIFY_GO_VERSION=$(grep "^  GO_VERSION = " netlify.toml | awk -F'"' '{print $2}')
+      - name: Verify Go version consistency
+        run: |
+          GO_MOD_VERSION=$(grep "^go " go.mod | awk '{print $2}')
+          NETLIFY_GO_VERSION=$(grep "^  GO_VERSION = " netlify.toml | awk -F'"' '{print $2}')
           
           echo "Checking Go version alignment..."
           echo "  go.mod: $GO_MOD_VERSION"
