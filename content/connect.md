@@ -1,11 +1,11 @@
 ---
 title: Connect
-description: Get in touch about Bitcoin projects. Email, Signal, or book a meeting directly.
+description: Get in touch with Shawn Yeager about Bitcoin and freedom tech go-to-market strategy, revenue operations, or product feedback. Contact via email, Signal, or schedule a call.
 date: 2025-10-29T07:27:00
 type: page
 hide_footer_signup: true
 ---
-I enjoy speaking with builders in Bitcoin and freedom tech. Whether you're wrestling with go-to-market strategy, need a sounding board on partnerships, or just want to compare notes on what's working---reach out.
+Building Bitcoin or freedom tech that needs to scale commercially? Need help with go-to-market, revenue strategy, or product feedback? Let's talk.
 
 <div class="contact-section">
 
