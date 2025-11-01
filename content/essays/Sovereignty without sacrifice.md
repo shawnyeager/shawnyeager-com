@@ -1,6 +1,6 @@
 ---
 title: Sovereignty without sacrifice
-description: Freedom tech loses when it demands sacrifice. Winning means building products that are better on every dimension---not just principles.
+description: Freedom tech loses when it demands sacrifice. Winning means building products that are better on every dimension—not just principles.
 date: 2025-10-31T06:00:00-05:00
 slug: sovereignty-without-sacrifice
 topics:
