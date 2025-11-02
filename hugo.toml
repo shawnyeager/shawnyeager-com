@@ -57,27 +57,17 @@ enableEmoji = true
   # Analytics
   plausible_script_id = "pa-Qxf1mpF6qNZ8714Ucvs50"  # Plausible analytics
 
-  # Plausible event tracking configuration
-  [params.plausible_events]
-    # Contact conversion events
-    contact_email = "Email+Contact"
-    contact_signal = "Signal+Contact"
-    contact_calendar = "Calendar+Booking"
-    contact_vcard = "vCard+Download"
-
-    # Podcast engagement events
-    podcast_subscribe = "Podcast+Subscribe"
-    podcast_external = "Podcast+External"
-
-    # Content navigation events
-    essay_cta = "Essay+CTA"
-    all_essays = "All+Essays"
-
-    # Media kit events
-    media_kit = "Media+Kit+Download"
-
-    # Cross-site navigation
-    cross_site_nav = "Cross-Site+Navigation"
+  # Plausible event tracking configuration (using dotted key notation)
+  plausible_events.contact_email = "Email+Contact"
+  plausible_events.contact_signal = "Signal+Contact"
+  plausible_events.contact_calendar = "Calendar+Booking"
+  plausible_events.contact_vcard = "vCard+Download"
+  plausible_events.podcast_subscribe = "Podcast+Subscribe"
+  plausible_events.podcast_external = "Podcast+External"
+  plausible_events.essay_cta = "Essay+CTA"
+  plausible_events.all_essays = "All+Essays"
+  plausible_events.media_kit = "Media+Kit+Download"
+  plausible_events.cross_site_nav = "Cross-Site+Navigation"
 
   # Reading time display (used in layouts/essays/single.html)
   show_read_time = true           # Show reading time on essays
