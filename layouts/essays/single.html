@@ -27,13 +27,13 @@ description: "A concise 1-2 sentence summary of the essay for SEO meta tags and 
         <!-- Optional Footer CTA -->
         {{ if .Params.cta }}
         <div class="essay-footer">
-            <p>Working on Bitcoin sales or go-to-market? <a href="mailto:hello@shawnyeager.com">Let's talk</a>.</p>
+            <p>Working on Bitcoin sales or go-to-market? <a href="mailto:hello@shawnyeager.com"{{ with .Site.Params.plausible_events.contact_email }} class="plausible-event-name={{ . }}"{{ end }}>Let's talk</a>.</p>
         </div>
         {{ end }}
 
         <!-- Back Link -->
         <div class="essay-back-link">
-            <a href="{{ "essays" | relURL }}"><span aria-hidden="true">←</span> All essays</a>
+            <a href="{{ "essays" | relURL }}"{{ with .Site.Params.plausible_events.all_essays }} class="plausible-event-name={{ . }}"{{ end }}><span aria-hidden="true">←</span> All essays</a>
         </div>
     </article>
 {{ end }}
