@@ -21,7 +21,7 @@
         <h2 class="essay-section-header">{{ if $isFeatured }}Featured Essay{{ else }}Latest Essay{{ end }}</h2>
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
         <p>{{ .Summary }}</p>
-        <p><a href="{{ .RelPermalink }}" class="cta-link">Read more <span aria-hidden="true">→</span></a></p>
+        <p><a href="{{ .RelPermalink }}" class="cta-link{{ with $.Site.Params.plausible_events.essay_cta }} plausible-event-name={{ . }}{{ end }}">Read more <span aria-hidden="true">→</span></a></p>
     </section>
     {{ end }}
 
@@ -35,8 +35,8 @@
             </div>
         </div>
         <div class="podcast-links">
-            <a href="{{ .Site.Params.podcast_url }}" target="_blank">Listen now <span aria-hidden="true">→</span></a>
-            <a href="{{ "podcast" | relURL }}">Subscribe <span aria-hidden="true">→</span></a>
+            <a href="{{ .Site.Params.podcast_url }}" target="_blank"{{ with .Site.Params.plausible_events.podcast_external }} class="plausible-event-name={{ . }}"{{ end }}>Listen now <span aria-hidden="true">→</span></a>
+            <a href="{{ "podcast" | relURL }}"{{ with .Site.Params.plausible_events.podcast_subscribe }} class="plausible-event-name={{ . }}"{{ end }}>Subscribe <span aria-hidden="true">→</span></a>
         </div>
     </section>
 
@@ -52,7 +52,7 @@
              </a>
          </div>
          {{ end }}
-         <p><a href="{{ "essays" | relURL }}" class="cta-link">All essays <span aria-hidden="true">→</span></a></p>
+         <p><a href="{{ "essays" | relURL }}" class="cta-link{{ with .Site.Params.plausible_events.all_essays }} plausible-event-name={{ . }}{{ end }}">All essays <span aria-hidden="true">→</span></a></p>
      </section>
       {{ else }}
       <section class="recent-essays">

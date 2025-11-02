@@ -30,13 +30,13 @@ High-resolution headshot available for download:
 
 {{< image src="/images/shawn-media.webp" alt="Shawn Yeager headshot" variant="img-lg circular-image" >}}
 
-{{< button url="/images/shawn-media-full.jpg" text="Download high-res (JPG, 2048x2048px)" variant="cta" >}}
+{{< button url="/images/shawn-media-full.jpg" text="Download high-res (JPG, 2048x2048px)" variant="cta" event="Media+Kit+Download" >}}
 
 ## Contact
 
-{{< detail-pair label="Email" url="mailto:hello@shawnyeager.com" value="hello@shawnyeager.com" >}}
+{{< contact-method type="email" value="hello@shawnyeager.com" >}}
 
-{{< detail-pair label="Signal" url="https://shawnyeager.com/signal" value="shawnyeager.com/signal" >}}
+{{< contact-method type="signal" value="https://shawnyeager.com/signal" display="shawnyeager.com/signal" >}}
 
 ## Current focus
 
@@ -57,4 +57,4 @@ High-resolution headshot available for download:
 
 Trust Revolution is a podcast exploring how we can rethink trust for a decentralized future. Through conversations with builders, thinkers, and operators in Bitcoin and beyond, we examine the systems we trust, why they work (or don't), and what comes next.
 
-{{< link url="https://trustrevolution.co" text="Listen at trustrevolution.co" style="cta" >}}
+{{< link url="https://trustrevolution.co" text="Listen at trustrevolution.co" style="cta" event="Podcast+External" >}}
