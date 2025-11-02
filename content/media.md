@@ -57,4 +57,4 @@ High-resolution headshot available for download:
 
 Trust Revolution is a podcast exploring how we can rethink trust for a decentralized future. Through conversations with builders, thinkers, and operators in Bitcoin and beyond, we examine the systems we trust, why they work (or don't), and what comes next.
 
-{{< link url="https://trustrevolution.co" text="Listen at trustrevolution.co" style="cta" event="Podcast+External" >}}
+{{< podcast-link event="Podcast+External" >}}
