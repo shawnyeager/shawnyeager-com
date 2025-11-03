@@ -20,7 +20,7 @@
     <section class="latest-essay">
         <h2 class="essay-section-header">{{ if $isFeatured }}Featured Essay{{ else }}Latest Essay{{ end }}</h2>
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        <p>{{ .Summary }}</p>
+        {{ .Summary }}
         <p><a href="{{ .RelPermalink }}" class="cta-link{{ with $.Site.Params.plausible_events.essay_cta }} plausible-event-name={{ . }}{{ end }}">Read more <span aria-hidden="true">→</span></a></p>
     </section>
     {{ end }}
