@@ -85,7 +85,7 @@ async function main() {
           width: 1200px;
           height: 630px;
           background: linear-gradient(135deg, ${COLORS.bgPrimary} 0%, ${COLORS.bgSecondary} 100%);
-          padding: 40px;
+          padding: 80px;
           font-family: 'Inter', sans-serif;
         ">
           <div style="
@@ -114,7 +114,7 @@ async function main() {
                 color: ${COLORS.textPrimary};
                 line-height: 1.2;
                 margin: 0;
-                max-width: 1100px;
+                max-width: 980px;
               ">${title}</h1>
             </div>
             <p style="
@@ -122,7 +122,7 @@ async function main() {
               color: ${COLORS.textSecondary};
               line-height: 1.4;
               margin: 0;
-              max-width: 1100px;
+              max-width: 980px;
               padding-left: 60px;
             ">${description}</p>
           </div>
