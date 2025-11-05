@@ -14,11 +14,29 @@ const FONT_PATH = "./assets/fonts/Inter-SemiBold.otf";
 // Design tokens from tangerine-theme
 const COLORS = {
   textPrimary: "#1a1a1a",
-  textSecondary: "#808080",
+  textSecondary: "#666666",
   accent: "#d63900",
   bgPrimary: "#ffffff",
   bgSecondary: "#f5f5f5",
 };
+
+async function generateImage(template, width, height, fontData) {
+  const svg = await satori(template, {
+    width,
+    height,
+    fonts: [
+      {
+        name: "Inter",
+        data: fontData,
+        weight: 600,
+        style: "normal",
+      },
+    ],
+  });
+
+  const resvg = new Resvg(svg);
+  return resvg.render().asPng();
+}
 
 async function main() {
   console.log("🎨 Generating Open Graph images for essays...\n");
@@ -36,7 +54,7 @@ async function main() {
     console.log(`✓ Loaded font: ${FONT_PATH}\n`);
   } catch (error) {
     console.error(`✗ Error loading font from ${FONT_PATH}`);
-    console.error(`  Please ensure Inter-SemiBold.ttf exists at this location.`);
+    console.error(`  Please ensure Inter-SemiBold.otf exists at this location.`);
     process.exit(1);
   }
 
@@ -55,82 +73,122 @@ async function main() {
       const content = await readFile(filePath, "utf-8");
       const { data } = matter(content);
       const title = data.title || "Untitled";
+      const description = data.description || "";
 
       console.log(`  Processing: ${title}`);
       console.log(`    File: ${file}`);
 
-      // Create HTML template using design tokens
-      const template = html(`
+      // Generate landscape version (1200×630)
+      const landscapeTemplate = html(`
         <div style="
           display: flex;
           width: 1200px;
           height: 630px;
           background: linear-gradient(135deg, ${COLORS.bgPrimary} 0%, ${COLORS.bgSecondary} 100%);
-          padding: 80px;
+          padding: 40px;
           font-family: 'Inter', sans-serif;
         ">
           <div style="
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             width: 100%;
           ">
-            <div style="display: flex; flex-direction: column; margin-top: 60px;">
+            <div style="
+              display: flex;
+              align-items: flex-start;
+              gap: 12px;
+              margin-bottom: 16px;
+            ">
+              <div style="
+                display: flex;
+                width: 20px;
+                height: 20px;
+                background: ${COLORS.accent};
+                margin-top: 8px;
+                flex-shrink: 0;
+              "></div>
               <h1 style="
-                font-size: 72px;
+                font-size: 30px;
                 font-weight: 600;
                 color: ${COLORS.textPrimary};
                 line-height: 1.2;
                 margin: 0;
-                max-width: 900px;
+                max-width: 500px;
               ">${title}</h1>
             </div>
-
-            <div style="
-              display: flex;
-              flex-direction: column;
-              gap: 8px;
-            ">
-              <p style="
-                font-size: 32px;
-                color: ${COLORS.textSecondary};
-                margin: 0;
-              ">Shawn Yeager</p>
-              <p style="
-                font-size: 28px;
-                color: ${COLORS.textSecondary};
-                margin: 0;
-              ">shawnyeager.com</p>
-            </div>
+            <p style="
+              font-size: 17px;
+              color: ${COLORS.textSecondary};
+              line-height: 1.4;
+              margin: 0;
+              max-width: 500px;
+              padding-left: 32px;
+            ">${description}</p>
           </div>
         </div>
       `);
 
-      // Generate SVG using Satori
-      const svg = await satori(template, {
-        width: 1200,
-        height: 630,
-        fonts: [
-          {
-            name: "Inter",
-            data: fontData,
-            weight: 600,
-            style: "normal",
-          },
-        ],
-      });
+      const landscapePng = await generateImage(landscapeTemplate, 1200, 630, fontData);
+      const landscapeOutput = `${slug}.png`;
+      await writeFile(join(OUTPUT_DIR, landscapeOutput), landscapePng);
+      console.log(`    Landscape: ${landscapeOutput} (${(landscapePng.length / 1024).toFixed(1)} KB)`);
 
-      // Convert SVG to PNG using resvg
-      const resvg = new Resvg(svg);
-      const pngBuffer = resvg.render().asPng();
+      // Generate square version (1200×1200)
+      const squareTemplate = html(`
+        <div style="
+          display: flex;
+          width: 1200px;
+          height: 1200px;
+          background: linear-gradient(135deg, ${COLORS.bgPrimary} 0%, ${COLORS.bgSecondary} 100%);
+          padding: 60px;
+          font-family: 'Inter', sans-serif;
+        ">
+          <div style="
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+          ">
+            <div style="
+              display: flex;
+              align-items: flex-start;
+              gap: 16px;
+              margin-bottom: 24px;
+            ">
+              <div style="
+                display: flex;
+                width: 22px;
+                height: 22px;
+                background: ${COLORS.accent};
+                margin-top: 10px;
+                flex-shrink: 0;
+              "></div>
+              <h1 style="
+                font-size: 35px;
+                font-weight: 600;
+                color: ${COLORS.textPrimary};
+                line-height: 1.2;
+                margin: 0;
+                max-width: 400px;
+              ">${title}</h1>
+            </div>
+            <p style="
+              font-size: 18px;
+              color: ${COLORS.textSecondary};
+              line-height: 1.4;
+              margin: 0;
+              max-width: 400px;
+              padding-left: 38px;
+            ">${description}</p>
+          </div>
+        </div>
+      `);
 
-      // Save to output directory
-      const outputFile = `${slug}.png`;
-      const outputPath = join(OUTPUT_DIR, outputFile);
-      await writeFile(outputPath, pngBuffer);
-
-      const sizeKB = (pngBuffer.length / 1024).toFixed(1);
-      console.log(`    Output: ${outputFile} (${sizeKB} KB)`);
+      const squarePng = await generateImage(squareTemplate, 1200, 1200, fontData);
+      const squareOutput = `${slug}-square.png`;
+      await writeFile(join(OUTPUT_DIR, squareOutput), squarePng);
+      console.log(`    Square: ${squareOutput} (${(squarePng.length / 1024).toFixed(1)} KB)`);
       console.log(`    ✓ Generated successfully\n`);
     } catch (error) {
       console.error(`    ✗ Error processing ${file}:`);
@@ -138,7 +196,7 @@ async function main() {
     }
   }
 
-  console.log(`\n🎉 Done! Generated ${markdownFiles.length} Open Graph image(s).`);
+  console.log(`\n🎉 Done! Generated ${markdownFiles.length * 2} Open Graph image(s).`);
   console.log(`   Output directory: ${OUTPUT_DIR}`);
 }
 
