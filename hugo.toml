@@ -81,6 +81,7 @@ enableEmoji = true
   # Social/contact links
   nostr = "https://nostr.shawnyeager.com"
   github = "https://github.com/shawnyeager"
+  twitter_handle = "shawnyeager"  # Without @ symbol, used for Twitter Card attribution
 
   # Site-specific
   podcast_name = "Trust Revolution podcast"
