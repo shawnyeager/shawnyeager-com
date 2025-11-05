@@ -102,28 +102,28 @@ async function main() {
             ">
               <div style="
                 display: flex;
-                width: 20px;
-                height: 20px;
+                width: 40px;
+                height: 40px;
                 background: ${COLORS.accent};
-                margin-top: 8px;
+                margin-top: 16px;
                 flex-shrink: 0;
               "></div>
               <h1 style="
-                font-size: 30px;
+                font-size: 60px;
                 font-weight: 600;
                 color: ${COLORS.textPrimary};
                 line-height: 1.2;
                 margin: 0;
-                max-width: 500px;
+                max-width: 1000px;
               ">${title}</h1>
             </div>
             <p style="
-              font-size: 17px;
+              font-size: 34px;
               color: ${COLORS.textSecondary};
               line-height: 1.4;
               margin: 0;
-              max-width: 500px;
-              padding-left: 32px;
+              max-width: 1000px;
+              padding-left: 64px;
             ">${description}</p>
           </div>
         </div>
@@ -158,28 +158,28 @@ async function main() {
             ">
               <div style="
                 display: flex;
-                width: 22px;
-                height: 22px;
+                width: 44px;
+                height: 44px;
                 background: ${COLORS.accent};
-                margin-top: 10px;
+                margin-top: 20px;
                 flex-shrink: 0;
               "></div>
               <h1 style="
-                font-size: 35px;
+                font-size: 70px;
                 font-weight: 600;
                 color: ${COLORS.textPrimary};
                 line-height: 1.2;
                 margin: 0;
-                max-width: 400px;
+                max-width: 800px;
               ">${title}</h1>
             </div>
             <p style="
-              font-size: 18px;
+              font-size: 36px;
               color: ${COLORS.textSecondary};
               line-height: 1.4;
               margin: 0;
-              max-width: 400px;
-              padding-left: 38px;
+              max-width: 800px;
+              padding-left: 76px;
             ">${description}</p>
           </div>
         </div>
