@@ -1,10 +1,11 @@
 [build]
   publish = "public"
-  command = 'git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/" && hugo mod clean && hugo --gc --minify'
+  command = 'git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/" && npm ci && npm run generate-og && hugo mod clean && hugo --gc --minify'
 
 [build.environment]
   HUGO_VERSION = "0.152.2"
   GO_VERSION = "1.25.3"
+  NODE_VERSION = "20"
   GOPROXY = "direct"
 
 [context.production.environment]
