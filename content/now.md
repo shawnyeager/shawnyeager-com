@@ -10,7 +10,7 @@ show_title: true
 
 ## Trust Revolution podcast
 
-I'm currently hosting Trust Revolution, where I explore how we can rethink trust for a decentralized future. Recent episodes have covered digital ID regimes, how supranational compliance bodies project global financial control, and building open communities on open protocols. Working on conversations about private Bitcoin payments as an expression of the Bill of Rights and the historical foundations of trust.
+I'm hosting Trust Revolution, where I explore how we can rethink trust for a decentralized future. Recent episodes have covered digital ID regimes, how supranational compliance bodies project global financial control, and building open communities on open protocols. Working on conversations about private Bitcoin payments as an expression of the Bill of Rights and the historical foundations of trust.
 
 {{< podcast-link >}}
 
