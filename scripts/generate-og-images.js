@@ -66,7 +66,6 @@ async function main() {
 
   for (const file of markdownFiles) {
     const filePath = join(CONTENT_DIR, file);
-    const slug = basename(file, ".md").replace(/\s+/g, "-").toLowerCase();
 
     try {
       // Parse frontmatter
@@ -74,6 +73,7 @@ async function main() {
       const { data } = matter(content);
       const title = data.title || "Untitled";
       const description = data.description || "";
+      const slug = data.slug || basename(file, ".md").replace(/\s+/g, "-").toLowerCase();
 
       console.log(`  Processing: ${title}`);
       console.log(`    File: ${file}`);
