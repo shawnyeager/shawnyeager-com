@@ -97,13 +97,13 @@ async function main() {
             <div style="
               display: flex;
               align-items: flex-start;
-              gap: 12px;
+              gap: 16px;
               margin-bottom: 16px;
             ">
               <div style="
                 display: flex;
-                width: 40px;
-                height: 40px;
+                width: 36px;
+                height: 36px;
                 background: ${COLORS.accent};
                 margin-top: 16px;
                 flex-shrink: 0;
@@ -123,7 +123,7 @@ async function main() {
               line-height: 1.4;
               margin: 0;
               max-width: 1000px;
-              padding-left: 64px;
+              padding-left: 60px;
             ">${description}</p>
           </div>
         </div>
@@ -153,13 +153,13 @@ async function main() {
             <div style="
               display: flex;
               align-items: flex-start;
-              gap: 16px;
+              gap: 24px;
               margin-bottom: 24px;
             ">
               <div style="
                 display: flex;
-                width: 44px;
-                height: 44px;
+                width: 32px;
+                height: 32px;
                 background: ${COLORS.accent};
                 margin-top: 20px;
                 flex-shrink: 0;
@@ -179,7 +179,7 @@ async function main() {
               line-height: 1.4;
               margin: 0;
               max-width: 800px;
-              padding-left: 76px;
+              padding-left: 64px;
             ">${description}</p>
           </div>
         </div>
