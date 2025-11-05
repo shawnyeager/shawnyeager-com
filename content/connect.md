@@ -4,6 +4,9 @@ description: Get in touch with Shawn Yeager about Bitcoin and freedom tech go-to
 date: 2025-10-29T07:27:00
 type: page
 hide_footer_signup: true
+_build:
+  list: false
+  render: true
 ---
 Building Bitcoin or freedom tech that needs to scale commercially? Need help with go-to-market, revenue strategy, or product feedback? Let's talk.
 

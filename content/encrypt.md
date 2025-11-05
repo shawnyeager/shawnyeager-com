@@ -4,6 +4,9 @@ description: "Public keys and encryption contact information for secure communic
 date: 2025-10-14
 type: page
 hide_footer_signup: true
+_build:
+  list: false
+  render: true
 ---
 
 {{< detail-pair label="PGP Fingerprint" value="4D2D 4238 3666 5C2A E2F9 B65D 7763 A481 2E14 D3D6" code="true" >}}
