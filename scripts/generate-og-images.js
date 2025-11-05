@@ -66,7 +66,7 @@ async function main() {
 
   for (const file of markdownFiles) {
     const filePath = join(CONTENT_DIR, file);
-    const slug = basename(file, ".md");
+    const slug = basename(file, ".md").replace(/\s+/g, "-").toLowerCase();
 
     try {
       // Parse frontmatter
@@ -105,7 +105,7 @@ async function main() {
                 width: 36px;
                 height: 36px;
                 background: ${COLORS.accent};
-                margin-top: 16px;
+                margin-top: 18px;
                 flex-shrink: 0;
               "></div>
               <h1 style="
@@ -114,7 +114,7 @@ async function main() {
                 color: ${COLORS.textPrimary};
                 line-height: 1.2;
                 margin: 0;
-                max-width: 1000px;
+                max-width: 1100px;
               ">${title}</h1>
             </div>
             <p style="
@@ -122,7 +122,7 @@ async function main() {
               color: ${COLORS.textSecondary};
               line-height: 1.4;
               margin: 0;
-              max-width: 1000px;
+              max-width: 1100px;
               padding-left: 60px;
             ">${description}</p>
           </div>
@@ -141,7 +141,7 @@ async function main() {
           width: 1200px;
           height: 1200px;
           background: linear-gradient(135deg, ${COLORS.bgPrimary} 0%, ${COLORS.bgSecondary} 100%);
-          padding: 60px;
+          padding: 40px 80px;
           font-family: 'Inter', sans-serif;
         ">
           <div style="
@@ -154,32 +154,32 @@ async function main() {
               display: flex;
               align-items: flex-start;
               gap: 24px;
-              margin-bottom: 24px;
+              margin-bottom: 48px;
             ">
               <div style="
                 display: flex;
-                width: 32px;
-                height: 32px;
+                width: 48px;
+                height: 48px;
                 background: ${COLORS.accent};
-                margin-top: 20px;
+                margin-top: 36px;
                 flex-shrink: 0;
               "></div>
               <h1 style="
-                font-size: 70px;
+                font-size: 100px;
                 font-weight: 600;
                 color: ${COLORS.textPrimary};
                 line-height: 1.2;
                 margin: 0;
-                max-width: 800px;
+                max-width: 1000px;
               ">${title}</h1>
             </div>
             <p style="
-              font-size: 36px;
+              font-size: 52px;
               color: ${COLORS.textSecondary};
               line-height: 1.4;
               margin: 0;
-              max-width: 800px;
-              padding-left: 64px;
+              max-width: 1000px;
+              padding-left: 80px;
             ">${description}</p>
           </div>
         </div>
