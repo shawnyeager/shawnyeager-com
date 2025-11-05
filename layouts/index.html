@@ -52,12 +52,10 @@
           <h2 class="section-label-small">Recent Essays</h2>
          {{ range first 5 $posts }}
          <article class="essay-item">
-             <header>
+             <a href="{{ .RelPermalink }}">
                  <time datetime="{{ .Date.Format "2006-01-02" }}" class="essay-date">{{ .Date.Format "2006 · 01" }}</time>
-             </header>
-             <h3 class="essay-title">
-                 <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-             </h3>
+                 <span class="essay-title">{{ .Title }}</span>
+             </a>
          </article>
          {{ end }}
          <p><a href="{{ "essays" | relURL }}" class="cta-link{{ with .Site.Params.plausible_events.all_essays }} plausible-event-name={{ . }}{{ end }}">All essays <span aria-hidden="true">→</span></a></p>
