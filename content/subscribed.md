@@ -2,7 +2,7 @@
 title: "You're subscribed"
 description: "Thanks for subscribing to occasional updates on Bitcoin strategy and go-to-market thinking."
 hide_footer_signup: true
-_build:
+build:
   list: false
   render: true
 ---

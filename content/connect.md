@@ -4,7 +4,7 @@ description: Get in touch with Shawn Yeager about Bitcoin and freedom tech go-to
 date: 2025-10-29T07:27:00
 type: page
 hide_footer_signup: true
-_build:
+build:
   list: false
   render: true
 ---

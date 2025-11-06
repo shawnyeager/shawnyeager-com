@@ -4,7 +4,7 @@ description: "Public keys and encryption contact information for secure communic
 date: 2025-10-14
 type: page
 hide_footer_signup: true
-_build:
+build:
   list: false
   render: true
 ---

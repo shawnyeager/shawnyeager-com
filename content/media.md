@@ -3,7 +3,7 @@ title: Media
 description: Bio, photos, and contact information for journalists, conference organizers, and podcast hosts. Bitcoin go-to-market leader and Trust Revolution podcast host.
 date: 2025-10-11
 type: page
-_build:
+build:
   list: false
   render: true
 ---
