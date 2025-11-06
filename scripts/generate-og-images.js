@@ -69,7 +69,7 @@ async function generateOGImage(title, outputPath, format = 'landscape') {
               style: {
                 width: `${orangeWidth}px`,
                 height: `${orangeHeight}px`,
-                backgroundColor: '#d63900',
+                backgroundColor: '#F84200',
                 flexShrink: 0,
               },
             },
