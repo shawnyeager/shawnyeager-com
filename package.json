@@ -4,12 +4,13 @@
   "description": "Open Graph image generation for shawnyeager.com",
   "type": "module",
   "scripts": {
-    "generate-og": "node scripts/generate-og-images.js"
+    "generate-og": "node scripts/generate-og-images.js",
+    "build": "npm run generate-og && hugo"
   },
   "dependencies": {
     "satori": "^0.10.14",
-    "satori-html": "^0.3.2",
-    "@resvg/resvg-js": "^2.6.0",
-    "gray-matter": "^4.0.3"
+    "sharp": "^0.33.2",
+    "gray-matter": "^4.0.3",
+    "glob": "^10.3.10"
   }
 }
