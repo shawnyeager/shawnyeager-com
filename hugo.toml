@@ -21,9 +21,9 @@ enableEmoji = true
   pagerSize = 20
 
 # Permalinks - clean URLs without dates
-# Use section name since content is in content/essays/
+# Use slug from frontmatter (falls back to filename if slug not set)
 [permalinks]
-  essays = "/:contentbasename/"
+  essays = "/:slug/"
 
 # Taxonomies - matches frontmatter usage (topics: [...])
 [taxonomies]
