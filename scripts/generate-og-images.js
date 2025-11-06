@@ -140,8 +140,8 @@ async function main() {
       continue;
     }
 
-    // Generate proper slug from filename
-    const slug = file
+    // Use slug from frontmatter, or generate from filename as fallback
+    const slug = data.slug || file
       .replace('.md', '')
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
