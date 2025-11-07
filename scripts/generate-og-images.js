@@ -147,9 +147,8 @@ async function main() {
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-+|-+$/g, '');
 
-    // Generate both formats
+    // Generate landscape OG image
     await generateOGImage(data.title, join(outputDir, `${slug}.png`), 'landscape');
-    await generateOGImage(data.title, join(outputDir, `${slug}-square.png`), 'square');
 
     console.log(`Generated: ${slug}`);
   }
