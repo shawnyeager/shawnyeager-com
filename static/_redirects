@@ -6,6 +6,8 @@ https://nostr.shawnyeager.com/*      https://primal.net/shawn            302!
 # Path redirects
 /contact        /connect
 /pubkey         /assets/public-key.asc
+/tags           /topics         301
+/tags/*         /topics/:splat  301
 
 # External service redirects
 /cal            https://cal.com/shawnyeager
