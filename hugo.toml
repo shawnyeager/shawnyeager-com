@@ -7,6 +7,9 @@ languageCode = "en-us"
 title = "Shawn Yeager"
 defaultContentLanguage = "en"
 
+# Disable unused page kinds
+disableKinds = []
+
 # Enable emoji support
 enableEmoji = true
 
@@ -26,9 +29,10 @@ enableEmoji = true
   essays = "/:slug/"
 
 # Taxonomies - matches frontmatter usage (topics: [...])
+# Note: Defining this section disables Hugo's default "tags" and "categories" taxonomies
 [taxonomies]
   topic = "topics"
-  tag = "tags"
+  tag = "tags"  # Available for future use, excluded from sitemap
 
 # Output formats
 [outputs]
@@ -137,6 +141,24 @@ enable = true
 style = "monokailight"         # Syntax highlighting style
 lineNos = false
 lineNumbersInTable = false
+
+# Sitemap configuration
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+
+# Exclude tags taxonomy from sitemap via cascade
+[[cascade]]
+  _target.kind = "term"
+  _target.path = "/tags"
+  [cascade.sitemap]
+    disable = true
+
+[[cascade]]
+  _target.kind = "taxonomy"
+  _target.path = "/tags/**"
+  [cascade.sitemap]
+    disable = true
 
 # Privacy configuration
 [privacy]
