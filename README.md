@@ -73,25 +73,9 @@ shawnyeager-com/
 └── netlify.toml
 ```
 
-## Theme Module
+## Theme
 
-Uses Hugo Modules to import the shared [tangerine-theme](https://github.com/shawnyeager/tangerine-theme):
-
-```toml
-[module]
-  [[module.imports]]
-    path = "github.com/shawnyeager/tangerine-theme"
-```
-
-**Local development:** The `~/Work/hugo.work` file automatically redirects to your local theme directory. No config changes needed! Just edit the theme and changes appear immediately.
-
-**Production (Netlify):** Fetches from GitHub at the version locked in `go.mod`.
-
-**Update theme version:**
-```bash
-hugo mod get github.com/shawnyeager/tangerine-theme@v1.10.7
-git add go.mod go.sum && git commit -m "Update theme to v1.10.7" && git push
-```
+Uses the [tangerine-theme](https://github.com/shawnyeager/tangerine-theme) Hugo module for layouts, CSS, and shared components.
 
 ## Publishing Workflow
 
