@@ -4,6 +4,7 @@ on:
   repository_dispatch:
     types: [theme-updated]
   workflow_dispatch:  # Allow manual trigger for testing
+    inputs: {}
 
 permissions:
   contents: write
