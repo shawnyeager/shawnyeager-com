@@ -5,7 +5,7 @@ import { join } from 'path';
 import matter from 'gray-matter';
 
 // Load Inter Bold font (700 weight)
-const fontData = readFileSync('fonts/Inter-Bold.ttf');
+const fontData = readFileSync('assets/fonts/Inter-Bold.otf');
 
 function calculateFontSize(title, maxSize, minSize, maxLength) {
   if (title.length <= 20) return maxSize;
