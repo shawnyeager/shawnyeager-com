@@ -28,10 +28,10 @@ hugo --minify
 
 ## Tech Stack
 
-- **Hugo** 0.151.0 — Static site generator
+- **Hugo** 0.152.2 — Static site generator
 - **Hugo Modules** — Theme imported from [tangerine-theme](https://github.com/shawnyeager/tangerine-theme)
 - **Netlify** — Automatic deployment on push to master
-- **System fonts** — No external dependencies
+- **Inter variable font** — Provided by theme
 
 ## Configuration
 
@@ -46,33 +46,6 @@ Key parameters in `hugo.toml`:
   show_email_signup = true
 ```
 
-## Project Structure
-
-```
-shawnyeager-com/
-├── content/
-│   ├── essays/
-│   ├── now.md
-│   ├── media.md
-│   ├── podcast.md
-│   ├── connect.md
-│   ├── encrypt.md
-│   └── subscribed.md
-├── layouts/
-│   ├── index.html
-│   ├── essays/
-│   ├── page/
-│   ├── _default/
-│   ├── partials/
-│   └── shortcodes/
-├── static/
-│   ├── images/
-│   └── assets/
-├── hugo.toml
-├── go.mod
-└── netlify.toml
-```
-
 ## Theme
 
 Uses the [tangerine-theme](https://github.com/shawnyeager/tangerine-theme) Hugo module for layouts, CSS, and shared components.
@@ -82,8 +55,7 @@ Uses the [tangerine-theme](https://github.com/shawnyeager/tangerine-theme) Hugo 
 1. Create essay: `hugo new content/essays/essay-slug.md`
 2. Write content with frontmatter (title, description, date, topics, tags)
 3. Preview locally: `hugo server -D -p 1313`
-4. Build: `hugo --minify`
-5. Push to master — Netlify deploys automatically
+4. Push to master — Netlify builds and deploys automatically
 
 ## Key Features
 
@@ -92,7 +64,7 @@ Uses the [tangerine-theme](https://github.com/shawnyeager/tangerine-theme) Hugo 
 - **Topics & tags** — Taxonomy-based browsing
 - **Newsletter signup** — Buttondown integration in footer
 - **RSS feed** — Available at `/feed.xml`
-- **Solid favicon** — Orange square distinguishes from .org's outlined square
+- **Solid favicon** — Orange square distinguishes from notes.shawnyeager.com outlined square
 
 ## Philosophy
 
