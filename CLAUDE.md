@@ -82,7 +82,6 @@ grep "require github.com/shawnyeager/tangerine-theme" go.mod
 # Test build locally
 hugo --minify
 
-# Pre-commit hook validates this automatically
 git add go.mod && git commit -m "chore: update tangerine-theme to v1.18.6"
 ```
 
@@ -102,46 +101,8 @@ The workspace file allows local development on the theme while keeping the GitHu
 | Changes to theme don't appear | Theme not at expected local path | Verify `/home/shawn/Work/tangerine-theme` exists and is up to date |
 | `hugo mod tidy` removes require | Hugo workspace redirecting | Never run `hugo mod tidy` when `/home/shawn/Work/hugo.work` exists |
 
-**Automated safeguards:**
-- Pre-commit hook validates go.mod has theme require
-- GitHub Actions CI validates module requirements on push
-
-## One-time Setup After Cloning
-
-After cloning this repo on a new machine, run:
-
-```bash
-./scripts/setup.sh
-```
-
-This configures:
-- Git hooks (symlinked to shared-workflows/git-hooks/pre-commit)
-- Verifies mise tools are installed (hugo-extended)
-
-**What the pre-commit hook fixes automatically:**
-
-*Markdown formatting (via markdownlint-cli2):*
-- MD009: Trailing spaces
-- MD010: Hard tabs
-- MD012: Multiple blank lines
-- MD018/019: Heading spacing
-- MD023: Indented headings
-- MD047: Missing trailing newline
-- Plus 25+ other fixable rules (respects `.markdownlint.json`)
-
-*Smart punctuation (custom cleanup - BODY CONTENT ONLY):*
-- Curly apostrophes (') → straight apostrophes (')
-- Curly quotes ("") → straight quotes ("")
-- Em dashes (—) → triple hyphens (---)
-- En dashes (–) → double hyphens (--)
-- Ellipsis (…) → three periods (...)
-- **IMPORTANT:** Frontmatter is NOT modified (preserves smart punctuation for SEO descriptions)
-
-The hook runs on staged `.md` files only, skips YAML frontmatter, shows what it fixed in body content, and re-stages changes. This prevents CI failures while keeping full visibility into changes.
-
-**Hook updates are automatic:** The hook is symlinked to shared-workflows. When the shared hook updates, changes apply immediately on your next commit - no need to re-run setup.sh!
-
-**Note:** If you paste content from external sources (Google Docs, Medium, etc.), the hook will clean up smart punctuation in body content automatically before the commit completes, while preserving it in frontmatter.
+**Content Validation:**
+All content quality checks (markdown linting, link checking, frontmatter validation) run automatically in GitHub Actions on every push. No local setup required.
 
 ## Architecture
 
