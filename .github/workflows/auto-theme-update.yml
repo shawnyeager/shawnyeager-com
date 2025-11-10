@@ -16,6 +16,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Configure Git for private module access
+        run: git config --global url."https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/".insteadOf "https://github.com/"
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
@@ -24,6 +27,8 @@ jobs:
 
       - name: Update theme module
         run: hugo mod get -u github.com/shawnyeager/tangerine-theme
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Check for changes
         id: changes
