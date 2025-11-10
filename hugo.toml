@@ -14,7 +14,7 @@ disableKinds = []
 enableEmoji = true
 
 # Hugo Module - Theme
-# Note: hugo.work in ~/Work/ automatically redirects to local theme during development
+# Note: hugo.work in ~/Work/shawnyeager automatically redirects to local theme during development
 [module]
   [[module.imports]]
     path = "github.com/shawnyeager/tangerine-theme"
@@ -90,7 +90,7 @@ enableEmoji = true
   # Site-specific
   podcast_name = "Trust Revolution podcast"
   podcast_url = "https://fountain.fm/show/Mk0fJte5vrfiDQ5RyCZd"
-  podcast_rss = "https://fountain.fm/show/Mk0fJte5vrfiDQ5RyCZd"
+  podcast_rss = "https://feeds.fountain.fm/OIYZniSDb9jd3Pb78CpF"
   podcast_description = "Rethinking trust for a decentralized future"
 
   # Secondary site link (for footer cross-link)
