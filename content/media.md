@@ -56,6 +56,16 @@ High-resolution headshot available for download:
 - Lightning Network adoption and infrastructure
 - Institutional Bitcoin services
 
+## Recent speaking
+
+**Imagine IF Conference** --- Panel discussion with Derek Ross and Matt O'Dell on the future of digital communications, identity, and decentralized social communities, exploring broken incentives in digital platforms and how open protocols like Nostr enable user ownership and control.
+
+{{< youtube kbMfJtEHHLQ >}}
+
+**Where Does the Yield Come From?** --- Panel discussion with Max Kei, Myles Snider, and Jesse Schrader examining where yield comes from in Bitcoin financial products and the risks and opportunities in Bitcoin-backed lending and investment products.
+
+{{< youtube FbZwXDDD1rc >}}
+
 ## About Trust Revolution
 
 Trust Revolution is a podcast exploring how we can rethink trust for a decentralized future. Through conversations with builders, thinkers, and operators in Bitcoin and beyond, we examine the systems we trust, why they work (or don't), and what comes next.
