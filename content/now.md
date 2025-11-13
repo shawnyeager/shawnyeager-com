@@ -29,7 +29,3 @@ Publishing monthly essays on Bitcoin go-to-market, partnerships, and revenue lea
 **Timing the revenue engine:** When do you shift from founder-led selling to building scalable revenue systems in Bitcoin companies? Particularly when negative price action affects customer faith and interest.
 
 **Developer-first versus customer-first:** Most Bitcoin infrastructure starts developer-focused. When and how do you make the jump to end-customer go-to-market without losing technical credibility?
-
-## Recent speaking
-
-Panel discussion with Derek Ross and Matt Odell at [Imagine IF conference](https://www.youtube.com/watch?v=kbMfJtEHHLQ) on the future of digital communications, identity, and decentralized social communities. We discussed broken incentives in digital platforms and how open protocols like Nostr enable user ownership and control. Also led a panel last month at Nostrville 3.0.
