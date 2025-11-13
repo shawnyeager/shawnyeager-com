@@ -20,9 +20,9 @@ Working with Bitcoin and freedom tech startups through fractional roles, project
 
 ## Writing & building
 
-Publishing monthly [essays](/essays/) on Bitcoin go-to-market, partnerships, and revenue leadership. Also building in public at [notes.shawnyeager.com](https://notes.shawnyeager.com). Just shipped [nostr-ux.com](https://nostr-ux.com)---evidence-based UX patterns for building Nostr apps that retain users.
+Publishing monthly [essays](/essays/) on Bitcoin go-to-market, partnerships, and revenue leadership. Thinking in public at [notes.shawnyeager.com](https://notes.shawnyeager.com). Just shipped [nostr-ux.com](https://nostr-ux.com)---evidence-based UX patterns for building Nostr apps that retain users.
 
-## What I'm wrestling with right now
+## Themes
 
 **Custody versus sovereignty:** How do you balance commercially desirable solutions (often custodial) with enabling true self-sovereignty? Most users choose convenience. Freedom tech needs to remove that forced choice.
 
