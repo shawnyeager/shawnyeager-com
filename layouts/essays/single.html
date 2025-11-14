@@ -8,6 +8,9 @@ description: "A concise 1-2 sentence summary of the essay for SEO meta tags and 
 {{ define "main" }}
     <article class="essay-content">
         <header>
+            <!-- Essay Title -->
+            <h1 class="essay-title-single">{{ .Title }}</h1>
+
             <!-- Essay Metadata -->
             <div class="page-meta">
                 <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
@@ -16,9 +19,6 @@ description: "A concise 1-2 sentence summary of the essay for SEO meta tags and 
                 <span class="essay-reading-time">{{ .ReadingTime }} min read</span>
                 {{ end }}
             </div>
-
-            <!-- Essay Title -->
-            <h1 class="essay-title-single">{{ .Title }}</h1>
         </header>
 
         <!-- Essay Content -->
