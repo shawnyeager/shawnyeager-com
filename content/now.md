@@ -12,7 +12,7 @@ show_title: true
 
 Latest episode: Stephen DeLorme on the uncomfortable question---what if beautiful surveillance beats ugly freedom? Recorded 48 hours after Square unleashed Bitcoin payments on four million merchants. Next: a US military veteran turned Bitcoin developer on reclaiming the American spirit through proof of work.
 
-[Listen and subscribe →](/podcast)
+{{< link url="/podcast" text="Listen and subscribe" style="cta" >}}
 
 ## Advisory & operating work
 
