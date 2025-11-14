@@ -10,7 +10,7 @@ show_title: true
 
 ## Trust Revolution podcast
 
-Latest episode with Stephen DeLorme on the UX and engineering challenges in building self-custody Bitcoin and freedom tech products that compete with centralized alternatives. Recorded as Square's custodial Bitcoin payments launched to millions of merchants. Next: US military veteran turned Bitcoin developer on reclaiming the American spirit through proof of work.
+Latest episode with Stephen DeLorme on the UX and engineering challenges in building self-custody Bitcoin products that compete with centralized alternatives. Recorded as Square's custodial Bitcoin payments launched to millions of merchants. Next: a US military veteran turned Bitcoin developer on reclaiming the American spirit through proof of work.
 
 {{< link url="/podcast" text="Listen" style="cta" >}}
 
