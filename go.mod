@@ -1,5 +1,5 @@
 module github.com/shawnyeager/shawnyeager-com
 
-go 1.25.3
+go 1.25.4
 
-require github.com/shawnyeager/tangerine-theme v1.47.0
+require github.com/shawnyeager/tangerine-theme v1.48.0
