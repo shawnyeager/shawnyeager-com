@@ -9,10 +9,10 @@ description: "A concise 1-2 sentence summary of the essay for SEO meta tags and 
     <article class="essay-content">
         <header>
             <!-- Essay Metadata -->
-            <div class="essay-meta">
+            <div class="page-meta">
                 <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
                 {{ if .Site.Params.show_read_time }}
-                <span class="essay-meta-separator">·</span>
+                <span class="page-meta-separator">·</span>
                 <span class="essay-reading-time">{{ .ReadingTime }} min read</span>
                 {{ end }}
             </div>
