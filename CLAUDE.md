@@ -164,6 +164,25 @@ content/
 
 ---
 
+## Open Graph Image Generation
+
+This site uses a Node.js script to generate OG images for essays at build time.
+
+**File:** `scripts/generate-og-images.js`
+
+**Dependencies:** satori, sharp, gray-matter (installed via npm)
+
+**Font files:** The script uses `assets/fonts/Inter-Bold.otf` and `assets/fonts/Inter-SemiBold.otf` for OG image generation. These are **separate from the theme's web font** (`tangerine-theme/static/fonts/inter-variable.woff2`) because:
+- Satori (OG image generator) requires OTF/TTF format
+- Satori doesn't support WOFF2 format
+- The web font is optimized for browser delivery, not image generation
+
+**Build integration:** `netlify.toml` runs `npm run generate-og` before Hugo build
+
+**Output:** `static/images/og-essays/{slug}.png` (1200x630px landscape format)
+
+---
+
 ## Critical Constraints
 
 1. **Never commit `public/` directory** - Build artifact (in `.gitignore`)

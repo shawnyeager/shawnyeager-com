@@ -5,6 +5,8 @@ import { join } from 'path';
 import matter from 'gray-matter';
 
 // Load Inter Bold font (700 weight)
+// Note: Satori doesn't support WOFF2, requires OTF/TTF format
+// This is separate from theme's inter-variable.woff2 used for web
 const fontData = readFileSync('assets/fonts/Inter-Bold.otf');
 
 function calculateFontSize(title, maxSize, minSize, maxLength) {
