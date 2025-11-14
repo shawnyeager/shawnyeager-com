@@ -10,9 +10,9 @@ show_title: true
 
 ## Trust Revolution podcast
 
-Latest episode: Stephen DeLorme on the uncomfortable question---what if beautiful surveillance beats ugly freedom? Recorded 48 hours after Square unleashed Bitcoin payments on four million merchants. Next: a US military veteran turned Bitcoin developer on reclaiming the American spirit through proof of work.
+Latest episode with Stephen DeLorme on the UX and engineering challenges in building self-custody Bitcoin products that compete with centralized alternatives. Recorded 48 hours after Square's custodial Bitcoin launch reached millions of merchants. Next: a US military veteran turned Bitcoin developer on Bitcoin and proof of work.
 
-{{< link url="/podcast" text="Listen and subscribe" style="cta" >}}
+{{< link url="/podcast" text="Listen" style="cta" >}}
 
 ## Advisory & operating work
 
