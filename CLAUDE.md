@@ -41,6 +41,10 @@ hugo --minify
 
 Theme tokens defined in tangerine-theme. If a value doesn't have a token, ask before hardcoding.
 
+**Complete documentation:**
+- Design system specs: `tangerine-theme/docs/DESIGN_SYSTEM_SPECIFICATION.md`
+- Brand messaging: `tangerine-theme/docs/BRAND_MESSAGING_BIBLE.md`
+
 ---
 
 ## Site Configuration
