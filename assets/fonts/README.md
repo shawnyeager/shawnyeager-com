@@ -17,10 +17,10 @@ These files exist because:
 
 ## Web Fonts vs OG Image Fonts
 
-| Purpose | Location | Format | Size |
-|---------|----------|--------|------|
-| Web display | `tangerine-theme/static/fonts/inter-variable.woff2` | WOFF2 | 72KB |
-| OG images | `shawnyeager-com/assets/fonts/*.otf` | OTF | 271KB + 624KB |
+| Purpose     | Location                                             | Format | Size           |
+|-------------|------------------------------------------------------|--------|----------------|
+| Web display | `tangerine-theme/static/fonts/inter-variable.woff2` | WOFF2  | 72KB           |
+| OG images   | `shawnyeager-com/assets/fonts/*.otf`                 | OTF    | 271KB + 624KB  |
 
 The web font is optimized for browser delivery, while these OTF files are optimized for image generation.
 
