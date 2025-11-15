@@ -1,3 +1,17 @@
+{{/*
+Purpose: 404 error page
+
+Features:
+- Custom 404 messaging
+- Helpful navigation links (Home, Essays, Now)
+- Tracked by Plausible analytics (see head.html)
+
+Important Notes:
+- Hugo serves this for all 404 errors in dev server
+- Netlify uses this for production 404 handling
+- Plausible 404 tracking configured in head.html partial
+*/}}
+
 {{ define "main" }}
     <div class="page-body">
         <h1 class="page-title">404</h1>

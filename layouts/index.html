@@ -1,3 +1,25 @@
+{{/*
+Purpose: Homepage for shawnyeager.com - The Gallery
+
+Features:
+- Bio section from index.md content
+- Featured or latest essay display
+- Podcast feature section
+- Recent essays listing (10 most recent)
+- Topic browsing
+
+Logic:
+- Shows featured essay if one has featured: true in frontmatter
+- Otherwise shows most recent essay
+- Filters drafts in production
+- Topic list via topic-list.html partial
+
+Important Notes:
+- Overrides theme default index.html
+- Bio content comes from /content/_index.md
+- CTA links include Plausible event tracking
+*/}}
+
 {{ define "main" }}
     <!-- Bio -->
     <div class="bio">

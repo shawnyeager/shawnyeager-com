@@ -1,3 +1,17 @@
+{{/*
+Purpose: /podcast page template
+
+Features:
+- Page title via page-title.html partial
+- Subtitle display from frontmatter
+- Dynamic RSS feed URL substitution in content
+
+Important Notes:
+- Overrides theme default single.html for /podcast page
+- Replaces {{ .Site.Params.podcast_rss }} placeholder in markdown with actual RSS URL
+- Allows dynamic content updates without hardcoding RSS URL
+*/}}
+
 {{ define "main" }}
     <!-- Page Title and Subtitle (smart visibility: show_title frontmatter flag controls display) -->
     {{ partial "page-title.html" . }}
