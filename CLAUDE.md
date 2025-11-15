@@ -93,6 +93,30 @@ tags: ["go-to-market", "sales"]  # Taxonomy for tag filtering
 
 ---
 
+## Image Requirements
+
+**CRITICAL:** All images MUST have descriptive alt text for accessibility and SEO.
+
+**Markdown images:**
+```markdown
+![Descriptive alt text describing the image](image.jpg)
+```
+
+**Hugo image shortcode:**
+```
+{{< image src="image.jpg" alt="Descriptive alt text describing the image" >}}
+```
+
+**Alt text best practices:**
+- Be descriptive and concise
+- Describe what the image shows, not just "image of..."
+- For decorative images, use empty `alt=""` (intentional)
+- For complex diagrams, consider longer descriptions
+
+**Validation:** The image-validator workflow automatically checks all images for missing alt text on every push.
+
+---
+
 ## Page Title Visibility
 
 This site uses smart page title visibility. Individual essays show H1 titles, while utility pages hide them (sr-only for accessibility).

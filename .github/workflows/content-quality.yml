@@ -46,3 +46,8 @@ jobs:
     uses: shawnyeager/shared-workflows/.github/workflows/hugo-module-validator.yml@master
     with:
       module_path: 'github.com/shawnyeager/tangerine-theme'
+
+  image-validator:
+    uses: shawnyeager/shared-workflows/.github/workflows/hugo-image-validator.yml@master
+    with:
+      content_path: 'content/'
