@@ -7,7 +7,7 @@ https://nostr.shawnyeager.com/*      https://primal.net/shawn            302!
 /work-with-me                       /connect      301
 /contact                            /connect      301
 /pubkey                             /assets/public-key.asc
-/why-bitcoin-sales-is-different-from-saas/  /essays/why-bitcoin-sales-is-different/  301
+/why-bitcoin-sales-is-different-from-saas/  /why-bitcoin-sales-is-different/  301
 
 # Gone (410) - Content permanently removed
 /big-wheel-keep-on-turning          410
