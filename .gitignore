@@ -1,5 +1,3 @@
-hugo.work
-
 # Hugo build outputs
 public/
 .hugo_build.lock

@@ -44,13 +44,12 @@ jobs:
       - name: Verify theme require statement
         run: |
           echo "Checking theme module configuration..."
-          
+
           if ! grep -q "require github.com/shawnyeager/tangerine-theme" go.mod; then
             echo ""
             echo "❌ FAILED: go.mod missing theme require statement"
             echo ""
-            echo "   This is required for Netlify builds. Even though hugo.work"
-            echo "   makes it locally redundant, production builds need it."
+            echo "   This is required for Netlify builds."
             echo ""
             echo "   Fix with: hugo mod get github.com/shawnyeager/tangerine-theme@latest"
             exit 1
