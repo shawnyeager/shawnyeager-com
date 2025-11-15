@@ -4,8 +4,16 @@ https://connect.shawnyeager.com/*    https://shawnyeager.com/connect     301!
 https://nostr.shawnyeager.com/*      https://primal.net/shawn            302!
 
 # Path redirects
-/contact        /connect
-/pubkey         /assets/public-key.asc
+/work-with-me                       /connect      301
+/contact                            /connect      301
+/pubkey                             /assets/public-key.asc
+
+# Gone (410) - Content permanently removed
+/big-wheel-keep-on-turning          410
+/fear-is-not-the-answer             410
+/5-keys-to-better-biz-dev           410
+/equipping-your-partners-for-success 410
+/the-3-ps-of-partnerships           410
 
 # External service redirects
 /cal            https://cal.com/shawnyeager
