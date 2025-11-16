@@ -8,7 +8,7 @@ build:
   list: false
   render: true
 ---
-Building Bitcoin or freedom tech that needs to scale commercially? Need help with go-to-market, revenue strategy, or product feedback? Let's talk.
+Building in Bitcoin or freedom tech? I help with product-market fit, go-to-market, and revenue strategy.
 
 <div class="contact-section">
 
