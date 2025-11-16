@@ -28,6 +28,10 @@ jobs:
       - name: Update theme module
         run: hugo mod get -u github.com/shawnyeager/tangerine-theme
 
+      - name: Normalize go.mod version
+        run: |
+          sed -i 's/^go 1\.25\..*/go 1.25/' go.mod
+
       - name: Check for changes
         id: changes
         run: |
