@@ -5,8 +5,8 @@ https://shawnyeager-com.netlify.app/*           https://shawnyeager.com/:splat  
 
 # Path redirects
 /contact                                        /connect                                                            301
+/encrypt                                        /pgp                                                                301
 /pubkey                                         /assets/public-key.asc
-/why-bitcoin-sales-is-different-from-saas/      /why-bitcoin-sales-is-different/                                    301
 /work-with-me                                   /connect                                                            301
 
 # Gone (410) - Content permanently removed
