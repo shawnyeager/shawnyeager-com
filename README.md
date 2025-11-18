@@ -41,7 +41,7 @@ Key parameters in `hugo.toml`:
 [params]
   content_type = "essays"
   favicon_style = "solid"
-  noindex = false
+  noindex = false                 # Optional: set to true to block search engines
   show_read_time = true
   show_email_signup = true
 ```
