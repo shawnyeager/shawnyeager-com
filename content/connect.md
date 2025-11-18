@@ -9,7 +9,7 @@ build:
   render: true
 ---
 
-I help Bitcoin and freedom tech startups compete and win commercially. Ready to grow? Let's talk.
+I help Bitcoin and freedom tech startups compete and win commercially---from product-market fit through revenue. Ready to grow? Let's talk.
 
 <div class="contact-section">
 
