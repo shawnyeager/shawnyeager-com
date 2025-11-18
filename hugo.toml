@@ -7,9 +7,6 @@ languageCode = "en-us"
 title = "Shawn Yeager"
 defaultContentLanguage = "en"
 
-# Disable unused page kinds
-disableKinds = []
-
 # Enable emoji support
 enableEmoji = true
 
@@ -45,6 +42,24 @@ enableEmoji = true
 
 [services.rss]
   limit = 15
+
+# Sitemap configuration
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+
+# Exclude tags taxonomy from sitemap via cascade
+[[cascade]]
+  _target.kind = "term"
+  _target.path = "/tags"
+  [cascade.sitemap]
+    disable = true
+
+[[cascade]]
+  _target.kind = "taxonomy"
+  _target.path = "/tags/**"
+  [cascade.sitemap]
+    disable = true
 
 # Theme parameters
 [params]
@@ -106,21 +121,20 @@ enableEmoji = true
     jobTitle = "Bitcoin Go-to-Market Leader"
 
 # Menu configuration
-[menu]
-  [[menu.main]]
-    name = "Home"
-    url = "/"
-    weight = 1
-  
-  [[menu.main]]
-    name = "Essays"
-    url = "/essays/"
-    weight = 2
-  
-  [[menu.main]]
-    name = "Now"
-    url = "/now/"
-    weight = 3
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Essays"
+  url = "/essays/"
+  weight = 2
+
+[[menu.main]]
+  name = "Now"
+  url = "/now/"
+  weight = 3
 
 # Image processing (requires Hugo Extended)
 [imaging]
@@ -144,24 +158,6 @@ style = "monokailight"         # Syntax highlighting style
 lineNos = false
 lineNumbersInTable = false
 
-# Sitemap configuration
-[sitemap]
-  changefreq = "weekly"
-  priority = 0.5
-
-# Exclude tags taxonomy from sitemap via cascade
-[[cascade]]
-  _target.kind = "term"
-  _target.path = "/tags"
-  [cascade.sitemap]
-    disable = true
-
-[[cascade]]
-  _target.kind = "taxonomy"
-  _target.path = "/tags/**"
-  [cascade.sitemap]
-    disable = true
-
 # Privacy configuration
 [privacy]
   [privacy.youtube]
@@ -178,7 +174,7 @@ lineNumbersInTable = false
 # Build configuration
 [build]
   writeStats = false
-  
+
 # Cache configuration
 [caches]
   [caches.getjson]
