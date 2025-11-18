@@ -9,7 +9,7 @@ build:
   render: true
 ---
 
-Building in Bitcoin or freedom tech? I help with product-market fit, go-to-market, and revenue. I work with founders and investors as an advisor and operator.
+I help Bitcoin and freedom tech startups compete and win commercially. Ready to grow? Let's talk.
 
 <div class="contact-section">
 
