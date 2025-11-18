@@ -1,0 +1,41 @@
+{{/*
+REMINDER: Always add a description in frontmatter for SEO and social sharing:
+---
+title: "Essay Title"
+description: "A concise 1-2 sentence summary of the essay for SEO meta tags and social media."
+---
+*/}}
+{{ define "main" }}
+    <article class="essay-content">
+        <header>
+            <!-- Essay Title -->
+            <h1 class="essay-title-single">{{ .Title }}</h1>
+
+            <!-- Essay Metadata -->
+            <div class="page-meta">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                {{ if .Site.Params.show_read_time }}
+                <span class="page-meta-separator">·</span>
+                <span class="essay-reading-time">{{ .ReadingTime }} min read</span>
+                {{ end }}
+            </div>
+        </header>
+
+        <!-- Essay Content -->
+        <div class="essay-body">
+            {{ .Content }}
+        </div>
+
+        <!-- Optional Footer CTA -->
+        {{ if .Params.cta }}
+        <footer class="essay-footer">
+            <p>Working on Bitcoin sales or go-to-market? <a href="mailto:hello@shawnyeager.com"{{ with .Site.Params.plausible_events.contact_email }} class="plausible-event-name={{ . }}"{{ end }}>Let's talk</a>.</p>
+        </footer>
+        {{ end }}
+
+        <!-- Back Link -->
+        <div class="essay-back-link">
+            <a href="{{ "essays" | relURL }}"{{ with .Site.Params.plausible_events.all_essays }} class="plausible-event-name={{ . }}"{{ end }}><span aria-hidden="true">←</span> All essays</a>
+        </div>
+    </article>
+{{ end }}

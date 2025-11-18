@@ -1,0 +1,10 @@
+# Hugo build outputs
+public/
+.hugo_build.lock
+resources/
+
+# Netlify
+.netlify/
+
+# Node.js
+node_modules/

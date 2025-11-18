@@ -1,0 +1,21 @@
+{{/*
+Purpose: Single page template for type:page content
+
+Features:
+- Page title via page-title.html partial
+- Simple content wrapper with page-body class
+
+Important Notes:
+- Matches pages with type: page in frontmatter
+- Nearly identical to _default/single.html but with div instead of article
+*/}}
+
+{{ define "main" }}
+<!-- Page Title (smart visibility: show_title frontmatter flag controls display) -->
+{{ partial "page-title.html" . }}
+
+<!-- Page Content -->
+<div class="page-body">
+    {{ .Content }}
+</div>
+{{ end }}

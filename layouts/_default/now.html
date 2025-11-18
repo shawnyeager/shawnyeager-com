@@ -1,0 +1,33 @@
+{{/*
+Purpose: /now page template - displays current activities and focus
+
+Features:
+- Page title via page-title.html partial
+- Updated date display from frontmatter
+- Removes <!-- FOLLOWING_ALONG --> HTML comment from content
+- Content processed with safeHTML for embedded HTML
+
+Important Notes:
+- Overrides theme default single.html for /now page
+- Updated field in frontmatter shows last update date
+- Comment removal allows conditional content blocks in markdown
+*/}}
+
+{{ define "main" }}
+    <!-- Page Title (smart visibility: show_title frontmatter flag controls display) -->
+    {{ partial "page-title.html" . }}
+
+    <!-- Updated Date -->
+    {{ with .Params.updated }}
+    <div class="page-meta">
+        <time>Updated {{ . }}</time>
+    </div>
+    {{ end }}
+
+    <!-- Page Content wrapped in sections -->
+    <div class="page-body">
+        {{ $content := .Content }}
+        {{ $content = replace $content "<!-- FOLLOWING_ALONG -->" "" }}
+        {{ $content | safeHTML }}
+    </div>
+{{ end }}

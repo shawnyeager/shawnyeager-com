@@ -1,0 +1,26 @@
+{{/*
+Purpose: 404 error page
+
+Features:
+- Custom 404 messaging
+- Helpful navigation links (Home, Essays, Now)
+- Tracked by Plausible analytics (see head.html)
+
+Important Notes:
+- Hugo serves this for all 404 errors in dev server
+- Netlify uses this for production 404 handling
+- Plausible 404 tracking configured in head.html partial
+*/}}
+
+{{ define "main" }}
+    <div class="page-body">
+        <h1 class="page-title">404</h1>
+
+        <p>This page doesn't exist. Try:</p>
+        <ul>
+            <li><a href="{{ "/" | relURL }}">Home</a></li>
+            <li><a href="{{ "essays" | relURL }}">All essays</a></li>
+            <li><a href="{{ "now" | relURL }}">What I'm working on</a></li>
+        </ul>
+    </div>
+{{ end }}

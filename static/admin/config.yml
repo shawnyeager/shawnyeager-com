@@ -1,0 +1,126 @@
+# Sveltia CMS Configuration for shawnyeager.com
+# https://github.com/sveltia/sveltia-cms
+
+backend:
+  name: github
+  repo: shawnyeager/shawnyeager-com
+  branch: master
+  # For local development: backend.name: git-gateway
+
+# Publish mode - editorial workflow enables draft/review/publish
+publish_mode: simple
+
+# Media files
+media_folder: "static/images"
+public_folder: "/images"
+
+# Collections
+collections:
+  # Essays - main content type
+  - name: "essays"
+    label: "Essays"
+    label_singular: "Essay"
+    folder: "content/essays"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: true
+    view_filters:
+      - label: "Drafts"
+        field: draft
+        pattern: true
+      - label: "Published"
+        field: draft
+        pattern: false
+    view_groups:
+      - label: "Draft Status"
+        field: draft
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Description", name: "description", widget: "string", required: true, hint: "Used for SEO meta description and Open Graph tags"}
+      - {label: "Publish Date", name: "date", widget: "datetime", required: true}
+      - {label: "Slug", name: "slug", widget: "string", required: false, hint: "URL path (optional - defaults to title)"}
+      - {label: "Topics", name: "topics", widget: "list", required: false, hint: "e.g., bitcoin, sales, strategy"}
+      - {label: "Tags", name: "tags", widget: "list", required: false, hint: "e.g., go-to-market, enterprise"}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false, required: false}
+      - {label: "Show CTA", name: "cta", widget: "boolean", default: true, required: false}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false, required: false}
+      - {label: "Body", name: "body", widget: "markdown", required: true}
+
+  # Pages - static pages (now, media, connect, etc.)
+  - name: "pages"
+    label: "Pages"
+    label_singular: "Page"
+    files:
+      - label: "Homepage"
+        name: "homepage"
+        file: "content/_index.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+
+      - label: "Connect"
+        name: "connect"
+        file: "content/connect.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "string"}
+          - {label: "Date", name: "date", widget: "datetime"}
+          - {label: "Type", name: "type", widget: "hidden", default: "page"}
+          - {label: "Hide Footer Signup", name: "hide_footer_signup", widget: "boolean", default: true}
+          - {label: "Body", name: "body", widget: "markdown"}
+
+      - label: "Encrypt"
+        name: "encrypt"
+        file: "content/encrypt.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "string"}
+          - {label: "Date", name: "date", widget: "datetime"}
+          - {label: "Type", name: "type", widget: "hidden", default: "page"}
+          - {label: "Hide Footer Signup", name: "hide_footer_signup", widget: "boolean", default: true}
+          - {label: "Body", name: "body", widget: "markdown"}
+
+      - label: "Media"
+        name: "media"
+        file: "content/media.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "string"}
+          - {label: "Date", name: "date", widget: "datetime"}
+          - {label: "Type", name: "type", widget: "hidden", default: "page"}
+          - {label: "Hide Footer Signup", name: "hide_footer_signup", widget: "boolean", default: true}
+          - {label: "Body", name: "body", widget: "markdown"}
+
+      - label: "Now"
+        name: "now"
+        file: "content/now.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "string"}
+          - {label: "Date", name: "date", widget: "datetime"}
+          - {label: "Type", name: "type", widget: "hidden", default: "page"}
+          - {label: "Layout", name: "layout", widget: "hidden", default: "now"}
+          - {label: "Updated", name: "updated", widget: "string", hint: "e.g., October 2025"}
+          - {label: "Body", name: "body", widget: "markdown"}
+
+      - label: "Podcast"
+        name: "podcast"
+        file: "content/podcast.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "string"}
+          - {label: "Date", name: "date", widget: "datetime"}
+          - {label: "Type", name: "type", widget: "hidden", default: "podcast"}
+          - {label: "Body", name: "body", widget: "markdown"}
+
+      - label: "Subscribed"
+        name: "subscribed"
+        file: "content/subscribed.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "string"}
+          - {label: "Date", name: "date", widget: "datetime"}
+          - {label: "Type", name: "type", widget: "hidden", default: "page"}
+          - {label: "Hide Footer Signup", name: "hide_footer_signup", widget: "boolean", default: true}
+          - {label: "Body", name: "body", widget: "markdown"}

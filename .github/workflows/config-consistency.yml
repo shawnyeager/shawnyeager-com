@@ -1,0 +1,59 @@
+name: Configuration Consistency
+
+on:
+  pull_request:
+    paths:
+      - 'go.mod'
+      - 'go.sum'
+      - 'netlify.toml'
+  push:
+    branches:
+      - master
+    paths:
+      - 'go.mod'
+      - 'go.sum'
+      - 'netlify.toml'
+
+jobs:
+  version-alignment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify Go version consistency
+        run: |
+          GO_MOD_VERSION=$(grep "^go " go.mod | awk '{print $2}')
+          NETLIFY_GO_VERSION=$(grep "^  GO_VERSION = " netlify.toml | awk -F'"' '{print $2}')
+          
+          echo "Checking Go version alignment..."
+          echo "  go.mod: $GO_MOD_VERSION"
+          echo "  netlify.toml: $NETLIFY_GO_VERSION"
+          
+          if [ "$GO_MOD_VERSION" != "$NETLIFY_GO_VERSION" ]; then
+            echo ""
+            echo "❌ FAILED: Go versions don't match"
+            echo "   go.mod specifies: $GO_MOD_VERSION"
+            echo "   netlify.toml specifies: $NETLIFY_GO_VERSION"
+            echo ""
+            echo "   Fix with: Update netlify.toml GO_VERSION to $GO_MOD_VERSION"
+            exit 1
+          fi
+          
+          echo "✅ Go versions match: $GO_MOD_VERSION"
+
+      - name: Verify theme require statement
+        run: |
+          echo "Checking theme module configuration..."
+
+          if ! grep -q "require github.com/shawnyeager/tangerine-theme" go.mod; then
+            echo ""
+            echo "❌ FAILED: go.mod missing theme require statement"
+            echo ""
+            echo "   This is required for Netlify builds."
+            echo ""
+            echo "   Fix with: hugo mod get github.com/shawnyeager/tangerine-theme@latest"
+            exit 1
+          fi
+          
+          THEME_VERSION=$(grep "require github.com/shawnyeager/tangerine-theme" go.mod | awk '{print $3}')
+          echo "✅ Theme require statement found: $THEME_VERSION"
