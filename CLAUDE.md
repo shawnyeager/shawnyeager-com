@@ -177,6 +177,33 @@ Templates fall back to tangerine-theme if not overridden locally.
 
 ---
 
+## ⚠️ CRITICAL: Never Commit Replace Directives
+
+**Replace directives break Netlify builds. NEVER commit them to go.mod:**
+
+```toml
+# ❌ NEVER COMMIT THIS LINE
+replace github.com/shawnyeager/tangerine-theme => ../tangerine-theme
+```
+
+**Why:** Netlify can't access `../tangerine-theme` (parent directory outside repo). Build fails with "failed to download modules" error.
+
+**Safe local testing workflow:**
+1. Add replace directive to go.mod (DO NOT COMMIT)
+2. Test changes with `hugo server -D -p 1313`
+3. **Before committing:** Run `git restore go.mod` to remove replace
+4. Commit ONLY template/content changes (not go.mod)
+5. GitHub Actions manages go.mod automatically
+
+**Pre-commit verification:**
+```bash
+git diff go.mod | grep "replace"  # Must return nothing before committing
+```
+
+**If accidentally committed:** Remove replace directive, commit fix, push immediately to unblock Netlify builds.
+
+---
+
 ## Deployment
 
 **Platform:** Netlify
