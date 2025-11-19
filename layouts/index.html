@@ -78,7 +78,7 @@ Important Notes:
              </a>
          </article>
          {{ end }}
-         <p><a href="{{ "essays" | relURL }}" class="cta-link{{ with .Site.Params.plausible_events.all_essays }} plausible-event-name={{ . }}{{ end }}">All essays <span aria-hidden="true">→</span></a></p>
+         <div class="all-essays"><a href="{{ "essays" | relURL }}" class="cta-link{{ with .Site.Params.plausible_events.all_essays }} plausible-event-name={{ . }}{{ end }}">All essays <span aria-hidden="true">→</span></a></div>
      </section>
       {{ else }}
       <section class="recent-essays">
