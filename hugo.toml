@@ -1,14 +1,11 @@
 # Hugo Configuration for shawnyeager.com
 # Professional site - The Gallery (finished work)
-# Version 1.0 - October 2025
+#
+# Shared configuration inherited from tangerine-theme/hugo.toml
+# This file contains only site-specific overrides
 
 baseURL = "https://shawnyeager.com/"
-languageCode = "en-us"
 title = "Shawn Yeager"
-defaultContentLanguage = "en"
-
-# Enable emoji support
-enableEmoji = true
 
 # Hugo Module - Theme
 [module]
@@ -20,50 +17,15 @@ enableEmoji = true
   pagerSize = 20
 
 # Permalinks - clean URLs without dates
-# Use slug from frontmatter (falls back to filename if slug not set)
 [permalinks]
   essays = "/:slug/"
 
-# Taxonomies - matches frontmatter usage (topics: [...])
-# Note: Defining this section disables Hugo's default "tags" and "categories" taxonomies
-[taxonomies]
-  topic = "topics"
-  tag = "tags"  # Available for future use, excluded from sitemap
-
-# Output formats
-[outputs]
-  home = ["HTML", "RSS"]
-  section = ["HTML"]
-
 # RSS configuration
-[outputFormats.RSS]
-  mediaType = "application/rss+xml"
-  baseName = "feed"
-
 [services.rss]
   limit = 15
 
-# Sitemap configuration
-[sitemap]
-  changefreq = "weekly"
-  priority = 0.5
-
-# Exclude tags taxonomy from sitemap via cascade
-[[cascade]]
-  _target.kind = "term"
-  _target.path = "/tags"
-  [cascade.sitemap]
-    disable = true
-
-[[cascade]]
-  _target.kind = "taxonomy"
-  _target.path = "/tags/**"
-  [cascade.sitemap]
-    disable = true
-
-# Theme parameters
+# Site-specific parameters
 [params]
-  copyright = "Copyright © 2025, Shawn Yeager"
   description = "Bitcoin go-to-market and revenue leader. Previously led sales at Amboss Technologies, NYDIG Payments, and Bottlepay. Hosts Trust Revolution podcast."
 
   # Open Graph configuration for social sharing
@@ -78,7 +40,7 @@ enableEmoji = true
   # Analytics
   plausible_script_id = "pa-Qxf1mpF6qNZ8714Ucvs50"  # Plausible analytics
 
-  # Plausible event tracking configuration (using dotted key notation)
+  # Plausible event tracking configuration
   plausible_events.contact_email = "Email+Contact"
   plausible_events.contact_signal = "Signal+Contact"
   plausible_events.contact_calendar = "Calendar+Booking"
@@ -99,12 +61,7 @@ enableEmoji = true
   email_signup_action = "https://buttondown.com/api/emails/embed-subscribe/shawnyeager"
   plausible_form_event = "Form+Submission"  # Plausible custom event for newsletter signup
 
-  # Social/contact links
-  nostr = "https://primal.net/shawn"
-  github = "https://github.com/shawnyeager"
-  twitter_handle = "shawnyeager"  # Without @ symbol, used for Twitter Card attribution
-
-  # Site-specific
+  # Podcast configuration
   podcast_name = "Trust Revolution podcast"
   podcast_url = "https://fountain.fm/show/Mk0fJte5vrfiDQ5RyCZd"
   podcast_rss = "https://feeds.fountain.fm/OIYZniSDb9jd3Pb78CpF"
@@ -114,29 +71,38 @@ enableEmoji = true
   secondary_site_url = "https://notes.shawnyeager.com"
   secondary_site_name = "Notes"
 
-  # Author information (used in RSS feeds and structured data)
-  [params.author]
-    name = "Shawn Yeager"
-    email = "hello@shawnyeager.com"
-    jobTitle = "Bitcoin Go-to-Market Leader"
+# Note: Hugo only merges [params] and [[menu.*]] from theme modules
+# All other config must be defined in site files
 
-# Menu configuration
-[[menu.main]]
-  name = "Home"
-  url = "/"
-  weight = 1
+# Language settings
+languageCode = "en-us"
+defaultContentLanguage = "en"
+enableEmoji = true
 
-[[menu.main]]
-  name = "Essays"
-  url = "/essays/"
-  weight = 2
+# Taxonomies
+[taxonomies]
+  topic = "topics"
+  tag = "tags"
 
-[[menu.main]]
-  name = "Now"
-  url = "/now/"
-  weight = 3
+# Exclude tags taxonomy from sitemap via cascade
+[[cascade]]
+  _target.kind = "term"
+  _target.path = "/tags"
+  [cascade.sitemap]
+    disable = true
 
-# Image processing (requires Hugo Extended)
+[[cascade]]
+  _target.kind = "taxonomy"
+  _target.path = "/tags/**"
+  [cascade.sitemap]
+    disable = true
+
+# Sitemap configuration
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+
+# Image processing
 [imaging]
   quality = 85
   resampleFilter = "Lanczos"
@@ -144,21 +110,21 @@ enableEmoji = true
 
 [imaging.exif]
   disableDate = false
-  disableLatLong = true           # Remove location data from images
+  disableLatLong = true
 
 # Markdown configuration
 [markup.goldmark.renderer]
-unsafe = true                # Allow HTML in markdown
+  unsafe = true
 
 [markup.goldmark.extensions.extras.mark]
-enable = true
+  enable = true
 
 [markup.highlight]
-style = "monokailight"         # Syntax highlighting style
-lineNos = false
-lineNumbersInTable = false
+  style = "monokailight"
+  lineNos = false
+  lineNumbersInTable = false
 
-# Privacy configuration
+# Privacy
 [privacy]
   [privacy.youtube]
     privacyEnhanced = true
@@ -171,7 +137,7 @@ lineNumbersInTable = false
   [security.funcs]
     getenv = ['^HUGO_', '^CI$']
 
-# Build configuration
+# Build
 [build]
   writeStats = false
 
@@ -189,3 +155,19 @@ lineNumbersInTable = false
   [caches.assets]
     dir = ":cacheDir/:project"
     maxAge = -1
+
+# Menu configuration
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Essays"
+  url = "/essays/"
+  weight = 2
+
+[[menu.main]]
+  name = "Now"
+  url = "/now/"
+  weight = 3
