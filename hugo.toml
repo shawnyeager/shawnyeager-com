@@ -6,6 +6,7 @@
 
 baseURL = "https://shawnyeager.com/"
 title = "Shawn Yeager"
+enableRobotsTXT = true
 
 # Hugo Module - Theme
 [module]
