@@ -42,5 +42,191 @@
     }
   ],
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "connect.shawnyeager.com"
+        }
+      ],
+      "destination": "https://shawnyeager.com/connect",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "nostr.shawnyeager.com"
+        }
+      ],
+      "destination": "https://primal.net/shawn",
+      "permanent": false
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "shawnyeager-com.netlify.app"
+        }
+      ],
+      "destination": "https://shawnyeager.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/connect",
+      "permanent": true
+    },
+    {
+      "source": "/encrypt",
+      "destination": "/pgp",
+      "permanent": true
+    },
+    {
+      "source": "/pubkey",
+      "destination": "/assets/public-key.asc",
+      "permanent": false
+    },
+    {
+      "source": "/work-with-me",
+      "destination": "/connect",
+      "permanent": true
+    },
+    {
+      "source": "/5-keys-to-better-biz-dev",
+      "destination": "/gone",
+      "permanent": false,
+      "statusCode": 410
+    },
+    {
+      "source": "/big-wheel-keep-on-turning",
+      "destination": "/gone",
+      "permanent": false,
+      "statusCode": 410
+    },
+    {
+      "source": "/equipping-your-partners-for-success",
+      "destination": "/gone",
+      "permanent": false,
+      "statusCode": 410
+    },
+    {
+      "source": "/fear-is-not-the-answer",
+      "destination": "/gone",
+      "permanent": false,
+      "statusCode": 410
+    },
+    {
+      "source": "/pay-your-partners-for-performance",
+      "destination": "/gone",
+      "permanent": false,
+      "statusCode": 410
+    },
+    {
+      "source": "/tag-business-development",
+      "destination": "/gone",
+      "permanent": false,
+      "statusCode": 410
+    },
+    {
+      "source": "/tag-pitching",
+      "destination": "/gone",
+      "permanent": false,
+      "statusCode": 410
+    },
+    {
+      "source": "/tag-trustream",
+      "destination": "/gone",
+      "permanent": false,
+      "statusCode": 410
+    },
+    {
+      "source": "/the-3-ps-of-partnerships",
+      "destination": "/gone",
+      "permanent": false,
+      "statusCode": 410
+    },
+    {
+      "source": "/the-end-of-the-independent-software-vendor",
+      "destination": "/gone",
+      "permanent": false,
+      "statusCode": 410
+    },
+    {
+      "source": "/want-the-deal-push-for-it",
+      "destination": "/gone",
+      "permanent": false,
+      "statusCode": 410
+    },
+    {
+      "source": "/cal",
+      "destination": "https://cal.com/shawnyeager",
+      "permanent": false
+    },
+    {
+      "source": "/interview",
+      "destination": "https://cal.com/shawnyeager/interview",
+      "permanent": false
+    },
+    {
+      "source": "/meet",
+      "destination": "https://cal.com/shawnyeager",
+      "permanent": false
+    },
+    {
+      "source": "/music",
+      "destination": "https://music.apple.com/profile/shawnyeager",
+      "permanent": false
+    },
+    {
+      "source": "/newsletter",
+      "destination": "https://buttondown.com/shawnyeager",
+      "permanent": false
+    },
+    {
+      "source": "/nostr",
+      "destination": "https://primal.net/shawn",
+      "permanent": false
+    },
+    {
+      "source": "/open",
+      "destination": "https://cal.com/shawnyeager/open",
+      "permanent": false
+    },
+    {
+      "source": "/playlist",
+      "destination": "https://music.apple.com/us/playlist/best-of-2025/pl.u-qLADto76W6",
+      "permanent": false
+    },
+    {
+      "source": "/schedule",
+      "destination": "https://cal.com/shawnyeager",
+      "permanent": false
+    },
+    {
+      "source": "/signal",
+      "destination": "https://signal.me/#eu/PolR9qrOuPADQGwMLAZS1NH0wBIHBv7SFLWKoKk6r3XCEaSf4DpK9YpHjlTrbCVY",
+      "permanent": false
+    },
+    {
+      "source": "/.well-known/lnurlp/sats",
+      "destination": "https://getalby.com/.well-known/lnurlp/shawnyeager",
+      "permanent": false
+    },
+    {
+      "source": "/.well-known/lnurlp/shawn",
+      "destination": "https://getalby.com/.well-known/lnurlp/shawnyeager",
+      "permanent": false
+    },
+    {
+      "source": "/.well-known/lnurlp/zaps",
+      "destination": "https://getalby.com/.well-known/lnurlp/shawnyeager",
+      "permanent": false
+    }
+  ]
 }
