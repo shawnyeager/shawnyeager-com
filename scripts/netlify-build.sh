@@ -17,7 +17,15 @@ AFTER=$(grep 'github.com/shawnyeager/tangerine-theme' go.mod | head -n1 || echo 
 if [ "$BEFORE" != "$AFTER" ]; then
   echo "Theme updated: $BEFORE -> $AFTER"
 
-  # Configure git (Netlify environment)
+  # Configure git with deploy key
+  if [ -n "$DEPLOY_KEY" ]; then
+    mkdir -p ~/.ssh
+    echo "$DEPLOY_KEY" > ~/.ssh/deploy_key
+    chmod 600 ~/.ssh/deploy_key
+    export GIT_SSH_COMMAND="ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no"
+  fi
+
+  # Configure git user
   git config user.name "netlify-bot"
   git config user.email "bot@netlify.com"
 
