@@ -1,7 +1,7 @@
 {
   "buildCommand": "npm ci && npm run generate-og && hugo --gc --minify",
   "outputDirectory": "public",
-  "installCommand": "echo 'Using Vercel auto-install'",
+  "installCommand": null,
   "framework": null,
   "devCommand": "hugo server -D -p 1313",
   "build": {
