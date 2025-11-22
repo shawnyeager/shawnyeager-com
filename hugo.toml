@@ -124,7 +124,7 @@ enableEmoji = true
 
 # Markdown configuration
 [markup.goldmark.renderer]
-  unsafe = true
+  unsafe = false
 
 [markup.goldmark.extensions.extras.mark]
   enable = true

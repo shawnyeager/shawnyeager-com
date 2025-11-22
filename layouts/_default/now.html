@@ -5,7 +5,6 @@ Features:
 - Page title via page-title.html partial
 - Updated date display from frontmatter
 - Removes <!-- FOLLOWING_ALONG --> HTML comment from content
-- Content processed with safeHTML for embedded HTML
 
 Important Notes:
 - Overrides theme default single.html for /now page
@@ -28,6 +27,6 @@ Important Notes:
     <div class="page-body">
         {{ $content := .Content }}
         {{ $content = replace $content "<!-- FOLLOWING_ALONG -->" "" }}
-        {{ $content | safeHTML }}
+        {{ $content }}
     </div>
 {{ end }}

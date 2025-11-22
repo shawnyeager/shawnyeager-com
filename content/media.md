@@ -35,13 +35,13 @@ High-resolution headshot available for download:
 
 ## Contact
 
-<div class="bio-text">
+{{< bio-section >}}
 
 {{< contact-method type="email" value="hello@shawnyeager.com" >}}
 
 {{< contact-method type="signal" value="https://shawnyeager.com/signal" display="shawnyeager.com/signal" >}}
 
-</div>
+{{< /bio-section >}}
 
 ## Current focus
 

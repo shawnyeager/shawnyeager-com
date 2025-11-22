@@ -11,7 +11,7 @@ build:
 
 I help Bitcoin and freedom tech startups compete and win commercially---from product-market fit through revenue.
 
-<div class="contact-section">
+{{< contact-section >}}
 
 {{< contact-method type="email" value="hello@shawnyeager.com" >}}
 
@@ -19,6 +19,6 @@ I help Bitcoin and freedom tech startups compete and win commercially---from pro
 
 {{< contact-method type="calendar" value="https://cal.com/shawnyeager" display="Book a meeting" >}}
 
-</div>
+{{< /contact-section >}}
 
 {{< button url="/assets/shawnyeager.vcf" text="Download contact card" variant="download" event="vCard+Download" >}}
