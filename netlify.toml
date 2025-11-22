@@ -22,6 +22,15 @@ for = "/.well-known/*"
 [headers.values]
 Access-Control-Allow-Origin = "*"
 
+# CMS admin - allow Sveltia CMS from unpkg.com
+[[headers]]
+for = "/admin/*"
+[headers.values]
+Content-Security-Policy = "default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https:; font-src 'self' https://unpkg.com; connect-src 'self' https://unpkg.com; frame-ancestors 'none'; base-uri 'self'"
+X-Content-Type-Options = "nosniff"
+Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Main site - strict CSP
 [[headers]]
 for = "/*"
 [headers.values]
