@@ -1,0 +1,52 @@
+{
+  "buildCommand": "npm ci && npm run generate-og && hugo --gc --minify",
+  "outputDirectory": "public",
+  "installCommand": "echo 'Using Vercel auto-install'",
+  "framework": null,
+  "devCommand": "hugo server -D -p 1313",
+  "build": {
+    "env": {
+      "HUGO_VERSION": "0.152.2",
+      "GO_VERSION": "1.25.3",
+      "NODE_VERSION": "20",
+      "GOPROXY": "direct"
+    }
+  },
+  "env": {
+    "HUGO_ENV": {
+      "production": "production",
+      "preview": "development",
+      "development": "development"
+    }
+  },
+  "headers": [
+    {
+      "source": "/.well-known/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://plausible.io; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://buttondown.com;"
+        }
+      ]
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}
