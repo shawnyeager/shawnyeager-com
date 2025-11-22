@@ -21,6 +21,6 @@ Important Notes:
     <div class="podcast-content">
         {{ $content := .Content }}
         {{ $content = replace $content "{{ .Site.Params.podcast_rss }}" .Site.Params.podcast_rss }}
-        {{ $content }}
+        {{ $content | safeHTML }}
     </div>
 {{ end }}

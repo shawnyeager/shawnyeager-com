@@ -27,6 +27,6 @@ Important Notes:
     <div class="page-body">
         {{ $content := .Content }}
         {{ $content = replace $content "<!-- FOLLOWING_ALONG -->" "" }}
-        {{ $content }}
+        {{ $content | safeHTML }}
     </div>
 {{ end }}

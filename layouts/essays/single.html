@@ -23,7 +23,7 @@ description: "A concise 1-2 sentence summary of the essay for SEO meta tags and 
 
         <!-- Essay Content -->
         <div class="essay-body">
-            {{ .Content }}
+            {{ .Content | safeHTML }}
         </div>
 
         <!-- Optional Footer CTA -->

@@ -17,6 +17,6 @@ Important Notes:
 
     <!-- Page Content -->
     <article class="page-body">
-        {{ .Content }}
+        {{ .Content | safeHTML }}
     </article>
 {{ end }}

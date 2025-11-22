@@ -23,7 +23,7 @@ Important Notes:
 {{ define "main" }}
     <!-- Bio -->
     <div class="bio">
-        {{ .Content }}
+        {{ .Content | safeHTML }}
     </div>
 
     <!-- Featured or Latest Essay -->
