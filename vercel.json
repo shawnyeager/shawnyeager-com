@@ -9,14 +9,8 @@
       "HUGO_VERSION": "0.152.2",
       "GO_VERSION": "1.25.3",
       "NODE_VERSION": "20",
-      "GOPROXY": "direct"
-    }
-  },
-  "env": {
-    "HUGO_ENV": {
-      "production": "production",
-      "preview": "development",
-      "development": "development"
+      "GOPROXY": "direct",
+      "HUGO_ENV": "production"
     }
   },
   "headers": [
