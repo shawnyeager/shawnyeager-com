@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm ci && npm run generate-og && hugo --gc --minify",
+  "buildCommand": "bash build.sh",
   "outputDirectory": "public",
   "installCommand": null,
   "framework": null,
