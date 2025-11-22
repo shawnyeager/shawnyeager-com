@@ -8,7 +8,7 @@ echo "Installing Go 1.25.3..."
 curl -sL https://go.dev/dl/go1.25.3.linux-amd64.tar.gz -o go.tar.gz
 tar -C /tmp -xzf go.tar.gz
 export PATH=/tmp/go/bin:$PATH
-export GOPATH=/tmp/go
+export GOPATH=/tmp/go-packages
 
 # Verify Go installation
 go version
