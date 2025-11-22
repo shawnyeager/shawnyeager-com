@@ -21,20 +21,3 @@
 for = "/.well-known/*"
 [headers.values]
 Access-Control-Allow-Origin = "*"
-
-# CMS admin - allow Sveltia CMS from unpkg.com
-[[headers]]
-for = "/admin/*"
-[headers.values]
-Content-Security-Policy = "default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' blob: data: https:; connect-src 'self' blob: data: https://api.github.com; frame-ancestors 'none'; base-uri 'self'"
-X-Content-Type-Options = "nosniff"
-Referrer-Policy = "strict-origin-when-cross-origin"
-
-# Main site - strict CSP
-[[headers]]
-for = "/*"
-[headers.values]
-Content-Security-Policy = "default-src 'self'; script-src 'self' https://plausible.io 'sha256-d2naYp9C7LmEhG5Ym6TxSt+GauEaZC4Z+I9rATlQz1E='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://plausible.io; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://buttondown.com"
-X-Content-Type-Options = "nosniff"
-X-Frame-Options = "DENY"
-Referrer-Policy = "strict-origin-when-cross-origin"
