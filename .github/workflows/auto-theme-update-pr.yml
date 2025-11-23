@@ -63,7 +63,7 @@ jobs:
         if: steps.check.outputs.updated == 'true'
         uses: peter-evans/create-pull-request@v6
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
           commit-message: "chore: update tangerine-theme module"
           committer: "GitHub Actions <actions@github.com>"
           author: "GitHub Actions <actions@github.com>"
