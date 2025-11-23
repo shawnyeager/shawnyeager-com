@@ -3,12 +3,13 @@ Purpose: /now page template - displays current activities and focus
 
 Features:
 - Page title via page-title.html partial
-- Updated date display from frontmatter
+- Updated date display from frontmatter with proper datetime attribute
 - Removes <!-- FOLLOWING_ALONG --> HTML comment from content
 
 Important Notes:
 - Overrides theme default single.html for /now page
-- Updated field in frontmatter shows last update date
+- Updated field in frontmatter must be ISO date format (YYYY-MM-DD)
+- Template formats date for display while maintaining machine-readable datetime
 - Comment removal allows conditional content blocks in markdown
 */}}
 
@@ -19,7 +20,7 @@ Important Notes:
     <!-- Updated Date -->
     {{ with .Params.updated }}
     <div class="page-meta">
-        <time>Updated {{ . }}</time>
+        <time datetime="{{ dateFormat "2006-01" . }}">Updated {{ dateFormat "January 2006" . }}</time>
     </div>
     {{ end }}
 

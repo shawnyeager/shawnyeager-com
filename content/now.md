@@ -4,7 +4,7 @@ description: "What I'm focused on right now: Trust Revolution podcast, advisory 
 date: 2025-11-13
 type: page
 layout: now
-updated: "November 2025"
+updated: 2025-11-15
 show_title: true
 ---
 
