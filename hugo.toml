@@ -5,7 +5,7 @@
 # This file contains only site-specific overrides
 
 baseURL = "https://shawnyeager.com/"
-title = "Shawn Yeager"
+title = "Shawn Yeager - Bitcoin Go-to-Market & Revenue Leader"
 enableRobotsTXT = true
 
 # Hugo Module - Theme
