@@ -1,21 +1,15 @@
 [build]
   publish = "public"
-  command = "./scripts/netlify-build.sh"
+  command = "npm ci && npm run generate-og && hugo --gc --minify"
 
 [build.environment]
   HUGO_VERSION = "0.152.2"
-  GO_VERSION = "1.25.3"
+  GO_VERSION = "1.25"
   NODE_VERSION = "20"
   GOPROXY = "direct"
 
 [context.production.environment]
   HUGO_ENV = "production"
-
-[context.deploy-preview]
-  command = "./scripts/netlify-build.sh --buildFuture -b $DEPLOY_PRIME_URL"
-
-[context.branch-deploy]
-  command = "./scripts/netlify-build.sh -b $DEPLOY_PRIME_URL"
 
 [[headers]]
 for = "/.well-known/*"
