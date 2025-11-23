@@ -74,23 +74,34 @@ hugo server -D -p 1313
 
 Changes to theme appear immediately.
 
-**Deploy theme changes:**
+**CRITICAL:** Remove replace directive before committing:
 ```bash
-# In tangerine-theme
-git add .
-git commit -m "Update CSS"
-git push origin master
-
-# In site repo - remove replace directive first
 git restore go.mod
-hugo mod get -u
-hugo mod tidy
-git add go.sum
-git commit -m "Update theme"
-git push
 ```
 
-**Important:** Never commit the replace directive.
+**Verify go.mod has no replace directive:**
+```bash
+git diff go.mod | grep "replace"  # Should return nothing
+```
+
+### Deploy Theme Changes
+
+**Sites use PR-based workflow.**
+
+After pushing theme to master:
+
+```bash
+# Trigger workflow (or wait for daily cron)
+gh workflow run auto-theme-update-pr.yml --repo shawnyeager/shawnyeager-com
+
+# Check for PR
+gh pr list --label theme-update
+
+# Review deploy preview in PR
+# Merge when satisfied
+```
+
+**DO NOT manually run `hugo mod get`** - workflow handles everything.
 
 ## Publishing Workflow
 

@@ -269,22 +269,39 @@ This site uses a Node.js script to generate OG images for essays at build time.
 
 ---
 
-## Theme Updates (Automated - DO NOT TOUCH)
+## Theme Updates (PR-Based Workflow)
 
-This site automatically updates to the latest tangerine-theme master branch via GitHub Actions.
+This site uses a **PR-based workflow** for theme updates to save Netlify credits.
 
-**⚠️ NEVER manually run `hugo mod get` after theme pushes**
+**How it works:**
+1. Theme pushed to master → manual workflow trigger (or daily cron)
+2. GitHub Actions creates PR with theme updates
+3. Netlify builds FREE deploy preview
+4. Review preview, merge PR when ready
+5. Production build (15 credits)
 
-GitHub Actions handles everything:
-- Runs `hugo mod get -u` automatically when theme master branch changes
-- Commits `go.mod`/`go.sum` changes
-- Triggers Netlify deployment
+**After theme push, wait for PR:**
 
-After theme push, only: `git pull` to get automated changes.
+```bash
+# Check for new PR
+gh pr list --repo shawnyeager/shawnyeager-com --label theme-update
 
-**Manual update only if automation fails** (rare - investigate why automation failed first).
+# Review deploy preview in PR
+# Merge when satisfied
+```
 
-**Note:** Theme is public and tracks master branch (no version tags or authentication required).
+**DO NOT manually run `hugo mod get`** - GitHub Actions handles everything.
+
+**Manual update only if workflow fails:**
+
+```bash
+hugo mod get -u github.com/shawnyeager/tangerine-theme
+git add go.mod go.sum
+git commit -m "chore: update theme"
+git push origin master
+```
+
+**Theme is public and tracks master branch.**
 
 ---
 
