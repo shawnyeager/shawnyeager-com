@@ -1,0 +1,21 @@
+{{/*
+Purpose: Main HTML <head> element with all meta tags, links, and scripts
+Note: This is an override for vercel-test branch to add Vercel Speed Insights
+*/}}
+
+<head>
+    {{ partial "head/meta-tags.html" . }}
+    {{ partial "head/resources.html" . }}
+    {{ partial "head/analytics.html" . }}
+    {{ partial "head/social-cards.html" . }}
+    {{ partial "head/theme-init.html" . }}
+
+    <!-- Vercel Speed Insights (vercel-test branch only) -->
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+
+    <!-- Structured Data (JSON-LD) -->
+    {{ partial "structured-data.html" . }}
+    {{ partial "structured-data-website.html" . }}
+    {{ partial "structured-data-collection.html" . }}
+    {{ partial "structured-data-breadcrumbs.html" . }}
+</head>
