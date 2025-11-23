@@ -4,7 +4,7 @@
 
 [build.environment]
   HUGO_VERSION = "0.152.2"
-  GO_VERSION = "1.25.3"
+  GO_VERSION = "1.25"
   NODE_VERSION = "20"
   GOPROXY = "direct"
 
