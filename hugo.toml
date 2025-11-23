@@ -36,6 +36,7 @@ enableRobotsTXT = true
 
 # Site-specific parameters
 [params]
+  site_display_name = "Shawn Yeager"  # Clean display title (SEO title in title config above)
   description = "Bitcoin go-to-market and revenue leader. Previously led sales at Amboss Technologies, NYDIG Payments, and Bottlepay. Hosts Trust Revolution podcast."
 
   # Open Graph configuration for social sharing
@@ -76,6 +77,7 @@ enableRobotsTXT = true
   podcast_url = "https://fountain.fm/show/Mk0fJte5vrfiDQ5RyCZd"
   podcast_rss = "https://feeds.fountain.fm/OIYZniSDb9jd3Pb78CpF"
   podcast_description = "Rethinking trust for a decentralized future"
+  podcast_image = "/images/trust-revolution-official.webp"  # Official cover for schema.org
 
   # Secondary site link (for footer cross-link)
   secondary_site_url = "https://notes.shawnyeager.com"

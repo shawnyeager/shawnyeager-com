@@ -51,8 +51,8 @@ jobs:
             echo "Theme was updated!"
             echo "updated=true" >> $GITHUB_OUTPUT
 
-            # Extract commit hash for PR body
-            HASH=$(echo "$AFTER" | grep -oP '(?<=-)[a-f0-9]{12}')
+            # Extract commit hash from end of version string
+            HASH=$(echo "$AFTER" | grep -oP '[a-f0-9]{12}$')
             echo "hash=$HASH" >> $GITHUB_OUTPUT
           else
             echo "No theme updates available"
