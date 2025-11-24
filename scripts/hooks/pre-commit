@@ -1,0 +1,22 @@
+#!/bin/bash
+# Block go.mod commits in site repos (theme updates should come via GitHub Actions)
+
+if git diff --cached --name-only | grep -q "^go.mod$"; then
+    if git diff --cached go.mod | grep -q "tangerine-theme"; then
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo "❌ ERROR: Do NOT manually commit go.mod theme updates!"
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo ""
+        echo "Theme updates must come via GitHub Actions workflow."
+        echo ""
+        echo "CORRECT WORKFLOW:"
+        echo "  1. Push theme changes to tangerine-theme master"
+        echo "  2. Run: gh workflow run auto-theme-update-pr.yml --repo shawnyeager/shawnyeager-com"
+        echo "  3. Wait for GitHub Actions to create the PR"
+        echo "  4. Review deploy preview and merge"
+        echo ""
+        echo "This commit has been BLOCKED."
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        exit 1
+    fi
+fi
