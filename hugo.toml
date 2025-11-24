@@ -83,6 +83,26 @@ enableRobotsTXT = true
   secondary_site_url = "https://notes.shawnyeager.com"
   secondary_site_name = "Notes"
 
+  # Copyright and social links
+  copyright = "Copyright © 2025, Shawn Yeager"
+  nostr = "https://primal.net/shawn"
+  github = "https://github.com/shawnyeager"
+  twitter_handle = "shawnyeager"  # Without @ symbol, used for Twitter Card attribution
+
+# Author information (used in RSS feeds and structured data)
+[params.author]
+  name = "Shawn Yeager"
+  email = "hello@shawnyeager.com"
+  description = "Bitcoin go-to-market and revenue leader"
+  jobTitle = "Bitcoin Go-to-Market & Revenue Leadership"
+  image = "/images/shawn-media.jpg"
+
+[params.author.sameAs]
+  linkedin = "https://www.linkedin.com/in/shawnyeager"
+  github = "https://github.com/shawnyeager"
+  nostr = "https://primal.net/shawn"
+  podcast = "https://fountain.fm/show/Mk0fJte5vrfiDQ5RyCZd"
+
 # Note: Hugo only merges [params] and [[menu.*]] from theme modules
 # All other config must be defined in site files
 
