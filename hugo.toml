@@ -4,29 +4,33 @@
 # Shared configuration inherited from tangerine-theme/hugo.toml
 # This file contains only site-specific overrides
 
+# =============================================================================
+# CORE SETTINGS
+# =============================================================================
+
 baseURL = "https://shawnyeager.com/"
 title = "Shawn Yeager | Bitcoin Go-to-Market & Revenue Leader"
+languageCode = "en-us"
+defaultContentLanguage = "en"
 enableRobotsTXT = true
+enableEmoji = true
 
-# Hugo Module - Theme
+# =============================================================================
+# HUGO MODULE
+# =============================================================================
+
 [module]
   [[module.imports]]
     path = "github.com/shawnyeager/tangerine-theme"
 
-# Pagination
-[pagination]
-  pagerSize = 20
+# =============================================================================
+# CONTENT DELIVERY
+# =============================================================================
 
-# Permalinks - clean URLs without dates
-[permalinks]
-  essays = "/:slug/"
-
-# Output formats
 [outputs]
   home = ["HTML", "RSS"]
   section = ["HTML"]
 
-# RSS configuration
 [outputFormats.RSS]
   mediaType = "application/rss+xml"
   baseName = "feed"
@@ -34,24 +38,83 @@ enableRobotsTXT = true
 [services.rss]
   limit = 15
 
-# Site-specific parameters
+[pagination]
+  pagerSize = 20
+
+[permalinks]
+  essays = "/:slug/"
+
+# =============================================================================
+# TAXONOMIES
+# =============================================================================
+
+[taxonomies]
+  topic = "topics"
+  tag = "tags"
+
+# =============================================================================
+# SEO & CRAWLING
+# =============================================================================
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+
+[[cascade]]
+  _target.kind = "term"
+  _target.path = "/tags"
+  [cascade.sitemap]
+    disable = true
+
+[[cascade]]
+  _target.kind = "taxonomy"
+  _target.path = "/tags/**"
+  [cascade.sitemap]
+    disable = true
+
+# =============================================================================
+# SITE PARAMETERS
+# =============================================================================
+
 [params]
-  site_display_name = "Shawn Yeager"  # Clean display title (SEO title in title config above)
+  site_display_name = "Shawn Yeager"
   description = "Bitcoin go-to-market and revenue leader. Previously led sales at Amboss Technologies, NYDIG Payments, and Bottlepay. Hosts Trust Revolution podcast."
 
-  # Open Graph configuration for social sharing
-  og_image = "/images/og-image.png"  # 1200x630px recommended
-  og_type = "website"                # Default; overridden to "article" for essays
+  # Open Graph
+  og_image = "/images/og-image.png"
+  og_type = "website"
 
-  # Theme configuration
-  content_type = "essays"         # Content type for parameterized templates
-  favicon_style = "solid"         # Favicon style: "solid" or "outlined"
-  noindex = false                 # Block search engines (false = allow indexing)
+  # Theme
+  content_type = "essays"
+  favicon_style = "solid"
+  noindex = false
+
+  # Display
+  show_read_time = true
+  show_email_signup = true
+  email_signup_text = "I send new essays and updates via email."
+  email_signup_action = "https://buttondown.com/api/emails/embed-subscribe/shawnyeager"
+
+  # Cross-site
+  secondary_site_url = "https://notes.shawnyeager.com"
+  secondary_site_name = "Notes"
+
+  # Podcast
+  podcast_name = "Trust Revolution podcast"
+  podcast_url = "https://fountain.fm/show/Mk0fJte5vrfiDQ5RyCZd"
+  podcast_rss = "https://feeds.fountain.fm/OIYZniSDb9jd3Pb78CpF"
+  podcast_description = "Rethinking trust for a decentralized future"
+  podcast_image = "/images/trust-revolution-official.webp"
+
+  # Social
+  copyright = "Copyright © 2025, Shawn Yeager"
+  nostr = "https://primal.net/shawn"
+  github = "https://github.com/shawnyeager"
+  twitter_handle = "shawnyeager"
 
   # Analytics
-  plausible_script_id = "pa-Qxf1mpF6qNZ8714Ucvs50"  # Plausible analytics
-
-  # Plausible event tracking configuration
+  plausible_script_id = "pa-Qxf1mpF6qNZ8714Ucvs50"
+  plausible_form_event = "Form+Submission"
   plausible_events.contact_email = "Email+Contact"
   plausible_events.contact_signal = "Signal+Contact"
   plausible_events.contact_calendar = "Calendar+Booking"
@@ -63,33 +126,6 @@ enableRobotsTXT = true
   plausible_events.media_kit = "Media+Kit+Download"
   plausible_events.cross_site_nav = "Cross-Site+Navigation"
 
-  # Reading time display (used in layouts/essays/single.html)
-  show_read_time = true           # Show reading time on essays
-
-  # Email subscription form (footer)
-  show_email_signup = true        # Show email subscription form in footer
-  email_signup_text = "I send new essays and updates via email."
-  email_signup_action = "https://buttondown.com/api/emails/embed-subscribe/shawnyeager"
-  plausible_form_event = "Form+Submission"  # Plausible custom event for newsletter signup
-
-  # Podcast configuration
-  podcast_name = "Trust Revolution podcast"
-  podcast_url = "https://fountain.fm/show/Mk0fJte5vrfiDQ5RyCZd"
-  podcast_rss = "https://feeds.fountain.fm/OIYZniSDb9jd3Pb78CpF"
-  podcast_description = "Rethinking trust for a decentralized future"
-  podcast_image = "/images/trust-revolution-official.webp"  # Official cover for schema.org
-
-  # Secondary site link (for footer cross-link)
-  secondary_site_url = "https://notes.shawnyeager.com"
-  secondary_site_name = "Notes"
-
-  # Copyright and social links
-  copyright = "Copyright © 2025, Shawn Yeager"
-  nostr = "https://primal.net/shawn"
-  github = "https://github.com/shawnyeager"
-  twitter_handle = "shawnyeager"  # Without @ symbol, used for Twitter Card attribution
-
-# Author information (used in RSS feeds and structured data)
 [params.author]
   name = "Shawn Yeager"
   email = "hello@shawnyeager.com"
@@ -103,48 +139,10 @@ enableRobotsTXT = true
   nostr = "https://primal.net/shawn"
   podcast = "https://fountain.fm/show/Mk0fJte5vrfiDQ5RyCZd"
 
-# Note: Hugo only merges [params] and [[menu.*]] from theme modules
-# All other config must be defined in site files
+# =============================================================================
+# MARKUP
+# =============================================================================
 
-# Language settings
-languageCode = "en-us"
-defaultContentLanguage = "en"
-enableEmoji = true
-
-# Taxonomies
-[taxonomies]
-  topic = "topics"
-  tag = "tags"
-
-# Exclude tags taxonomy from sitemap via cascade
-[[cascade]]
-  _target.kind = "term"
-  _target.path = "/tags"
-  [cascade.sitemap]
-    disable = true
-
-[[cascade]]
-  _target.kind = "taxonomy"
-  _target.path = "/tags/**"
-  [cascade.sitemap]
-    disable = true
-
-# Sitemap configuration
-[sitemap]
-  changefreq = "weekly"
-  priority = 0.5
-
-# Image processing
-[imaging]
-  quality = 85
-  resampleFilter = "Lanczos"
-  anchor = "Smart"
-
-[imaging.exif]
-  disableDate = false
-  disableLatLong = true
-
-# Markdown configuration
 [markup.goldmark.renderer]
   unsafe = false
 
@@ -156,12 +154,27 @@ enableEmoji = true
   lineNos = false
   lineNumbersInTable = false
 
-# Privacy
+# =============================================================================
+# IMAGE PROCESSING
+# =============================================================================
+
+[imaging]
+  quality = 85
+  resampleFilter = "Lanczos"
+  anchor = "Smart"
+
+[imaging.exif]
+  disableDate = false
+  disableLatLong = true
+
+# =============================================================================
+# PRIVACY & SECURITY
+# =============================================================================
+
 [privacy]
   [privacy.youtube]
     privacyEnhanced = true
 
-# Security
 [security]
   enableInlineShortcodes = false
   [security.exec]
@@ -169,11 +182,13 @@ enableEmoji = true
   [security.funcs]
     getenv = ['^HUGO_', '^CI$']
 
-# Build
+# =============================================================================
+# BUILD & CACHE
+# =============================================================================
+
 [build]
   writeStats = false
 
-# Cache configuration
 [caches]
   [caches.getjson]
     dir = ":cacheDir/:project"
@@ -188,7 +203,10 @@ enableEmoji = true
     dir = ":cacheDir/:project"
     maxAge = -1
 
-# Menu configuration
+# =============================================================================
+# MENU
+# =============================================================================
+
 [[menu.main]]
   name = "Home"
   url = "/"
