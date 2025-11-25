@@ -1,5 +1,12 @@
 #!/bin/bash
-# Block go.mod commits in site repos (theme updates should come via GitHub Actions)
+# Block go.mod commits on master branch (theme updates should come via GitHub Actions)
+# Feature/preview branches can update theme manually for testing
+
+# Only block on master branch
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if [ "$CURRENT_BRANCH" != "master" ]; then
+    exit 0
+fi
 
 if git diff --cached --name-only | grep -q "^go.mod$"; then
     if git diff --cached go.mod | grep -q "tangerine-theme"; then
