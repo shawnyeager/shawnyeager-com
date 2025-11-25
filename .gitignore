@@ -8,3 +8,13 @@ resources/
 
 # Node.js
 node_modules/
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
