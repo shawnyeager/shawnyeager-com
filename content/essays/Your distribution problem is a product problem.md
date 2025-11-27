@@ -5,7 +5,6 @@ date: 2025-10-26T14:30:00Z
 slug: your-distribution-problem-is-a-product-problem
 topics: [product, go-to-market, bitcoin]
 tags: []
-cta: true
 featured: false
 draft: true
 ---

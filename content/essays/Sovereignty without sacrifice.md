@@ -9,7 +9,6 @@ topics:
   - go-to-market
 tags: []
 featured: true
-cta: false
 draft: false
 ---
 You can have easy payments or private payments. Good UX or self-custody. Censorship resistance or features people actually use. That's been the conventional wisdom for years.

@@ -125,6 +125,8 @@ enableEmoji = true
   plausible_events.all_essays = "All+Essays"
   plausible_events.media_kit = "Media+Kit+Download"
   plausible_events.cross_site_nav = "Cross-Site+Navigation"
+  plausible_events.v4v_essay = "V4V+Essay"
+  plausible_events.v4v_footer = "V4V+Footer"
 
 [params.author]
   name = "Shawn Yeager"

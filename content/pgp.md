@@ -1,5 +1,5 @@
 ---
-title: "PGP Key"
+title: "PGP key"
 description: "PGP public key and fingerprint for encrypted email communication with Shawn Yeager."
 date: 2025-10-14
 type: page
