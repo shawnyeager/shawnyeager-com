@@ -32,9 +32,17 @@ export default async (req: Request, context: Context) => {
     });
   }
 
-  const data = await albyResponse.text();
+  const data = await albyResponse.json();
 
-  return new Response(data, {
+  // Rewrite metadata to show vanity address instead of Alby address
+  if (data.metadata) {
+    data.metadata = data.metadata.replace(
+      'shawnyeager@getalby.com',
+      `${username}@shawnyeager.com`
+    );
+  }
+
+  return new Response(JSON.stringify(data), {
     status: 200,
     headers: {
       "Content-Type": "application/json",
