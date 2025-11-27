@@ -26,16 +26,17 @@ description: "A concise 1-2 sentence summary of the essay for SEO meta tags and 
             {{ .Content | safeHTML }}
         </div>
 
-        <!-- Optional Footer CTA -->
-        {{ if .Params.cta }}
+        <!-- Essay Footer -->
         <footer class="essay-footer">
-            <p>Working on Bitcoin sales or go-to-market? <a href="mailto:hello@shawnyeager.com"{{ with .Site.Params.plausible_events.contact_email }} class="plausible-event-name={{ . }}"{{ end }}>Let's talk</a>.</p>
+            {{- with .Params.acknowledgment }}
+            <p class="essay-acknowledgement">{{ . }}</p>
+            {{- end }}
+            <a href="/v4v/?essay={{ .Params.slug }}" class="cta-link"><span class="link-text">Value for value</span> <span aria-hidden="true">→</span></a>
         </footer>
-        {{ end }}
 
-        <!-- Back Link -->
-        <div class="essay-back-link">
-            <a href="{{ "essays" | relURL }}"{{ with .Site.Params.plausible_events.all_essays }} class="plausible-event-name={{ . }}"{{ end }}><span aria-hidden="true">←</span> All essays</a>
-        </div>
+        <!-- Essay Navigation -->
+        <nav class="essay-nav">
+            <a href="{{ "essays" | relURL }}" class="all-essays"{{ with .Site.Params.plausible_events.all_essays }} data-plausible="{{ . }}"{{ end }}><span aria-hidden="true">←</span> All essays</a>
+        </nav>
     </article>
 {{ end }}
