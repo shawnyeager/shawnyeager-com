@@ -6,6 +6,8 @@ hide_footer_signup: true
 build:
   list: false
   render: true
+sitemap:
+  disable: true
 ---
 
 {{< v4v-intro >}}
