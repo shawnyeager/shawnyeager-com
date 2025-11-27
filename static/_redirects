@@ -34,7 +34,3 @@ https://shawnyeager-com.netlify.app/*           https://shawnyeager.com/:splat  
 /schedule                                       https://cal.com/shawnyeager
 /signal                                         https://signal.me/#eu/PolR9qrOuPADQGwMLAZS1NH0wBIHBv7SFLWKoKk6r3XCEaSf4DpK9YpHjlTrbCVY
 
-# Lightning Network Address (Alby)
-/.well-known/lnurlp/sats                        https://getalby.com/.well-known/lnurlp/shawnyeager
-/.well-known/lnurlp/shawn                       https://getalby.com/.well-known/lnurlp/shawnyeager
-/.well-known/lnurlp/zaps                        https://getalby.com/.well-known/lnurlp/shawnyeager

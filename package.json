@@ -8,9 +8,12 @@
     "build": "npm run generate-og && hugo"
   },
   "dependencies": {
-    "satori": "^0.10.14",
-    "sharp": "^0.33.2",
+    "glob": "^10.3.10",
     "gray-matter": "^4.0.3",
-    "glob": "^10.3.10"
+    "satori": "^0.10.14",
+    "sharp": "^0.33.2"
+  },
+  "devDependencies": {
+    "@netlify/functions": "^5.1.0"
   }
 }
