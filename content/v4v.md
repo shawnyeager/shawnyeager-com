@@ -12,6 +12,6 @@ build:
 
 {{< qr-code src="/images/lightning-qr.png" alt="QR code for Lightning Address sats@shawnyeager.com" href="lightning:sats@shawnyeager.com" >}}
 
-{{< copy-widget value="sats@shawnyeager.com" label="Copy" >}}
+{{< copy-inline value="sats@shawnyeager.com" >}}
 
 New to value-for-value? [Learn the concept.](https://value4value.info/)

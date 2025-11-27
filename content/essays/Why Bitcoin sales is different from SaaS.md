@@ -10,7 +10,6 @@ topics:
   - sales
 tags: []
 featured: false
-cta: true
 draft: false
 ---
 Most Bitcoin companies try to apply standard SaaS approaches to selling Bitcoin infrastructure. This rarely works. Bitcoin sales requires a fundamentally different approach because you're asking buyers to rethink how money and trust work, not just evaluate software.

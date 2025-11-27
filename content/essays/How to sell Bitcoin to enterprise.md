@@ -5,7 +5,6 @@ date: 2025-10-26T14:30:00Z
 slug: how-to-sell-bitcoin-to-enterprise
 topics: [bitcoin, sales]
 tags: []
-cta: true
 featured: false
 draft: true
 ---
