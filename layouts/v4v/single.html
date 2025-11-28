@@ -227,7 +227,10 @@ function startPaymentPolling() {
     }
 
     try {
-      const response = await fetch(`/invoice-status?hash=${encodeURIComponent(state.paymentHash)}`);
+      const params = new URLSearchParams();
+      if (state.paymentHash) params.set('hash', state.paymentHash);
+      if (state.currentInvoice) params.set('invoice', state.currentInvoice);
+      const response = await fetch(`/invoice-status?${params.toString()}`);
       const data = await response.json();
 
       if (data.paid) {
@@ -318,7 +321,7 @@ elements.amountBtns.forEach(btn => {
 elements.copyBtn.addEventListener('click', async () => {
   try {
     await navigator.clipboard.writeText(state.currentInvoice);
-    elements.copyBtn.textContent = 'Copied!';
+    elements.copyBtn.textContent = 'Copied';
     setTimeout(() => elements.copyBtn.textContent = 'Copy invoice', 2000);
   } catch (err) {
     console.error('Copy failed:', err);
@@ -469,7 +472,7 @@ window.addEventListener('beforeunload', () => {
 .qr-code {
   margin-top: var(--space-sm);
   margin-bottom: var(--space-lg);
-  min-height: 300px;
+  min-height: var(--qr-size);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -659,12 +662,12 @@ window.addEventListener('beforeunload', () => {
   }
 
   .qr-code {
-    min-height: 250px;
+    min-height: var(--qr-size);
   }
 
   .qr-code canvas {
-    max-width: 250px;
-    height: auto;
+    width: var(--qr-size) !important;
+    height: var(--qr-size) !important;
   }
 }
 </style>

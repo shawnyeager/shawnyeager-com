@@ -8,11 +8,12 @@ import { webln } from "@getalby/sdk";
 export default async (req: Request, context: Context) => {
   const url = new URL(req.url);
   const paymentHash = url.searchParams.get('hash');
+  const invoice = url.searchParams.get('invoice');
 
-  if (!paymentHash) {
+  if (!paymentHash && !invoice) {
     return new Response(JSON.stringify({
       status: "ERROR",
-      reason: "Payment hash required"
+      reason: "Payment hash or invoice required"
     }), {
       status: 400,
       headers: { "Content-Type": "application/json" }
@@ -38,15 +39,16 @@ export default async (req: Request, context: Context) => {
 
     await nwc.enable();
 
-    const invoice = await nwc.lookupInvoice({
-      payment_hash: paymentHash
+    const lookupResult = await nwc.lookupInvoice({
+      invoice: invoice || undefined,
+      payment_hash: paymentHash || undefined
     });
 
-    const paid = invoice.paid || false;
+    const paid = lookupResult.paid || false;
 
     return new Response(JSON.stringify({
       paid,
-      preimage: invoice.preimage || null
+      preimage: lookupResult.preimage || null
     }), {
       status: 200,
       headers: {
