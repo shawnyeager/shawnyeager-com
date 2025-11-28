@@ -45,6 +45,7 @@
       <a id="qr-link" href="#" class="qr-link">
         <div id="qr-code" class="qr-code"></div>
       </a>
+      <p class="qr-tap-hint">Tap to open wallet</p>
       <p class="qr-amount">
         <span id="selected-amount" class="qr-amount-value"></span> sats
       </p>
@@ -423,6 +424,21 @@ window.addEventListener('beforeunload', () => {
   margin: 0 auto;
   box-shadow: var(--shadow-content-light);
   transition: box-shadow var(--transition-fast);
+}
+
+.qr-link {
+  display: block;
+  cursor: pointer;
+}
+
+.qr-link:hover .qr-code canvas {
+  box-shadow: 0 0 0 3px var(--brand-orange);
+}
+
+.qr-tap-hint {
+  font-size: var(--font-sm);
+  color: var(--text-meta);
+  margin-bottom: var(--space-md);
 }
 
 .qr-amount {
