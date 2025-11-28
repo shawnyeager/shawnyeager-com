@@ -1,6 +1,6 @@
 import type { Context, Config } from "@netlify/functions";
+import { nwc } from "@getalby/sdk";
 import { WebSocket } from "ws";
-import { webln } from "@getalby/sdk";
 
 // Polyfill WebSocket for serverless environment
 (globalThis as any).WebSocket = WebSocket;
@@ -33,26 +33,25 @@ export default async (req: Request, context: Context) => {
   }
 
   try {
-    const nwc = new webln.NostrWebLNProvider({
+    // Use NWCClient directly (not WebLN wrapper)
+    const client = new nwc.NWCClient({
       nostrWalletConnectUrl: nwcUrl
     });
 
-    await nwc.enable();
-
-    const lookupResult = await nwc.lookupInvoice({
+    const result = await client.lookupInvoice({
       invoice: invoice || undefined,
       payment_hash: paymentHash || undefined
     });
 
     // Debug log to see what NWC returns
-    console.log('lookupInvoice result:', JSON.stringify(lookupResult, null, 2));
+    console.log('lookupInvoice result:', JSON.stringify(result, null, 2));
 
-    // preimage is the definitive proof of payment - only exists when invoice is paid
-    const paid = !!lookupResult.preimage;
+    // Nip47Transaction has preimage field - only present when paid
+    const paid = !!result.preimage;
 
     return new Response(JSON.stringify({
       paid,
-      preimage: lookupResult.preimage || null
+      preimage: result.preimage || null
     }), {
       status: 200,
       headers: {

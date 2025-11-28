@@ -59,7 +59,7 @@
 
     <!-- Payment Status (hidden by default) -->
     <div id="payment-status" class="payment-status hidden">
-      <p class="payment-check">Payment received</p>
+      <p class="payment-check"><span id="confirmed-amount"></span> sats received</p>
       <p class="payment-thanks">Thank you for supporting this work.</p>
     </div>
 
@@ -116,6 +116,7 @@ const elements = {
   amountDisplay: document.getElementById('selected-amount'),
   changeAmountBtn: document.getElementById('change-amount'),
   paymentStatus: document.getElementById('payment-status'),
+  confirmedAmount: document.getElementById('confirmed-amount'),
 };
 
 async function generateInvoice(sats) {
@@ -251,6 +252,7 @@ function startPaymentPolling() {
 }
 
 function showPaymentConfirmation() {
+  elements.confirmedAmount.textContent = state.selectedAmount.toLocaleString();
   elements.qrDisplay.classList.add('hidden');
   elements.paymentStatus.classList.remove('hidden');
 }
@@ -488,9 +490,10 @@ window.addEventListener('beforeunload', () => {
 
 .qr-loading {
   text-align: center;
-  color: var(--text-secondary);
+  color: var(--text-meta);
   font-size: var(--font-base);
   padding: var(--space-xl) 0;
+  text-decoration: none;
 }
 
 .qr-code canvas {
