@@ -44,8 +44,11 @@ export default async (req: Request, context: Context) => {
       payment_hash: paymentHash || undefined
     });
 
-    // NIP-47 returns settled_at timestamp when paid, null/undefined if unpaid
-    const paid = lookupResult.settled_at != null || lookupResult.preimage != null;
+    // Debug log to see what NWC returns
+    console.log('lookupInvoice result:', JSON.stringify(lookupResult, null, 2));
+
+    // preimage is the definitive proof of payment - only exists when invoice is paid
+    const paid = !!lookupResult.preimage;
 
     return new Response(JSON.stringify({
       paid,
