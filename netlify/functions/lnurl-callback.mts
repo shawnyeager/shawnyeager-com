@@ -48,13 +48,20 @@ export default async (req: Request, context: Context) => {
       defaultMemo: `Essay: ${essaySlug} | shawnyeager.com`
     });
 
+    // Debug: log invoice object structure
+    console.log('Invoice object keys:', Object.keys(invoice));
+    console.log('Invoice object:', JSON.stringify(invoice));
+
+    // Extract payment hash - try different property names from NWC response
+    const paymentHash = invoice.payment_hash || invoice.rHash || invoice.paymentHash || '';
+
     // Log for analytics
-    console.log(`Invoice generated: essay=${essaySlug}, amount=${amount}ms, hash=${invoice.rHash}`);
+    console.log(`Invoice generated: essay=${essaySlug}, amount=${amount}ms, hash=${paymentHash}`);
 
     // Return LNURL-pay callback response with payment hash for status polling
     return new Response(JSON.stringify({
       pr: invoice.paymentRequest,
-      paymentHash: invoice.rHash,
+      paymentHash: paymentHash,
       routes: [],
       successAction: {
         tag: "message",
