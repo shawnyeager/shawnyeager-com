@@ -7,6 +7,7 @@ export default async (req: Request, context: Context) => {
   const url = new URL(req.url);
   const amount = url.searchParams.get('amount');
   const essaySlug = url.searchParams.get('essay') || '';
+  const essayTitle = url.searchParams.get('title') || '';
 
   if (!amount) {
     return errorResponse(400, "Amount parameter required");
@@ -44,9 +45,9 @@ export default async (req: Request, context: Context) => {
       routes: [],
       successAction: {
         tag: "message",
-        message: essaySlug
-          ? `Thank you for supporting "${essaySlug}"!`
-          : 'Thank you for your support!'
+        message: essayTitle
+          ? `Thank you for supporting ${essayTitle}.`
+          : 'Thank you for your support.'
       }
     });
 
