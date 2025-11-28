@@ -73,7 +73,7 @@
       <p>
         If this essay saved you time or changed your thinking, support it.
       </p>
-      <p><a href="https://value4value.info/">How V4V works →</a></p>
+      <a href="https://value4value.info/" class="cta-link"><span class="link-text">How V4V works</span> <span aria-hidden="true">→</span></a>
     </details>
   </div>
 </article>
@@ -330,8 +330,6 @@ window.addEventListener('beforeunload', () => {
 
 .custom-amount-section {
   margin-bottom: var(--space-2xl);
-  padding-top: var(--space-lg);
-  border-top: var(--border-width) solid var(--border-color);
 }
 
 .custom-amount-label {
@@ -492,7 +490,7 @@ window.addEventListener('beforeunload', () => {
 
 .v4v-details summary {
   cursor: pointer;
-  font-size: var(--font-sm);
+  font-size: var(--font-base);
   color: var(--text-meta);
   font-weight: var(--font-weight-medium);
   transition: color var(--transition-fast);
@@ -517,17 +515,6 @@ window.addEventListener('beforeunload', () => {
 
 .v4v-details p:last-child {
   margin-bottom: 0;
-}
-
-.v4v-details a {
-  color: var(--brand-orange);
-  text-decoration: none;
-  transition: color var(--transition-fast);
-}
-
-.v4v-details a:hover {
-  color: var(--brand-orange-hover);
-  text-decoration: underline;
 }
 
 .hidden {
