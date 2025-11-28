@@ -1,6 +1,7 @@
 import type { Context, Config } from "@netlify/functions";
 import { WebSocket } from "ws";
 import { webln } from "@getalby/sdk";
+import bolt11 from "bolt11";
 
 // Polyfill WebSocket for serverless environment
 (globalThis as any).WebSocket = WebSocket;
@@ -48,12 +49,15 @@ export default async (req: Request, context: Context) => {
       defaultMemo: `Essay: ${essaySlug} | shawnyeager.com`
     });
 
-    // Debug: log invoice object structure
-    console.log('Invoice object keys:', Object.keys(invoice));
-    console.log('Invoice object:', JSON.stringify(invoice));
-
-    // Extract payment hash - try different property names from NWC response
-    const paymentHash = invoice.payment_hash || invoice.rHash || invoice.paymentHash || '';
+    // Extract payment hash from BOLT11 invoice
+    let paymentHash = '';
+    try {
+      const decoded = bolt11.decode(invoice.paymentRequest);
+      const paymentHashTag = decoded.tags.find((t: any) => t.tagName === 'payment_hash');
+      paymentHash = paymentHashTag?.data || '';
+    } catch (e) {
+      console.error('Failed to decode BOLT11:', e);
+    }
 
     // Log for analytics
     console.log(`Invoice generated: essay=${essaySlug}, amount=${amount}ms, hash=${paymentHash}`);
