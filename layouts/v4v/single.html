@@ -57,7 +57,7 @@
           <span id="selected-amount" class="qr-amount-value"></span> sats
         </p>
         <p id="polling-status" class="polling-status">Waiting for payment...</p>
-        <button id="change-amount" class="qr-change-btn" type="button">Change amount</button>
+        <button id="cancel-btn" class="qr-cancel-btn" type="button">Cancel</button>
       </div>
     </div>
 
@@ -154,7 +154,7 @@ const elements = {
   qrDetails: document.getElementById('qr-details'),
   copyBtns: document.querySelectorAll('.qr-copy-link'),
   amountDisplay: document.getElementById('selected-amount'),
-  changeAmountBtn: document.getElementById('change-amount'),
+  cancelBtn: document.getElementById('cancel-btn'),
   paymentStatus: document.getElementById('payment-status'),
   confirmedAmount: document.getElementById('confirmed-amount'),
   errorMessage: document.getElementById('error-message'),
@@ -442,7 +442,7 @@ elements.copyBtns.forEach(btn => {
   });
 });
 
-elements.changeAmountBtn.addEventListener('click', () => {
+elements.cancelBtn.addEventListener('click', () => {
   resetToAmountSelection();
 });
 
@@ -792,7 +792,7 @@ a.qr-link:hover {
   color: var(--brand-orange);
 }
 
-.qr-change-btn {
+.qr-cancel-btn {
   background: none;
   border: var(--border-width) solid var(--text-meta);
   border-radius: var(--border-radius-interactive);
@@ -806,7 +806,7 @@ a.qr-link:hover {
   transition: all var(--transition-fast);
 }
 
-.qr-change-btn:hover {
+.qr-cancel-btn:hover {
   border-color: var(--brand-orange);
   color: var(--brand-orange);
 }
