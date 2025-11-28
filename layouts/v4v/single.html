@@ -88,7 +88,7 @@
 import QRCode from 'https://esm.sh/qrcode@1.5.3';
 
 // Configuration
-const essaySlug = {{ $essaySlug | jsonify }};
+const essaySlug = "{{ $essaySlug }}";
 const config = {
   lnurlEndpoint: '/.well-known/lnurlp/sats',
   pollInterval: 3000,
