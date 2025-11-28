@@ -192,6 +192,7 @@ async function showQR(sats) {
   state.isGenerating = true;
   state.selectedAmount = sats;
 
+  removeSuggestedHighlight();
   hideError();
   setPaymentControlsDisabled(true);
   elements.qrCode.innerHTML = '<p class="qr-loading">Generating invoice...</p>';
@@ -353,16 +354,10 @@ elements.customInput.addEventListener('input', (e) => {
   e.target.value = parseInt(raw, 10).toLocaleString();
 });
 
-// Remove suggested highlight once user engages with options
+// Remove suggested highlight on actual selection (not hover)
 function removeSuggestedHighlight() {
   document.querySelector('.amount-btn--suggested')?.classList.remove('amount-btn--suggested');
 }
-
-elements.customInput.addEventListener('focus', removeSuggestedHighlight);
-
-elements.amountBtns.forEach(btn => {
-  btn.addEventListener('mouseenter', removeSuggestedHighlight);
-});
 
 elements.copyBtns.forEach(btn => {
   btn.addEventListener('click', async () => {
@@ -570,20 +565,21 @@ document.addEventListener('visibilitychange', () => {
 }
 
 .qr-code {
-  margin-top: var(--space-sm);
-  margin-bottom: var(--space-lg);
   min-height: var(--qr-size);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.qr-link .qr-loading {
-  text-align: center;
+.qr-code:has(canvas) {
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.qr-loading {
   color: var(--text-meta);
   font-size: var(--font-base);
-  padding: var(--space-xl) 0;
-  text-decoration: none;
+  margin: 0;
 }
 
 .qr-code canvas {
