@@ -21,7 +21,7 @@
 
   <div class="v4v-content">
     <p class="v4v-intro">
-      Found value? Pay what it's worth.
+      Pay what this was worth to you.
     </p>
 
     <!-- Amount Selection -->
@@ -34,7 +34,7 @@
 
     <!-- Custom Amount Input -->
     <div class="custom-amount-section">
-      <label for="custom-sats" class="custom-amount-label">Or enter amount:</label>
+      <label for="custom-sats" class="custom-amount-label">Custom amount:</label>
       <div class="custom-amount-field">
         <input
           type="number"
@@ -44,7 +44,7 @@
           min="1"
           inputmode="numeric"
         />
-        <button id="generate-custom" class="custom-amount-btn" type="button">Generate</button>
+        <button id="generate-custom" class="custom-amount-btn" type="button">Show QR</button>
       </div>
     </div>
 
@@ -68,10 +68,12 @@
     <details class="v4v-details">
       <summary>New to value-for-value?</summary>
       <p>
-        Value-for-value means you decide what content is worth.
-        If this essay saved you time or sparked an idea—support it with Bitcoin.
+        Value-for-value means no paywalls, no tracking, no platform cut. You read first, decide what the work is worth, then pay directly. Bitcoin makes this possible—no middlemen, no surveillance, just creator and reader.
       </p>
-      <p><a href="https://value4value.info/">Learn more</a></p>
+      <p>
+        If this essay saved you time or changed your thinking, support it.
+      </p>
+      <p><a href="https://value4value.info/">How V4V works →</a></p>
     </details>
   </div>
 </article>
@@ -291,7 +293,7 @@ window.addEventListener('beforeunload', () => {
 
 .v4v-intro {
   font-size: var(--font-lg);
-  color: var(--text-secondary);
+  color: var(--text-primary);
   margin-bottom: var(--space-2xl);
   line-height: var(--line-height-body);
   font-weight: var(--font-weight-body);
@@ -495,6 +497,11 @@ window.addEventListener('beforeunload', () => {
   font-weight: var(--font-weight-medium);
   transition: color var(--transition-fast);
   list-style-position: outside;
+  list-style: none;
+}
+
+.v4v-details summary::marker {
+  display: none;
 }
 
 .v4v-details summary:hover {
