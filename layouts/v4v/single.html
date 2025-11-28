@@ -45,7 +45,10 @@
       <a id="qr-link" href="#" class="qr-link">
         <div id="qr-code" class="qr-code"></div>
       </a>
-      <p class="qr-tap-hint">Tap to open wallet</p>
+      <p class="qr-hint">
+        <span class="qr-hint--mobile">Tap to open wallet</span>
+        <span class="qr-hint--desktop">Scan with Lightning wallet</span>
+      </p>
       <p class="qr-amount">
         <span id="selected-amount" class="qr-amount-value"></span> sats
       </p>
@@ -439,8 +442,10 @@ window.addEventListener('beforeunload', () => {
 
 .qr-display {
   text-align: center;
-  padding: var(--space-2xl);
+  padding: var(--space-xl);
   background: var(--background-card);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius-md);
   margin-bottom: var(--space-xl);
   transition: background-color var(--transition-fast);
 }
@@ -480,15 +485,32 @@ window.addEventListener('beforeunload', () => {
   box-shadow: 0 0 0 3px var(--brand-orange);
 }
 
-.qr-tap-hint {
+.qr-hint {
   font-size: var(--font-sm);
   color: var(--text-meta);
   margin-bottom: var(--space-md);
 }
 
+.qr-hint--mobile {
+  display: inline;
+}
+
+.qr-hint--desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .qr-hint--mobile {
+    display: none;
+  }
+  .qr-hint--desktop {
+    display: inline;
+  }
+}
+
 .qr-amount {
   font-size: var(--font-2xl);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-bold);
   color: var(--text-primary);
   margin-bottom: var(--space-xs);
   letter-spacing: var(--letter-spacing-tight-md);
