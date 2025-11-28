@@ -14,7 +14,7 @@
 <article class="v4v-page">
   <header class="v4v-header">
     <p class="v4v-breadcrumb">
-      <a href="/{{ $essaySlug }}/">← {{ $essayTitle }}</a>
+      <a href="/{{ $essaySlug }}/" class="all-essays"><span aria-hidden="true">←</span> {{ $essayTitle }}</a>
     </p>
     <h1 class="page-title">Support this essay</h1>
   </header>
@@ -23,21 +23,6 @@
     <p class="v4v-intro">
       Pay what this was worth to you.
     </p>
-
-    <!-- V4V Info - explain before asking for payment -->
-    <details class="v4v-details">
-      <summary>New to value-for-value?</summary>
-      <p>
-        Value-for-value means no paywalls, no tracking, no platform cut. You read first, decide what the work is worth, then pay directly. Bitcoin makes this possible—no middlemen, no surveillance, just creator and reader.
-      </p>
-      <p>
-        If this essay saved you time or changed your thinking, support it.
-      </p>
-      <a href="https://value4value.info/" class="cta-link"><span class="link-text">How V4V works</span> <span aria-hidden="true">→</span></a>
-    </details>
-
-    <!-- Instruction text -->
-    <p class="amount-instruction">Select an amount to generate a payment QR code:</p>
 
     <!-- Amount Selection -->
     <div class="amount-grid">
@@ -62,6 +47,18 @@
         <button id="generate-custom" class="custom-amount-btn" type="button">Show QR</button>
       </div>
     </div>
+
+    <!-- V4V Info -->
+    <details class="v4v-details">
+      <summary>New to value-for-value?</summary>
+      <p>
+        Value-for-value means no paywalls, no tracking, no platform cut. You read first, decide what the work is worth, then pay directly. Bitcoin makes this possible—no middlemen, no surveillance, just creator and reader.
+      </p>
+      <p>
+        If this essay saved you time or changed your thinking, support it.
+      </p>
+      <a href="https://value4value.info/" class="cta-link"><span class="link-text">How V4V works</span> <span aria-hidden="true">→</span></a>
+    </details>
 
     <!-- QR Display (hidden by default) -->
     <div id="qr-display" class="qr-display hidden">
@@ -276,17 +273,14 @@ window.addEventListener('beforeunload', () => {
 
 .v4v-breadcrumb {
   font-size: var(--font-sm);
-  color: var(--text-meta);
   margin-bottom: var(--space-sm);
 }
 
-.v4v-breadcrumb a {
-  color: inherit;
-  text-decoration: none;
-  transition: color var(--transition-fast);
+.v4v-breadcrumb .all-essays {
+  color: var(--text-meta);
 }
 
-.v4v-breadcrumb a:hover {
+.v4v-breadcrumb .all-essays:hover {
   color: var(--brand-orange);
 }
 
@@ -300,12 +294,6 @@ window.addEventListener('beforeunload', () => {
   margin-bottom: var(--space-2xl);
   line-height: var(--line-height-body);
   font-weight: var(--font-weight-body);
-}
-
-.amount-instruction {
-  font-size: var(--font-sm);
-  color: var(--text-meta);
-  margin-bottom: var(--space-sm);
 }
 
 .amount-grid {
@@ -501,9 +489,9 @@ window.addEventListener('beforeunload', () => {
 }
 
 .v4v-details {
-  margin-bottom: var(--space-2xl);
-  padding-bottom: var(--space-xl);
-  border-bottom: var(--border-width) solid var(--border-color);
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-xl);
+  border-top: var(--border-width) solid var(--border-color);
 }
 
 .v4v-details summary {
