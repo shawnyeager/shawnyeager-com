@@ -14,7 +14,7 @@
 <article class="v4v-page">
   <div class="v4v-content">
     <p class="v4v-intro">
-      {{ if $hasEssay }}Pay what this was worth to you.{{ else }}Value for value{{ end }}
+      {{ if $hasEssay }}Pay what this was worth to you.{{ else }}Support this work.{{ end }}
     </p>
 
     <!-- Amount Selection -->
@@ -93,6 +93,7 @@ const config = {
   lnurlEndpoint: '/.well-known/lnurlp/sats',
   pollInterval: 3000,
   pollTimeout: 300000,
+  maxPollFailures: 3,
 };
 
 // State
@@ -104,6 +105,7 @@ let state = {
   startTime: null,
   isGenerating: false,
   maxSendable: null,
+  pollFailures: 0,
 };
 
 // DOM elements
@@ -186,57 +188,67 @@ async function generateInvoice(sats) {
   }
 }
 
-async function showQR(sats) {
-  // Prevent duplicate requests
-  if (state.isGenerating) return;
-  state.isGenerating = true;
-  state.selectedAmount = sats;
-
+function displayLoadingState() {
   removeSuggestedHighlight();
   hideError();
   setPaymentControlsDisabled(true);
   elements.qrCode.innerHTML = '<p class="qr-loading">Generating invoice...</p>';
   elements.qrDisplay.classList.remove('hidden');
+}
+
+function handleGenerationError() {
+  elements.qrDisplay.classList.add('hidden');
+  state.isGenerating = false;
+  setPaymentControlsDisabled(false);
+}
+
+async function renderQRCode(invoice) {
+  elements.qrCode.innerHTML = '';
+  const canvas = document.createElement('canvas');
+  elements.qrCode.appendChild(canvas);
+
+  await QRCode.toCanvas(canvas, invoice.toUpperCase(), {
+    width: 300,
+    margin: 2,
+    color: { dark: '#000000', light: '#FFFFFF' },
+    errorCorrectionLevel: 'M'
+  });
+}
+
+function displayQRSuccess(sats, invoice) {
+  elements.amountDisplay.textContent = sats.toLocaleString();
+  elements.qrLink.href = `lightning:${invoice}`;
+  elements.qrDetails.classList.remove('hidden');
+  state.isGenerating = false;
+  startPaymentPolling();
+}
+
+async function showQR(sats) {
+  if (state.isGenerating) return;
+  state.isGenerating = true;
+  state.selectedAmount = sats;
+
+  displayLoadingState();
 
   const result = await generateInvoice(sats);
-
   if (!result) {
-    elements.qrDisplay.classList.add('hidden');
-    state.isGenerating = false;
-    setPaymentControlsDisabled(false);
+    handleGenerationError();
     return;
   }
 
   state.currentInvoice = result.invoice;
   state.paymentHash = result.paymentHash;
-  elements.qrCode.innerHTML = '';
-
-  const canvas = document.createElement('canvas');
-  elements.qrCode.appendChild(canvas);
 
   try {
-    await QRCode.toCanvas(canvas, result.invoice.toUpperCase(), {
-      width: 300,
-      margin: 2,
-      color: {
-        dark: '#000000',
-        light: '#FFFFFF'
-      },
-      errorCorrectionLevel: 'M'
-    });
+    await renderQRCode(result.invoice);
   } catch (error) {
     console.error('QR generation failed:', error);
-    elements.qrCode.innerHTML = '<p style="color: var(--text-meta);">QR code generation failed</p>';
-    state.isGenerating = false;
-    setPaymentControlsDisabled(false);
+    elements.qrCode.innerHTML = '<p class="qr-loading">QR code generation failed</p>';
+    handleGenerationError();
     return;
   }
 
-  elements.amountDisplay.textContent = sats.toLocaleString();
-  elements.qrLink.href = `lightning:${result.invoice}`;
-  elements.qrDetails.classList.remove('hidden');
-  state.isGenerating = false;
-  startPaymentPolling();
+  displayQRSuccess(sats, result.invoice);
 }
 
 function startPaymentPolling() {
@@ -264,12 +276,18 @@ function startPaymentPolling() {
       const response = await fetch(`/invoice-status?${params.toString()}`);
       const data = await response.json();
 
+      state.pollFailures = 0; // Reset on successful response
       if (data.paid) {
         stopPaymentPolling();
         showPaymentConfirmation();
       }
     } catch (error) {
       console.error('Payment status check failed:', error);
+      state.pollFailures++;
+      if (state.pollFailures >= config.maxPollFailures) {
+        showError('Payment check failed. Retrying...');
+        state.pollFailures = 0;
+      }
     }
   }, config.pollInterval);
 }
@@ -287,6 +305,15 @@ function stopPaymentPolling() {
   }
 }
 
+function resetState() {
+  state.selectedAmount = null;
+  state.currentInvoice = null;
+  state.paymentHash = null;
+  state.isGenerating = false;
+  state.maxSendable = null;
+  state.pollFailures = 0;
+}
+
 function setPaymentControlsDisabled(disabled) {
   elements.amountBtns.forEach(btn => btn.disabled = disabled);
   elements.customInput.disabled = disabled;
@@ -295,21 +322,18 @@ function setPaymentControlsDisabled(disabled) {
 
 function resetToAmountSelection() {
   stopPaymentPolling();
+  resetState();
   elements.qrDisplay.classList.add('hidden');
   elements.qrDetails.classList.add('hidden');
   elements.paymentStatus.classList.add('hidden');
   elements.customInput.value = '';
-  state.selectedAmount = null;
-  state.currentInvoice = null;
-  state.paymentHash = null;
-  state.isGenerating = false;
   setPaymentControlsDisabled(false);
 }
 
 function parseAmount(value) {
   const stripped = value.replace(/,/g, '');
   const parsed = parseInt(stripped, 10);
-  if (isNaN(parsed) || parsed <= 0) {
+  if (isNaN(parsed) || parsed <= 0 || parsed > Number.MAX_SAFE_INTEGER) {
     return null;
   }
   return parsed;
@@ -402,7 +426,7 @@ document.addEventListener('visibilitychange', () => {
 }
 
 .v4v-intro {
-  font-size: var(--font-base);
+  font-size: var(--font-lg);
   color: var(--text-secondary);
   margin-bottom: var(--space-lg);
   line-height: var(--line-height-body);
@@ -477,7 +501,7 @@ document.addEventListener('visibilitychange', () => {
 }
 
 .custom-amount-input {
-  padding: 0.4rem 0;
+  padding: var(--space-xs) 0;
   border: none;
   border-bottom: var(--border-width) solid var(--border-color);
   border-radius: 0;
@@ -546,10 +570,6 @@ document.addEventListener('visibilitychange', () => {
   margin-bottom: 0;
 }
 
-.error-message.hidden {
-  display: none;
-}
-
 .qr-display {
   text-align: center;
   padding: var(--space-xl);
@@ -558,10 +578,6 @@ document.addEventListener('visibilitychange', () => {
   border-radius: var(--border-radius-md);
   margin-bottom: var(--space-xl);
   transition: background-color var(--transition-fast);
-}
-
-.qr-display.hidden {
-  display: none;
 }
 
 .qr-code {
@@ -676,10 +692,6 @@ document.addEventListener('visibilitychange', () => {
   background: var(--background-card);
   margin-bottom: var(--space-xl);
   transition: background-color var(--transition-fast);
-}
-
-.payment-status.hidden {
-  display: none;
 }
 
 .payment-check {
