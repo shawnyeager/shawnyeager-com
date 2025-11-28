@@ -46,14 +46,12 @@
         <div id="qr-code" class="qr-code"></div>
       </a>
       <p class="qr-hint">
-        <span class="qr-hint--mobile">Tap to open wallet</span>
-        <span class="qr-hint--desktop">Scan with Lightning wallet</span>
+        <span class="qr-hint--mobile">Tap to open wallet or <button id="copy-invoice" class="qr-copy-link" type="button">copy invoice</button></span>
+        <span class="qr-hint--desktop">Scan with Lightning wallet or <button id="copy-invoice-desktop" class="qr-copy-link" type="button">copy invoice</button></span>
       </p>
       <p class="qr-amount">
         <span id="selected-amount" class="qr-amount-value"></span> sats
       </p>
-      <p class="qr-address">sats@shawnyeager.com</p>
-      <button id="copy-invoice" class="qr-copy-btn" type="button">Copy invoice</button>
       <button id="change-amount" class="qr-change-btn" type="button">Change amount</button>
     </div>
 
@@ -112,7 +110,7 @@ const elements = {
   qrDisplay: document.getElementById('qr-display'),
   qrCode: document.getElementById('qr-code'),
   qrLink: document.getElementById('qr-link'),
-  copyBtn: document.getElementById('copy-invoice'),
+  copyBtns: document.querySelectorAll('.qr-copy-link'),
   amountDisplay: document.getElementById('selected-amount'),
   changeAmountBtn: document.getElementById('change-amount'),
   paymentStatus: document.getElementById('payment-status'),
@@ -338,14 +336,17 @@ elements.amountBtns.forEach(btn => {
   btn.addEventListener('mouseenter', removeSuggestedHighlight);
 });
 
-elements.copyBtn.addEventListener('click', async () => {
-  try {
-    await navigator.clipboard.writeText(state.currentInvoice);
-    elements.copyBtn.textContent = 'Copied';
-    setTimeout(() => elements.copyBtn.textContent = 'Copy invoice', 2000);
-  } catch (err) {
-    console.error('Copy failed:', err);
-  }
+elements.copyBtns.forEach(btn => {
+  btn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(state.currentInvoice);
+      const originalText = btn.textContent;
+      btn.textContent = 'copied';
+      setTimeout(() => btn.textContent = originalText, 2000);
+    } catch (err) {
+      console.error('Copy failed:', err);
+    }
+  });
 });
 
 elements.changeAmountBtn.addEventListener('click', () => {
@@ -588,47 +589,39 @@ window.addEventListener('beforeunload', () => {
   font-variant-numeric: tabular-nums;
 }
 
-.qr-address {
-  font-family: var(--font-monospace);
-  font-size: var(--font-sm);
-  color: var(--text-meta);
-  margin-bottom: var(--space-lg);
-  word-break: break-all;
-}
-
-.qr-copy-btn {
+.qr-copy-link {
   background: none;
   border: none;
   color: var(--text-meta);
   cursor: pointer;
-  font-family: var(--font-system);
-  font-size: var(--font-sm);
+  font-family: inherit;
+  font-size: inherit;
   font-weight: var(--font-weight-normal);
   text-decoration: underline;
   padding: 0;
-  margin-bottom: var(--space-sm);
   transition: color var(--transition-fast);
 }
 
-.qr-copy-btn:hover {
+.qr-copy-link:hover {
   color: var(--brand-orange);
 }
 
 .qr-change-btn {
   background: none;
-  border: none;
+  border: var(--border-width) solid var(--text-meta);
+  border-radius: var(--border-radius-interactive);
   color: var(--text-meta);
   cursor: pointer;
   font-family: var(--font-system);
   font-size: var(--font-sm);
-  font-weight: var(--font-weight-normal);
-  text-decoration: underline;
-  padding: 0;
-  margin-top: var(--space-sm);
-  transition: color var(--transition-fast);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  padding: var(--space-xs) var(--space-md);
+  transition: all var(--transition-fast);
 }
 
 .qr-change-btn:hover {
+  border-color: var(--brand-orange);
   color: var(--brand-orange);
 }
 
