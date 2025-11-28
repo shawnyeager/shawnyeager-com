@@ -1,15 +1,15 @@
 {{/*
   V4V Page Template - layouts/v4v/single.html
-  Per-essay Bitcoin payment page with amount selection and QR generation
+  Bitcoin payment page with amount selection and QR generation
 
-  Uses params from content adapter:
-  - .Params.essay_title
-  - .Params.essay_slug
+  Works for both:
+  - General /v4v/ page (no essay context)
+  - Per-essay /essay-slug/v4v/ pages (with essay context from content adapter)
 */}}
 
 {{ define "main" }}
-{{ $essaySlug := .Params.essay_slug }}
-{{ $essayTitle := .Params.essay_title }}
+{{ $essaySlug := .Params.essay_slug | default "" }}
+{{ $hasEssay := ne $essaySlug "" }}
 
 <article class="v4v-page">
   <div class="v4v-content">
@@ -60,9 +60,11 @@
       <p class="payment-thanks">Thank you for supporting this work.</p>
     </div>
 
+    {{ if $hasEssay }}
     <nav class="essay-nav">
       <a href="/{{ $essaySlug }}/" class="all-essays"><span aria-hidden="true">←</span> Back to essay</a>
     </nav>
+    {{ end }}
 
     <!-- V4V Info -->
     <details class="v4v-details">
@@ -71,7 +73,7 @@
         Value-for-value means no paywalls, no tracking, no platform cut. You read first, decide what the work is worth, then pay directly. Bitcoin makes this possible—no middlemen, no surveillance, just creator and reader.
       </p>
       <p>
-        If this essay saved you time or changed your thinking, support it.
+        {{ if $hasEssay }}If this essay saved you time or changed your thinking, support it.{{ else }}If this work has helped you, support it.{{ end }}
       </p>
       <a href="https://value4value.info/" class="cta-link"><span class="link-text">How V4V works</span> <span aria-hidden="true">→</span></a>
     </details>
@@ -113,7 +115,9 @@ const elements = {
 
 async function generateInvoice(sats) {
   try {
-    const lnurlUrl = `${config.lnurlEndpoint}?essay=${encodeURIComponent(essaySlug)}`;
+    const lnurlUrl = essaySlug
+      ? `${config.lnurlEndpoint}?essay=${encodeURIComponent(essaySlug)}`
+      : config.lnurlEndpoint;
     const lnurlResponse = await fetch(lnurlUrl);
 
     if (!lnurlResponse.ok) {
