@@ -113,7 +113,8 @@ let state = {
 };
 
 // Persist state to sessionStorage (survives mobile app switching)
-const STORAGE_KEY = 'v4v_payment_state';
+// Include essay slug in key so each V4V page has its own state
+const STORAGE_KEY = `v4v_payment_state_${essaySlug || 'general'}`;
 
 function savePaymentState() {
   const persistedState = {
