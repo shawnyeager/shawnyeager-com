@@ -17,31 +17,32 @@
       {{ if $hasEssay }}Pay what this was worth to you.{{ else }}Support this work.{{ end }}
     </p>
 
-    <!-- Amount Selection -->
-    <div class="amount-grid">
-      <button class="amount-btn" data-amount="500">500 sats</button>
-      <button class="amount-btn amount-btn--suggested" data-amount="1000">1,000 sats</button>
-      <button class="amount-btn" data-amount="5000">5,000 sats</button>
-      <button class="amount-btn" data-amount="10000">10,000 sats</button>
-    </div>
-
-    <!-- Custom Amount Input -->
-    <div class="custom-amount-section">
-      <label for="custom-sats" class="custom-amount-label">Custom amount:</label>
-      <div class="custom-amount-field">
-        <input
-          type="text"
-          id="custom-sats"
-          class="custom-amount-input"
-          placeholder="sats"
-          inputmode="numeric"
-        />
-        <button id="generate-custom" class="custom-amount-btn" type="button">Pay</button>
+    <!-- Amount Selection (replaced by QR when amount selected) -->
+    <div id="amount-selection" class="amount-selection">
+      <div class="amount-grid">
+        <button class="amount-btn" data-amount="500">500 sats</button>
+        <button class="amount-btn amount-btn--suggested" data-amount="1000">1,000 sats</button>
+        <button class="amount-btn" data-amount="5000">5,000 sats</button>
+        <button class="amount-btn" data-amount="10000">10,000 sats</button>
       </div>
-      <p id="error-message" class="error-message hidden"></p>
+
+      <div class="custom-amount-section">
+        <label for="custom-sats" class="custom-amount-label">Custom amount:</label>
+        <div class="custom-amount-field">
+          <input
+            type="text"
+            id="custom-sats"
+            class="custom-amount-input"
+            placeholder="sats"
+            inputmode="numeric"
+          />
+          <button id="generate-custom" class="custom-amount-btn" type="button">Pay</button>
+        </div>
+        <p id="error-message" class="error-message hidden"></p>
+      </div>
     </div>
 
-    <!-- QR Display (hidden by default) -->
+    <!-- QR Display (replaces amount selection) -->
     <div id="qr-display" class="qr-display hidden">
       <a id="qr-link" href="#" class="qr-link">
         <div id="qr-code" class="qr-code"></div>
@@ -110,6 +111,7 @@ let state = {
 
 // DOM elements
 const elements = {
+  amountSelection: document.getElementById('amount-selection'),
   amountBtns: document.querySelectorAll('.amount-btn'),
   customInput: document.getElementById('custom-sats'),
   generateBtn: document.getElementById('generate-custom'),
@@ -191,15 +193,15 @@ async function generateInvoice(sats) {
 function displayLoadingState() {
   removeSuggestedHighlight();
   hideError();
-  setPaymentControlsDisabled(true);
+  elements.amountSelection.classList.add('hidden');
   elements.qrCode.innerHTML = '<p class="qr-loading">Generating invoice...</p>';
   elements.qrDisplay.classList.remove('hidden');
 }
 
 function handleGenerationError() {
   elements.qrDisplay.classList.add('hidden');
+  elements.amountSelection.classList.remove('hidden');
   state.isGenerating = false;
-  setPaymentControlsDisabled(false);
 }
 
 async function renderQRCode(invoice) {
@@ -326,8 +328,8 @@ function resetToAmountSelection() {
   elements.qrDisplay.classList.add('hidden');
   elements.qrDetails.classList.add('hidden');
   elements.paymentStatus.classList.add('hidden');
+  elements.amountSelection.classList.remove('hidden');
   elements.customInput.value = '';
-  setPaymentControlsDisabled(false);
 }
 
 function parseAmount(value) {
@@ -428,15 +430,19 @@ document.addEventListener('visibilitychange', () => {
 .v4v-intro {
   font-size: var(--font-lg);
   color: var(--text-secondary);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-xl);
   line-height: var(--line-height-body);
+}
+
+.amount-selection {
+  margin-bottom: var(--space-xl);
 }
 
 .amount-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-md);
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-md);
 }
 
 .amount-btn {
@@ -483,7 +489,7 @@ document.addEventListener('visibilitychange', () => {
 }
 
 .custom-amount-section {
-  margin-bottom: var(--space-2xl);
+  /* No bottom margin - container handles spacing */
 }
 
 .custom-amount-label {
@@ -574,10 +580,15 @@ document.addEventListener('visibilitychange', () => {
   text-align: center;
   padding: var(--space-xl);
   background: var(--background-card);
-  border: var(--border-width) solid var(--border-color);
   border-radius: var(--border-radius-md);
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
   transition: background-color var(--transition-fast);
+  animation: fadeIn var(--transition-base) ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .qr-code {
@@ -596,6 +607,7 @@ document.addEventListener('visibilitychange', () => {
   color: var(--text-meta);
   font-size: var(--font-base);
   margin: 0;
+  text-decoration: none;
 }
 
 .qr-code canvas {
@@ -605,7 +617,8 @@ document.addEventListener('visibilitychange', () => {
   transition: box-shadow var(--transition-fast);
 }
 
-.qr-link {
+a.qr-link,
+a.qr-link:hover {
   display: block;
   cursor: pointer;
   text-decoration: none;
@@ -709,7 +722,7 @@ document.addEventListener('visibilitychange', () => {
 }
 
 .v4v-page .essay-nav {
-  margin-top: var(--space-2xl);
+  margin-top: var(--space-md);
 }
 
 .v4v-details {
