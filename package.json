@@ -12,7 +12,8 @@
     "glob": "^10.3.10",
     "gray-matter": "^4.0.3",
     "satori": "^0.10.14",
-    "sharp": "^0.33.2"
+    "sharp": "^0.33.2",
+    "ws": "^8.18.3"
   },
   "devDependencies": {
     "@netlify/functions": "^5.1.0"

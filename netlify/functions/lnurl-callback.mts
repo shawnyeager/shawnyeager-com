@@ -1,5 +1,9 @@
 import type { Context, Config } from "@netlify/functions";
+import { WebSocket } from "ws";
 import { webln } from "@getalby/sdk";
+
+// Polyfill WebSocket for serverless environment
+(globalThis as any).WebSocket = WebSocket;
 
 export default async (req: Request, context: Context) => {
   const url = new URL(req.url);
