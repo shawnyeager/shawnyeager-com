@@ -95,6 +95,7 @@ const config = {
 let state = {
   selectedAmount: null,
   currentInvoice: null,
+  paymentHash: null,
   pollTimer: null,
   startTime: null,
 };
@@ -151,7 +152,10 @@ async function generateInvoice(sats) {
       throw new Error(invoiceData.reason || 'Invoice generation error');
     }
 
-    return invoiceData.pr;
+    return {
+      invoice: invoiceData.pr,
+      paymentHash: invoiceData.paymentHash
+    };
 
   } catch (error) {
     console.error('Invoice generation failed:', error);
@@ -166,21 +170,22 @@ async function showQR(sats) {
   elements.qrCode.innerHTML = '<p class="qr-loading">Generating invoice...</p>';
   elements.qrDisplay.classList.remove('hidden');
 
-  const invoice = await generateInvoice(sats);
+  const result = await generateInvoice(sats);
 
-  if (!invoice) {
+  if (!result) {
     elements.qrDisplay.classList.add('hidden');
     return;
   }
 
-  state.currentInvoice = invoice;
+  state.currentInvoice = result.invoice;
+  state.paymentHash = result.paymentHash;
   elements.qrCode.innerHTML = '';
 
   const canvas = document.createElement('canvas');
   elements.qrCode.appendChild(canvas);
 
   try {
-    await QRCode.toCanvas(canvas, invoice.toUpperCase(), {
+    await QRCode.toCanvas(canvas, result.invoice.toUpperCase(), {
       width: 300,
       margin: 2,
       color: {
@@ -196,7 +201,7 @@ async function showQR(sats) {
   }
 
   elements.amountDisplay.textContent = sats.toLocaleString();
-  elements.qrLink.href = `lightning:${invoice}`;
+  elements.qrLink.href = `lightning:${result.invoice}`;
   startPaymentPolling();
 }
 
@@ -205,6 +210,36 @@ function startPaymentPolling() {
   if (state.pollTimer) {
     clearInterval(state.pollTimer);
   }
+
+  if (!state.paymentHash) {
+    console.warn('No payment hash available for polling');
+    return;
+  }
+
+  state.pollTimer = setInterval(async () => {
+    // Stop polling after timeout
+    if (Date.now() - state.startTime > config.pollTimeout) {
+      stopPaymentPolling();
+      return;
+    }
+
+    try {
+      const response = await fetch(`/invoice-status?hash=${encodeURIComponent(state.paymentHash)}`);
+      const data = await response.json();
+
+      if (data.paid) {
+        stopPaymentPolling();
+        showPaymentConfirmation();
+      }
+    } catch (error) {
+      console.error('Payment status check failed:', error);
+    }
+  }, config.pollInterval);
+}
+
+function showPaymentConfirmation() {
+  elements.qrDisplay.classList.add('hidden');
+  elements.paymentStatus.classList.remove('hidden');
 }
 
 function stopPaymentPolling() {
@@ -221,6 +256,7 @@ function resetToAmountSelection() {
   elements.customInput.value = '';
   state.selectedAmount = null;
   state.currentInvoice = null;
+  state.paymentHash = null;
 }
 
 function parseAmount(value) {

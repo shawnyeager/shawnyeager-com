@@ -7,14 +7,12 @@ import { webln } from "@getalby/sdk";
 
 export default async (req: Request, context: Context) => {
   const url = new URL(req.url);
-  const amount = url.searchParams.get('amount');
-  const essaySlug = url.searchParams.get('essay') || 'general';
+  const paymentHash = url.searchParams.get('hash');
 
-  // Validate amount parameter
-  if (!amount) {
+  if (!paymentHash) {
     return new Response(JSON.stringify({
       status: "ERROR",
-      reason: "Amount parameter required"
+      reason: "Payment hash required"
     }), {
       status: 400,
       headers: { "Content-Type": "application/json" }
@@ -24,7 +22,6 @@ export default async (req: Request, context: Context) => {
   const nwcUrl = Netlify.env.get('NWC_CONNECTION_STRING');
 
   if (!nwcUrl) {
-    console.error('NWC_CONNECTION_STRING environment variable not set');
     return new Response(JSON.stringify({
       status: "ERROR",
       reason: "Server configuration error"
@@ -35,31 +32,21 @@ export default async (req: Request, context: Context) => {
   }
 
   try {
-    // Initialize NWC connection
     const nwc = new webln.NostrWebLNProvider({
       nostrWalletConnectUrl: nwcUrl
     });
 
     await nwc.enable();
 
-    // Generate invoice with essay metadata
-    const invoice = await nwc.makeInvoice({
-      amount: Math.floor(parseInt(amount) / 1000), // Convert millisats to sats
-      defaultMemo: `Essay: ${essaySlug} | shawnyeager.com`
+    const invoice = await nwc.lookupInvoice({
+      payment_hash: paymentHash
     });
 
-    // Log for analytics
-    console.log(`Invoice generated: essay=${essaySlug}, amount=${amount}ms, hash=${invoice.rHash}`);
+    const paid = invoice.paid || false;
 
-    // Return LNURL-pay callback response with payment hash for status polling
     return new Response(JSON.stringify({
-      pr: invoice.paymentRequest,
-      paymentHash: invoice.rHash,
-      routes: [],
-      successAction: {
-        tag: "message",
-        message: `Thank you for supporting "${essaySlug}"!`
-      }
+      paid,
+      preimage: invoice.preimage || null
     }), {
       status: 200,
       headers: {
@@ -70,11 +57,11 @@ export default async (req: Request, context: Context) => {
 
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : String(error);
-    console.error('NWC invoice generation error:', errorMessage, error);
+    console.error('Invoice lookup error:', errorMessage);
 
     return new Response(JSON.stringify({
       status: "ERROR",
-      reason: `Invoice generation failed: ${errorMessage}`
+      reason: `Lookup failed: ${errorMessage}`
     }), {
       status: 500,
       headers: { "Content-Type": "application/json" }
@@ -83,5 +70,5 @@ export default async (req: Request, context: Context) => {
 };
 
 export const config: Config = {
-  path: "/lnurl-callback"
+  path: "/invoice-status"
 };
