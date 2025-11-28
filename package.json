@@ -8,6 +8,7 @@
     "build": "npm run generate-og && hugo"
   },
   "dependencies": {
+    "@getalby/sdk": "^3.9.0",
     "glob": "^10.3.10",
     "gray-matter": "^4.0.3",
     "satori": "^0.10.14",

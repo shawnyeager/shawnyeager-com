@@ -1,0 +1,554 @@
+{{/*
+  V4V Page Template - layouts/v4v/single.html
+  Per-essay Bitcoin payment page with amount selection and QR generation
+
+  Uses params from content adapter:
+  - .Params.essay_title
+  - .Params.essay_slug
+*/}}
+
+{{ define "main" }}
+{{ $essaySlug := .Params.essay_slug }}
+{{ $essayTitle := .Params.essay_title }}
+
+<article class="v4v-page">
+  <header class="v4v-header">
+    <p class="v4v-breadcrumb">
+      <a href="/{{ $essaySlug }}/">{{ $essayTitle }}</a>
+    </p>
+    <h1 class="page-title">Support this essay</h1>
+  </header>
+
+  <div class="v4v-content">
+    <p class="v4v-intro">
+      Found value? Pay what it's worth.
+    </p>
+
+    <!-- Amount Selection -->
+    <div class="amount-grid">
+      <button class="amount-btn" data-amount="100">100 sats</button>
+      <button class="amount-btn" data-amount="500">500 sats</button>
+      <button class="amount-btn" data-amount="1000">1,000 sats</button>
+      <button class="amount-btn" data-amount="5000">5,000 sats</button>
+    </div>
+
+    <!-- Custom Amount Input -->
+    <div class="custom-amount-section">
+      <label for="custom-sats" class="custom-amount-label">Or enter amount:</label>
+      <div class="custom-amount-field">
+        <input
+          type="number"
+          id="custom-sats"
+          class="custom-amount-input"
+          placeholder="sats"
+          min="1"
+          inputmode="numeric"
+        />
+        <button id="generate-custom" class="custom-amount-btn" type="button">Generate</button>
+      </div>
+    </div>
+
+    <!-- QR Display (hidden by default) -->
+    <div id="qr-display" class="qr-display hidden">
+      <div id="qr-code" class="qr-code"></div>
+      <p class="qr-amount">
+        <span id="selected-amount" class="qr-amount-value"></span> sats
+      </p>
+      <p class="qr-address">sats@shawnyeager.com</p>
+      <button id="change-amount" class="qr-change-btn" type="button">Change amount</button>
+    </div>
+
+    <!-- Payment Status (hidden by default) -->
+    <div id="payment-status" class="payment-status hidden">
+      <p class="payment-check">Payment received</p>
+      <p class="payment-thanks">Thank you for supporting this work.</p>
+    </div>
+
+    <!-- V4V Info -->
+    <details class="v4v-details">
+      <summary>New to value-for-value?</summary>
+      <p>
+        Value-for-value means you decide what content is worth.
+        If this essay saved you time or sparked an idea—support it with Bitcoin.
+      </p>
+      <p><a href="https://value4value.info/">Learn more</a></p>
+    </details>
+  </div>
+</article>
+
+<script type="module">
+import QRCode from 'https://esm.sh/qrcode@1.5.3';
+
+// Configuration
+const essaySlug = '{{ $essaySlug }}';
+const config = {
+  lnurlEndpoint: '/.well-known/lnurlp/sats',
+  pollInterval: 3000,
+  pollTimeout: 300000,
+};
+
+// State
+let state = {
+  selectedAmount: null,
+  currentInvoice: null,
+  pollTimer: null,
+  startTime: null,
+};
+
+// DOM elements
+const elements = {
+  amountBtns: document.querySelectorAll('.amount-btn'),
+  customInput: document.getElementById('custom-sats'),
+  generateBtn: document.getElementById('generate-custom'),
+  qrDisplay: document.getElementById('qr-display'),
+  qrCode: document.getElementById('qr-code'),
+  amountDisplay: document.getElementById('selected-amount'),
+  changeAmountBtn: document.getElementById('change-amount'),
+  paymentStatus: document.getElementById('payment-status'),
+};
+
+async function generateInvoice(sats) {
+  try {
+    const lnurlUrl = `${config.lnurlEndpoint}?essay=${encodeURIComponent(essaySlug)}`;
+    const lnurlResponse = await fetch(lnurlUrl);
+
+    if (!lnurlResponse.ok) {
+      throw new Error(`LNURL request failed: ${lnurlResponse.status}`);
+    }
+
+    const lnurlData = await lnurlResponse.json();
+
+    if (lnurlData.status === 'ERROR') {
+      throw new Error(lnurlData.reason || 'LNURL error');
+    }
+
+    const amount = sats * 1000;
+
+    if (amount < lnurlData.minSendable || amount > lnurlData.maxSendable) {
+      throw new Error(`Amount must be between ${lnurlData.minSendable / 1000} and ${lnurlData.maxSendable / 1000} sats`);
+    }
+
+    const callbackUrl = new URL(lnurlData.callback);
+    callbackUrl.searchParams.set('amount', amount);
+
+    const invoiceResponse = await fetch(callbackUrl.toString());
+
+    if (!invoiceResponse.ok) {
+      throw new Error(`Invoice request failed: ${invoiceResponse.status}`);
+    }
+
+    const invoiceData = await invoiceResponse.json();
+
+    if (invoiceData.status === 'ERROR') {
+      throw new Error(invoiceData.reason || 'Invoice generation error');
+    }
+
+    return invoiceData.pr;
+
+  } catch (error) {
+    console.error('Invoice generation failed:', error);
+    alert(`Failed to generate invoice: ${error.message}`);
+    return null;
+  }
+}
+
+async function showQR(sats) {
+  state.selectedAmount = sats;
+
+  elements.qrCode.innerHTML = '<p style="text-align: center; color: var(--text-meta);">Generating invoice...</p>';
+  elements.qrDisplay.classList.remove('hidden');
+
+  const invoice = await generateInvoice(sats);
+
+  if (!invoice) {
+    elements.qrDisplay.classList.add('hidden');
+    return;
+  }
+
+  state.currentInvoice = invoice;
+  elements.qrCode.innerHTML = '';
+
+  const canvas = document.createElement('canvas');
+  elements.qrCode.appendChild(canvas);
+
+  try {
+    await QRCode.toCanvas(canvas, invoice.toUpperCase(), {
+      width: 300,
+      margin: 2,
+      color: {
+        dark: '#000000',
+        light: '#FFFFFF'
+      },
+      errorCorrectionLevel: 'M'
+    });
+  } catch (error) {
+    console.error('QR generation failed:', error);
+    elements.qrCode.innerHTML = '<p style="color: var(--text-meta);">QR code generation failed</p>';
+    return;
+  }
+
+  elements.amountDisplay.textContent = sats.toLocaleString();
+  startPaymentPolling();
+}
+
+function startPaymentPolling() {
+  state.startTime = Date.now();
+  if (state.pollTimer) {
+    clearInterval(state.pollTimer);
+  }
+}
+
+function stopPaymentPolling() {
+  if (state.pollTimer) {
+    clearInterval(state.pollTimer);
+    state.pollTimer = null;
+  }
+}
+
+function resetToAmountSelection() {
+  stopPaymentPolling();
+  elements.qrDisplay.classList.add('hidden');
+  elements.paymentStatus.classList.add('hidden');
+  elements.customInput.value = '';
+  state.selectedAmount = null;
+  state.currentInvoice = null;
+}
+
+function parseAmount(value) {
+  const parsed = parseInt(value, 10);
+  if (isNaN(parsed) || parsed <= 0) {
+    return null;
+  }
+  return parsed;
+}
+
+elements.amountBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const amount = parseInt(btn.dataset.amount, 10);
+    showQR(amount);
+  });
+});
+
+elements.generateBtn.addEventListener('click', () => {
+  const amount = parseAmount(elements.customInput.value);
+  if (amount === null) {
+    alert('Please enter a valid amount in satoshis');
+    elements.customInput.focus();
+    return;
+  }
+  showQR(amount);
+});
+
+elements.customInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    elements.generateBtn.click();
+  }
+});
+
+elements.customInput.addEventListener('input', (e) => {
+  e.target.value = e.target.value.replace(/[^\d]/g, '');
+});
+
+elements.changeAmountBtn.addEventListener('click', () => {
+  resetToAmountSelection();
+});
+
+window.addEventListener('beforeunload', () => {
+  stopPaymentPolling();
+});
+</script>
+
+<style>
+.v4v-page {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+.v4v-header {
+  margin-bottom: var(--space-xl);
+}
+
+.v4v-breadcrumb {
+  font-size: var(--font-sm);
+  color: var(--text-meta);
+  margin-bottom: var(--space-sm);
+}
+
+.v4v-breadcrumb a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.v4v-breadcrumb a:hover {
+  color: var(--brand-orange);
+}
+
+.v4v-content {
+  margin-top: var(--space-2xl);
+}
+
+.v4v-intro {
+  font-size: var(--font-lg);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-2xl);
+  line-height: var(--line-height-body);
+  font-weight: var(--font-weight-body);
+}
+
+.amount-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.amount-btn {
+  padding: var(--space-md);
+  background: transparent;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius-interactive);
+  cursor: pointer;
+  font-family: var(--font-system);
+  font-size: var(--font-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+
+.amount-btn:hover {
+  border-color: var(--brand-orange);
+  color: var(--brand-orange);
+}
+
+.amount-btn:active {
+  transform: translateY(1px);
+}
+
+.custom-amount-section {
+  margin-bottom: var(--space-2xl);
+  padding-top: var(--space-lg);
+  border-top: var(--border-width) solid var(--border-color);
+}
+
+.custom-amount-label {
+  display: block;
+  font-size: var(--font-sm);
+  color: var(--text-meta);
+  margin-bottom: var(--space-sm);
+  font-weight: var(--font-weight-normal);
+}
+
+.custom-amount-field {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: stretch;
+}
+
+.custom-amount-input {
+  flex: 1;
+  padding: 0.4rem 0;
+  border: none;
+  border-bottom: var(--border-width) solid var(--border-color);
+  border-radius: 0;
+  font-family: var(--font-system);
+  font-size: var(--font-base);
+  background: var(--background-body);
+  color: var(--text-primary);
+  max-width: 200px;
+  transition: border-color var(--transition-fast);
+}
+
+.custom-amount-input:focus {
+  outline: none;
+  border-bottom-color: var(--brand-orange);
+}
+
+.custom-amount-input::placeholder {
+  color: var(--text-meta);
+  opacity: 0.5;
+}
+
+.custom-amount-btn {
+  padding: var(--space-sm) var(--space-md);
+  background: transparent;
+  color: var(--text-meta);
+  border: var(--border-width) solid var(--text-meta);
+  border-radius: var(--border-radius-interactive);
+  font-family: var(--font-system);
+  font-size: var(--font-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.custom-amount-btn:hover {
+  border-color: var(--brand-orange);
+  color: var(--brand-orange);
+}
+
+.custom-amount-btn:active {
+  transform: translateY(1px);
+}
+
+.qr-display {
+  text-align: center;
+  padding: var(--space-2xl);
+  background: var(--background-card);
+  margin-bottom: var(--space-xl);
+  transition: background-color var(--transition-fast);
+}
+
+.qr-display.hidden {
+  display: none;
+}
+
+.qr-code {
+  margin-bottom: var(--space-lg);
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-code canvas {
+  display: block;
+  margin: 0 auto;
+  box-shadow: var(--shadow-content-light);
+  transition: box-shadow var(--transition-fast);
+}
+
+.qr-amount {
+  font-size: var(--font-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
+  letter-spacing: var(--letter-spacing-tight-md);
+}
+
+.qr-amount-value {
+  font-variant-numeric: tabular-nums;
+}
+
+.qr-address {
+  font-family: var(--font-monospace);
+  font-size: var(--font-sm);
+  color: var(--text-meta);
+  margin-bottom: var(--space-lg);
+  word-break: break-all;
+}
+
+.qr-change-btn {
+  background: none;
+  border: none;
+  color: var(--text-meta);
+  cursor: pointer;
+  font-family: var(--font-system);
+  font-size: var(--font-sm);
+  font-weight: var(--font-weight-normal);
+  text-decoration: underline;
+  padding: 0;
+  transition: color var(--transition-fast);
+}
+
+.qr-change-btn:hover {
+  color: var(--brand-orange);
+}
+
+.payment-status {
+  text-align: center;
+  padding: var(--space-2xl);
+  background: var(--background-card);
+  margin-bottom: var(--space-xl);
+  transition: background-color var(--transition-fast);
+}
+
+.payment-status.hidden {
+  display: none;
+}
+
+.payment-check {
+  font-size: var(--font-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--brand-orange);
+  margin-bottom: var(--space-sm);
+  letter-spacing: var(--letter-spacing-tight-md);
+}
+
+.payment-thanks {
+  color: var(--text-secondary);
+  font-size: var(--font-base);
+  margin-bottom: 0;
+}
+
+.v4v-details {
+  margin-top: var(--space-2xl);
+}
+
+.v4v-details summary {
+  cursor: pointer;
+  font-size: var(--font-sm);
+  color: var(--text-meta);
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-fast);
+  list-style-position: outside;
+}
+
+.v4v-details summary:hover {
+  color: var(--brand-orange);
+}
+
+.v4v-details p {
+  margin-top: var(--space-md);
+  font-size: var(--font-base);
+  color: var(--text-secondary);
+  line-height: var(--line-height-body);
+}
+
+.v4v-details p:last-child {
+  margin-bottom: 0;
+}
+
+.v4v-details a {
+  color: var(--brand-orange);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.v4v-details a:hover {
+  color: var(--brand-orange-hover);
+  text-decoration: underline;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .amount-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .custom-amount-input {
+    max-width: none;
+  }
+
+  .qr-display,
+  .payment-status {
+    padding: var(--space-xl);
+  }
+
+  .qr-code {
+    min-height: 250px;
+  }
+
+  .qr-code canvas {
+    max-width: 250px;
+    height: auto;
+  }
+}
+</style>
+{{ end }}

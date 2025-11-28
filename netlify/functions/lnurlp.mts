@@ -5,6 +5,9 @@ export default async (req: Request, context: Context) => {
   const pathParts = url.pathname.split('/');
   const username = pathParts[pathParts.length - 1];
 
+  // Extract essay parameter for per-essay tracking
+  const essaySlug = url.searchParams.get('essay') || 'general';
+
   // All aliases map to the same Alby account
   const validUsernames = ['sats', 'shawn', 'zap'];
   if (!validUsernames.includes(username)) {
@@ -17,7 +20,7 @@ export default async (req: Request, context: Context) => {
     });
   }
 
-  // Fetch from Alby
+  // Fetch from Alby to get min/max amounts
   const albyResponse = await fetch(
     "https://getalby.com/.well-known/lnurlp/shawnyeager"
   );
@@ -41,6 +44,9 @@ export default async (req: Request, context: Context) => {
       `${username}@shawnyeager.com`
     );
   }
+
+  // Rewrite callback to our handler, preserve essay parameter
+  data.callback = `https://shawnyeager.com/lnurl-callback?essay=${encodeURIComponent(essaySlug)}`;
 
   return new Response(JSON.stringify(data), {
     status: 200,
