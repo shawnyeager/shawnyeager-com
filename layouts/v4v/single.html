@@ -14,7 +14,7 @@
 <article class="v4v-page">
   <div class="v4v-content">
     <p class="v4v-intro">
-      Found value? Give as much as you think it's worth.
+      Pay what this was worth to you.
     </p>
 
     <!-- Amount Selection -->
@@ -36,17 +36,20 @@
           placeholder="sats"
           inputmode="numeric"
         />
-        <button id="generate-custom" class="custom-amount-btn" type="button">Show QR</button>
+        <button id="generate-custom" class="custom-amount-btn" type="button">Pay</button>
       </div>
     </div>
 
     <!-- QR Display (hidden by default) -->
     <div id="qr-display" class="qr-display hidden">
-      <div id="qr-code" class="qr-code"></div>
+      <a id="qr-link" href="#" class="qr-link">
+        <div id="qr-code" class="qr-code"></div>
+      </a>
       <p class="qr-amount">
         <span id="selected-amount" class="qr-amount-value"></span> sats
       </p>
       <p class="qr-address">sats@shawnyeager.com</p>
+      <button id="copy-invoice" class="qr-copy-btn" type="button">Copy invoice</button>
       <button id="change-amount" class="qr-change-btn" type="button">Change amount</button>
     </div>
 
@@ -100,6 +103,8 @@ const elements = {
   generateBtn: document.getElementById('generate-custom'),
   qrDisplay: document.getElementById('qr-display'),
   qrCode: document.getElementById('qr-code'),
+  qrLink: document.getElementById('qr-link'),
+  copyBtn: document.getElementById('copy-invoice'),
   amountDisplay: document.getElementById('selected-amount'),
   changeAmountBtn: document.getElementById('change-amount'),
   paymentStatus: document.getElementById('payment-status'),
@@ -186,6 +191,7 @@ async function showQR(sats) {
   }
 
   elements.amountDisplay.textContent = sats.toLocaleString();
+  elements.qrLink.href = `lightning:${invoice}`;
   startPaymentPolling();
 }
 
@@ -254,6 +260,16 @@ elements.customInput.addEventListener('input', (e) => {
   e.target.value = parseInt(raw, 10).toLocaleString();
 });
 
+elements.copyBtn.addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(state.currentInvoice);
+    elements.copyBtn.textContent = 'Copied!';
+    setTimeout(() => elements.copyBtn.textContent = 'Copy invoice', 2000);
+  } catch (err) {
+    console.error('Copy failed:', err);
+  }
+});
+
 elements.changeAmountBtn.addEventListener('click', () => {
   resetToAmountSelection();
 });
@@ -274,29 +290,29 @@ window.addEventListener('beforeunload', () => {
 }
 
 .v4v-intro {
-  font-size: var(--font-lg);
-  color: var(--text-primary);
-  margin-bottom: var(--space-2xl);
+  font-size: var(--font-base);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
   line-height: var(--line-height-body);
-  font-weight: var(--font-weight-body);
 }
 
 .amount-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: var(--space-sm);
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
   margin-bottom: var(--space-xl);
 }
 
 .amount-btn {
-  padding: var(--space-md);
+  padding: var(--space-lg);
   background: transparent;
-  border: var(--border-width) solid var(--border-color);
+  border: var(--border-width-emphasis) solid var(--border-color);
   border-radius: var(--border-radius-interactive);
   cursor: pointer;
   font-family: var(--font-system);
-  font-size: var(--font-base);
-  font-weight: var(--font-weight-medium);
+  font-size: var(--font-xl);
+  font-weight: var(--font-weight-semibold);
+  font-variant-numeric: tabular-nums;
   color: var(--text-primary);
   transition: all var(--transition-fast);
 }
@@ -429,6 +445,24 @@ window.addEventListener('beforeunload', () => {
   word-break: break-all;
 }
 
+.qr-copy-btn {
+  background: none;
+  border: none;
+  color: var(--text-meta);
+  cursor: pointer;
+  font-family: var(--font-system);
+  font-size: var(--font-sm);
+  font-weight: var(--font-weight-normal);
+  text-decoration: underline;
+  padding: 0;
+  margin-bottom: var(--space-sm);
+  transition: color var(--transition-fast);
+}
+
+.qr-copy-btn:hover {
+  color: var(--brand-orange);
+}
+
 .qr-change-btn {
   background: none;
   border: none;
@@ -472,8 +506,12 @@ window.addEventListener('beforeunload', () => {
   margin-bottom: 0;
 }
 
-.v4v-details {
+.v4v-page .essay-nav {
   margin-top: var(--space-2xl);
+}
+
+.v4v-details {
+  margin-top: var(--space-lg);
 }
 
 .v4v-details summary {
