@@ -12,16 +12,9 @@
 {{ $essayTitle := .Params.essay_title }}
 
 <article class="v4v-page">
-  <header class="v4v-header">
-    <p class="v4v-breadcrumb">
-      <a href="/{{ $essaySlug }}/" class="all-essays"><span aria-hidden="true">←</span> {{ $essayTitle }}</a>
-    </p>
-    <h1 class="page-title">Support this essay</h1>
-  </header>
-
   <div class="v4v-content">
     <p class="v4v-intro">
-      Pay what this was worth to you.
+      Found value? Give as much as you think it's worth.
     </p>
 
     <!-- Amount Selection -->
@@ -37,28 +30,15 @@
       <label for="custom-sats" class="custom-amount-label">Custom amount:</label>
       <div class="custom-amount-field">
         <input
-          type="number"
+          type="text"
           id="custom-sats"
           class="custom-amount-input"
           placeholder="sats"
-          min="1"
           inputmode="numeric"
         />
         <button id="generate-custom" class="custom-amount-btn" type="button">Show QR</button>
       </div>
     </div>
-
-    <!-- V4V Info -->
-    <details class="v4v-details">
-      <summary>New to value-for-value?</summary>
-      <p>
-        Value-for-value means no paywalls, no tracking, no platform cut. You read first, decide what the work is worth, then pay directly. Bitcoin makes this possible—no middlemen, no surveillance, just creator and reader.
-      </p>
-      <p>
-        If this essay saved you time or changed your thinking, support it.
-      </p>
-      <a href="https://value4value.info/" class="cta-link"><span class="link-text">How V4V works</span> <span aria-hidden="true">→</span></a>
-    </details>
 
     <!-- QR Display (hidden by default) -->
     <div id="qr-display" class="qr-display hidden">
@@ -75,6 +55,22 @@
       <p class="payment-check">Payment received</p>
       <p class="payment-thanks">Thank you for supporting this work.</p>
     </div>
+
+    <nav class="essay-nav">
+      <a href="/{{ $essaySlug }}/" class="all-essays"><span aria-hidden="true">←</span> Back to essay</a>
+    </nav>
+
+    <!-- V4V Info -->
+    <details class="v4v-details">
+      <summary>New to value-for-value?</summary>
+      <p>
+        Value-for-value means no paywalls, no tracking, no platform cut. You read first, decide what the work is worth, then pay directly. Bitcoin makes this possible—no middlemen, no surveillance, just creator and reader.
+      </p>
+      <p>
+        If this essay saved you time or changed your thinking, support it.
+      </p>
+      <a href="https://value4value.info/" class="cta-link"><span class="link-text">How V4V works</span> <span aria-hidden="true">→</span></a>
+    </details>
   </div>
 </article>
 
@@ -217,7 +213,8 @@ function resetToAmountSelection() {
 }
 
 function parseAmount(value) {
-  const parsed = parseInt(value, 10);
+  const stripped = value.replace(/,/g, '');
+  const parsed = parseInt(stripped, 10);
   if (isNaN(parsed) || parsed <= 0) {
     return null;
   }
@@ -249,7 +246,12 @@ elements.customInput.addEventListener('keypress', (e) => {
 });
 
 elements.customInput.addEventListener('input', (e) => {
-  e.target.value = e.target.value.replace(/[^\d]/g, '');
+  const raw = e.target.value.replace(/[^\d]/g, '');
+  if (!raw) {
+    e.target.value = '';
+    return;
+  }
+  e.target.value = parseInt(raw, 10).toLocaleString();
 });
 
 elements.changeAmountBtn.addEventListener('click', () => {
@@ -267,25 +269,8 @@ window.addEventListener('beforeunload', () => {
   margin: 0 auto;
 }
 
-.v4v-header {
-  margin-bottom: var(--space-xl);
-}
-
-.v4v-breadcrumb {
-  font-size: var(--font-sm);
-  margin-bottom: var(--space-sm);
-}
-
-.v4v-breadcrumb .all-essays {
-  color: var(--text-meta);
-}
-
-.v4v-breadcrumb .all-essays:hover {
-  color: var(--brand-orange);
-}
-
 .v4v-content {
-  margin-top: var(--space-2xl);
+  margin-top: var(--space-md);
 }
 
 .v4v-intro {
@@ -344,7 +329,6 @@ window.addEventListener('beforeunload', () => {
 }
 
 .custom-amount-input {
-  flex: 1;
   padding: 0.4rem 0;
   border: none;
   border-bottom: var(--border-width) solid var(--border-color);
@@ -353,7 +337,7 @@ window.addEventListener('beforeunload', () => {
   font-size: var(--font-base);
   background: var(--background-body);
   color: var(--text-primary);
-  max-width: 200px;
+  width: calc((100% - 3 * var(--space-sm)) / 4);
   transition: border-color var(--transition-fast);
 }
 
@@ -490,8 +474,6 @@ window.addEventListener('beforeunload', () => {
 
 .v4v-details {
   margin-top: var(--space-2xl);
-  padding-top: var(--space-xl);
-  border-top: var(--border-width) solid var(--border-color);
 }
 
 .v4v-details summary {
