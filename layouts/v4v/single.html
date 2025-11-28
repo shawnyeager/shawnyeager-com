@@ -14,7 +14,7 @@
 <article class="v4v-page">
   <header class="v4v-header">
     <p class="v4v-breadcrumb">
-      <a href="/{{ $essaySlug }}/">{{ $essayTitle }}</a>
+      <a href="/{{ $essaySlug }}/">← {{ $essayTitle }}</a>
     </p>
     <h1 class="page-title">Support this essay</h1>
   </header>
@@ -23,6 +23,21 @@
     <p class="v4v-intro">
       Pay what this was worth to you.
     </p>
+
+    <!-- V4V Info - explain before asking for payment -->
+    <details class="v4v-details">
+      <summary>New to value-for-value?</summary>
+      <p>
+        Value-for-value means no paywalls, no tracking, no platform cut. You read first, decide what the work is worth, then pay directly. Bitcoin makes this possible—no middlemen, no surveillance, just creator and reader.
+      </p>
+      <p>
+        If this essay saved you time or changed your thinking, support it.
+      </p>
+      <a href="https://value4value.info/" class="cta-link"><span class="link-text">How V4V works</span> <span aria-hidden="true">→</span></a>
+    </details>
+
+    <!-- Instruction text -->
+    <p class="amount-instruction">Select an amount to generate a payment QR code:</p>
 
     <!-- Amount Selection -->
     <div class="amount-grid">
@@ -63,18 +78,6 @@
       <p class="payment-check">Payment received</p>
       <p class="payment-thanks">Thank you for supporting this work.</p>
     </div>
-
-    <!-- V4V Info -->
-    <details class="v4v-details">
-      <summary>New to value-for-value?</summary>
-      <p>
-        Value-for-value means no paywalls, no tracking, no platform cut. You read first, decide what the work is worth, then pay directly. Bitcoin makes this possible—no middlemen, no surveillance, just creator and reader.
-      </p>
-      <p>
-        If this essay saved you time or changed your thinking, support it.
-      </p>
-      <a href="https://value4value.info/" class="cta-link"><span class="link-text">How V4V works</span> <span aria-hidden="true">→</span></a>
-    </details>
   </div>
 </article>
 
@@ -157,7 +160,7 @@ async function generateInvoice(sats) {
 async function showQR(sats) {
   state.selectedAmount = sats;
 
-  elements.qrCode.innerHTML = '<p style="text-align: center; color: var(--text-meta);">Generating invoice...</p>';
+  elements.qrCode.innerHTML = '<p class="qr-loading">Generating invoice...</p>';
   elements.qrDisplay.classList.remove('hidden');
 
   const invoice = await generateInvoice(sats);
@@ -299,6 +302,12 @@ window.addEventListener('beforeunload', () => {
   font-weight: var(--font-weight-body);
 }
 
+.amount-instruction {
+  font-size: var(--font-sm);
+  color: var(--text-meta);
+  margin-bottom: var(--space-sm);
+}
+
 .amount-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -414,6 +423,13 @@ window.addEventListener('beforeunload', () => {
   justify-content: center;
 }
 
+.qr-loading {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: var(--font-base);
+  padding: var(--space-xl) 0;
+}
+
 .qr-code canvas {
   display: block;
   margin: 0 auto;
@@ -485,7 +501,9 @@ window.addEventListener('beforeunload', () => {
 }
 
 .v4v-details {
-  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-2xl);
+  padding-bottom: var(--space-xl);
+  border-bottom: var(--border-width) solid var(--border-color);
 }
 
 .v4v-details summary {

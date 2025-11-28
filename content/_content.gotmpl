@@ -10,7 +10,7 @@
 {{ range site.Data.essays }}
   {{ $page := dict
     "path" (printf "%s/v4v" .slug)
-    "title" (printf "Value for value - %s" .title)
+    "title" (printf "Value for value | %s" .title)
     "kind" "page"
     "type" "v4v"
     "params" (dict
