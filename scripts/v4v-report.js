@@ -10,6 +10,7 @@ import { WebSocket } from 'ws';
 import { nwc } from '@getalby/sdk';
 import fs from 'fs';
 import { execSync } from 'child_process';
+import https from 'https';
 
 // Load environment variables from .env if present
 config({ quiet: true });
@@ -28,6 +29,43 @@ if (!process.env.NWC_CONNECTION_STRING) {
 
 // Polyfill WebSocket for Node.js
 globalThis.WebSocket = WebSocket;
+
+/**
+ * Fetch current BTC price in USD from CoinGecko
+ */
+async function fetchBtcPrice() {
+  return new Promise((resolve, reject) => {
+    https.get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd', (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        try {
+          const json = JSON.parse(data);
+          resolve(json.bitcoin?.usd || null);
+        } catch {
+          resolve(null);
+        }
+      });
+    }).on('error', () => resolve(null));
+  });
+}
+
+/**
+ * Convert sats to USD
+ */
+function satsToUsd(sats, btcPrice) {
+  if (!btcPrice) return null;
+  return (sats / 100_000_000) * btcPrice;
+}
+
+/**
+ * Format USD amount
+ */
+function formatUsd(usd) {
+  if (usd === null) return '';
+  if (usd < 0.01) return ' (~$0.01)';
+  return ` (~$${usd.toFixed(2)})`;
+}
 
 /**
  * Fetch all V4V transactions from NWC
@@ -108,19 +146,29 @@ function filterByDateRange(transactions, from, to) {
 /**
  * Aggregate transactions by essay
  */
-function aggregateByEssay(transactions) {
+function aggregateByEssay(transactions, sortBy = 'sats') {
   const byEssay = new Map();
 
   for (const tx of transactions) {
     const slug = parseEssaySlug(tx.description) || '(footer/general)';
-    const existing = byEssay.get(slug) || { sats: 0, count: 0 };
+    const timestamp = tx.settled_at || tx.created_at;
+    const existing = byEssay.get(slug) || { sats: 0, count: 0, lastPayment: 0 };
     existing.sats += Math.floor(tx.amount / 1000);
     existing.count += 1;
+    if (timestamp > existing.lastPayment) {
+      existing.lastPayment = timestamp;
+    }
     byEssay.set(slug, existing);
   }
 
-  // Sort by total sats descending
-  return new Map([...byEssay.entries()].sort((a, b) => b[1].sats - a[1].sats));
+  // Sort based on option
+  const sortFn = {
+    sats: (a, b) => b[1].sats - a[1].sats,
+    count: (a, b) => b[1].count - a[1].count,
+    recent: (a, b) => b[1].lastPayment - a[1].lastPayment,
+  }[sortBy] || ((a, b) => b[1].sats - a[1].sats);
+
+  return new Map([...byEssay.entries()].sort(sortFn));
 }
 
 /**
@@ -168,9 +216,15 @@ function formatNumber(num) {
 /**
  * Print summary report
  */
-function printSummary(transactions, fromDate, toDate) {
+function printSummary(transactions, fromDate, toDate, btcPrice = null) {
   const totalSats = transactions.reduce((sum, tx) => sum + Math.floor(tx.amount / 1000), 0);
   const avgSats = transactions.length > 0 ? Math.round(totalSats / transactions.length) : 0;
+
+  // Split by essay vs general
+  const essayTxs = transactions.filter(tx => parseEssaySlug(tx.description));
+  const generalTxs = transactions.filter(tx => !parseEssaySlug(tx.description));
+  const essaySats = essayTxs.reduce((sum, tx) => sum + Math.floor(tx.amount / 1000), 0);
+  const generalSats = generalTxs.reduce((sum, tx) => sum + Math.floor(tx.amount / 1000), 0);
 
   console.log('\nV4V Payment Report');
   console.log('==================');
@@ -183,32 +237,88 @@ function printSummary(transactions, fromDate, toDate) {
     console.log('Period: All time');
   }
 
-  console.log(`Total received: ${formatNumber(totalSats)} sats (${formatNumber(transactions.length)} payments)`);
-  console.log(`Average: ${formatNumber(avgSats)} sats`);
+  const totalUsd = formatUsd(satsToUsd(totalSats, btcPrice));
+  const avgUsd = formatUsd(satsToUsd(avgSats, btcPrice));
+
+  console.log(`Total received: ${formatNumber(totalSats)} sats${totalUsd} (${formatNumber(transactions.length)} payments)`);
+  console.log(`  Essays:  ${formatNumber(essaySats).padStart(10)} sats${formatUsd(satsToUsd(essaySats, btcPrice))} (${essayTxs.length} payments)`);
+  console.log(`  General: ${formatNumber(generalSats).padStart(10)} sats${formatUsd(satsToUsd(generalSats, btcPrice))} (${generalTxs.length} payments)`);
+  console.log(`Average: ${formatNumber(avgSats)} sats${avgUsd}`);
+
+  if (btcPrice) {
+    console.log(`BTC price: $${formatNumber(btcPrice)}`);
+  }
 }
 
 /**
  * Print by-essay breakdown
  */
-function printByEssay(transactions) {
-  const byEssay = aggregateByEssay(transactions);
+function printByEssay(transactions, { sortBy = 'sats', top = null, btcPrice = null } = {}) {
+  const byEssay = aggregateByEssay(transactions, sortBy);
+  let entries = [...byEssay.entries()];
 
-  console.log('\nBy Essay:');
-  for (const [slug, data] of byEssay) {
+  if (top) {
+    entries = entries.slice(0, top);
+  }
+
+  const sortLabel = { sats: 'by sats', count: 'by count', recent: 'by recent' }[sortBy];
+  console.log(`\nBy Essay (${sortLabel}):`);
+
+  for (const [slug, data] of entries) {
     const paddedSlug = slug.padEnd(40);
-    console.log(`  ${paddedSlug} ${formatNumber(data.sats).padStart(10)} sats (${data.count} payments)`);
+    const usd = formatUsd(satsToUsd(data.sats, btcPrice));
+    console.log(`  ${paddedSlug} ${formatNumber(data.sats).padStart(10)} sats${usd} (${data.count} payments)`);
+  }
+
+  if (top && byEssay.size > top) {
+    console.log(`  ... and ${byEssay.size - top} more`);
   }
 }
 
 /**
  * Print time series
  */
-function printTimeSeries(transactions, period) {
+function printTimeSeries(transactions, period, btcPrice = null) {
   const byPeriod = aggregateByPeriod(transactions, period);
 
   console.log(`\n${period.charAt(0).toUpperCase() + period.slice(1)} Trend:`);
   for (const [date, data] of byPeriod) {
-    console.log(`  ${date}  ${formatNumber(data.sats).padStart(10)} sats (${data.count} payments)`);
+    const usd = formatUsd(satsToUsd(data.sats, btcPrice));
+    console.log(`  ${date}  ${formatNumber(data.sats).padStart(10)} sats${usd} (${data.count} payments)`);
+  }
+}
+
+/**
+ * Print period comparison (this period vs last period)
+ */
+function printComparison(transactions, period, btcPrice = null) {
+  const byPeriod = aggregateByPeriod(transactions, period);
+  const periods = [...byPeriod.entries()];
+
+  if (periods.length < 2) {
+    console.log('\nComparison: Not enough data (need at least 2 periods)');
+    return;
+  }
+
+  const [currentKey, current] = periods[0];
+  const [previousKey, previous] = periods[1];
+
+  const satsDelta = current.sats - previous.sats;
+  const satsPercent = previous.sats > 0 ? ((satsDelta / previous.sats) * 100).toFixed(1) : 'N/A';
+  const countDelta = current.count - previous.count;
+  const countPercent = previous.count > 0 ? ((countDelta / previous.count) * 100).toFixed(1) : 'N/A';
+
+  const satsSign = satsDelta >= 0 ? '+' : '';
+  const countSign = countDelta >= 0 ? '+' : '';
+
+  console.log(`\nComparison (${currentKey} vs ${previousKey}):`);
+  console.log(`  Sats:     ${formatNumber(current.sats).padStart(10)} vs ${formatNumber(previous.sats).padStart(10)}  (${satsSign}${satsPercent}%)`);
+  console.log(`  Payments: ${formatNumber(current.count).padStart(10)} vs ${formatNumber(previous.count).padStart(10)}  (${countSign}${countPercent}%)`);
+
+  if (btcPrice) {
+    const currentUsd = satsToUsd(current.sats, btcPrice);
+    const previousUsd = satsToUsd(previous.sats, btcPrice);
+    console.log(`  USD:      $${currentUsd.toFixed(2).padStart(9)} vs $${previousUsd.toFixed(2).padStart(9)}`);
   }
 }
 
@@ -232,6 +342,93 @@ function exportCSV(transactions, filename) {
 }
 
 /**
+ * Build JSON report data
+ */
+function buildJsonReport(transactions, options, btcPrice) {
+  const totalSats = transactions.reduce((sum, tx) => sum + Math.floor(tx.amount / 1000), 0);
+  const avgSats = transactions.length > 0 ? Math.round(totalSats / transactions.length) : 0;
+
+  // Split by essay vs general
+  const essayTxs = transactions.filter(tx => parseEssaySlug(tx.description));
+  const generalTxs = transactions.filter(tx => !parseEssaySlug(tx.description));
+  const essaySats = essayTxs.reduce((sum, tx) => sum + Math.floor(tx.amount / 1000), 0);
+  const generalSats = generalTxs.reduce((sum, tx) => sum + Math.floor(tx.amount / 1000), 0);
+
+  const report = {
+    summary: {
+      totalSats,
+      totalPayments: transactions.length,
+      averageSats: avgSats,
+      essays: { sats: essaySats, payments: essayTxs.length },
+      general: { sats: generalSats, payments: generalTxs.length },
+      period: {
+        from: options.fromDate?.toISOString().split('T')[0] || null,
+        to: options.toDate?.toISOString().split('T')[0] || null,
+      },
+    },
+  };
+
+  if (btcPrice) {
+    report.summary.btcPrice = btcPrice;
+    report.summary.totalUsd = satsToUsd(totalSats, btcPrice);
+    report.summary.essays.usd = satsToUsd(essaySats, btcPrice);
+    report.summary.general.usd = satsToUsd(generalSats, btcPrice);
+  }
+
+  if (options.byEssay) {
+    const byEssay = aggregateByEssay(transactions, options.sort);
+    let entries = [...byEssay.entries()];
+    if (options.top) entries = entries.slice(0, options.top);
+
+    report.byEssay = entries.map(([slug, data]) => ({
+      slug,
+      sats: data.sats,
+      payments: data.count,
+      ...(btcPrice && { usd: satsToUsd(data.sats, btcPrice) }),
+    }));
+  }
+
+  if (options.timeSeries) {
+    const period = typeof options.timeSeries === 'string' ? options.timeSeries : 'monthly';
+    const byPeriod = aggregateByPeriod(transactions, period);
+
+    report.timeSeries = {
+      period,
+      data: [...byPeriod.entries()].map(([date, data]) => ({
+        date,
+        sats: data.sats,
+        payments: data.count,
+        ...(btcPrice && { usd: satsToUsd(data.sats, btcPrice) }),
+      })),
+    };
+  }
+
+  if (options.compare) {
+    const period = typeof options.timeSeries === 'string' ? options.timeSeries : 'monthly';
+    const byPeriod = aggregateByPeriod(transactions, period);
+    const periods = [...byPeriod.entries()];
+
+    if (periods.length >= 2) {
+      const [currentKey, current] = periods[0];
+      const [previousKey, previous] = periods[1];
+
+      report.comparison = {
+        current: { period: currentKey, sats: current.sats, payments: current.count },
+        previous: { period: previousKey, sats: previous.sats, payments: previous.count },
+        delta: {
+          sats: current.sats - previous.sats,
+          satsPercent: previous.sats > 0 ? ((current.sats - previous.sats) / previous.sats) * 100 : null,
+          payments: current.count - previous.count,
+          paymentsPercent: previous.count > 0 ? ((current.count - previous.count) / previous.count) * 100 : null,
+        },
+      };
+    }
+  }
+
+  return report;
+}
+
+/**
  * Main CLI
  */
 program
@@ -241,6 +438,11 @@ program
   .option('--time-series [period]', 'Show time series (daily, weekly, monthly)', 'monthly')
   .option('--from <date>', 'Start date (YYYY-MM-DD)')
   .option('--to <date>', 'End date (YYYY-MM-DD)')
+  .option('--top <n>', 'Limit to top N essays', parseInt)
+  .option('--sort <by>', 'Sort essays by: sats, count, recent (default: sats)')
+  .option('--usd', 'Show USD values (fetches current BTC price)')
+  .option('--compare', 'Compare current period vs previous period')
+  .option('--format <type>', 'Output format: text, json (default: text)')
   .option('--export <filename>', 'Export to CSV file')
   .action(async (options) => {
     const nwcUrl = process.env.NWC_CONNECTION_STRING;
@@ -253,8 +455,19 @@ program
     const client = new nwc.NWCClient({ nostrWalletConnectUrl: nwcUrl });
 
     try {
+      // Fetch BTC price if needed
+      let btcPrice = null;
+      if (options.usd) {
+        btcPrice = await fetchBtcPrice();
+        if (!btcPrice && options.format !== 'json') {
+          console.log('Warning: Could not fetch BTC price');
+        }
+      }
+
       // Fetch and filter transactions
-      console.log('Fetching transactions...');
+      if (options.format !== 'json') {
+        console.log('Fetching transactions...');
+      }
       const allTransactions = await fetchTransactions(client);
       let v4vPayments = filterV4VPayments(allTransactions);
 
@@ -266,18 +479,39 @@ program
         v4vPayments = filterByDateRange(v4vPayments, fromDate, toDate);
       }
 
+      // JSON output
+      if (options.format === 'json') {
+        const report = buildJsonReport(v4vPayments, {
+          ...options,
+          fromDate,
+          toDate,
+        }, btcPrice);
+        console.log(JSON.stringify(report, null, 2));
+        return;
+      }
+
       // Print summary
-      printSummary(v4vPayments, fromDate, toDate);
+      printSummary(v4vPayments, fromDate, toDate, btcPrice);
 
       // Print by-essay breakdown
       if (options.byEssay) {
-        printByEssay(v4vPayments);
+        printByEssay(v4vPayments, {
+          sortBy: options.sort || 'sats',
+          top: options.top,
+          btcPrice,
+        });
       }
 
       // Print time series
       if (options.timeSeries) {
         const period = typeof options.timeSeries === 'string' ? options.timeSeries : 'monthly';
-        printTimeSeries(v4vPayments, period);
+        printTimeSeries(v4vPayments, period, btcPrice);
+      }
+
+      // Print comparison
+      if (options.compare) {
+        const period = typeof options.timeSeries === 'string' ? options.timeSeries : 'monthly';
+        printComparison(v4vPayments, period, btcPrice);
       }
 
       // Export to CSV
