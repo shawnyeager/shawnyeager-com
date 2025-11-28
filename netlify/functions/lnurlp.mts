@@ -46,7 +46,10 @@ export default async (req: Request, context: Context) => {
   }
 
   // Rewrite callback to our handler, preserve essay parameter
-  data.callback = `https://shawnyeager.com/lnurl-callback?essay=${encodeURIComponent(essaySlug)}`;
+  // Use request host to work on deploy previews
+  const host = req.headers.get('host') || 'shawnyeager.com';
+  const protocol = host.includes('localhost') ? 'http' : 'https';
+  data.callback = `${protocol}://${host}/lnurl-callback?essay=${encodeURIComponent(essaySlug)}`;
 
   return new Response(JSON.stringify(data), {
     status: 200,
