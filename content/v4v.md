@@ -1,6 +1,6 @@
 ---
-title: "Value for value"
-description: "Send sats via Lightning Address for value for value support."
+title: "Support this work"
+description: "Support this work with Bitcoin."
 type: v4v
 hide_footer_signup: true
 build:

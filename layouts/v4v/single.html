@@ -14,46 +14,49 @@
 <article class="v4v-page">
   <div class="v4v-content">
     <p class="v4v-intro">
-      {{ if $hasEssay }}Pay what this was worth to you.{{ else }}Value for value{{ end }}
+      {{ if $hasEssay }}Pay what this was worth to you.{{ else }}Support this work.{{ end }}
     </p>
 
-    <!-- Amount Selection -->
-    <div class="amount-grid">
-      <button class="amount-btn" data-amount="500">500 sats</button>
-      <button class="amount-btn amount-btn--suggested" data-amount="1000">1,000 sats</button>
-      <button class="amount-btn" data-amount="5000">5,000 sats</button>
-      <button class="amount-btn" data-amount="10000">10,000 sats</button>
-    </div>
-
-    <!-- Custom Amount Input -->
-    <div class="custom-amount-section">
-      <label for="custom-sats" class="custom-amount-label">Custom amount:</label>
-      <div class="custom-amount-field">
-        <input
-          type="text"
-          id="custom-sats"
-          class="custom-amount-input"
-          placeholder="sats"
-          inputmode="numeric"
-        />
-        <button id="generate-custom" class="custom-amount-btn" type="button">Pay</button>
+    <!-- Amount Selection (replaced by QR when amount selected) -->
+    <div id="amount-selection" class="amount-selection">
+      <div class="amount-grid">
+        <button class="amount-btn" data-amount="500">500 sats</button>
+        <button class="amount-btn amount-btn--suggested" data-amount="1000">1,000 sats</button>
+        <button class="amount-btn" data-amount="5000">5,000 sats</button>
+        <button class="amount-btn" data-amount="10000">10,000 sats</button>
       </div>
-      <p id="error-message" class="error-message hidden"></p>
+
+      <div class="custom-amount-section">
+        <label for="custom-sats" class="custom-amount-label">Custom amount:</label>
+        <div class="custom-amount-field">
+          <input
+            type="text"
+            id="custom-sats"
+            class="custom-amount-input"
+            placeholder="sats"
+            inputmode="numeric"
+          />
+          <button id="generate-custom" class="custom-amount-btn" type="button">Pay</button>
+        </div>
+        <p id="error-message" class="error-message hidden"></p>
+      </div>
     </div>
 
-    <!-- QR Display (hidden by default) -->
+    <!-- QR Display (replaces amount selection) -->
     <div id="qr-display" class="qr-display hidden">
       <a id="qr-link" href="#" class="qr-link">
         <div id="qr-code" class="qr-code"></div>
       </a>
-      <p class="qr-hint">
-        <span class="qr-hint--mobile">Tap to open wallet or <button id="copy-invoice" class="qr-copy-link" type="button">copy invoice</button></span>
-        <span class="qr-hint--desktop">Scan with Lightning wallet or <button id="copy-invoice-desktop" class="qr-copy-link" type="button">copy invoice</button></span>
-      </p>
-      <p class="qr-amount">
-        <span id="selected-amount" class="qr-amount-value"></span> sats
-      </p>
-      <button id="change-amount" class="qr-change-btn" type="button">Change amount</button>
+      <div id="qr-details" class="qr-details hidden">
+        <p class="qr-hint">
+          <span class="qr-hint--mobile">Tap to open wallet or <button id="copy-invoice" class="qr-copy-link" type="button">copy invoice</button></span>
+          <span class="qr-hint--desktop">Scan with Lightning wallet or <button id="copy-invoice-desktop" class="qr-copy-link" type="button">copy invoice</button></span>
+        </p>
+        <p class="qr-amount">
+          <span id="selected-amount" class="qr-amount-value"></span> sats
+        </p>
+        <button id="change-amount" class="qr-change-btn" type="button">Change amount</button>
+      </div>
     </div>
 
     <!-- Payment Status (hidden by default) -->
@@ -86,11 +89,12 @@
 import QRCode from 'https://esm.sh/qrcode@1.5.3';
 
 // Configuration
-const essaySlug = {{ $essaySlug | jsonify }};
+const essaySlug = "{{ $essaySlug }}";
 const config = {
   lnurlEndpoint: '/.well-known/lnurlp/sats',
   pollInterval: 3000,
   pollTimeout: 300000,
+  maxPollFailures: 3,
 };
 
 // State
@@ -102,16 +106,19 @@ let state = {
   startTime: null,
   isGenerating: false,
   maxSendable: null,
+  pollFailures: 0,
 };
 
 // DOM elements
 const elements = {
+  amountSelection: document.getElementById('amount-selection'),
   amountBtns: document.querySelectorAll('.amount-btn'),
   customInput: document.getElementById('custom-sats'),
   generateBtn: document.getElementById('generate-custom'),
   qrDisplay: document.getElementById('qr-display'),
   qrCode: document.getElementById('qr-code'),
   qrLink: document.getElementById('qr-link'),
+  qrDetails: document.getElementById('qr-details'),
   copyBtns: document.querySelectorAll('.qr-copy-link'),
   amountDisplay: document.getElementById('selected-amount'),
   changeAmountBtn: document.getElementById('change-amount'),
@@ -183,55 +190,67 @@ async function generateInvoice(sats) {
   }
 }
 
+function displayLoadingState() {
+  removeSuggestedHighlight();
+  hideError();
+  elements.amountSelection.classList.add('hidden');
+  elements.qrCode.innerHTML = '<p class="qr-loading">Generating invoice...</p>';
+  elements.qrDisplay.classList.remove('hidden');
+}
+
+function handleGenerationError() {
+  elements.qrDisplay.classList.add('hidden');
+  elements.amountSelection.classList.remove('hidden');
+  state.isGenerating = false;
+}
+
+async function renderQRCode(invoice) {
+  elements.qrCode.innerHTML = '';
+  const canvas = document.createElement('canvas');
+  elements.qrCode.appendChild(canvas);
+
+  await QRCode.toCanvas(canvas, invoice.toUpperCase(), {
+    width: 300,
+    margin: 2,
+    color: { dark: '#000000', light: '#FFFFFF' },
+    errorCorrectionLevel: 'M'
+  });
+}
+
+function displayQRSuccess(sats, invoice) {
+  elements.amountDisplay.textContent = sats.toLocaleString();
+  elements.qrLink.href = `lightning:${invoice}`;
+  elements.qrDetails.classList.remove('hidden');
+  state.isGenerating = false;
+  startPaymentPolling();
+}
+
 async function showQR(sats) {
-  // Prevent duplicate requests
   if (state.isGenerating) return;
   state.isGenerating = true;
   state.selectedAmount = sats;
 
-  hideError();
-  setPaymentControlsDisabled(true);
-  elements.qrCode.innerHTML = '<p class="qr-loading">Generating invoice...</p>';
-  elements.qrDisplay.classList.remove('hidden');
+  displayLoadingState();
 
   const result = await generateInvoice(sats);
-
   if (!result) {
-    elements.qrDisplay.classList.add('hidden');
-    state.isGenerating = false;
-    setPaymentControlsDisabled(false);
+    handleGenerationError();
     return;
   }
 
   state.currentInvoice = result.invoice;
   state.paymentHash = result.paymentHash;
-  elements.qrCode.innerHTML = '';
-
-  const canvas = document.createElement('canvas');
-  elements.qrCode.appendChild(canvas);
 
   try {
-    await QRCode.toCanvas(canvas, result.invoice.toUpperCase(), {
-      width: 300,
-      margin: 2,
-      color: {
-        dark: '#000000',
-        light: '#FFFFFF'
-      },
-      errorCorrectionLevel: 'M'
-    });
+    await renderQRCode(result.invoice);
   } catch (error) {
     console.error('QR generation failed:', error);
-    elements.qrCode.innerHTML = '<p style="color: var(--text-meta);">QR code generation failed</p>';
-    state.isGenerating = false;
-    setPaymentControlsDisabled(false);
+    elements.qrCode.innerHTML = '<p class="qr-loading">QR code generation failed</p>';
+    handleGenerationError();
     return;
   }
 
-  elements.amountDisplay.textContent = sats.toLocaleString();
-  elements.qrLink.href = `lightning:${result.invoice}`;
-  state.isGenerating = false;
-  startPaymentPolling();
+  displayQRSuccess(sats, result.invoice);
 }
 
 function startPaymentPolling() {
@@ -259,12 +278,18 @@ function startPaymentPolling() {
       const response = await fetch(`/invoice-status?${params.toString()}`);
       const data = await response.json();
 
+      state.pollFailures = 0; // Reset on successful response
       if (data.paid) {
         stopPaymentPolling();
         showPaymentConfirmation();
       }
     } catch (error) {
       console.error('Payment status check failed:', error);
+      state.pollFailures++;
+      if (state.pollFailures >= config.maxPollFailures) {
+        showError('Payment check failed. Retrying...');
+        state.pollFailures = 0;
+      }
     }
   }, config.pollInterval);
 }
@@ -282,6 +307,15 @@ function stopPaymentPolling() {
   }
 }
 
+function resetState() {
+  state.selectedAmount = null;
+  state.currentInvoice = null;
+  state.paymentHash = null;
+  state.isGenerating = false;
+  state.maxSendable = null;
+  state.pollFailures = 0;
+}
+
 function setPaymentControlsDisabled(disabled) {
   elements.amountBtns.forEach(btn => btn.disabled = disabled);
   elements.customInput.disabled = disabled;
@@ -290,20 +324,18 @@ function setPaymentControlsDisabled(disabled) {
 
 function resetToAmountSelection() {
   stopPaymentPolling();
+  resetState();
   elements.qrDisplay.classList.add('hidden');
+  elements.qrDetails.classList.add('hidden');
   elements.paymentStatus.classList.add('hidden');
+  elements.amountSelection.classList.remove('hidden');
   elements.customInput.value = '';
-  state.selectedAmount = null;
-  state.currentInvoice = null;
-  state.paymentHash = null;
-  state.isGenerating = false;
-  setPaymentControlsDisabled(false);
 }
 
 function parseAmount(value) {
   const stripped = value.replace(/,/g, '');
   const parsed = parseInt(stripped, 10);
-  if (isNaN(parsed) || parsed <= 0) {
+  if (isNaN(parsed) || parsed <= 0 || parsed > Number.MAX_SAFE_INTEGER) {
     return null;
   }
   return parsed;
@@ -348,16 +380,10 @@ elements.customInput.addEventListener('input', (e) => {
   e.target.value = parseInt(raw, 10).toLocaleString();
 });
 
-// Remove suggested highlight once user engages with options
+// Remove suggested highlight on actual selection (not hover)
 function removeSuggestedHighlight() {
   document.querySelector('.amount-btn--suggested')?.classList.remove('amount-btn--suggested');
 }
-
-elements.customInput.addEventListener('focus', removeSuggestedHighlight);
-
-elements.amountBtns.forEach(btn => {
-  btn.addEventListener('mouseenter', removeSuggestedHighlight);
-});
 
 elements.copyBtns.forEach(btn => {
   btn.addEventListener('click', async () => {
@@ -402,17 +428,21 @@ document.addEventListener('visibilitychange', () => {
 }
 
 .v4v-intro {
-  font-size: var(--font-base);
+  font-size: var(--font-lg);
   color: var(--text-secondary);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-xl);
   line-height: var(--line-height-body);
+}
+
+.amount-selection {
+  margin-bottom: var(--space-xl);
 }
 
 .amount-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-md);
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-md);
 }
 
 .amount-btn {
@@ -459,7 +489,7 @@ document.addEventListener('visibilitychange', () => {
 }
 
 .custom-amount-section {
-  margin-bottom: var(--space-2xl);
+  /* No bottom margin - container handles spacing */
 }
 
 .custom-amount-label {
@@ -477,7 +507,7 @@ document.addEventListener('visibilitychange', () => {
 }
 
 .custom-amount-input {
-  padding: 0.4rem 0;
+  padding: var(--space-xs) 0;
   border: none;
   border-bottom: var(--border-width) solid var(--border-color);
   border-radius: 0;
@@ -546,38 +576,37 @@ document.addEventListener('visibilitychange', () => {
   margin-bottom: 0;
 }
 
-.error-message.hidden {
-  display: none;
-}
-
 .qr-display {
   text-align: center;
   padding: var(--space-xl);
   background: var(--background-card);
-  border: var(--border-width) solid var(--border-color);
   border-radius: var(--border-radius-md);
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
   transition: background-color var(--transition-fast);
+  animation: fadeIn var(--transition-base) ease-out;
 }
 
-.qr-display.hidden {
-  display: none;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .qr-code {
-  margin-top: var(--space-sm);
-  margin-bottom: var(--space-lg);
   min-height: var(--qr-size);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.qr-link .qr-loading {
-  text-align: center;
+.qr-code:has(canvas) {
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.qr-loading {
   color: var(--text-meta);
   font-size: var(--font-base);
-  padding: var(--space-xl) 0;
+  margin: 0;
   text-decoration: none;
 }
 
@@ -588,7 +617,8 @@ document.addEventListener('visibilitychange', () => {
   transition: box-shadow var(--transition-fast);
 }
 
-.qr-link {
+a.qr-link,
+a.qr-link:hover {
   display: block;
   cursor: pointer;
   text-decoration: none;
@@ -677,10 +707,6 @@ document.addEventListener('visibilitychange', () => {
   transition: background-color var(--transition-fast);
 }
 
-.payment-status.hidden {
-  display: none;
-}
-
 .payment-check {
   font-size: var(--font-2xl);
   font-weight: var(--font-weight-semibold);
@@ -696,7 +722,7 @@ document.addEventListener('visibilitychange', () => {
 }
 
 .v4v-page .essay-nav {
-  margin-top: var(--space-2xl);
+  margin-top: var(--space-md);
 }
 
 .v4v-details {
