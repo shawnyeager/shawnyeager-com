@@ -14,7 +14,7 @@
 <article class="v4v-page">
   <div class="v4v-content">
     <p class="v4v-intro">
-      Pay what this was worth to you.
+      {{ if $hasEssay }}Pay what this was worth to you.{{ else }}Found value? Give as much as you think it's worth.{{ end }}
     </p>
 
     <!-- Amount Selection -->
