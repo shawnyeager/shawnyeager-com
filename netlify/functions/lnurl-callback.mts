@@ -64,11 +64,12 @@ export default async (req: Request, context: Context) => {
     });
 
   } catch (error) {
-    console.error('NWC invoice generation error:', error);
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error('NWC invoice generation error:', errorMessage, error);
 
     return new Response(JSON.stringify({
       status: "ERROR",
-      reason: "Invoice generation failed"
+      reason: `Invoice generation failed: ${errorMessage}`
     }), {
       status: 500,
       headers: { "Content-Type": "application/json" }
