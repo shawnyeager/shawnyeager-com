@@ -20,10 +20,30 @@ export default async (req: Request, context: Context) => {
     });
   }
 
-  // Fetch from Alby to get min/max amounts
-  const albyResponse = await fetch(
-    "https://getalby.com/.well-known/lnurlp/shawnyeager"
-  );
+  // Fetch from Alby to get min/max amounts (with timeout)
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+  let albyResponse: Response;
+  try {
+    albyResponse = await fetch(
+      "https://getalby.com/.well-known/lnurlp/shawnyeager",
+      { signal: controller.signal }
+    );
+  } catch (error) {
+    if (error instanceof Error && error.name === 'AbortError') {
+      return new Response(JSON.stringify({
+        status: "ERROR",
+        reason: "Upstream timeout"
+      }), {
+        status: 504,
+        headers: { "Content-Type": "application/json" }
+      });
+    }
+    throw error;
+  } finally {
+    clearTimeout(timeoutId);
+  }
 
   if (!albyResponse.ok) {
     return new Response(JSON.stringify({

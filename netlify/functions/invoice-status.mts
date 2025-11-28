@@ -32,9 +32,11 @@ export default async (req: Request, context: Context) => {
     });
   }
 
+  let client: nwc.NWCClient | null = null;
+
   try {
     // Use NWCClient directly (not WebLN wrapper)
-    const client = new nwc.NWCClient({
+    client = new nwc.NWCClient({
       nostrWalletConnectUrl: nwcUrl
     });
 
@@ -42,9 +44,6 @@ export default async (req: Request, context: Context) => {
       invoice: invoice || undefined,
       payment_hash: paymentHash || undefined
     });
-
-    // Debug log to see what NWC returns
-    console.log('lookupInvoice result:', JSON.stringify(result, null, 2));
 
     // Nip47Transaction has preimage field - only present when paid
     const paid = !!result.preimage;
@@ -71,6 +70,11 @@ export default async (req: Request, context: Context) => {
       status: 500,
       headers: { "Content-Type": "application/json" }
     });
+  } finally {
+    // Cleanup NWC client connection
+    if (client) {
+      client.close();
+    }
   }
 };
 

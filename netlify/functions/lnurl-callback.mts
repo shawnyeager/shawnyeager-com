@@ -1,6 +1,6 @@
 import type { Context, Config } from "@netlify/functions";
 import { WebSocket } from "ws";
-import { webln } from "@getalby/sdk";
+import { nwc } from "@getalby/sdk";
 import bolt11 from "bolt11";
 
 // Polyfill WebSocket for serverless environment
@@ -35,28 +35,28 @@ export default async (req: Request, context: Context) => {
     });
   }
 
+  let client: nwc.NWCClient | null = null;
+
   try {
     // Initialize NWC connection
-    const nwc = new webln.NostrWebLNProvider({
+    client = new nwc.NWCClient({
       nostrWalletConnectUrl: nwcUrl
     });
-
-    await nwc.enable();
 
     // Generate invoice with payment source in memo
     const memo = essaySlug
       ? `shawnyeager.com/${essaySlug}`
       : 'shawnyeager.com';
 
-    const invoice = await nwc.makeInvoice({
-      amount: Math.floor(parseInt(amount) / 1000), // Convert millisats to sats
-      defaultMemo: memo
+    const invoice = await client.makeInvoice({
+      amount: parseInt(amount), // Amount is already in millisats from LNURL
+      description: memo
     });
 
     // Extract payment hash from BOLT11 invoice
     let paymentHash = '';
     try {
-      const decoded = bolt11.decode(invoice.paymentRequest);
+      const decoded = bolt11.decode(invoice.invoice);
       const paymentHashTag = decoded.tags.find((t: any) => t.tagName === 'payment_hash');
       paymentHash = paymentHashTag?.data || '';
     } catch (e) {
@@ -68,7 +68,7 @@ export default async (req: Request, context: Context) => {
 
     // Return LNURL-pay callback response with payment hash for status polling
     return new Response(JSON.stringify({
-      pr: invoice.paymentRequest,
+      pr: invoice.invoice,
       paymentHash: paymentHash,
       routes: [],
       successAction: {
@@ -96,6 +96,11 @@ export default async (req: Request, context: Context) => {
       status: 500,
       headers: { "Content-Type": "application/json" }
     });
+  } finally {
+    // Cleanup NWC client connection
+    if (client) {
+      client.close();
+    }
   }
 };
 

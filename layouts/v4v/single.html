@@ -38,6 +38,7 @@
         />
         <button id="generate-custom" class="custom-amount-btn" type="button">Pay</button>
       </div>
+      <p id="error-message" class="error-message hidden"></p>
     </div>
 
     <!-- QR Display (hidden by default) -->
@@ -85,7 +86,7 @@
 import QRCode from 'https://esm.sh/qrcode@1.5.3';
 
 // Configuration
-const essaySlug = '{{ $essaySlug }}';
+const essaySlug = {{ $essaySlug | jsonify }};
 const config = {
   lnurlEndpoint: '/.well-known/lnurlp/sats',
   pollInterval: 3000,
@@ -100,6 +101,7 @@ let state = {
   pollTimer: null,
   startTime: null,
   isGenerating: false,
+  maxSendable: null,
 };
 
 // DOM elements
@@ -115,7 +117,18 @@ const elements = {
   changeAmountBtn: document.getElementById('change-amount'),
   paymentStatus: document.getElementById('payment-status'),
   confirmedAmount: document.getElementById('confirmed-amount'),
+  errorMessage: document.getElementById('error-message'),
 };
+
+function showError(message) {
+  elements.errorMessage.textContent = message;
+  elements.errorMessage.classList.remove('hidden');
+}
+
+function hideError() {
+  elements.errorMessage.classList.add('hidden');
+  elements.errorMessage.textContent = '';
+}
 
 async function generateInvoice(sats) {
   try {
@@ -133,6 +146,9 @@ async function generateInvoice(sats) {
     if (lnurlData.status === 'ERROR') {
       throw new Error(lnurlData.reason || 'LNURL error');
     }
+
+    // Store max amount for client-side validation
+    state.maxSendable = lnurlData.maxSendable / 1000;
 
     const amount = sats * 1000;
 
@@ -162,7 +178,7 @@ async function generateInvoice(sats) {
 
   } catch (error) {
     console.error('Invoice generation failed:', error);
-    alert(`Failed to generate invoice: ${error.message}`);
+    showError(`Failed to generate invoice: ${error.message}`);
     return null;
   }
 }
@@ -173,6 +189,7 @@ async function showQR(sats) {
   state.isGenerating = true;
   state.selectedAmount = sats;
 
+  hideError();
   setPaymentControlsDisabled(true);
   elements.qrCode.innerHTML = '<p class="qr-loading">Generating invoice...</p>';
   elements.qrDisplay.classList.remove('hidden');
@@ -302,7 +319,13 @@ elements.amountBtns.forEach(btn => {
 elements.generateBtn.addEventListener('click', () => {
   const amount = parseAmount(elements.customInput.value);
   if (amount === null) {
-    alert('Please enter a valid amount in satoshis');
+    showError('Please enter a valid amount in satoshis');
+    elements.customInput.focus();
+    return;
+  }
+  // Client-side validation against max amount (if known)
+  if (state.maxSendable && amount > state.maxSendable) {
+    showError(`Amount cannot exceed ${state.maxSendable.toLocaleString()} sats`);
     elements.customInput.focus();
     return;
   }
@@ -355,6 +378,16 @@ elements.changeAmountBtn.addEventListener('click', () => {
 
 window.addEventListener('beforeunload', () => {
   stopPaymentPolling();
+});
+
+// Pause polling when tab is hidden
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    stopPaymentPolling();
+  } else if (state.paymentHash && !state.pollTimer) {
+    // Resume polling if we have an active invoice
+    startPaymentPolling();
+  }
 });
 </script>
 
@@ -504,6 +537,17 @@ window.addEventListener('beforeunload', () => {
 .custom-amount-btn:disabled:hover {
   border-color: var(--text-meta);
   color: var(--text-meta);
+}
+
+.error-message {
+  color: var(--brand-orange);
+  font-size: var(--font-sm);
+  margin-top: var(--space-sm);
+  margin-bottom: 0;
+}
+
+.error-message.hidden {
+  display: none;
 }
 
 .qr-display {
@@ -693,10 +737,6 @@ window.addEventListener('beforeunload', () => {
 }
 
 @media (max-width: 600px) {
-  .amount-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .custom-amount-input {
     max-width: none;
   }
@@ -706,10 +746,7 @@ window.addEventListener('beforeunload', () => {
     padding: var(--space-xl);
   }
 
-  .qr-code {
-    min-height: var(--qr-size);
-  }
-
+  /* !important required to override inline styles from QR library */
   .qr-code canvas {
     width: var(--qr-size) !important;
     height: var(--qr-size) !important;
