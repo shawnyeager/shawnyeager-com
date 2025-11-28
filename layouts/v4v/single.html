@@ -304,6 +304,17 @@ elements.customInput.addEventListener('input', (e) => {
   e.target.value = parseInt(raw, 10).toLocaleString();
 });
 
+// Remove suggested highlight once user engages with options
+function removeSuggestedHighlight() {
+  document.querySelector('.amount-btn--suggested')?.classList.remove('amount-btn--suggested');
+}
+
+elements.customInput.addEventListener('focus', removeSuggestedHighlight);
+
+elements.amountBtns.forEach(btn => {
+  btn.addEventListener('mouseenter', removeSuggestedHighlight);
+});
+
 elements.copyBtn.addEventListener('click', async () => {
   try {
     await navigator.clipboard.writeText(state.currentInvoice);
@@ -556,6 +567,7 @@ window.addEventListener('beforeunload', () => {
   font-weight: var(--font-weight-normal);
   text-decoration: underline;
   padding: 0;
+  margin-top: var(--space-sm);
   transition: color var(--transition-fast);
 }
 
