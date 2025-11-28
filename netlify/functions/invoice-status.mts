@@ -44,8 +44,8 @@ export default async (req: Request, context: Context) => {
       payment_hash: paymentHash || undefined
     });
 
-    // NIP-47 returns state: "pending", "settled", "expired", or "failed"
-    const paid = lookupResult.state === 'settled';
+    // NIP-47 returns settled_at timestamp when paid, null/undefined if unpaid
+    const paid = lookupResult.settled_at != null || lookupResult.preimage != null;
 
     return new Response(JSON.stringify({
       paid,
