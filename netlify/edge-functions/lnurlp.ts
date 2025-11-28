@@ -1,4 +1,5 @@
 import type { Context, Config } from "@netlify/edge-functions";
+import { ALBY_LNURL, ALBY_TIMEOUT_MS, VALID_USERNAMES, errorResponse } from "./_shared/config.ts";
 
 export default async (req: Request, context: Context) => {
   const url = new URL(req.url);
@@ -9,36 +10,20 @@ export default async (req: Request, context: Context) => {
   const essaySlug = url.searchParams.get('essay') || '';
 
   // All aliases map to the same Alby account
-  const validUsernames = ['sats', 'shawn', 'zap'];
-  if (!validUsernames.includes(username)) {
-    return new Response(JSON.stringify({
-      status: "ERROR",
-      reason: "User not found"
-    }), {
-      status: 404,
-      headers: { "Content-Type": "application/json" }
-    });
+  if (!VALID_USERNAMES.includes(username as typeof VALID_USERNAMES[number])) {
+    return errorResponse(404, "User not found");
   }
 
   // Fetch from Alby to get min/max amounts (with timeout)
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 10000);
+  const timeoutId = setTimeout(() => controller.abort(), ALBY_TIMEOUT_MS);
 
   let albyResponse: Response;
   try {
-    albyResponse = await fetch(
-      "https://getalby.com/.well-known/lnurlp/shawnyeager",
-      { signal: controller.signal }
-    );
+    albyResponse = await fetch(ALBY_LNURL, { signal: controller.signal });
   } catch (error) {
     if (error instanceof Error && error.name === 'AbortError') {
-      return new Response(JSON.stringify({
-        status: "ERROR",
-        reason: "Upstream timeout"
-      }), {
-        status: 504,
-        headers: { "Content-Type": "application/json" }
-      });
+      return errorResponse(504, "Upstream timeout");
     }
     throw error;
   } finally {
@@ -46,13 +31,7 @@ export default async (req: Request, context: Context) => {
   }
 
   if (!albyResponse.ok) {
-    return new Response(JSON.stringify({
-      status: "ERROR",
-      reason: "Upstream error"
-    }), {
-      status: 502,
-      headers: { "Content-Type": "application/json" }
-    });
+    return errorResponse(502, "Upstream error");
   }
 
   const data = await albyResponse.json();
