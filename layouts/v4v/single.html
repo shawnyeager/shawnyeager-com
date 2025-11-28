@@ -46,14 +46,16 @@
       <a id="qr-link" href="#" class="qr-link">
         <div id="qr-code" class="qr-code"></div>
       </a>
-      <p class="qr-hint">
-        <span class="qr-hint--mobile">Tap to open wallet or <button id="copy-invoice" class="qr-copy-link" type="button">copy invoice</button></span>
-        <span class="qr-hint--desktop">Scan with Lightning wallet or <button id="copy-invoice-desktop" class="qr-copy-link" type="button">copy invoice</button></span>
-      </p>
-      <p class="qr-amount">
-        <span id="selected-amount" class="qr-amount-value"></span> sats
-      </p>
-      <button id="change-amount" class="qr-change-btn" type="button">Change amount</button>
+      <div id="qr-details" class="qr-details hidden">
+        <p class="qr-hint">
+          <span class="qr-hint--mobile">Tap to open wallet or <button id="copy-invoice" class="qr-copy-link" type="button">copy invoice</button></span>
+          <span class="qr-hint--desktop">Scan with Lightning wallet or <button id="copy-invoice-desktop" class="qr-copy-link" type="button">copy invoice</button></span>
+        </p>
+        <p class="qr-amount">
+          <span id="selected-amount" class="qr-amount-value"></span> sats
+        </p>
+        <button id="change-amount" class="qr-change-btn" type="button">Change amount</button>
+      </div>
     </div>
 
     <!-- Payment Status (hidden by default) -->
@@ -112,6 +114,7 @@ const elements = {
   qrDisplay: document.getElementById('qr-display'),
   qrCode: document.getElementById('qr-code'),
   qrLink: document.getElementById('qr-link'),
+  qrDetails: document.getElementById('qr-details'),
   copyBtns: document.querySelectorAll('.qr-copy-link'),
   amountDisplay: document.getElementById('selected-amount'),
   changeAmountBtn: document.getElementById('change-amount'),
@@ -230,6 +233,7 @@ async function showQR(sats) {
 
   elements.amountDisplay.textContent = sats.toLocaleString();
   elements.qrLink.href = `lightning:${result.invoice}`;
+  elements.qrDetails.classList.remove('hidden');
   state.isGenerating = false;
   startPaymentPolling();
 }
@@ -291,6 +295,7 @@ function setPaymentControlsDisabled(disabled) {
 function resetToAmountSelection() {
   stopPaymentPolling();
   elements.qrDisplay.classList.add('hidden');
+  elements.qrDetails.classList.add('hidden');
   elements.paymentStatus.classList.add('hidden');
   elements.customInput.value = '';
   state.selectedAmount = null;
