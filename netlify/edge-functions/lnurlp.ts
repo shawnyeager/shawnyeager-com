@@ -6,8 +6,9 @@ export default async (req: Request, context: Context) => {
   const pathParts = url.pathname.split('/');
   const username = pathParts[pathParts.length - 1];
 
-  // Extract essay parameter for per-essay tracking (empty string if not provided)
+  // Extract essay parameters for per-essay tracking
   const essaySlug = url.searchParams.get('essay') || '';
+  const essayTitle = url.searchParams.get('title') || '';
 
   // All aliases map to the same Alby account
   if (!VALID_USERNAMES.includes(username as typeof VALID_USERNAMES[number])) {
@@ -49,7 +50,7 @@ export default async (req: Request, context: Context) => {
   const host = req.headers.get('host') || 'shawnyeager.com';
   const protocol = host.includes('localhost') ? 'http' : 'https';
   data.callback = essaySlug
-    ? `${protocol}://${host}/lnurl-callback?essay=${encodeURIComponent(essaySlug)}`
+    ? `${protocol}://${host}/lnurl-callback?essay=${encodeURIComponent(essaySlug)}&title=${encodeURIComponent(essayTitle)}`
     : `${protocol}://${host}/lnurl-callback`;
 
   return new Response(JSON.stringify(data), {

@@ -9,6 +9,7 @@
 
 {{ define "main" }}
 {{ $essaySlug := .Params.essay_slug | default "" }}
+{{ $essayTitle := .Params.essay_title | default "" }}
 {{ $hasEssay := ne $essaySlug "" }}
 
 <article class="v4v-page">
@@ -55,6 +56,7 @@
         <p class="qr-amount">
           <span id="selected-amount" class="qr-amount-value"></span> sats
         </p>
+        <p id="polling-status" class="polling-status">Waiting for payment...</p>
         <button id="change-amount" class="qr-change-btn" type="button">Change amount</button>
       </div>
     </div>
@@ -90,6 +92,7 @@ import QRCode from 'https://esm.sh/qrcode@1.5.3';
 
 // Configuration
 const essaySlug = "{{ $essaySlug }}";
+const essayTitle = "{{ $essayTitle }}";
 const config = {
   lnurlEndpoint: '/.well-known/lnurlp/sats',
   pollInterval: 3000,
@@ -108,6 +111,35 @@ let state = {
   maxSendable: null,
   pollFailures: 0,
 };
+
+// Persist state to sessionStorage (survives mobile app switching)
+const STORAGE_KEY = 'v4v_payment_state';
+
+function savePaymentState() {
+  const persistedState = {
+    selectedAmount: state.selectedAmount,
+    currentInvoice: state.currentInvoice,
+    paymentHash: state.paymentHash,
+    startTime: state.startTime,
+  };
+  sessionStorage.setItem(STORAGE_KEY, JSON.stringify(persistedState));
+}
+
+function loadPaymentState() {
+  try {
+    const saved = sessionStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      return JSON.parse(saved);
+    }
+  } catch (e) {
+    console.error('Failed to load payment state:', e);
+  }
+  return null;
+}
+
+function clearPaymentState() {
+  sessionStorage.removeItem(STORAGE_KEY);
+}
 
 // DOM elements
 const elements = {
@@ -139,10 +171,12 @@ function hideError() {
 
 async function generateInvoice(sats) {
   try {
+    // Cache-bust to ensure fresh invoice each time
+    const cacheBust = Date.now();
     const lnurlUrl = essaySlug
-      ? `${config.lnurlEndpoint}?essay=${encodeURIComponent(essaySlug)}`
-      : config.lnurlEndpoint;
-    const lnurlResponse = await fetch(lnurlUrl);
+      ? `${config.lnurlEndpoint}?essay=${encodeURIComponent(essaySlug)}&title=${encodeURIComponent(essayTitle)}&_=${cacheBust}`
+      : `${config.lnurlEndpoint}?_=${cacheBust}`;
+    const lnurlResponse = await fetch(lnurlUrl, { cache: 'no-store' });
 
     if (!lnurlResponse.ok) {
       throw new Error(`LNURL request failed: ${lnurlResponse.status}`);
@@ -165,8 +199,9 @@ async function generateInvoice(sats) {
 
     const callbackUrl = new URL(lnurlData.callback);
     callbackUrl.searchParams.set('amount', amount);
+    callbackUrl.searchParams.set('_', cacheBust);
 
-    const invoiceResponse = await fetch(callbackUrl.toString());
+    const invoiceResponse = await fetch(callbackUrl.toString(), { cache: 'no-store' });
 
     if (!invoiceResponse.ok) {
       throw new Error(`Invoice request failed: ${invoiceResponse.status}`);
@@ -254,7 +289,9 @@ async function showQR(sats) {
 }
 
 function startPaymentPolling() {
-  state.startTime = Date.now();
+  if (!state.startTime) {
+    state.startTime = Date.now();
+  }
   if (state.pollTimer) {
     clearInterval(state.pollTimer);
   }
@@ -263,6 +300,9 @@ function startPaymentPolling() {
     console.warn('No payment hash available for polling');
     return;
   }
+
+  // Persist state for mobile app switching
+  savePaymentState();
 
   state.pollTimer = setInterval(async () => {
     // Stop polling after timeout
@@ -295,6 +335,7 @@ function startPaymentPolling() {
 }
 
 function showPaymentConfirmation() {
+  clearPaymentState();
   elements.confirmedAmount.textContent = state.selectedAmount.toLocaleString();
   elements.qrDisplay.classList.add('hidden');
   elements.paymentStatus.classList.remove('hidden');
@@ -308,9 +349,11 @@ function stopPaymentPolling() {
 }
 
 function resetState() {
+  clearPaymentState();
   state.selectedAmount = null;
   state.currentInvoice = null;
   state.paymentHash = null;
+  state.startTime = null;
   state.isGenerating = false;
   state.maxSendable = null;
   state.pollFailures = 0;
@@ -415,6 +458,58 @@ document.addEventListener('visibilitychange', () => {
     startPaymentPolling();
   }
 });
+
+// Restore state on page load (for mobile app switching)
+(async function restorePaymentState() {
+  const saved = loadPaymentState();
+  if (!saved || !saved.paymentHash) {
+    // No saved state - ensure clean slate
+    clearPaymentState();
+    return;
+  }
+
+  // Check if the saved state has timed out
+  const elapsed = Date.now() - saved.startTime;
+  if (elapsed > config.pollTimeout) {
+    clearPaymentState();
+    return;
+  }
+
+  // Restore state
+  state.selectedAmount = saved.selectedAmount;
+  state.currentInvoice = saved.currentInvoice;
+  state.paymentHash = saved.paymentHash;
+  state.startTime = saved.startTime;
+
+  // Show checking UI
+  elements.amountSelection.classList.add('hidden');
+  elements.qrCode.innerHTML = '<p class="qr-loading">Checking payment...</p>';
+  elements.qrDetails.classList.add('hidden');
+  elements.qrDisplay.classList.remove('hidden');
+
+  // Check if already paid before resuming
+  try {
+    const params = new URLSearchParams();
+    params.set('hash', saved.paymentHash);
+    params.set('invoice', saved.currentInvoice);
+    const response = await fetch(`/invoice-status?${params.toString()}`);
+    const data = await response.json();
+
+    if (data.paid) {
+      showPaymentConfirmation();
+      return;
+    }
+  } catch (e) {
+    console.error('Payment check failed:', e);
+  }
+
+  // Not paid yet - restore full UI and resume polling
+  elements.amountDisplay.textContent = saved.selectedAmount.toLocaleString();
+  elements.qrLink.href = `lightning:${saved.currentInvoice}`;
+  elements.qrCode.innerHTML = '<p class="qr-loading polling">Waiting for payment...</p>';
+  elements.qrDetails.classList.remove('hidden');
+  startPaymentPolling();
+})();
 </script>
 
 <style>
@@ -608,6 +703,22 @@ document.addEventListener('visibilitychange', () => {
   font-size: var(--font-base);
   margin: 0;
   text-decoration: none;
+}
+
+.qr-loading.polling {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.polling-status {
+  font-size: var(--font-sm);
+  color: var(--text-meta);
+  margin-bottom: var(--space-md);
+  animation: pulse 2s ease-in-out infinite;
 }
 
 .qr-code canvas {
