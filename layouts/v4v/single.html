@@ -175,6 +175,7 @@ async function showQR(sats) {
   state.isGenerating = true;
   state.selectedAmount = sats;
 
+  setPaymentControlsDisabled(true);
   elements.qrCode.innerHTML = '<p class="qr-loading">Generating invoice...</p>';
   elements.qrDisplay.classList.remove('hidden');
 
@@ -183,6 +184,7 @@ async function showQR(sats) {
   if (!result) {
     elements.qrDisplay.classList.add('hidden');
     state.isGenerating = false;
+    setPaymentControlsDisabled(false);
     return;
   }
 
@@ -207,6 +209,7 @@ async function showQR(sats) {
     console.error('QR generation failed:', error);
     elements.qrCode.innerHTML = '<p style="color: var(--text-meta);">QR code generation failed</p>';
     state.isGenerating = false;
+    setPaymentControlsDisabled(false);
     return;
   }
 
@@ -264,6 +267,12 @@ function stopPaymentPolling() {
   }
 }
 
+function setPaymentControlsDisabled(disabled) {
+  elements.amountBtns.forEach(btn => btn.disabled = disabled);
+  elements.customInput.disabled = disabled;
+  elements.generateBtn.disabled = disabled;
+}
+
 function resetToAmountSelection() {
   stopPaymentPolling();
   elements.qrDisplay.classList.add('hidden');
@@ -273,6 +282,7 @@ function resetToAmountSelection() {
   state.currentInvoice = null;
   state.paymentHash = null;
   state.isGenerating = false;
+  setPaymentControlsDisabled(false);
 }
 
 function parseAmount(value) {
@@ -399,6 +409,21 @@ window.addEventListener('beforeunload', () => {
   color: var(--brand-orange);
 }
 
+.amount-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.amount-btn:disabled:hover {
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.amount-btn--suggested:disabled {
+  border-color: var(--brand-orange);
+  color: var(--brand-orange);
+}
+
 .custom-amount-section {
   margin-bottom: var(--space-2xl);
 }
@@ -465,6 +490,21 @@ window.addEventListener('beforeunload', () => {
   transform: translateY(1px);
 }
 
+.custom-amount-input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.custom-amount-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.custom-amount-btn:disabled:hover {
+  border-color: var(--text-meta);
+  color: var(--text-meta);
+}
+
 .qr-display {
   text-align: center;
   padding: var(--space-xl);
@@ -488,7 +528,7 @@ window.addEventListener('beforeunload', () => {
   justify-content: center;
 }
 
-.qr-loading {
+.qr-link .qr-loading {
   text-align: center;
   color: var(--text-meta);
   font-size: var(--font-base);
@@ -506,6 +546,7 @@ window.addEventListener('beforeunload', () => {
 .qr-link {
   display: block;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .qr-link:hover .qr-code canvas {
