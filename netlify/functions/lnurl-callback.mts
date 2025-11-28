@@ -9,7 +9,7 @@ import bolt11 from "bolt11";
 export default async (req: Request, context: Context) => {
   const url = new URL(req.url);
   const amount = url.searchParams.get('amount');
-  const essaySlug = url.searchParams.get('essay') || 'general';
+  const essaySlug = url.searchParams.get('essay') || '';
 
   // Validate amount parameter
   if (!amount) {
@@ -43,10 +43,14 @@ export default async (req: Request, context: Context) => {
 
     await nwc.enable();
 
-    // Generate invoice with essay metadata
+    // Generate invoice with payment source in memo
+    const memo = essaySlug
+      ? `shawnyeager.com/${essaySlug}`
+      : 'shawnyeager.com';
+
     const invoice = await nwc.makeInvoice({
       amount: Math.floor(parseInt(amount) / 1000), // Convert millisats to sats
-      defaultMemo: `Essay: ${essaySlug} | shawnyeager.com`
+      defaultMemo: memo
     });
 
     // Extract payment hash from BOLT11 invoice
@@ -60,7 +64,7 @@ export default async (req: Request, context: Context) => {
     }
 
     // Log for analytics
-    console.log(`Invoice generated: essay=${essaySlug}, amount=${amount}ms, hash=${paymentHash}`);
+    console.log(`Invoice generated: source=${essaySlug || 'footer'}, amount=${amount}ms, hash=${paymentHash}`);
 
     // Return LNURL-pay callback response with payment hash for status polling
     return new Response(JSON.stringify({
@@ -69,7 +73,9 @@ export default async (req: Request, context: Context) => {
       routes: [],
       successAction: {
         tag: "message",
-        message: `Thank you for supporting "${essaySlug}"!`
+        message: essaySlug
+          ? `Thank you for supporting "${essaySlug}"!`
+          : 'Thank you for your support!'
       }
     }), {
       status: 200,
