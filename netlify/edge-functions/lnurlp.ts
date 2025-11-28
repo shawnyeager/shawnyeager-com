@@ -5,6 +5,9 @@ export default async (req: Request, context: Context) => {
   const pathParts = url.pathname.split('/');
   const username = pathParts[pathParts.length - 1];
 
+  // Extract essay parameter for per-essay tracking (empty string if not provided)
+  const essaySlug = url.searchParams.get('essay') || '';
+
   // All aliases map to the same Alby account
   const validUsernames = ['sats', 'shawn', 'zap'];
   if (!validUsernames.includes(username)) {
@@ -17,10 +20,30 @@ export default async (req: Request, context: Context) => {
     });
   }
 
-  // Fetch from Alby
-  const albyResponse = await fetch(
-    "https://getalby.com/.well-known/lnurlp/shawnyeager"
-  );
+  // Fetch from Alby to get min/max amounts (with timeout)
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+  let albyResponse: Response;
+  try {
+    albyResponse = await fetch(
+      "https://getalby.com/.well-known/lnurlp/shawnyeager",
+      { signal: controller.signal }
+    );
+  } catch (error) {
+    if (error instanceof Error && error.name === 'AbortError') {
+      return new Response(JSON.stringify({
+        status: "ERROR",
+        reason: "Upstream timeout"
+      }), {
+        status: 504,
+        headers: { "Content-Type": "application/json" }
+      });
+    }
+    throw error;
+  } finally {
+    clearTimeout(timeoutId);
+  }
 
   if (!albyResponse.ok) {
     return new Response(JSON.stringify({
@@ -41,6 +64,14 @@ export default async (req: Request, context: Context) => {
       `${username}@shawnyeager.com`
     );
   }
+
+  // Rewrite callback to our handler, include essay parameter only if present
+  // Use request host to work on deploy previews
+  const host = req.headers.get('host') || 'shawnyeager.com';
+  const protocol = host.includes('localhost') ? 'http' : 'https';
+  data.callback = essaySlug
+    ? `${protocol}://${host}/lnurl-callback?essay=${encodeURIComponent(essaySlug)}`
+    : `${protocol}://${host}/lnurl-callback`;
 
   return new Response(JSON.stringify(data), {
     status: 200,

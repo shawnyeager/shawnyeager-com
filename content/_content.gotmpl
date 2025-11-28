@@ -1,0 +1,24 @@
+{{/*
+  Content Adapter: Generate a /{essay-slug}/v4v/ page for each essay
+  This enables essay-specific V4V pages without restructuring essays into page bundles
+
+  Reads from data/essays.json since Site.RegularPages is not
+  available in content adapters (site not fully initialized)
+
+  URL structure: /sovereignty-without-sacrifice/v4v/
+*/}}
+{{ range site.Data.essays }}
+  {{ $page := dict
+    "path" (printf "%s/v4v" .slug)
+    "title" (printf "Value for value | %s" .title)
+    "kind" "page"
+    "type" "v4v"
+    "params" (dict
+      "essay_title" .title
+      "essay_slug" .slug
+      "hide_footer_signup" true
+    )
+    "build" (dict "list" false)
+  }}
+  {{ $.AddPage $page }}
+{{ end }}

@@ -1,0 +1,756 @@
+{{/*
+  V4V Page Template - layouts/v4v/single.html
+  Bitcoin payment page with amount selection and QR generation
+
+  Works for both:
+  - General /v4v/ page (no essay context)
+  - Per-essay /essay-slug/v4v/ pages (with essay context from content adapter)
+*/}}
+
+{{ define "main" }}
+{{ $essaySlug := .Params.essay_slug | default "" }}
+{{ $hasEssay := ne $essaySlug "" }}
+
+<article class="v4v-page">
+  <div class="v4v-content">
+    <p class="v4v-intro">
+      {{ if $hasEssay }}Pay what this was worth to you.{{ else }}Value for value{{ end }}
+    </p>
+
+    <!-- Amount Selection -->
+    <div class="amount-grid">
+      <button class="amount-btn" data-amount="500">500 sats</button>
+      <button class="amount-btn amount-btn--suggested" data-amount="1000">1,000 sats</button>
+      <button class="amount-btn" data-amount="5000">5,000 sats</button>
+      <button class="amount-btn" data-amount="10000">10,000 sats</button>
+    </div>
+
+    <!-- Custom Amount Input -->
+    <div class="custom-amount-section">
+      <label for="custom-sats" class="custom-amount-label">Custom amount:</label>
+      <div class="custom-amount-field">
+        <input
+          type="text"
+          id="custom-sats"
+          class="custom-amount-input"
+          placeholder="sats"
+          inputmode="numeric"
+        />
+        <button id="generate-custom" class="custom-amount-btn" type="button">Pay</button>
+      </div>
+      <p id="error-message" class="error-message hidden"></p>
+    </div>
+
+    <!-- QR Display (hidden by default) -->
+    <div id="qr-display" class="qr-display hidden">
+      <a id="qr-link" href="#" class="qr-link">
+        <div id="qr-code" class="qr-code"></div>
+      </a>
+      <p class="qr-hint">
+        <span class="qr-hint--mobile">Tap to open wallet or <button id="copy-invoice" class="qr-copy-link" type="button">copy invoice</button></span>
+        <span class="qr-hint--desktop">Scan with Lightning wallet or <button id="copy-invoice-desktop" class="qr-copy-link" type="button">copy invoice</button></span>
+      </p>
+      <p class="qr-amount">
+        <span id="selected-amount" class="qr-amount-value"></span> sats
+      </p>
+      <button id="change-amount" class="qr-change-btn" type="button">Change amount</button>
+    </div>
+
+    <!-- Payment Status (hidden by default) -->
+    <div id="payment-status" class="payment-status hidden">
+      <p class="payment-check"><span id="confirmed-amount"></span> sats received</p>
+      <p class="payment-thanks">Thank you for supporting this work.</p>
+    </div>
+
+    {{ if $hasEssay }}
+    <nav class="essay-nav">
+      <a href="/{{ $essaySlug }}/" class="all-essays"><span aria-hidden="true">←</span> Back to essay</a>
+    </nav>
+    {{ end }}
+
+    <!-- V4V Info -->
+    <details class="v4v-details">
+      <summary>New to value for value?</summary>
+      <p>
+        Value for value means no paywalls, no tracking, no platform cut. You read first, decide what the work is worth, then pay directly. Bitcoin makes this possible—no middlemen, no surveillance, just creator and reader.
+      </p>
+      <p>
+        {{ if $hasEssay }}If this essay saved you time or changed your thinking, support it.{{ else }}If this work has helped you, support it.{{ end }}
+      </p>
+      <a href="https://value4value.info/" class="cta-link"><span class="link-text">How V4V works</span> <span aria-hidden="true">→</span></a>
+    </details>
+  </div>
+</article>
+
+<script type="module">
+import QRCode from 'https://esm.sh/qrcode@1.5.3';
+
+// Configuration
+const essaySlug = {{ $essaySlug | jsonify }};
+const config = {
+  lnurlEndpoint: '/.well-known/lnurlp/sats',
+  pollInterval: 3000,
+  pollTimeout: 300000,
+};
+
+// State
+let state = {
+  selectedAmount: null,
+  currentInvoice: null,
+  paymentHash: null,
+  pollTimer: null,
+  startTime: null,
+  isGenerating: false,
+  maxSendable: null,
+};
+
+// DOM elements
+const elements = {
+  amountBtns: document.querySelectorAll('.amount-btn'),
+  customInput: document.getElementById('custom-sats'),
+  generateBtn: document.getElementById('generate-custom'),
+  qrDisplay: document.getElementById('qr-display'),
+  qrCode: document.getElementById('qr-code'),
+  qrLink: document.getElementById('qr-link'),
+  copyBtns: document.querySelectorAll('.qr-copy-link'),
+  amountDisplay: document.getElementById('selected-amount'),
+  changeAmountBtn: document.getElementById('change-amount'),
+  paymentStatus: document.getElementById('payment-status'),
+  confirmedAmount: document.getElementById('confirmed-amount'),
+  errorMessage: document.getElementById('error-message'),
+};
+
+function showError(message) {
+  elements.errorMessage.textContent = message;
+  elements.errorMessage.classList.remove('hidden');
+}
+
+function hideError() {
+  elements.errorMessage.classList.add('hidden');
+  elements.errorMessage.textContent = '';
+}
+
+async function generateInvoice(sats) {
+  try {
+    const lnurlUrl = essaySlug
+      ? `${config.lnurlEndpoint}?essay=${encodeURIComponent(essaySlug)}`
+      : config.lnurlEndpoint;
+    const lnurlResponse = await fetch(lnurlUrl);
+
+    if (!lnurlResponse.ok) {
+      throw new Error(`LNURL request failed: ${lnurlResponse.status}`);
+    }
+
+    const lnurlData = await lnurlResponse.json();
+
+    if (lnurlData.status === 'ERROR') {
+      throw new Error(lnurlData.reason || 'LNURL error');
+    }
+
+    // Store max amount for client-side validation
+    state.maxSendable = lnurlData.maxSendable / 1000;
+
+    const amount = sats * 1000;
+
+    if (amount < lnurlData.minSendable || amount > lnurlData.maxSendable) {
+      throw new Error(`Amount must be between ${lnurlData.minSendable / 1000} and ${lnurlData.maxSendable / 1000} sats`);
+    }
+
+    const callbackUrl = new URL(lnurlData.callback);
+    callbackUrl.searchParams.set('amount', amount);
+
+    const invoiceResponse = await fetch(callbackUrl.toString());
+
+    if (!invoiceResponse.ok) {
+      throw new Error(`Invoice request failed: ${invoiceResponse.status}`);
+    }
+
+    const invoiceData = await invoiceResponse.json();
+
+    if (invoiceData.status === 'ERROR') {
+      throw new Error(invoiceData.reason || 'Invoice generation error');
+    }
+
+    return {
+      invoice: invoiceData.pr,
+      paymentHash: invoiceData.paymentHash
+    };
+
+  } catch (error) {
+    console.error('Invoice generation failed:', error);
+    showError(`Failed to generate invoice: ${error.message}`);
+    return null;
+  }
+}
+
+async function showQR(sats) {
+  // Prevent duplicate requests
+  if (state.isGenerating) return;
+  state.isGenerating = true;
+  state.selectedAmount = sats;
+
+  hideError();
+  setPaymentControlsDisabled(true);
+  elements.qrCode.innerHTML = '<p class="qr-loading">Generating invoice...</p>';
+  elements.qrDisplay.classList.remove('hidden');
+
+  const result = await generateInvoice(sats);
+
+  if (!result) {
+    elements.qrDisplay.classList.add('hidden');
+    state.isGenerating = false;
+    setPaymentControlsDisabled(false);
+    return;
+  }
+
+  state.currentInvoice = result.invoice;
+  state.paymentHash = result.paymentHash;
+  elements.qrCode.innerHTML = '';
+
+  const canvas = document.createElement('canvas');
+  elements.qrCode.appendChild(canvas);
+
+  try {
+    await QRCode.toCanvas(canvas, result.invoice.toUpperCase(), {
+      width: 300,
+      margin: 2,
+      color: {
+        dark: '#000000',
+        light: '#FFFFFF'
+      },
+      errorCorrectionLevel: 'M'
+    });
+  } catch (error) {
+    console.error('QR generation failed:', error);
+    elements.qrCode.innerHTML = '<p style="color: var(--text-meta);">QR code generation failed</p>';
+    state.isGenerating = false;
+    setPaymentControlsDisabled(false);
+    return;
+  }
+
+  elements.amountDisplay.textContent = sats.toLocaleString();
+  elements.qrLink.href = `lightning:${result.invoice}`;
+  state.isGenerating = false;
+  startPaymentPolling();
+}
+
+function startPaymentPolling() {
+  state.startTime = Date.now();
+  if (state.pollTimer) {
+    clearInterval(state.pollTimer);
+  }
+
+  if (!state.paymentHash) {
+    console.warn('No payment hash available for polling');
+    return;
+  }
+
+  state.pollTimer = setInterval(async () => {
+    // Stop polling after timeout
+    if (Date.now() - state.startTime > config.pollTimeout) {
+      stopPaymentPolling();
+      return;
+    }
+
+    try {
+      const params = new URLSearchParams();
+      if (state.paymentHash) params.set('hash', state.paymentHash);
+      if (state.currentInvoice) params.set('invoice', state.currentInvoice);
+      const response = await fetch(`/invoice-status?${params.toString()}`);
+      const data = await response.json();
+
+      if (data.paid) {
+        stopPaymentPolling();
+        showPaymentConfirmation();
+      }
+    } catch (error) {
+      console.error('Payment status check failed:', error);
+    }
+  }, config.pollInterval);
+}
+
+function showPaymentConfirmation() {
+  elements.confirmedAmount.textContent = state.selectedAmount.toLocaleString();
+  elements.qrDisplay.classList.add('hidden');
+  elements.paymentStatus.classList.remove('hidden');
+}
+
+function stopPaymentPolling() {
+  if (state.pollTimer) {
+    clearInterval(state.pollTimer);
+    state.pollTimer = null;
+  }
+}
+
+function setPaymentControlsDisabled(disabled) {
+  elements.amountBtns.forEach(btn => btn.disabled = disabled);
+  elements.customInput.disabled = disabled;
+  elements.generateBtn.disabled = disabled;
+}
+
+function resetToAmountSelection() {
+  stopPaymentPolling();
+  elements.qrDisplay.classList.add('hidden');
+  elements.paymentStatus.classList.add('hidden');
+  elements.customInput.value = '';
+  state.selectedAmount = null;
+  state.currentInvoice = null;
+  state.paymentHash = null;
+  state.isGenerating = false;
+  setPaymentControlsDisabled(false);
+}
+
+function parseAmount(value) {
+  const stripped = value.replace(/,/g, '');
+  const parsed = parseInt(stripped, 10);
+  if (isNaN(parsed) || parsed <= 0) {
+    return null;
+  }
+  return parsed;
+}
+
+elements.amountBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const amount = parseInt(btn.dataset.amount, 10);
+    showQR(amount);
+  });
+});
+
+elements.generateBtn.addEventListener('click', () => {
+  const amount = parseAmount(elements.customInput.value);
+  if (amount === null) {
+    showError('Please enter a valid amount in satoshis');
+    elements.customInput.focus();
+    return;
+  }
+  // Client-side validation against max amount (if known)
+  if (state.maxSendable && amount > state.maxSendable) {
+    showError(`Amount cannot exceed ${state.maxSendable.toLocaleString()} sats`);
+    elements.customInput.focus();
+    return;
+  }
+  showQR(amount);
+});
+
+elements.customInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    elements.generateBtn.click();
+  }
+});
+
+elements.customInput.addEventListener('input', (e) => {
+  const raw = e.target.value.replace(/[^\d]/g, '');
+  if (!raw) {
+    e.target.value = '';
+    return;
+  }
+  e.target.value = parseInt(raw, 10).toLocaleString();
+});
+
+// Remove suggested highlight once user engages with options
+function removeSuggestedHighlight() {
+  document.querySelector('.amount-btn--suggested')?.classList.remove('amount-btn--suggested');
+}
+
+elements.customInput.addEventListener('focus', removeSuggestedHighlight);
+
+elements.amountBtns.forEach(btn => {
+  btn.addEventListener('mouseenter', removeSuggestedHighlight);
+});
+
+elements.copyBtns.forEach(btn => {
+  btn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(state.currentInvoice);
+      const originalText = btn.textContent;
+      btn.textContent = 'copied';
+      setTimeout(() => btn.textContent = originalText, 2000);
+    } catch (err) {
+      console.error('Copy failed:', err);
+    }
+  });
+});
+
+elements.changeAmountBtn.addEventListener('click', () => {
+  resetToAmountSelection();
+});
+
+window.addEventListener('beforeunload', () => {
+  stopPaymentPolling();
+});
+
+// Pause polling when tab is hidden
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    stopPaymentPolling();
+  } else if (state.paymentHash && !state.pollTimer) {
+    // Resume polling if we have an active invoice
+    startPaymentPolling();
+  }
+});
+</script>
+
+<style>
+.v4v-page {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+.v4v-content {
+  margin-top: var(--space-md);
+}
+
+.v4v-intro {
+  font-size: var(--font-base);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+  line-height: var(--line-height-body);
+}
+
+.amount-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.amount-btn {
+  padding: var(--space-lg);
+  background: transparent;
+  border: var(--border-width-emphasis) solid var(--border-color);
+  border-radius: var(--border-radius-interactive);
+  cursor: pointer;
+  font-family: var(--font-system);
+  font-size: var(--font-xl);
+  font-weight: var(--font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+
+.amount-btn:hover {
+  border-color: var(--brand-orange);
+  color: var(--brand-orange);
+}
+
+.amount-btn:active {
+  transform: translateY(1px);
+}
+
+.amount-btn--suggested {
+  border-color: var(--brand-orange);
+  color: var(--brand-orange);
+}
+
+.amount-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.amount-btn:disabled:hover {
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.amount-btn--suggested:disabled {
+  border-color: var(--brand-orange);
+  color: var(--brand-orange);
+}
+
+.custom-amount-section {
+  margin-bottom: var(--space-2xl);
+}
+
+.custom-amount-label {
+  display: block;
+  font-size: var(--font-sm);
+  color: var(--text-meta);
+  margin-bottom: var(--space-sm);
+  font-weight: var(--font-weight-normal);
+}
+
+.custom-amount-field {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: stretch;
+}
+
+.custom-amount-input {
+  padding: 0.4rem 0;
+  border: none;
+  border-bottom: var(--border-width) solid var(--border-color);
+  border-radius: 0;
+  font-family: var(--font-system);
+  font-size: var(--font-base);
+  background: var(--background-body);
+  color: var(--text-primary);
+  width: calc((100% - 3 * var(--space-sm)) / 4);
+  text-align: right;
+  transition: border-color var(--transition-fast);
+}
+
+.custom-amount-input:focus {
+  outline: none;
+  border-bottom-color: var(--brand-orange);
+}
+
+.custom-amount-input::placeholder {
+  color: var(--text-meta);
+  opacity: 0.5;
+}
+
+.custom-amount-btn {
+  padding: var(--space-sm) var(--space-md);
+  background: transparent;
+  color: var(--text-meta);
+  border: var(--border-width) solid var(--text-meta);
+  border-radius: var(--border-radius-interactive);
+  font-family: var(--font-system);
+  font-size: var(--font-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.custom-amount-btn:hover {
+  border-color: var(--brand-orange);
+  color: var(--brand-orange);
+}
+
+.custom-amount-btn:active {
+  transform: translateY(1px);
+}
+
+.custom-amount-input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.custom-amount-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.custom-amount-btn:disabled:hover {
+  border-color: var(--text-meta);
+  color: var(--text-meta);
+}
+
+.error-message {
+  color: var(--brand-orange);
+  font-size: var(--font-sm);
+  margin-top: var(--space-sm);
+  margin-bottom: 0;
+}
+
+.error-message.hidden {
+  display: none;
+}
+
+.qr-display {
+  text-align: center;
+  padding: var(--space-xl);
+  background: var(--background-card);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--space-xl);
+  transition: background-color var(--transition-fast);
+}
+
+.qr-display.hidden {
+  display: none;
+}
+
+.qr-code {
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  min-height: var(--qr-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-link .qr-loading {
+  text-align: center;
+  color: var(--text-meta);
+  font-size: var(--font-base);
+  padding: var(--space-xl) 0;
+  text-decoration: none;
+}
+
+.qr-code canvas {
+  display: block;
+  margin: 0 auto;
+  box-shadow: var(--shadow-content-light);
+  transition: box-shadow var(--transition-fast);
+}
+
+.qr-link {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.qr-link:hover .qr-code canvas {
+  box-shadow: 0 0 0 3px var(--brand-orange);
+}
+
+.qr-hint {
+  font-size: var(--font-sm);
+  color: var(--text-meta);
+  margin-bottom: var(--space-md);
+}
+
+.qr-hint--mobile {
+  display: inline;
+}
+
+.qr-hint--desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .qr-hint--mobile {
+    display: none;
+  }
+  .qr-hint--desktop {
+    display: inline;
+  }
+}
+
+.qr-amount {
+  font-size: var(--font-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
+  letter-spacing: var(--letter-spacing-tight-md);
+}
+
+.qr-amount-value {
+  font-variant-numeric: tabular-nums;
+}
+
+.qr-copy-link {
+  background: none;
+  border: none;
+  color: var(--text-meta);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: var(--font-weight-normal);
+  text-decoration: underline;
+  padding: 0;
+  transition: color var(--transition-fast);
+}
+
+.qr-copy-link:hover {
+  color: var(--brand-orange);
+}
+
+.qr-change-btn {
+  background: none;
+  border: var(--border-width) solid var(--text-meta);
+  border-radius: var(--border-radius-interactive);
+  color: var(--text-meta);
+  cursor: pointer;
+  font-family: var(--font-system);
+  font-size: var(--font-sm);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  padding: var(--space-xs) var(--space-md);
+  transition: all var(--transition-fast);
+}
+
+.qr-change-btn:hover {
+  border-color: var(--brand-orange);
+  color: var(--brand-orange);
+}
+
+.payment-status {
+  text-align: center;
+  padding: var(--space-2xl);
+  background: var(--background-card);
+  margin-bottom: var(--space-xl);
+  transition: background-color var(--transition-fast);
+}
+
+.payment-status.hidden {
+  display: none;
+}
+
+.payment-check {
+  font-size: var(--font-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--brand-orange);
+  margin-bottom: var(--space-sm);
+  letter-spacing: var(--letter-spacing-tight-md);
+}
+
+.payment-thanks {
+  color: var(--text-secondary);
+  font-size: var(--font-base);
+  margin-bottom: 0;
+}
+
+.v4v-page .essay-nav {
+  margin-top: var(--space-2xl);
+}
+
+.v4v-details {
+  margin-top: var(--space-lg);
+}
+
+.v4v-details summary {
+  cursor: pointer;
+  font-size: var(--font-base);
+  color: var(--text-meta);
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-fast);
+  list-style-position: outside;
+  list-style: none;
+}
+
+.v4v-details summary::marker {
+  display: none;
+}
+
+.v4v-details summary:hover {
+  color: var(--brand-orange);
+}
+
+.v4v-details p {
+  margin-top: var(--space-md);
+  font-size: var(--font-base);
+  color: var(--text-secondary);
+  line-height: var(--line-height-body);
+}
+
+.v4v-details p:last-child {
+  margin-bottom: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .custom-amount-input {
+    max-width: none;
+  }
+
+  .qr-display,
+  .payment-status {
+    padding: var(--space-xl);
+  }
+
+  /* !important required to override inline styles from QR library */
+  .qr-code canvas {
+    width: var(--qr-size) !important;
+    height: var(--qr-size) !important;
+  }
+}
+</style>
+{{ end }}
