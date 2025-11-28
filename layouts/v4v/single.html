@@ -101,6 +101,7 @@ let state = {
   paymentHash: null,
   pollTimer: null,
   startTime: null,
+  isGenerating: false,
 };
 
 // DOM elements
@@ -168,6 +169,9 @@ async function generateInvoice(sats) {
 }
 
 async function showQR(sats) {
+  // Prevent duplicate requests
+  if (state.isGenerating) return;
+  state.isGenerating = true;
   state.selectedAmount = sats;
 
   elements.qrCode.innerHTML = '<p class="qr-loading">Generating invoice...</p>';
@@ -177,6 +181,7 @@ async function showQR(sats) {
 
   if (!result) {
     elements.qrDisplay.classList.add('hidden');
+    state.isGenerating = false;
     return;
   }
 
@@ -200,11 +205,13 @@ async function showQR(sats) {
   } catch (error) {
     console.error('QR generation failed:', error);
     elements.qrCode.innerHTML = '<p style="color: var(--text-meta);">QR code generation failed</p>';
+    state.isGenerating = false;
     return;
   }
 
   elements.amountDisplay.textContent = sats.toLocaleString();
   elements.qrLink.href = `lightning:${result.invoice}`;
+  state.isGenerating = false;
   startPaymentPolling();
 }
 
@@ -263,6 +270,7 @@ function resetToAmountSelection() {
   state.selectedAmount = null;
   state.currentInvoice = null;
   state.paymentHash = null;
+  state.isGenerating = false;
 }
 
 function parseAmount(value) {
