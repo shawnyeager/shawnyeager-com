@@ -1,11 +1,14 @@
-# TITLE OPTIONS
-
-- The invisible hand I couldn't see
-- Broken money, broken internet
-
 ---
-
-# [WORKING TITLE: From BBS to Bitcoin]
+title: "The invisible hand I couldn't see"
+description: "I built extraction for thirty years without seeing the pattern. Bitcoin showed me what I missed: it was the money."
+date: 2025-11-29T15:00:00Z
+slug: invisible-hand-i-couldnt-see
+topics: [bitcoin, trust, freedom-tech]
+tags: []
+cta: true
+featured: false
+draft: false
+---
 
 I've been working on the internet for thirty years. Sales, business development, evangelism—helping companies grow, helping technology reach people. I thought I was helping build freedom. I was helping build extraction.
 
@@ -15,7 +18,9 @@ Then came the waves. Microsoft in the late nineties: evangelizing the browser, e
 
 Every time, I thought this wave would be different. Every time, same outcome.
 
-Then Bitcoin showed me what I couldn't see for three decades. There are bad actors, sure. But at the core? Broken money creating broken incentives—and I'd been optimizing within a system I couldn't see.
+Then Bitcoin showed me what I missed for thirty years. Not bad actors. Not poor execution. Not regulatory failure. It was simpler than that.
+
+It was the money.
 
 ---
 
@@ -39,9 +44,9 @@ The pattern was repeating, but I still didn't see the mechanism.
 
 ### Wave 3: Creator Economy (2010s–2019)
 
-The promise was transformative—the internet freeing creators and consumers from gatekeepers. Music streaming platforms promising to help artists. Personal data companies enabling users to own their information. Real frameworks for sovereignty.
+The promise: the internet would free creators and consumers from gatekeepers. Music streaming platforms would help artists. Personal data companies would let users own their information.
 
-What I found instead: both captured by extractive practices. DRM, RIAA, streaming platforms extracting value from artists they claimed to liberate. And in personal data, we were up against the economics of "free"—even when explicitly building for sovereignty, we couldn't compete with ad-funded extraction.
+What I found: extraction everywhere. DRM, RIAA, streaming platforms extracting value from artists they claimed to liberate. And in personal data, we were up against the economics of "free"—even when explicitly building for sovereignty, we couldn't compete with ad-funded extraction.
 
 Same pattern, different industries. That's when I started suspecting this was systemic.
 
@@ -59,17 +64,19 @@ None of them explained why it kept happening.
 
 Cory Doctorow nailed the diagnosis. His "enshittification" framework describes exactly what I witnessed: platforms start good to users while locking them in, then abuse users to serve business customers, then abuse everyone to extract maximum value.
 
-His solution: antitrust enforcement, break up monopolies, strengthen regulation.
+His solution: antitrust enforcement, break up monopolies, strengthen regulation, mandate interoperability.
 
-He's right about what happened. He's right that regulation matters.
+He's right about what happened. He's right that these things matter.
 
-But even brilliant analysts miss the deeper mechanism.
+But this strain of thinking—diagnose monopoly power, prescribe antitrust—stops one layer short.
 
-When I interviewed Doctorow on my podcast, his take on Bitcoin was dismissive—fixed supply means instability, it's only good for buying "shitty monkey JPEGs." What struck me wasn't the critique. It was the inconsistency. He's willing to fight for decades to make imperfect regulation work. But Bitcoin, fifteen years in with real problems being solved? Dismissed outright.
+When I interviewed Doctorow on my podcast, his take on Bitcoin was dismissive. Fixed supply means instability. It's only good for buying "shitty monkey JPEGs." What struck me wasn't the critique itself. It was the asymmetry. He's willing to fight for decades to make imperfect regulation work. Regulators get captured? Keep fighting. Antitrust takes 69 years to break up AT&T? Worth it. But Bitcoin, fifteen years in with real problems being solved? Dismissed outright.
 
 Where's "Lightning has issues, let's fix them"?
 
-I'm not here to debate monetary theory. The point is simpler: even the sharpest critics of enshittification stop at monopoly power and regulatory capture. They don't ask what created the conditions for monopolies to form, for regulation to get captured, for extraction to become the rational choice everywhere.
+I'm not here to debate monetary theory. The point is simpler: even the sharpest critics of extraction stop at monopoly power and regulatory capture. They ask *how* platforms become extractive. They don't ask *why* extraction becomes the rational choice everywhere, across every industry, every wave, every decade.
+
+What creates the conditions for monopolies to form? For regulation to get captured? For extraction to become not just possible but economically optimal?
 
 That question haunted me until Bitcoin answered it.
 
@@ -77,9 +84,11 @@ That question haunted me until Bitcoin answered it.
 
 ## The mechanism: broken money
 
-Why did every platform end up extractive? Not lack of creativity. Not evil intentions. Economics.
+Why did every platform end up extractive? Not lack of creativity. Not evil intentions. Not insufficient regulation.
 
-Fiat currency is a melting ice cube. "Target inflation" sounds benign—2% per year, barely noticeable. But it compounds into a simple mandate: extract value now, before it depreciates. High time preference gets baked into the system. "Get it while you can" becomes economically rational.
+It's the money, stupid.
+
+Fiat currency is a melting ice cube. "Target inflation" sounds benign—2% per year, barely noticeable. But it compounds into a simple mandate: extract value now, before it depreciates. High time preference gets baked into the system. "Get it while you can" stops being greed. It becomes rational.
 
 This explains every wave I lived through.
 
@@ -107,9 +116,9 @@ Each explanation felt sufficient in the moment. None of them explained why it ke
 
 When I first encountered Bitcoin, I didn't get it. "Blockchain" and "crypto" felt like shiny new tech—another wave to ride. I was briefly captured by the snake oil, the ICOs, the hype. Then somewhere in 2016, it clicked: it wasn't the tech. It was the money, stupid.
 
-Understanding fiat debasement. Seeing high time preference everywhere once I knew to look. Realizing this is why everything becomes extraction, eventually.
+Fiat debasement. High time preference. Once I knew what to look for, I saw it everywhere.
 
-Once you see it, you can't unsee it.
+And once you see it, you can't unsee it.
 
 If you're building on the internet right now, ask yourself:
 
@@ -123,24 +132,28 @@ You might be just as blind.
 
 ---
 
-## Bitcoin revealed it
+## Where the leverage actually is
 
-Bitcoin didn't just reveal the pattern. It offers a way out.
+Bitcoin didn't just reveal the pattern. It showed me where the leverage is.
 
-Native internet money changes the economic foundation. With Lightning, you can monetize value creation directly—no advertising intermediary required. Instant settlement, minimal fees, global and permissionless. Different incentives become possible.
+For thirty years, I watched smart people fight extraction with the wrong tools. Better content moderation. Fairer algorithms. Antitrust enforcement. Interoperability mandates. All worth doing. None of them address why extraction becomes rational in the first place.
 
-This isn't theoretical. Podcasting 2.0 lets listeners stream sats directly to creators. Nostr clients charge for premium features instead of selling user data. Strike competes with Venmo without the extraction. The business model shifts: better product equals more usage equals revenue from service, not surveillance.
+The leverage is in the money layer.
 
-The key difference: fiat systems reward extracting now before value depreciates. Sound money lowers time preference. Build for the long term because the long term matters.
+Native internet money changes the economic foundation. With Lightning, you can monetize value creation directly—no advertising intermediary required. Podcasting 2.0 lets listeners stream sats to creators. Nostr clients charge for premium features instead of selling user data. Strike competes with Venmo without extraction. The business model shifts: better product equals revenue from service, not surveillance.
+
+Fiat systems reward extracting now before value depreciates. Sound money lowers time preference. Build for the long term because the long term matters.
 
 But Bitcoin doesn't automatically fix anything.
 
 Lightning needs to work better than Visa. Nostr needs to be better than Twitter. Self-custody needs to be easier than banking. The infrastructure enables different incentives—now we have to ship products people actually choose.
 
-This connects to what I've written before about sovereignty without sacrifice. Broken money created extraction everywhere. Bitcoin fixes the incentive layer. But we still have to win on merit, not ideology.
+This is what I mean by sovereignty without sacrifice. Bitcoin fixes the incentive layer. We still have to win on merit, not ideology.
 
-Regulation matters too. Antitrust constrains monopolies. Better enforcement levels the playing field. But regulation alone can't fix the incentive layer—break up an ad-funded company and you get smaller ad-funded companies with the same extraction logic.
+Regulation matters too. Antitrust constrains monopolies. Interoperability creates escape routes. Better enforcement levels the playing field. But regulation alone can't fix the root cause—break up an ad-funded company and you get smaller ad-funded companies running the same extraction logic.
 
-Both are needed. Regulation cleans up the old economics. Bitcoin creates the foundation for new ones.
+So here's my message to builders—Bitcoin builders and everyone else:
 
-This time can be different. But only if we see the pattern and build accordingly.
+Stop treating symptoms. The leverage is the money layer. Regulation can constrain bad behavior. Interop can create exits. But neither fixes why extraction becomes the rational choice. Only fixing the money does that.
+
+I missed this for thirty years. You don't have to.
