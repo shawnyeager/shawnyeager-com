@@ -124,23 +124,14 @@ export function filterV4VPayments(transactions) {
 
 /**
  * Parse essay slug from description
- * Handles multiple formats:
- * - "shawnyeager.com/essay-slug" (current)
- * - "Essay: essay-slug | shawnyeager.com" (legacy)
- * - "shawnyeager.com" (footer/general)
+ * Format: "shawnyeager.com/essay-slug" or just "shawnyeager.com" (footer)
  */
 export function parseEssaySlug(description) {
   if (!description) return null;
 
-  // Current format: shawnyeager.com/essay-slug
-  const currentMatch = description.match(/shawnyeager\.com\/([a-z0-9-]+)$/);
-  if (currentMatch) return currentMatch[1];
-
-  // Legacy format: Essay: essay-slug | shawnyeager.com
-  const legacyMatch = description.match(/^Essay:\s*([a-z0-9-]+)\s*\|/);
-  if (legacyMatch && legacyMatch[1] !== 'general') return legacyMatch[1];
-
-  return null;
+  // Extract slug from shawnyeager.com/slug
+  const match = description.match(/shawnyeager\.com\/([a-z0-9-]+)/);
+  return match ? match[1] : null;
 }
 
 /**
