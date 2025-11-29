@@ -6,10 +6,14 @@
   available in content adapters (site not fully initialized)
 
   URL structure: /sovereignty-without-sacrifice/v4v/
+
+  NOTE: Uses flat path "v4v-{slug}" to avoid Hugo creating intermediate branch
+  pages that conflict with essay permalinks. The "url" key overrides output location.
 */}}
 {{ range site.Data.essays }}
   {{ $page := dict
-    "path" (printf "%s/v4v" .slug)
+    "path" (printf "v4v-%s" .slug)
+    "url" (printf "/%s/v4v/" .slug)
     "title" (printf "Support this work | %s" .title)
     "description" "Support this essay with Bitcoin."
     "kind" "page"
