@@ -1,10 +1,45 @@
 {{/*
-  V4V Page Template - layouts/v4v/single.html
-  Bitcoin payment page with amount selection and QR generation
+Purpose: V4V (Value for Value) Bitcoin payment page
 
-  Works for both:
-  - General /v4v/ page (no essay context)
-  - Per-essay /essay-slug/v4v/ pages (with essay context from content adapter)
+Features:
+- Amount selection (500, 1000, 5000, 10000 sats + custom)
+- LNURL-pay QR code generation via esm.sh/qrcode
+- Invoice status polling with visual feedback
+- Payment confirmation with success message
+- Error handling with friendly messages
+- Session storage for payment state recovery
+- Mobile-responsive design
+
+Page Modes:
+- General /v4v/ (no essay context) - used from footer link
+- Per-essay /essay-slug/v4v/ (with essay_slug, essay_title params from content adapter)
+
+API Endpoints:
+- /.well-known/lnurlp/sats - LNURL-pay endpoint (edge function)
+- /lnurl-callback - Invoice generation (serverless function)
+- /invoice-status - Payment status polling (serverless function)
+
+JavaScript State:
+- selectedAmount, currentInvoice, paymentHash
+- pollTimer, startTime, isGenerating
+- maxSendable, pollFailures
+
+Session Storage:
+- Key: v4v_payment_state_{essaySlug} (or v4v_payment_state_general)
+- Persists: invoice, hash, amount, startTime
+- Enables payment recovery after app switching on mobile
+
+CSS Structure:
+- Uses design tokens exclusively (--space-*, --font-*, --text-*, --brand-orange)
+- Responsive breakpoint at 600px
+- Card styles via .v4v-card class
+- Button styles via .btn-ghost class
+
+Important Notes:
+- QR library loaded from esm.sh CDN (no build step)
+- Polling runs every 3s for up to 5 minutes
+- Tab visibility API pauses/resumes polling
+- No external CSS or JS files - all inline for simplicity
 */}}
 
 {{ define "main" }}
