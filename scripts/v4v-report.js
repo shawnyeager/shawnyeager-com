@@ -5,213 +5,20 @@
  */
 
 import { program } from 'commander';
-import { config } from 'dotenv';
-import { WebSocket } from 'ws';
-import { nwc } from '@getalby/sdk';
 import fs from 'fs';
-import { execSync } from 'child_process';
-import https from 'https';
-
-// Load environment variables from .env if present
-config({ quiet: true });
-
-// If NWC_CONNECTION_STRING not in env, fetch from Netlify
-if (!process.env.NWC_CONNECTION_STRING) {
-  try {
-    const nwcUrl = execSync('netlify env:get NWC_CONNECTION_STRING 2>/dev/null', { encoding: 'utf8' }).trim();
-    if (nwcUrl) {
-      process.env.NWC_CONNECTION_STRING = nwcUrl;
-    }
-  } catch {
-    // Will be handled later with proper error message
-  }
-}
-
-// Polyfill WebSocket for Node.js
-globalThis.WebSocket = WebSocket;
-
-/**
- * Fetch current BTC price in USD from CoinGecko
- */
-async function fetchBtcPrice() {
-  return new Promise((resolve, reject) => {
-    https.get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd', (res) => {
-      let data = '';
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => {
-        try {
-          const json = JSON.parse(data);
-          resolve(json.bitcoin?.usd || null);
-        } catch {
-          resolve(null);
-        }
-      });
-    }).on('error', () => resolve(null));
-  });
-}
-
-/**
- * Convert sats to USD
- */
-function satsToUsd(sats, btcPrice) {
-  if (!btcPrice) return null;
-  return (sats / 100_000_000) * btcPrice;
-}
-
-/**
- * Format USD amount
- */
-function formatUsd(usd) {
-  if (usd === null) return '';
-  if (usd < 0.01) return ' (~$0.01)';
-  return ` (~$${usd.toFixed(2)})`;
-}
-
-/**
- * Fetch all V4V transactions from NWC
- */
-async function fetchTransactions(client) {
-  const allTransactions = [];
-  let offset = 0;
-  const limit = 100;
-
-  while (true) {
-    const response = await client.listTransactions({
-      type: 'incoming',
-      limit,
-      offset,
-    });
-
-    if (!response.transactions || response.transactions.length === 0) {
-      break;
-    }
-
-    allTransactions.push(...response.transactions);
-
-    if (response.transactions.length < limit) {
-      break;
-    }
-
-    offset += limit;
-  }
-
-  return allTransactions;
-}
-
-/**
- * Filter transactions for V4V payments (description contains shawnyeager.com)
- */
-function filterV4VPayments(transactions) {
-  return transactions.filter(tx =>
-    tx.description && tx.description.includes('shawnyeager.com')
-  );
-}
-
-/**
- * Parse essay slug from description
- * Handles multiple formats:
- * - "shawnyeager.com/essay-slug" (current)
- * - "Essay: essay-slug | shawnyeager.com" (legacy)
- * - "shawnyeager.com" (footer/general)
- */
-function parseEssaySlug(description) {
-  if (!description) return null;
-
-  // Current format: shawnyeager.com/essay-slug
-  const currentMatch = description.match(/shawnyeager\.com\/([a-z0-9-]+)$/);
-  if (currentMatch) return currentMatch[1];
-
-  // Legacy format: Essay: essay-slug | shawnyeager.com
-  const legacyMatch = description.match(/^Essay:\s*([a-z0-9-]+)\s*\|/);
-  if (legacyMatch && legacyMatch[1] !== 'general') return legacyMatch[1];
-
-  return null;
-}
-
-/**
- * Filter transactions by date range
- */
-function filterByDateRange(transactions, from, to) {
-  return transactions.filter(tx => {
-    const timestamp = tx.settled_at || tx.created_at;
-    if (!timestamp) return false;
-
-    const date = new Date(timestamp * 1000);
-    if (from && date < from) return false;
-    if (to && date > to) return false;
-    return true;
-  });
-}
-
-/**
- * Aggregate transactions by essay
- */
-function aggregateByEssay(transactions, sortBy = 'sats') {
-  const byEssay = new Map();
-
-  for (const tx of transactions) {
-    const slug = parseEssaySlug(tx.description) || '(footer/general)';
-    const timestamp = tx.settled_at || tx.created_at;
-    const existing = byEssay.get(slug) || { sats: 0, count: 0, lastPayment: 0 };
-    existing.sats += Math.floor(tx.amount / 1000);
-    existing.count += 1;
-    if (timestamp > existing.lastPayment) {
-      existing.lastPayment = timestamp;
-    }
-    byEssay.set(slug, existing);
-  }
-
-  // Sort based on option
-  const sortFn = {
-    sats: (a, b) => b[1].sats - a[1].sats,
-    count: (a, b) => b[1].count - a[1].count,
-    recent: (a, b) => b[1].lastPayment - a[1].lastPayment,
-  }[sortBy] || ((a, b) => b[1].sats - a[1].sats);
-
-  return new Map([...byEssay.entries()].sort(sortFn));
-}
-
-/**
- * Aggregate transactions by time period
- */
-function aggregateByPeriod(transactions, period = 'monthly') {
-  const byPeriod = new Map();
-
-  for (const tx of transactions) {
-    const timestamp = tx.settled_at || tx.created_at;
-    if (!timestamp) continue;
-
-    const date = new Date(timestamp * 1000);
-    let key;
-
-    if (period === 'daily') {
-      key = date.toISOString().split('T')[0];
-    } else if (period === 'weekly') {
-      // Get ISO week start (Monday)
-      const d = new Date(date);
-      d.setDate(d.getDate() - d.getDay() + 1);
-      key = d.toISOString().split('T')[0];
-    } else {
-      // Monthly
-      key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
-    }
-
-    const existing = byPeriod.get(key) || { sats: 0, count: 0 };
-    existing.sats += Math.floor(tx.amount / 1000);
-    existing.count += 1;
-    byPeriod.set(key, existing);
-  }
-
-  // Sort by date descending
-  return new Map([...byPeriod.entries()].sort((a, b) => b[0].localeCompare(a[0])));
-}
-
-/**
- * Format number with commas
- */
-function formatNumber(num) {
-  return num.toLocaleString();
-}
+import {
+  createClient,
+  fetchBtcPrice,
+  satsToUsd,
+  formatUsd,
+  formatNumber,
+  fetchTransactions,
+  filterV4VPayments,
+  parseEssaySlug,
+  filterByDateRange,
+  aggregateByEssay,
+  aggregateByPeriod,
+} from './lib/v4v-data.js';
 
 /**
  * Print summary report
@@ -445,14 +252,13 @@ program
   .option('--format <type>', 'Output format: text, json (default: text)')
   .option('--export <filename>', 'Export to CSV file')
   .action(async (options) => {
-    const nwcUrl = process.env.NWC_CONNECTION_STRING;
-    if (!nwcUrl) {
-      console.error('Error: NWC_CONNECTION_STRING not found');
-      console.error('Ensure this project is linked to Netlify (netlify link)');
+    let client;
+    try {
+      client = createClient();
+    } catch (error) {
+      console.error(`Error: ${error.message}`);
       process.exit(1);
     }
-
-    const client = new nwc.NWCClient({ nostrWalletConnectUrl: nwcUrl });
 
     try {
       // Fetch BTC price if needed
