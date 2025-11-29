@@ -39,8 +39,14 @@
           />
           <button id="generate-custom" class="custom-amount-btn" type="button">Pay</button>
         </div>
-        <p id="error-message" class="error-message hidden"></p>
+        <p id="validation-error" class="validation-error hidden"></p>
       </div>
+    </div>
+
+    <!-- Error Display (card style matching QR display) -->
+    <div id="error-display" class="error-display hidden">
+      <p id="error-message" class="error-message"></p>
+      <button id="error-dismiss-btn" class="error-dismiss-btn" type="button">Try again</button>
     </div>
 
     <!-- QR Display (replaces amount selection) -->
@@ -148,6 +154,7 @@ const elements = {
   amountBtns: document.querySelectorAll('.amount-btn'),
   customInput: document.getElementById('custom-sats'),
   generateBtn: document.getElementById('generate-custom'),
+  validationError: document.getElementById('validation-error'),
   qrDisplay: document.getElementById('qr-display'),
   qrCode: document.getElementById('qr-code'),
   qrLink: document.getElementById('qr-link'),
@@ -157,17 +164,64 @@ const elements = {
   cancelBtn: document.getElementById('cancel-btn'),
   paymentStatus: document.getElementById('payment-status'),
   confirmedAmount: document.getElementById('confirmed-amount'),
+  errorDisplay: document.getElementById('error-display'),
   errorMessage: document.getElementById('error-message'),
+  errorDismissBtn: document.getElementById('error-dismiss-btn'),
 };
 
+// Inline validation error (shown near input)
+function showValidationError(message) {
+  elements.validationError.textContent = message;
+  elements.validationError.classList.remove('hidden');
+}
+
+function hideValidationError() {
+  elements.validationError.classList.add('hidden');
+  elements.validationError.textContent = '';
+}
+
+// Card error (replaces amount selection, used for generation failures)
 function showError(message) {
   elements.errorMessage.textContent = message;
-  elements.errorMessage.classList.remove('hidden');
+  elements.amountSelection.classList.add('hidden');
+  elements.qrDisplay.classList.add('hidden');
+  elements.errorDisplay.classList.remove('hidden');
 }
 
 function hideError() {
-  elements.errorMessage.classList.add('hidden');
+  elements.errorDisplay.classList.add('hidden');
   elements.errorMessage.textContent = '';
+  elements.amountSelection.classList.remove('hidden');
+}
+
+function getFriendlyError(error) {
+  const msg = error.message || '';
+
+  // HTTP status codes
+  if (msg.includes('404')) {
+    return 'Payment service temporarily unavailable.';
+  }
+  if (msg.match(/50[0-3]/) || msg.includes('502') || msg.includes('503')) {
+    return 'Payment service is experiencing issues.';
+  }
+
+  // Network errors
+  if (error.name === 'TypeError' || msg.includes('fetch') || msg.includes('network')) {
+    return 'Unable to connect. Check your internet connection.';
+  }
+
+  // Amount range errors - keep as-is (already user-friendly)
+  if (msg.includes('Amount must be between')) {
+    return msg;
+  }
+
+  // LNURL/Invoice errors with a reason - pass through (usually human-readable from provider)
+  if (msg && !msg.includes('request failed') && !msg.includes('error')) {
+    return msg;
+  }
+
+  // Generic fallback
+  return 'Something went wrong.';
 }
 
 async function generateInvoice(sats) {
@@ -221,22 +275,21 @@ async function generateInvoice(sats) {
 
   } catch (error) {
     console.error('Invoice generation failed:', error);
-    showError(`Failed to generate invoice: ${error.message}`);
+    showError(getFriendlyError(error));
     return null;
   }
 }
 
 function displayLoadingState() {
   removeSuggestedHighlight();
-  hideError();
+  hideValidationError();
   elements.amountSelection.classList.add('hidden');
   elements.qrCode.innerHTML = '<p class="qr-loading">Generating invoice...</p>';
   elements.qrDisplay.classList.remove('hidden');
 }
 
 function handleGenerationError() {
-  elements.qrDisplay.classList.add('hidden');
-  elements.amountSelection.classList.remove('hidden');
+  // Error display is handled by showError(), just reset state
   state.isGenerating = false;
 }
 
@@ -369,9 +422,11 @@ function setPaymentControlsDisabled(disabled) {
 function resetToAmountSelection() {
   stopPaymentPolling();
   resetState();
+  hideValidationError();
   elements.qrDisplay.classList.add('hidden');
   elements.qrDetails.classList.add('hidden');
   elements.paymentStatus.classList.add('hidden');
+  elements.errorDisplay.classList.add('hidden');
   elements.amountSelection.classList.remove('hidden');
   elements.customInput.value = '';
 }
@@ -393,15 +448,16 @@ elements.amountBtns.forEach(btn => {
 });
 
 elements.generateBtn.addEventListener('click', () => {
+  hideValidationError();
   const amount = parseAmount(elements.customInput.value);
   if (amount === null) {
-    showError('Please enter a valid amount in satoshis');
+    showValidationError('Please enter a valid amount in satoshis');
     elements.customInput.focus();
     return;
   }
   // Client-side validation against max amount (if known)
   if (state.maxSendable && amount > state.maxSendable) {
-    showError(`Amount cannot exceed ${state.maxSendable.toLocaleString()} sats`);
+    showValidationError(`Amount cannot exceed ${state.maxSendable.toLocaleString()} sats`);
     elements.customInput.focus();
     return;
   }
@@ -444,6 +500,10 @@ elements.copyBtns.forEach(btn => {
 
 elements.cancelBtn.addEventListener('click', () => {
   resetToAmountSelection();
+});
+
+elements.errorDismissBtn.addEventListener('click', () => {
+  hideError();
 });
 
 window.addEventListener('beforeunload', () => {
@@ -665,7 +725,7 @@ document.addEventListener('visibilitychange', () => {
   color: var(--text-meta);
 }
 
-.error-message {
+.validation-error {
   color: var(--brand-orange);
   font-size: var(--font-sm);
   margin-top: var(--space-sm);
@@ -680,6 +740,39 @@ document.addEventListener('visibilitychange', () => {
   margin-bottom: var(--space-lg);
   transition: background-color var(--transition-fast);
   animation: fadeIn var(--transition-base) ease-out;
+}
+
+.error-display {
+  text-align: center;
+  padding: var(--space-xl);
+  background: var(--background-card);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--space-lg);
+  animation: fadeIn var(--transition-base) ease-out;
+}
+
+.error-display .error-message {
+  color: var(--brand-orange);
+  font-size: var(--font-base);
+  margin-bottom: var(--space-lg);
+}
+
+.error-dismiss-btn {
+  background: none;
+  border: var(--border-width) solid var(--text-meta);
+  border-radius: var(--border-radius-interactive);
+  color: var(--text-meta);
+  cursor: pointer;
+  font-family: var(--font-system);
+  font-size: var(--font-sm);
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-xs) var(--space-md);
+  transition: all var(--transition-fast);
+}
+
+.error-dismiss-btn:hover {
+  border-color: var(--brand-orange);
+  color: var(--brand-orange);
 }
 
 @keyframes fadeIn {
