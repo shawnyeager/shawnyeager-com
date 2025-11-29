@@ -37,20 +37,20 @@
             placeholder="sats"
             inputmode="numeric"
           />
-          <button id="generate-custom" class="custom-amount-btn" type="button">Pay</button>
+          <button id="generate-custom" class="btn-ghost custom-amount-btn" type="button">Pay</button>
         </div>
         <p id="validation-error" class="validation-error hidden"></p>
       </div>
     </div>
 
     <!-- Error Display (card style matching QR display) -->
-    <div id="error-display" class="error-display hidden">
+    <div id="error-display" class="v4v-card error-display hidden">
       <p id="error-message" class="error-message"></p>
-      <button id="error-dismiss-btn" class="error-dismiss-btn" type="button">Try again</button>
+      <button id="error-dismiss-btn" class="btn-ghost" type="button">Try again</button>
     </div>
 
     <!-- QR Display (replaces amount selection) -->
-    <div id="qr-display" class="qr-display hidden">
+    <div id="qr-display" class="v4v-card qr-display hidden">
       <a id="qr-link" href="#" class="qr-link">
         <div id="qr-code" class="qr-code"></div>
       </a>
@@ -63,12 +63,12 @@
           <span id="selected-amount" class="qr-amount-value"></span> sats
         </p>
         <p id="polling-status" class="polling-status">Waiting for payment...</p>
-        <button id="cancel-btn" class="qr-cancel-btn" type="button">Cancel</button>
+        <button id="cancel-btn" class="btn-ghost" type="button">Cancel</button>
       </div>
     </div>
 
     <!-- Payment Status (hidden by default) -->
-    <div id="payment-status" class="payment-status hidden">
+    <div id="payment-status" class="v4v-card payment-status hidden">
       <p class="payment-check"><span id="confirmed-amount"></span> sats received</p>
       <p class="payment-thanks">Thank you for supporting this work.</p>
     </div>
@@ -104,6 +104,8 @@ const config = {
   pollInterval: 3000,
   pollTimeout: 300000,
   maxPollFailures: 3,
+  qrWidth: 300,
+  qrMargin: 2,
 };
 
 // State
@@ -224,6 +226,14 @@ function getFriendlyError(error) {
   return 'Something went wrong.';
 }
 
+async function checkInvoiceStatus(hash, invoice) {
+  const params = new URLSearchParams();
+  if (hash) params.set('hash', hash);
+  if (invoice) params.set('invoice', invoice);
+  const response = await fetch(`/invoice-status?${params.toString()}`);
+  return response.json();
+}
+
 async function generateInvoice(sats) {
   try {
     // Cache-bust to ensure fresh invoice each time
@@ -288,19 +298,14 @@ function displayLoadingState() {
   elements.qrDisplay.classList.remove('hidden');
 }
 
-function handleGenerationError() {
-  // Error display is handled by showError(), just reset state
-  state.isGenerating = false;
-}
-
 async function renderQRCode(invoice) {
   elements.qrCode.innerHTML = '';
   const canvas = document.createElement('canvas');
   elements.qrCode.appendChild(canvas);
 
   await QRCode.toCanvas(canvas, invoice.toUpperCase(), {
-    width: 300,
-    margin: 2,
+    width: config.qrWidth,
+    margin: config.qrMargin,
     color: { dark: '#000000', light: '#FFFFFF' },
     errorCorrectionLevel: 'M'
   });
@@ -323,7 +328,7 @@ async function showQR(sats) {
 
   const result = await generateInvoice(sats);
   if (!result) {
-    handleGenerationError();
+    state.isGenerating = false;
     return;
   }
 
@@ -335,7 +340,7 @@ async function showQR(sats) {
   } catch (error) {
     console.error('QR generation failed:', error);
     elements.qrCode.innerHTML = '<p class="qr-loading">QR code generation failed</p>';
-    handleGenerationError();
+    state.isGenerating = false;
     return;
   }
 
@@ -366,12 +371,7 @@ function startPaymentPolling() {
     }
 
     try {
-      const params = new URLSearchParams();
-      if (state.paymentHash) params.set('hash', state.paymentHash);
-      if (state.currentInvoice) params.set('invoice', state.currentInvoice);
-      const response = await fetch(`/invoice-status?${params.toString()}`);
-      const data = await response.json();
-
+      const data = await checkInvoiceStatus(state.paymentHash, state.currentInvoice);
       state.pollFailures = 0; // Reset on successful response
       if (data.paid) {
         stopPaymentPolling();
@@ -411,12 +411,6 @@ function resetState() {
   state.isGenerating = false;
   state.maxSendable = null;
   state.pollFailures = 0;
-}
-
-function setPaymentControlsDisabled(disabled) {
-  elements.amountBtns.forEach(btn => btn.disabled = disabled);
-  elements.customInput.disabled = disabled;
-  elements.generateBtn.disabled = disabled;
 }
 
 function resetToAmountSelection() {
@@ -550,12 +544,7 @@ document.addEventListener('visibilitychange', () => {
 
   // Check if already paid before resuming
   try {
-    const params = new URLSearchParams();
-    params.set('hash', saved.paymentHash);
-    params.set('invoice', saved.currentInvoice);
-    const response = await fetch(`/invoice-status?${params.toString()}`);
-    const data = await response.json();
-
+    const data = await checkInvoiceStatus(saved.paymentHash, saved.currentInvoice);
     if (data.paid) {
       showPaymentConfirmation();
       return;
@@ -644,10 +633,6 @@ document.addEventListener('visibilitychange', () => {
   color: var(--brand-orange);
 }
 
-.custom-amount-section {
-  /* No bottom margin - container handles spacing */
-}
-
 .custom-amount-label {
   display: block;
   font-size: var(--font-sm);
@@ -686,78 +671,8 @@ document.addEventListener('visibilitychange', () => {
   opacity: 0.5;
 }
 
-.custom-amount-btn {
-  padding: var(--space-sm) var(--space-md);
-  background: transparent;
-  color: var(--text-meta);
-  border: var(--border-width) solid var(--text-meta);
-  border-radius: var(--border-radius-interactive);
-  font-family: var(--font-system);
-  font-size: var(--font-sm);
-  font-weight: var(--font-weight-medium);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.custom-amount-btn:hover {
-  border-color: var(--brand-orange);
-  color: var(--brand-orange);
-}
-
-.custom-amount-btn:active {
-  transform: translateY(1px);
-}
-
-.custom-amount-input:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-.custom-amount-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-.custom-amount-btn:disabled:hover {
-  border-color: var(--text-meta);
-  color: var(--text-meta);
-}
-
-.validation-error {
-  color: var(--brand-orange);
-  font-size: var(--font-sm);
-  margin-top: var(--space-sm);
-  margin-bottom: 0;
-}
-
-.qr-display {
-  text-align: center;
-  padding: var(--space-xl);
-  background: var(--background-card);
-  border-radius: var(--border-radius-md);
-  margin-bottom: var(--space-lg);
-  transition: background-color var(--transition-fast);
-  animation: fadeIn var(--transition-base) ease-out;
-}
-
-.error-display {
-  text-align: center;
-  padding: var(--space-xl);
-  background: var(--background-card);
-  border-radius: var(--border-radius-md);
-  margin-bottom: var(--space-lg);
-  animation: fadeIn var(--transition-base) ease-out;
-}
-
-.error-display .error-message {
-  color: var(--brand-orange);
-  font-size: var(--font-base);
-  margin-bottom: var(--space-lg);
-}
-
-.error-dismiss-btn {
+/* Ghost button base - used for secondary actions */
+.btn-ghost {
   background: none;
   border: var(--border-width) solid var(--text-meta);
   border-radius: var(--border-radius-interactive);
@@ -770,10 +685,67 @@ document.addEventListener('visibilitychange', () => {
   transition: all var(--transition-fast);
 }
 
-.error-dismiss-btn:hover {
+.btn-ghost:hover {
   border-color: var(--brand-orange);
   color: var(--brand-orange);
 }
+
+.btn-ghost:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-ghost:disabled:hover {
+  border-color: var(--text-meta);
+  color: var(--text-meta);
+}
+
+/* Custom amount button overrides */
+.custom-amount-btn {
+  padding: var(--space-sm) var(--space-md);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.custom-amount-btn:active {
+  transform: translateY(1px);
+}
+
+.custom-amount-input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.validation-error {
+  color: var(--brand-orange);
+  font-size: var(--font-sm);
+  margin-top: var(--space-sm);
+  margin-bottom: 0;
+}
+
+/* Card base - used for QR, error, and payment status displays */
+.v4v-card {
+  text-align: center;
+  padding: var(--space-xl);
+  background: var(--background-card);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--space-lg);
+  animation: fadeIn var(--transition-base) ease-out;
+}
+
+.qr-display {
+  transition: background-color var(--transition-fast);
+}
+
+/* .error-display uses .v4v-card base */
+
+.error-display .error-message {
+  color: var(--brand-orange);
+  font-size: var(--font-base);
+  margin-bottom: var(--space-lg);
+}
+
+/* .error-dismiss-btn uses .btn-ghost base */
 
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -885,29 +857,9 @@ a.qr-link:hover {
   color: var(--brand-orange);
 }
 
-.qr-cancel-btn {
-  background: none;
-  border: var(--border-width) solid var(--text-meta);
-  border-radius: var(--border-radius-interactive);
-  color: var(--text-meta);
-  cursor: pointer;
-  font-family: var(--font-system);
-  font-size: var(--font-sm);
-  font-weight: var(--font-weight-medium);
-  text-decoration: none;
-  padding: var(--space-xs) var(--space-md);
-  transition: all var(--transition-fast);
-}
-
-.qr-cancel-btn:hover {
-  border-color: var(--brand-orange);
-  color: var(--brand-orange);
-}
-
+/* .payment-status uses .v4v-card base */
 .payment-status {
-  text-align: center;
   padding: var(--space-2xl);
-  background: var(--background-card);
   margin-bottom: var(--space-xl);
   transition: background-color var(--transition-fast);
 }
