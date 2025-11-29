@@ -7,10 +7,10 @@ topics: [bitcoin, trust, freedom-tech]
 tags: []
 cta: true
 featured: false
-draft: false
+draft: true
 ---
 
-I've been working on the internet for thirty years. Sales, business development, evangelism—helping companies grow, helping technology reach people. I thought I was helping build freedom. I was helping build extraction.
+I've been working on the internet for thirty years. Sales, business development, evangelism--helping companies grow, helping technology reach people. I thought I was helping build freedom. I was helping build extraction.
 
 It started with magic. BBS era: connecting with strangers across the world, pure possibility, no business model to corrupt it. That spark never left me.
 
@@ -26,27 +26,27 @@ It was the money.
 
 ## Three waves, same pattern, blind each time
 
-### Wave 1: Dotcom Boom (1997–2001)
+### Wave 1: Dotcom Boom (1997--2001)
 
 At Microsoft, I was an Internet Evangelist on the first Internet Explorer team. Browser wars, e-commerce, B2B internet products. We were democratizing access, getting businesses across the chasm. SSL certificates, the lock icon, making people comfortable enough to type in a credit card number. It felt like building the future.
 
-Then Exodus Communications, where I led a partnerships team building relationships with the major tech players. We hosted the biggest sites on the internet—Hotmail, Merrill Lynch, the giants. Somewhere along the way, everything became about "eyeballs." I was young, eager, somewhat naive. It felt slimy, but everyone was doing it.
+Then Exodus Communications, where I led a partnerships team building relationships with the major tech players. We hosted the biggest sites on the internet--Hotmail, Merrill Lynch, the giants. Somewhere along the way, everything became about "eyeballs." I was young, eager, somewhat naive. It felt slimy, but everyone was doing it.
 
-Late 2001, I laid off my entire team. Exodus went into bankruptcy. Partner companies that had drive-in theaters and expensive art were gone months later. I understood it was a bubble—Greenspan's "irrational exuberance." But I didn't understand *why* it happened. Not really.
+Late 2001, I laid off my entire team. Exodus went into bankruptcy. Partner companies that had drive-in theaters and expensive art were gone months later. I understood it was a bubble--Greenspan's "irrational exuberance." But I didn't understand *why* it happened. Not really.
 
-### Wave 2: Centralization & Surveillance (2004–2016)
+### Wave 2: Centralization & Surveillance (2004--2016)
 
-I worked on grid computing as it became cloud—infrastructure that promised to democratize access to computing power. Instead, it paved the way for centralized SaaS, subscription fatigue, and platforms with even more control over users. Another wave, another extraction.
+I worked on grid computing as it became cloud--infrastructure that promised to democratize access to computing power. Instead, it paved the way for centralized SaaS, subscription fatigue, and platforms with even more control over users. Another wave, another extraction.
 
 Meanwhile, I watched Facebook and Twitter rise with business models that actually worked: advertising. Surveillance.
 
 The pattern was repeating, but I still didn't see the mechanism.
 
-### Wave 3: Creator Economy (2010s–2019)
+### Wave 3: Creator Economy (2010s--2019)
 
 The promise: the internet would free creators and consumers from gatekeepers. Music streaming platforms would help artists. Personal data companies would let users own their information.
 
-What I found: extraction everywhere. DRM, RIAA, streaming platforms extracting value from artists they claimed to liberate. And in personal data, we were up against the economics of "free"—even when explicitly building for sovereignty, we couldn't compete with ad-funded extraction.
+What I found: extraction everywhere. DRM, RIAA, streaming platforms extracting value from artists they claimed to liberate. And in personal data, we were up against the economics of "free"--even when explicitly building for sovereignty, we couldn't compete with ad-funded extraction.
 
 Same pattern, different industries. That's when I started suspecting this was systemic.
 
@@ -68,7 +68,7 @@ His solution: antitrust enforcement, break up monopolies, strengthen regulation,
 
 He's right about what happened. He's right that these things matter.
 
-But this strain of thinking—diagnose monopoly power, prescribe antitrust—stops one layer short.
+But this strain of thinking--diagnose monopoly power, prescribe antitrust--stops one layer short.
 
 When I interviewed Doctorow on my podcast, his take on Bitcoin was dismissive. Fixed supply means instability. It's only good for buying "shitty monkey JPEGs." What struck me wasn't the critique itself. It was the asymmetry. He's willing to fight for decades to make imperfect regulation work. Regulators get captured? Keep fighting. Antitrust takes 69 years to break up AT&T? Worth it. But Bitcoin, fifteen years in with real problems being solved? Dismissed outright.
 
@@ -88,15 +88,15 @@ Why did every platform end up extractive? Not lack of creativity. Not evil inten
 
 It's the money, stupid.
 
-Fiat currency is a melting ice cube. "Target inflation" sounds benign—2% per year, barely noticeable. But it compounds into a simple mandate: extract value now, before it depreciates. High time preference gets baked into the system. "Get it while you can" stops being greed. It becomes rational.
+Fiat currency is a melting ice cube. "Target inflation" sounds benign--2% per year, barely noticeable. But it compounds into a simple mandate: extract value now, before it depreciates. High time preference gets baked into the system. "Get it while you can" stops being greed. It becomes rational.
 
 This explains every wave I lived through.
 
 Dotcom: Cheap credit flooded the market, funded companies with no real business model. Growth at all costs. Get in, get as much as you can, get out. When the music stopped, the malinvestment was obvious. But I blamed the bubble, not the cheap money that inflated it.
 
-Surveillance capitalism: You can't monetize value creation directly when users expect "free." Advertising works—a third party pays, users pay with attention and data. Once ad-funded, incentives align toward extraction. More engagement means more revenue. Quality becomes secondary to outrage, addiction, polarization. Extract now, worry about sustainability later.
+Surveillance capitalism: You can't monetize value creation directly when users expect "free." Advertising works--a third party pays, users pay with attention and data. Once ad-funded, incentives align toward extraction. More engagement means more revenue. Quality becomes secondary to outrage, addiction, polarization. Extract now, worry about sustainability later.
 
-Creator economy: Streaming platforms promised to liberate artists, then extracted from them. Personal data sovereignty couldn't compete with "free." Same pattern—whoever captures attention sells it to advertisers, because that's the only model that works when money itself is losing value.
+Creator economy: Streaming platforms promised to liberate artists, then extracted from them. Personal data sovereignty couldn't compete with "free." Same pattern--whoever captures attention sells it to advertisers, because that's the only model that works when money itself is losing value.
 
 Even the "good actors" got captured. Google's "don't be evil" met the ad business model. Facebook's "connect the world" became surveillance to sell ads. Twitter's "public square" optimized for engagement until toxicity won.
 
@@ -110,11 +110,11 @@ The invisible hand I couldn't see for thirty years: fiat debasement drives high 
 
 ## Why I couldn't see it
 
-I was inside the machine, optimizing within the system. Each wave felt different—dotcom versus social versus creator economy. Different technologies, different players, different promises. I didn't understand money or economics. I thought the failures were local: bad actors, poor execution, bad timing.
+I was inside the machine, optimizing within the system. Each wave felt different--dotcom versus social versus creator economy. Different technologies, different players, different promises. I didn't understand money or economics. I thought the failures were local: bad actors, poor execution, bad timing.
 
 Each explanation felt sufficient in the moment. None of them explained why it kept happening.
 
-When I first encountered Bitcoin, I didn't get it. "Blockchain" and "crypto" felt like shiny new tech—another wave to ride. I was briefly captured by the snake oil, the ICOs, the hype. Then somewhere in 2016, it clicked: it wasn't the tech. It was the money, stupid.
+When I first encountered Bitcoin, I didn't get it. "Blockchain" and "crypto" felt like shiny new tech--another wave to ride. I was briefly captured by the snake oil, the ICOs, the hype. Then somewhere in 2016, it clicked: it wasn't the tech. It was the money, stupid.
 
 Fiat debasement. High time preference. Once I knew what to look for, I saw it everywhere.
 
@@ -140,19 +140,19 @@ For thirty years, I watched smart people fight extraction with the wrong tools. 
 
 The leverage is in the money layer.
 
-Native internet money changes the economic foundation. With Lightning, you can monetize value creation directly—no advertising intermediary required. Podcasting 2.0 lets listeners stream sats to creators. Nostr clients charge for premium features instead of selling user data. Strike competes with Venmo without extraction. The business model shifts: better product equals revenue from service, not surveillance.
+Native internet money changes the economic foundation. With Lightning, you can monetize value creation directly--no advertising intermediary required. Podcasting 2.0 lets listeners stream sats to creators. Nostr clients charge for premium features instead of selling user data. Strike competes with Venmo without extraction. The business model shifts: better product equals revenue from service, not surveillance.
 
 Fiat systems reward extracting now before value depreciates. Sound money lowers time preference. Build for the long term because the long term matters.
 
 But Bitcoin doesn't automatically fix anything.
 
-Lightning needs to work better than Visa. Nostr needs to be better than Twitter. Self-custody needs to be easier than banking. The infrastructure enables different incentives—now we have to ship products people actually choose.
+Lightning needs to work better than Visa. Nostr needs to be better than Twitter. Self-custody needs to be easier than banking. The infrastructure enables different incentives--now we have to ship products people actually choose.
 
 This is what I mean by sovereignty without sacrifice. Bitcoin fixes the incentive layer. We still have to win on merit, not ideology.
 
-Regulation matters too. Antitrust constrains monopolies. Interoperability creates escape routes. Better enforcement levels the playing field. But regulation alone can't fix the root cause—break up an ad-funded company and you get smaller ad-funded companies running the same extraction logic.
+Regulation matters too. Antitrust constrains monopolies. Interoperability creates escape routes. Better enforcement levels the playing field. But regulation alone can't fix the root cause--break up an ad-funded company and you get smaller ad-funded companies running the same extraction logic.
 
-So here's my message to builders—Bitcoin builders and everyone else:
+So here's my message to builders--Bitcoin builders and everyone else:
 
 Stop treating symptoms. The leverage is the money layer. Regulation can constrain bad behavior. Interop can create exits. But neither fixes why extraction becomes the rational choice. Only fixing the money does that.
 
