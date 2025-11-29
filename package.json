@@ -6,10 +6,13 @@
   "scripts": {
     "generate-og": "node scripts/generate-og-images.js",
     "build": "npm run generate-og && hugo",
-    "v4v-report": "NWC_CONNECTION_STRING=$(netlify env:get NWC_CONNECTION_STRING 2>/dev/null) node scripts/v4v-report.js"
+    "v4v-report": "NWC_CONNECTION_STRING=$(netlify env:get NWC_CONNECTION_STRING 2>/dev/null) node scripts/v4v-report.js",
+    "dashboard": "NWC_CONNECTION_STRING=$(netlify env:get NWC_CONNECTION_STRING 2>/dev/null) node scripts/v4v-dashboard.js"
   },
   "dependencies": {
-    "@getalby/sdk": "^3.9.0",
+    "@getalby/sdk": "^7.0.0",
+    "blessed": "^0.1.81",
+    "blessed-contrib": "^4.11.0",
     "bolt11": "^1.4.1",
     "commander": "^14.0.2",
     "dotenv": "^17.2.3",
