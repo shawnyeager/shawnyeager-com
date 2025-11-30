@@ -16,9 +16,9 @@ It started with magic. The BBS era: connecting with people far flung across the 
 
 That spark is what pulled me into tech professionally. I wanted to help build the thing that had shown me what was possible.
 
-Then came the waves. Each one promised to extend that original magic. Each one delivered something else.
+Then came the waves. Every one of them promised more of that magic. Every one of them went somewhere else.
 
-Then Bitcoin showed me what I missed for over 20 years. Not bad actors. Not poor execution. Not regulatory failure. It was simpler than that.
+Then Bitcoin showed me what I missed for over 20 years. It wasn't bad actors or poor execution or regulatory failure. It was simpler than that.
 
 It was the money.
 
@@ -38,7 +38,7 @@ Late 2001, I laid off my entire team, then got the boot. Exodus went into bankru
 
 I worked on grid computing which became cloud--infrastructure that promised to democratize access to computing power. And it did, for a while. Startups could spin up servers without buying hardware. Small teams could build at scale. Real value.
 
-But the same infrastructure enabled something else: centralized platforms with unprecedented control over users. SaaS meant you never owned the software. Cloud meant your data lived on someone else's servers. The tools got better. The lock-in got tighter.
+But the same infrastructure enabled something else: centralized platforms with unprecedented control over users. SaaS meant you never owned the software. Cloud meant your data lived on someone else's servers. Better tools, tighter lock-in.
 
 Meanwhile, Facebook and Twitter were solving the business model problem. Turns out you can give away the product if you sell the users. Advertising worked. Surveillance worked better.
 
@@ -76,7 +76,7 @@ When I interviewed Doctorow on my podcast, his take on Bitcoin was dismissive. F
 
 Where's "Lightning has problems, let's fix them"?
 
-The point isn't monetary theory. The point is simpler: even the sharpest critics of extraction stop at monopoly power and regulatory capture. They ask *how* platforms become extractive. They don't ask *why* extraction becomes the rational choice everywhere, across every industry, every wave, every decade.
+Even the sharpest critics of extraction stop at monopoly power and regulatory capture. They ask *how* platforms become extractive. They don't ask *why* extraction becomes the rational choice everywhere, across every industry, every wave, every decade.
 
 What creates the conditions for monopolies to form? For regulation to get captured? For extraction to become not just possible but economically optimal?
 
@@ -106,7 +106,7 @@ Not moral failure. Economic structure.
 
 I'm not claiming money is the only variable. Extraction existed under the gold standard--robber barons, railroad monopolies, Standard Oil. Network effects and power concentration predate fiat. But fiat accelerates and systematizes extraction. It makes short-term thinking the default winning strategy. Money isn't *the* cause. It's the underappreciated variable that explains why extraction became the norm rather than the exception.
 
-This is everywhere fiat touches. Real estate speculation over building. Stock buybacks over R&D. Financialization over production. Short-term extraction over long-term value creation.
+This is everywhere fiat touches. Real estate speculation instead of building. Stock buybacks instead of R&D. Financialization eating production. Everywhere you look, short-term extraction winning over long-term value.
 
 The invisible hand I couldn't see for over twenty years: fiat debasement drives high time preference, and high time preference makes extraction rational.
 
@@ -122,8 +122,6 @@ When I first encountered Bitcoin, I didn't get it. "Blockchain" and "crypto" fel
 
 Fiat debasement. High time preference. Once I knew what to look for, I saw it everywhere.
 
-And once you see it, you can't unsee it.
-
 If you're building on the internet right now, ask yourself:
 
 Is your business model ad-funded? Are you taking VC money optimizing for growth at all costs? Are you competing with "free" and losing? Do you think your wave is different?
@@ -134,9 +132,9 @@ If you're building on fiat incentives, you're building extraction. Whether you s
 
 ## Where the leverage actually is
 
-Bitcoin didn't just reveal the pattern. It showed me where the leverage is.
+Bitcoin showed me where the leverage is.
 
-For years, I watched smart people fight extraction with the wrong tools. Better content moderation. Fairer algorithms. Antitrust enforcement. Interoperability mandates. All worth doing. None of them address why extraction becomes rational in the first place.
+For years, I watched smart people fight extraction with the wrong tools--content moderation, legislation, more enlightened executives, open standards. All worth doing. None of them address why extraction becomes rational in the first place.
 
 The leverage is in the money layer.
 
@@ -148,7 +146,7 @@ But Bitcoin doesn't automatically fix anything.
 
 Look at FTX, Celsius, the parade of Bitcoin-adjacent extraction. Sound money didn't stop fraud or rent-seeking. Bitcoin changes the incentive layer, not human nature. The difference: extraction in a Bitcoin economy is swimming upstream. In a fiat economy, it's the current.
 
-Lightning needs to work better than Visa. Nostr needs to be better than Twitter. Self-custody needs to be easier than banking. The infrastructure enables different incentives--now we have to ship products people actually choose.
+Lightning needs to beat Visa. Self-custody needs to be easier than banking. The infrastructure enables different incentives--now we have to ship products people actually choose.
 
 This is what I mean by [sovereignty without sacrifice](/essays/sovereignty-without-sacrifice/). Bitcoin fixes the incentive layer. We still have to win on merit, not ideology.
 
