@@ -104,6 +104,8 @@ Even the "good actors" got captured. Google's "don't be evil" met the ad busines
 
 Not moral failure. Economic structure.
 
+I'm not claiming money is the only variable. Extraction existed under the gold standard--robber barons, railroad monopolies, Standard Oil. Network effects and power concentration predate fiat. But fiat accelerates and systematizes extraction. It makes short-term thinking the default winning strategy. Money isn't *the* cause. It's the underappreciated variable that explains why extraction became the norm rather than the exception.
+
 This is everywhere fiat touches. Real estate speculation over building. Stock buybacks over R&D. Financialization over production. Short-term extraction over long-term value creation.
 
 The invisible hand I couldn't see for over twenty years: fiat debasement drives high time preference, and high time preference makes extraction rational.
@@ -144,6 +146,8 @@ Fiat systems reward extracting now before value depreciates. Sound money lowers 
 
 But Bitcoin doesn't automatically fix anything.
 
+Look at FTX, Celsius, the parade of Bitcoin-adjacent extraction. Sound money didn't stop fraud or rent-seeking. Bitcoin changes the incentive layer, not human nature. The difference: extraction in a Bitcoin economy is swimming upstream. In a fiat economy, it's the current.
+
 Lightning needs to work better than Visa. Nostr needs to be better than Twitter. Self-custody needs to be easier than banking. The infrastructure enables different incentives--now we have to ship products people actually choose.
 
 This is what I mean by [sovereignty without sacrifice](/essays/sovereignty-without-sacrifice/). Bitcoin fixes the incentive layer. We still have to win on merit, not ideology.
@@ -162,4 +166,6 @@ Every time you see extraction--ad-funded platforms, VC-subsidized growth, subscr
 
 Some problems dissolve. Some remain but look different. The exercise isn't to make Bitcoin the answer to everything. It's to see where broken money is the invisible variable you've been ignoring.
 
-For most of my career, there was no solution. Bitcoin didn't exist. Now it does. Sixteen years in, the pattern is visible to anyone willing to look.
+I don't have proof at scale. The Bitcoin-native examples are small. We won't know if the thesis holds until companies built on sound money face the same pressures that captured Google and Facebook. That test is coming.
+
+For most of my career, there was no solution. Bitcoin didn't exist. Now it does. Sixteen years in, the pattern is visible--if you're willing to look.
