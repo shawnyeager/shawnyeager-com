@@ -28,15 +28,15 @@ It was the money.
 
 ### Wave 1: Dotcom Boom
 
-At Microsoft, I was an Internet Evangelist (actual title) on the first Internet Explorer team. Browser wars, e-commerce, internet infrastructure products. We were democratizing access, getting businesses across the chasm. SSL certificates, the lock icon, making people comfortable enough to type in a credit card number. It felt like building the future. (Never mind that the DOJ was suing us. The product was free--early signs of what that would come to mean.)
+At Microsoft, I was an Internet Evangelist (actual title) on the Internet Explorer team. Browser wars, e-commerce, internet infrastructure products. We were democratizing access, getting businesses across the chasm. Getting to the lock icon, making people comfortable enough to type in a credit card number. It felt like building the future. (Never mind that the DOJ was suing us. The product was free--early signs of what that would come to mean.)
 
-Then Exodus Communications, where I led a team building relationships with the major tech players. We hosted the biggest sites on the internet--Hotmail, Merrill Lynch, the giants. Somewhere along the way, everything became about "eyeballs." I was young, eager, somewhat naive. It felt a little seedy, but everyone was doing it.
+Then Exodus Communications, where I led a team building relationships with the major tech players. We hosted the biggest sites on the internet--from Hotmail to Merrill Lynch, the giants. Somewhere along the way, everything became about "eyeballs." I was young, eager, somewhat naive. It felt a little seedy, but everyone was doing it.
 
 Late 2001, I laid off my entire team, then got the boot. Exodus went into bankruptcy. Startups I worked with had drive-in theaters on the rooftop and millions of dollars of art in the lobbies were gone months later. I understood it was a bubble--Greenspan's "irrational exuberance." But I didn't understand *why* it happened. Not really.
 
 ### Wave 2: Centralization & Surveillance
 
-I worked on grid computing as it became cloud--infrastructure that promised to democratize access to computing power. And it did, for a while. Startups could spin up servers without buying hardware. Small teams could build at scale. Real value.
+I worked on grid computing which became cloud--infrastructure that promised to democratize access to computing power. And it did, for a while. Startups could spin up servers without buying hardware. Small teams could build at scale. Real value.
 
 But the same infrastructure enabled something else: centralized platforms with unprecedented control over users. SaaS meant you never owned the software. Cloud meant your data lived on someone else's servers. The tools got better. The lock-in got tighter.
 
@@ -46,13 +46,13 @@ The pattern was repeating, but I still didn't see the underlying mechanism.
 
 ### Wave 3: Creator Economy & Data Sovereignty
 
-The promise: the internet would let people own what they create. Musicians would escape the labels. Users would control their own data. I worked on both sides of this--music tech, then personal data ownership.
+<!--Parners and I built a music tech accelerator, for context. Worked with > 100 startups, VCs, labels, publishers.--> The promise: the internet would let people own what they create. Musicians would escape the labels. Users would control their own data. I worked on both sides of this--music tech, then personal data ownership.
 
 What I found: extraction everywhere. Digital Rights Management, nonstop lawfare from RIAA, streaming platforms extracting value from artists they claimed to liberate. And in personal data, we built real frameworks for sovereignty--software and legal structures that actually worked. But we couldn't compete with "free." When the alternative is ad-funded and costs nothing, ownership is a tough sell.
 
 Same pattern, different industries. That's when I started suspecting this was systemic.
 
-### The Blindness
+### The Blind Spot
 
 Three waves. Each time I thought I was working on the good version. Each time: captured by extraction.
 
@@ -155,3 +155,5 @@ So here's my message to builders--Bitcoin builders and everyone else:
 Stop treating symptoms. Regulation can constrain bad behavior. Interop can create exits. But neither fixes why extraction becomes the rational choice. Only fixing the money does that.
 
 For most of my career, there was no solution. Bitcoin didn't exist. Now it does--and sixteen years in, there's no excuse for not seeing the pattern.
+
+<!-- And then so what? Where do we take it? I think we need to at least suggest where to look, what to investigate, where to look for inspiration.-->
