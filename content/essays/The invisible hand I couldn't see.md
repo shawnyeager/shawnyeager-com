@@ -54,9 +54,9 @@ Same pattern, different industries. That's when I started suspecting this was sy
 
 ### The Blind Spot
 
-Three waves. Each time I thought I was working on the good version. Each time: captured by extraction.
+Three waves. I thought I understood what was happening. I had the wrong frame.
 
-I was optimizing within a system I couldn't see. I thought it was bad actors, poor execution, bad timing. The dotcom crash was a bubble. Surveillance capitalism was greedy founders. Creator economy was legacy industry politics. Each explanation felt sufficient.
+I was optimizing within a system I couldn't see. Was dotcom a bubble? Yes. Were founders greedy? Some. Was legacy politics a factor? Sure. But those weren't the foundational problem.
 
 None of them explained why it kept happening.
 
@@ -68,7 +68,7 @@ Cory Doctorow nailed the diagnosis. His "enshittification" framework describes e
 
 His solution: antitrust enforcement, break up monopolies, strengthen regulation, mandate interoperability.
 
-He's right about what happened. He's right that these things matter.
+He's right about what happened, and he's right that these things matter.
 
 But this strain of thinking--diagnose monopoly power, prescribe antitrust--stops one layer short.
 
@@ -114,7 +114,7 @@ The invisible hand I couldn't see for over twenty years: fiat debasement drives 
 
 ## Why I couldn't see it
 
-I was inside the machine, optimizing within the system. Each wave felt different--dotcom versus social versus creator economy. Different technologies, different players, different promises. I didn't understand money or economics. I thought the failures were local: bad actors, poor execution, bad timing.
+I was inside the machine, optimizing within the system. Each wave felt different--dotcom versus social versus creator economy. Different tech, different players, same outcome. I didn't understand money or economics. I thought the failures were local: bad actors, poor execution, bad timing.
 
 Each explanation felt sufficient in the moment. None of them explained why it kept happening.
 
@@ -140,15 +140,15 @@ The leverage is in the money layer.
 
 Native internet money changes the economic foundation. With Lightning, you can monetize value creation directly--no advertising intermediary required. Podcasting 2.0 lets listeners stream sats to creators. Nostr clients charge for premium features instead of selling user data--because they can't. Strike competes with Venmo without extraction. The business model shifts: better product equals revenue from service, not surveillance.
 
-Fiat systems reward extracting now before value depreciates. Sound money lowers time preference. Build for the long term because the long term matters.
+Fiat systems reward extracting now before value depreciates. Sound money lowers time preference. You can afford to build for the long term.
 
 But Bitcoin doesn't automatically fix anything.
 
-Look at FTX, Celsius, the parade of Bitcoin-adjacent extraction. Sound money didn't stop fraud or rent-seeking. Bitcoin changes the incentive layer, not human nature. The difference: extraction in a Bitcoin economy is swimming upstream. In a fiat economy, it's the current.
+Look at FTX, Celsius, the parade of Bitcoin-adjacent extraction. Sound money didn't stop fraud or rent-seeking. Bitcoin changes the incentive layer, not human nature. Extraction in a Bitcoin economy is fighting the current. In fiat, you're floating downstream.
 
 Lightning needs to beat Visa. Self-custody needs to be easier than banking. The infrastructure enables different incentives--now we have to ship products people actually choose.
 
-This is what I mean by [sovereignty without sacrifice](/essays/sovereignty-without-sacrifice/). Bitcoin fixes the incentive layer. We still have to win on merit, not ideology.
+[Sovereignty without sacrifice](/essays/sovereignty-without-sacrifice/): Bitcoin fixes the incentive layer. We still have to win on merit.
 
 Regulation matters too. Antitrust constrains monopolies. Interoperability creates escape routes. Better enforcement levels the playing field. But regulation alone can't fix the root cause--break up an ad-funded company and you get smaller ad-funded companies running the same extraction logic.
 
@@ -162,7 +162,7 @@ Start with a question: *What if the money were fixed?*
 
 Every time you see extraction--ad-funded platforms, VC-subsidized growth, subscription fatigue, enshittification--ask what would change if the money weren't melting. If saving were rational. If long-term thinking paid off.
 
-Some problems dissolve. Some remain but look different. The exercise isn't to make Bitcoin the answer to everything. It's to see where broken money is the invisible variable you've been ignoring.
+Some problems go away. Others stick around but look different. The exercise isn't to make Bitcoin the answer to everything. It's to see where broken money is the invisible variable you've been ignoring.
 
 I don't have proof at scale. The Bitcoin-native examples are small. We won't know if the thesis holds until companies built on sound money face the same pressures that captured Google and Facebook. That test is coming.
 
