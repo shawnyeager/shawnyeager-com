@@ -1,8 +1,8 @@
 ---
-title: "The invisible hand I couldn't see"
-description: "I spent most of my career building extraction without seeing the pattern. Bitcoin showed me what I missed: it was the money."
+title: "Extraction is rational"
+description: "Every wave of the internet promised to democratize something. Every wave ended in extraction. The pattern isn't greed—it's the money."
 date: 2025-11-29T15:00:00Z
-slug: invisible-hand-i-couldnt-see
+slug: extraction-is-rational
 topics: [bitcoin, trust, freedom-tech]
 tags: []
 cta: true
