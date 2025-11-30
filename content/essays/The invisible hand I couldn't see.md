@@ -42,9 +42,9 @@ But fiat accelerates and systematizes extraction. It makes short-term thinking t
 
 ## Three waves of extraction
 
-**Wave 1: Dotcom.** Cheap credit flooded the market, funded companies with no real business model. Growth at all costs. Get in, get as much as you can, get out. I was there---Internet Evangelist at Microsoft, then Exodus Communications hosting the biggest sites on the internet. Somewhere along the way, everything became about "eyeballs." Late 2001, I laid off my entire team, then got the boot. Exodus went into bankruptcy. I understood it was a bubble. But I blamed the bubble, not the cheap money that inflated it.
+**Wave 1: Dotcom.** In 1998, the Fed cut rates after Long-Term Capital Management collapsed. Cheap credit flooded the market, funded companies with no real business model. Growth at all costs. Get in, get as much as you can, get out. I was there---Internet Evangelist at Microsoft, then Exodus Communications hosting the biggest sites on the internet. Somewhere along the way, everything became about "eyeballs." Late 2001, I laid off my entire team, then got the boot. Exodus went into bankruptcy. I understood it was a bubble. But I blamed the bubble, not the cheap money that inflated it.
 
-**Wave 2: Surveillance capitalism.** You can't monetize value creation directly when users expect "free." Advertising works---a third party pays, users pay with attention and data. Facebook and Twitter solved the business model problem: give away the product, sell the users. Once ad-funded, incentives align toward extraction. More engagement means more revenue. Quality becomes secondary to outrage, addiction, polarization. Even the "good actors" got captured. Google's "don't be evil" met the ad business model. Facebook's "connect the world" became surveillance to sell ads.
+**Wave 2: Surveillance capitalism.** You can't monetize value creation directly when users expect "free." And why do they expect free? When savings lose value, consumers optimize for immediate consumption---unwilling to pay upfront for anything they can get now. Advertising fills the gap: a third party pays, users pay with attention and data. Facebook and Twitter solved the business model problem: give away the product, sell the users. Once ad-funded, incentives align toward extraction. More engagement means more revenue. Quality becomes secondary to outrage, addiction, polarization. Even the "good actors" got captured. Google's "don't be evil" met the ad business model. Facebook's "connect the world" became surveillance to sell ads.
 
 **Wave 3: Enshittification.** Platforms lock users in, then abuse them to serve business customers, then abuse everyone to extract maximum value. I watched this from inside the creator economy---co-founded a music tech accelerator, then moved into personal data ownership. Streaming platforms promised to liberate artists, then extracted from them. We built real frameworks for data sovereignty---software and legal structures that actually worked. But we couldn't compete with "free." Whoever captures attention sells it to advertisers, because that's the only model that works when money itself is losing value.
 
@@ -66,7 +66,7 @@ When I interviewed Doctorow on my podcast, I asked about protocols over platform
 
 What struck me wasn't the critique itself. It was the asymmetry.
 
-Doctorow is willing to fight for decades to make imperfect regulation work. Regulators get captured? Keep fighting. It took 69 years to break up AT&T? Worth it. Antitrust enforcement is slow and captured and often fails? Still the right approach.
+Doctorow is willing to fight for decades to make imperfect regulation work. Regulators get captured? Keep fighting. It took 35 years to break up AT&T? Worth it. Antitrust enforcement is slow and captured and often fails? Still the right approach.
 
 But Bitcoin, sixteen years in with real problems being solved? Dismissed outright.
 
