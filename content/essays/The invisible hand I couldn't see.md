@@ -94,7 +94,7 @@ If you're building on the internet right now, ask yourself: Is your business mod
 
 I don't have proof at scale. Neither did the internet in 1995. The examples are small because the money is young. The test is coming.
 
-This path is not for everyone. Extraction can make you rich. It will never be true.
+This path is not for everyone. Extraction can make you rich. It will never be true. A lot of us are building on this thesis. We'll know soon enough if it holds.
 
 For most of my career, there was no solution. Bitcoin didn't exist. Now it does. Sixteen years in, the pattern is visible---if you're willing to look.
 
