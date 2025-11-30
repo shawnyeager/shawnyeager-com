@@ -10,7 +10,7 @@ featured: false
 draft: true
 ---
 
-I've been working on the internet for over thirty years. Sales, business development, evangelism--helping companies grow, helping technology reach people. There were real wins along the way. Real value created. But looking back, I see a pattern I missed for most of my career: my efforts, like most of ours, kept getting captured by something I didn't understand.
+I've been working on the internet for over thirty years. Sales, business development, evangelism--helping companies grow, helping technology reach people. There were real wins along the way. But looking back, I see a pattern I missed for most of my career: my efforts, like most of ours, kept getting captured by something I didn't understand.
 
 It started with magic. The BBS era: connecting with people far flung across the world, pure possibility, no "business model" to corrupt it. That spark never left me.
 
@@ -40,7 +40,7 @@ I worked on grid computing which became cloud--infrastructure that promised to d
 
 But the same infrastructure enabled something else: centralized platforms with unprecedented control over users. SaaS meant you never owned the software. Cloud meant your data lived on someone else's servers. Better tools, tighter lock-in.
 
-Meanwhile, Facebook and Twitter were solving the business model problem. Turns out you can give away the product if you sell the users. Advertising worked. Surveillance worked better.
+Meanwhile, Facebook and Twitter were solving the business model problem. Turns out you can give away the product if you sell the users. Advertising worked--and surveillance worked even better.
 
 The pattern was repeating, but I still didn't see the underlying mechanism.
 
@@ -76,7 +76,7 @@ When I interviewed Doctorow on my podcast, his take on Bitcoin was dismissive. F
 
 Where's "Lightning has problems, let's fix them"?
 
-Even the sharpest critics of extraction stop at monopoly power and regulatory capture. They ask *how* platforms become extractive. They don't ask *why* extraction becomes the rational choice everywhere, across every industry, every wave, every decade.
+Even the sharpest critics of extraction stop at monopoly power and regulatory capture. They ask *how* platforms become extractive, but not *why* extraction becomes the rational choice everywhere, across every industry, every wave, every decade.
 
 What creates the conditions for monopolies to form? For regulation to get captured? For extraction to become not just possible but economically optimal?
 
@@ -134,7 +134,7 @@ If you're building on fiat incentives, you're building extraction. Whether you s
 
 Bitcoin showed me where the leverage is.
 
-For years, I watched smart people fight extraction with the wrong tools--content moderation, legislation, more enlightened executives, open standards. All worth doing. None of them address why extraction becomes rational in the first place.
+For years, I watched smart people fight extraction with the wrong tools--content moderation, legislation, more enlightened executives, open standards. All worth doing, but none of them address why extraction becomes rational in the first place.
 
 The leverage is in the money layer.
 
@@ -154,13 +154,13 @@ Regulation matters too. Antitrust constrains monopolies, interoperability create
 
 So here's my message to builders--Bitcoin builders and everyone else:
 
-Stop treating symptoms. Regulation can constrain bad behavior. Interop can create exits. But neither fixes why extraction becomes the rational choice. Only fixing the money does that.
+Stop treating symptoms. Regulation can constrain bad behavior and interop can create exits. But neither fixes why extraction becomes the rational choice. Only fixing the money does that.
 
 I've barely scratched the surface here. The mechanism runs deeper than one essay can cover. But you don't need the full theory to start.
 
 Start with a question: *What if the money were fixed?*
 
-Every time you see extraction--ad-funded platforms, VC-subsidized growth, subscription fatigue, enshittification--ask what would change if the money weren't melting. If saving were rational. If long-term thinking paid off.
+Every time you see extraction--ad-funded platforms, VC-subsidized growth, subscription fatigue, enshittification--ask what would change if the money weren't melting. What if saving made sense? What if long-term thinking paid off?
 
 Some problems go away. Others stick around but look different. The exercise isn't to make Bitcoin the answer to everything. It's to see where broken money is the invisible variable you've been ignoring.
 
