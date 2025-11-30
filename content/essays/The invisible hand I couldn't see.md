@@ -10,13 +10,9 @@ featured: false
 draft: true
 ---
 
-I've been working on the internet for over thirty years. Sales, business development, evangelism---helping companies grow, helping technology reach people. There were real wins along the way. But looking back, I see a pattern I missed for most of my career: my efforts, like most of ours, kept getting captured by something I didn't understand.
+I've been working on the internet for over thirty years. I watched the same pattern repeat across every wave---dotcom, surveillance capitalism, enshittification. Each promised to democratize something. Each ended in extraction.
 
-It started with magic. The BBS era: connecting with people far flung across the world, pure possibility, no "business model" to corrupt it. That spark is what pulled me into tech professionally. I wanted to help build the thing that had shown me what was possible.
-
-Then came the waves. Dotcom. Cloud. Social. Creator economy. Each wave promised more of that magic. Each wave went somewhere else.
-
-I watched it happen three times before Bitcoin showed me what I missed. It wasn't the usual suspects---bad actors, poor execution, regulatory failure. It was simpler than that.
+For twenty years I thought the problem was execution, or regulation, or bad actors. It was simpler than that.
 
 It was the money.
 
@@ -44,17 +40,15 @@ But fiat accelerates and systematizes extraction. It makes short-term thinking t
 
 ---
 
-## What I watched happen
+## Three waves of extraction
 
-I saw this mechanism play out across my entire career. I just didn't know what I was seeing.
+**Wave 1: Dotcom.** Cheap credit flooded the market, funded companies with no real business model. Growth at all costs. Get in, get as much as you can, get out. I was there---Internet Evangelist at Microsoft, then Exodus Communications hosting the biggest sites on the internet. Somewhere along the way, everything became about "eyeballs." Late 2001, I laid off my entire team, then got the boot. Exodus went into bankruptcy. I understood it was a bubble. But I blamed the bubble, not the cheap money that inflated it.
 
-**Dotcom**: At Microsoft, I was an Internet Evangelist on the IE team. Then Exodus Communications, hosting the biggest sites on the internet. We were democratizing access, building the future. Somewhere along the way, everything became about "eyeballs." Late 2001, I laid off my entire team, then got the boot. Exodus went into bankruptcy. I understood it was a bubble. But I blamed the bubble, not the cheap money that inflated it.
+**Wave 2: Surveillance capitalism.** You can't monetize value creation directly when users expect "free." Advertising works---a third party pays, users pay with attention and data. Facebook and Twitter solved the business model problem: give away the product, sell the users. Once ad-funded, incentives align toward extraction. More engagement means more revenue. Quality becomes secondary to outrage, addiction, polarization. Even the "good actors" got captured. Google's "don't be evil" met the ad business model. Facebook's "connect the world" became surveillance to sell ads.
 
-**Surveillance capitalism**: I worked on grid computing that became cloud---infrastructure that promised to democratize access to computing power. And it did, for a while. But the same infrastructure enabled centralized platforms with unprecedented control over users. Facebook and Twitter solved the business model problem: give away the product, sell the users. You can't monetize value creation directly when users expect "free." Once ad-funded, incentives align toward extraction.
+**Wave 3: Enshittification.** Platforms lock users in, then abuse them to serve business customers, then abuse everyone to extract maximum value. I watched this from inside the creator economy---co-founded a music tech accelerator, then moved into personal data ownership. Streaming platforms promised to liberate artists, then extracted from them. We built real frameworks for data sovereignty---software and legal structures that actually worked. But we couldn't compete with "free." Whoever captures attention sells it to advertisers, because that's the only model that works when money itself is losing value.
 
-**Creator economy**: The internet would let people own what they create. Musicians would escape the labels. Users would control their own data. I worked on both sides---co-founded a music tech accelerator, then moved into personal data ownership. What I found: extraction everywhere. We built real frameworks for sovereignty---software and legal structures that actually worked. But we couldn't compete with "free." Same pattern---whoever captures attention sells it to advertisers, because that's the only model that works when money itself is losing value.
-
-Three waves. Same outcome. I thought the failures were local: bad actors, poor execution, bad timing. Each explanation felt sufficient. Until it didn't.
+Three waves. Same mechanism. I thought the failures were local: bad actors, poor execution, bad timing. Each explanation felt sufficient. Until it didn't.
 
 ---
 
