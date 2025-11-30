@@ -82,7 +82,7 @@ For years, I watched smart people fight extraction with the wrong tools---conten
 
 The leverage is in the money layer.
 
-Regulation matters. Antitrust constrains monopolies. Interoperability creates escape routes. Better enforcement levels the playing field. But regulation alone can't fix the root cause---break up an ad-funded company and you get smaller ad-funded companies running the same extraction logic.
+Regulation matters. Antitrust constrains monopolies. Interoperability creates escape routes. Better enforcement levels the playing field. But regulation alone can't fix the root cause---break up an ad-funded company and you get smaller ad-funded companies running the same extraction logic. "This time is different" is the oldest delusion in financial history.[^2]
 
 So here's my message to builders---Bitcoin builders and everyone else:
 
@@ -94,4 +94,13 @@ I don't have proof at scale. The Bitcoin-native examples are small. We won't kno
 
 For most of my career, there was no solution. Bitcoin didn't exist. Now it does. Sixteen years in, the pattern is visible---if you're willing to look.
 
-[^1]: For data on how this pattern shows up across wages, housing, healthcare, and more since 1971, see [wtfhappenedin1971.com](https://wtfhappenedin1971.com).
+[^1]: For data on how this pattern shows up across wages, housing, healthcare, and more since 1971, see [wtfhappenedin1971.com](https://wtfhappenedin1971.com). For economic history, see Niall Ferguson, *The Ascent of Money* (Penguin, 2008).
+[^2]: Carmen Reinhart and Kenneth Rogoff documented eight centuries of this delusion in *This Time Is Different* (Princeton, 2009).
+
+---
+
+## Sources
+
+- Ferguson, Niall. *The Ascent of Money*. Penguin, 2008.
+- Reinhart, Carmen M. and Kenneth S. Rogoff. *This Time Is Different*. Princeton, 2009.
+- Ammous, Saifedean. *The Bitcoin Standard*. Wiley, 2018.
