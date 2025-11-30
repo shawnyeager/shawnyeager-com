@@ -86,7 +86,7 @@ That question haunted me until Bitcoin answered it.
 
 ## The mechanism: broken money
 
-Why did every platform end up extractive? Not lack of creativity. Not evil intentions. Not insufficient regulation.
+Why did every platform end up extractive? It wasn't lack of creativity or evil intentions or insufficient regulation.
 
 It's the money, stupid.
 
@@ -100,7 +100,7 @@ Surveillance capitalism: You can't monetize value creation directly when users e
 
 Creator economy: Streaming platforms promised to liberate artists, then extracted from them. Personal data sovereignty couldn't compete with "free." Same pattern--whoever captures attention sells it to advertisers, because that's the only model that works when money itself is losing value.
 
-Even the "good actors" got captured. Google's "don't be evil" met the ad business model. Facebook's "connect the world" became surveillance to sell ads. Twitter's "public square" optimized for engagement until toxicity won.
+Even the "good actors" got captured. Google's "don't be evil" met the ad business model. Facebook's "connect the world" became surveillance to sell ads. Twitter's "public square" optimized for engagement until angst and outrage won.
 
 Not moral failure. Economic structure.
 
@@ -124,7 +124,7 @@ Fiat debasement. High time preference. Once I knew what to look for, I saw it ev
 
 If you're building on the internet right now, ask yourself:
 
-Is your business model ad-funded? Are you taking VC money optimizing for growth at all costs? Are you competing with "free" and losing? Do you think your wave is different?
+Is your business model ad-funded? Taking VC money that demands growth at all costs? Competing with "free" and losing?
 
 If you're building on fiat incentives, you're building extraction. Whether you see it or not.
 
@@ -150,7 +150,7 @@ Lightning needs to beat Visa. Self-custody needs to be easier than banking. The 
 
 [Sovereignty without sacrifice](/essays/sovereignty-without-sacrifice/): Bitcoin fixes the incentive layer. We still have to win on merit.
 
-Regulation matters too. Antitrust constrains monopolies. Interoperability creates escape routes. Better enforcement levels the playing field. But regulation alone can't fix the root cause--break up an ad-funded company and you get smaller ad-funded companies running the same extraction logic.
+Regulation matters too. Antitrust constrains monopolies, interoperability creates escape routes, and better enforcement levels the playing field. But regulation alone can't fix the root cause--break up an ad-funded company and you get smaller ad-funded companies running the same extraction logic.
 
 So here's my message to builders--Bitcoin builders and everyone else:
 
