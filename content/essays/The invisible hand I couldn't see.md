@@ -34,7 +34,7 @@ Native internet money changes the equation. With Lightning, you can monetize val
 
 Fiat systems reward extracting now before value depreciates. Sound money lowers time preference. You can afford to build for the long term.
 
-Extraction existed under the gold standard---robber barons, railroad monopolies. But fiat systematized it. Made short-term thinking the default winning strategy across every industry, every wave.
+Extraction existed under the gold standard---robber barons, railroad monopolies. But fiat systematized it. Made short-term thinking the default winning strategy across every industry, every wave.[^1]
 
 ---
 
@@ -45,6 +45,8 @@ Extraction existed under the gold standard---robber barons, railroad monopolies.
 **Wave 2: Surveillance capitalism.** You can't monetize value creation directly when users expect "free." And why do they expect free? When savings lose value, consumers optimize for immediate consumption---unwilling to pay upfront for anything they can get now. Advertising fills the gap: a third party pays, users pay with attention and data. Facebook and Twitter solved the business model problem: give away the product, sell the users. Once ad-funded, incentives align toward extraction. More engagement means more revenue. Quality becomes secondary to outrage, addiction, polarization. Even the "good actors" got captured. Google's "don't be evil" met the ad business model. Facebook's "connect the world" became surveillance to sell ads.
 
 **Wave 3: Enshittification.** Platforms lock users in, then abuse them to serve business customers, then abuse everyone to extract maximum value. I watched this from inside the creator economy---co-founded a music tech accelerator, then moved into personal data ownership. Streaming platforms promised to liberate artists, then extracted from them. We built real frameworks for data sovereignty---software and legal structures that actually worked. But we couldn't compete with "free." Whoever captures attention sells it to advertisers, because that's the only model that works when money itself is losing value.
+
+The pattern accelerated when cheap money dried up. Rates rose in 2022. Netflix added ads. Spotify cut staff and raised prices. Streaming services consolidated. The extraction that ZIRP subsidized came due.
 
 Three waves. Same mechanism. I thought the failures were local: bad actors, poor execution, bad timing. Each explanation felt sufficient. Until it didn't.
 
@@ -86,8 +88,11 @@ So here's my message to builders---Bitcoin builders and everyone else:
 
 Stop treating symptoms. Regulation can constrain bad behavior and interop can create exits. But neither fixes why extraction becomes the rational choice. Only fixing the money does that.
 
-If you're building on the internet right now, ask yourself: Is your business model ad-funded or VC-subsidized? Competing with "free" and losing? If you're building on fiat incentives, you're building extraction. Whether you see it or not.
+If you're building on the internet right now, ask yourself: Is your business model ad-funded or VC-subsidized?[^2] Competing with "free" and losing? If you're building on fiat incentives, you're building extraction. Whether you see it or not.
 
 I don't have proof at scale. The Bitcoin-native examples are small. We won't know if the thesis holds until companies built on sound money face the same pressures that captured Google and Facebook. That test is coming.
 
 For most of my career, there was no solution. Bitcoin didn't exist. Now it does. Sixteen years in, the pattern is visible---if you're willing to look.
+
+[^1]: For data on how this pattern shows up across wages, housing, healthcare, and more since 1971, see [wtfhappenedin1971.com](https://wtfhappenedin1971.com).
+[^2]: Uber took 14 years to achieve quarterly operating profit. Spotify took 17 years to post a profitable year.
