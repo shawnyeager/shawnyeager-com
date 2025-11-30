@@ -74,17 +74,17 @@ But Bitcoin, sixteen years in with real problems being solved? Dismissed outrigh
 
 Where's "Lightning has problems, let's fix them"?
 
-Even the sharpest critics of extraction stop at monopoly power and regulatory capture. They ask *how* platforms become extractive, but not *why* extraction becomes the rational choice everywhere, across every industry, every wave, every decade.
+Even the sharpest critics of extraction stop at monopoly power and regulatory capture. They ask *how* platforms become extractive, but not *why* extraction becomes the rational choice across every industry, every decade.
 
 ---
 
 ## To builders
 
-For years, I watched smart people fight extraction with the wrong tools---content moderation, legislation, more enlightened executives, open standards. All worth doing, but none of them address why extraction becomes rational in the first place.
+For years, I watched smart people fight extraction with the wrong tools---content moderation, legislation, more enlightened executives, open standards. None of them address why extraction becomes rational in the first place.
 
 The leverage is in the money layer.
 
-Regulation matters. Antitrust constrains monopolies. Interoperability creates escape routes. Better enforcement levels the playing field. But regulation alone can't fix the root cause---break up an ad-funded company and you get smaller ad-funded companies running the same extraction logic. "This time is different" is the oldest delusion in financial history.[^2]
+Regulation matters. Antitrust and interoperability create constraints and exits. But regulation alone can't fix the root cause---break up an ad-funded company and you get smaller ad-funded companies running the same extraction logic. "This time is different" is the oldest delusion in financial history.[^2]
 
 My message to builders:
 
