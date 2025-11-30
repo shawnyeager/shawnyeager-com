@@ -34,9 +34,7 @@ Native internet money changes the equation. With Lightning, you can monetize val
 
 Fiat systems reward extracting now before value depreciates. Sound money lowers time preference. You can afford to build for the long term.
 
-I'm not claiming money is the only variable. Extraction existed under the gold standard---robber barons, railroad monopolies, Standard Oil. Network effects and power concentration predate fiat. And Bitcoin doesn't automatically fix anything. Look at FTX, Celsius, the parade of Bitcoin-adjacent extraction. Sound money didn't stop fraud or rent-seeking.
-
-But fiat accelerates and systematizes extraction. It makes short-term thinking the default winning strategy. Money isn't *the* cause. It's the underappreciated variable that explains why extraction became the norm rather than the exception.
+Extraction existed under the gold standard---robber barons, railroad monopolies. But fiat systematized it. Made short-term thinking the default winning strategy across every industry, every wave.
 
 ---
 
