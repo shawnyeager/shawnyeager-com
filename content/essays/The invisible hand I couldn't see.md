@@ -16,9 +16,9 @@ It started with magic. The BBS era: connecting with people far flung across the 
 
 That spark is what pulled me into tech professionally. I wanted to help build the thing that had shown me what was possible.
 
-Then came the waves. Every one of them promised more of that magic. Every one of them went somewhere else.
+Then came the waves. Each wave promised more of that magic. Each wave went somewhere else.
 
-Then Bitcoin showed me what I missed for over 20 years. It wasn't bad actors or poor execution or regulatory failure. It was simpler than that.
+Then Bitcoin showed me what I missed for over 20 years. It wasn't the usual suspects--bad actors, execution, regulation. It was simpler than that.
 
 It was the money.
 
@@ -78,15 +78,13 @@ Where's "Lightning has problems, let's fix them"?
 
 Even the sharpest critics of extraction stop at monopoly power and regulatory capture. They ask *how* platforms become extractive, but not *why* extraction becomes the rational choice everywhere, across every industry, every wave, every decade.
 
-What creates the conditions for monopolies to form? For regulation to get captured? For extraction to become not just possible but economically optimal?
-
 That question haunted me until Bitcoin answered it.
 
 ---
 
 ## The mechanism: broken money
 
-Why did every platform end up extractive? It wasn't lack of creativity or evil intentions or insufficient regulation.
+Why did every platform end up extractive? The usual explanations fail.
 
 It's the money, stupid.
 
@@ -106,7 +104,7 @@ Not moral failure. Economic structure.
 
 I'm not claiming money is the only variable. Extraction existed under the gold standard--robber barons, railroad monopolies, Standard Oil. Network effects and power concentration predate fiat. But fiat accelerates and systematizes extraction. It makes short-term thinking the default winning strategy. Money isn't *the* cause. It's the underappreciated variable that explains why extraction became the norm rather than the exception.
 
-This is everywhere fiat touches. Real estate speculation instead of building. Stock buybacks instead of R&D. Financialization eating production. Everywhere you look, short-term extraction winning over long-term value.
+This is everywhere fiat touches. Real estate speculation. Stock buybacks over R&D. Financialization eating production. Everywhere you look, short-term extraction winning over long-term value.
 
 The invisible hand I couldn't see for over twenty years: fiat debasement drives high time preference, and high time preference makes extraction rational.
 
@@ -116,7 +114,7 @@ The invisible hand I couldn't see for over twenty years: fiat debasement drives 
 
 I was inside the machine, optimizing within the system. Each wave felt different--dotcom versus social versus creator economy. Different tech, different players, same outcome. I didn't understand money or economics. I thought the failures were local: bad actors, poor execution, bad timing.
 
-Each explanation felt sufficient in the moment. None of them explained why it kept happening.
+Each explanation felt sufficient. Until it didn't.
 
 When I first encountered Bitcoin, I didn't get it. "Blockchain" and "crypto" felt like shiny new tech--another wave to ride. I was briefly captured by the snake oil, the ICOs, the hype. Then somewhere in 2016, it clicked: it wasn't the tech. It was the money, stupid.
 
@@ -124,7 +122,7 @@ Fiat debasement. High time preference. Once I knew what to look for, I saw it ev
 
 If you're building on the internet right now, ask yourself:
 
-Is your business model ad-funded? Taking VC money that demands growth at all costs? Competing with "free" and losing?
+Is your business model ad-funded or VC-subsidized? Competing with "free" and losing?
 
 If you're building on fiat incentives, you're building extraction. Whether you see it or not.
 
@@ -138,7 +136,7 @@ For years, I watched smart people fight extraction with the wrong tools--content
 
 The leverage is in the money layer.
 
-Native internet money changes the economic foundation. With Lightning, you can monetize value creation directly--no advertising intermediary required. Podcasting 2.0 lets listeners stream sats to creators. Nostr clients charge for premium features instead of selling user data--because they can't. Strike competes with Venmo without extraction. The business model shifts: better product equals revenue from service, not surveillance.
+Native internet money changes the economic foundation. With Lightning, you can monetize value creation directly--no advertising intermediary required. Podcasting 2.0 lets listeners stream sats to creators. Nostr clients charge for premium features instead of selling user data--because they can't. Strike competes with Venmo without extraction because their margins are rich. The business model shifts: better product equals revenue from service, not surveillance.
 
 Fiat systems reward extracting now before value depreciates. Sound money lowers time preference. You can afford to build for the long term.
 
@@ -156,11 +154,9 @@ So here's my message to builders--Bitcoin builders and everyone else:
 
 Stop treating symptoms. Regulation can constrain bad behavior and interop can create exits. But neither fixes why extraction becomes the rational choice. Only fixing the money does that.
 
-I've barely scratched the surface here. The mechanism runs deeper than one essay can cover. But you don't need the full theory to start.
-
 Start with a question: *What if the money were fixed?*
 
-Every time you see extraction--ad-funded platforms, VC-subsidized growth, subscription fatigue, enshittification--ask what would change if the money weren't melting. What if saving made sense? What if long-term thinking paid off?
+Every time you see extraction--ad-funded platforms, VC-subsidized growth, enshittification--ask what would change if the money weren't melting. What if saving made sense? What if long-term thinking paid off?
 
 Some problems go away. Others stick around but look different. The exercise isn't to make Bitcoin the answer to everything. It's to see where broken money is the invisible variable you've been ignoring.
 
