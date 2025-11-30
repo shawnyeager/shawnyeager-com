@@ -28,7 +28,7 @@ This is everywhere fiat touches. Real estate speculation. Stock buybacks over R&
 
 The invisible hand I couldn't see for over twenty years: fiat debasement drives high time preference, and high time preference makes extraction rational.
 
-Native internet money changes the equation. With Lightning, you can monetize value creation directly---no advertising intermediary required. Podcasting 2.0 lets listeners stream sats to creators. Nostr clients charge for premium features instead of selling user data---because they can't. Strike competes with Venmo without extraction---because their margins are rich. The business model shifts: better product equals revenue from service, not surveillance.
+Native internet money changes the equation. With Lightning, you can monetize value creation directly---no advertising intermediary required. Podcasting 2.0 has over 11,000 shows streaming sats to creators at 4% fees---versus the 50%+ that ad-funded platforms extract. Unchained has originated over a billion dollars in Bitcoin-collateralized loans over nine years---zero rehypothecation, no extraction. Nostr clients charge for premium features instead of selling user data---because they can't. Strike competes with Venmo without extraction---because their margins are rich. The business model shifts: better product equals revenue from service, not surveillance.
 
 Fiat systems reward extracting now before value depreciates. Sound money lowers time preference. You can afford to build for the long term.
 
@@ -40,7 +40,7 @@ Extraction existed under the gold standard---robber barons, railroad monopolies.
 
 **Wave 1: Dotcom.** In 1998, the Fed cut rates after Long-Term Capital Management collapsed. Cheap credit flooded the market, funded companies with no real business model. Growth at all costs. Get in, get as much as you can, get out. I was there---Internet Evangelist at Microsoft, then Exodus Communications hosting the biggest sites on the internet. Somewhere along the way, everything became about "eyeballs." Late 2001, I laid off my entire team, then got the boot. Exodus went into bankruptcy. I understood it was a bubble. But I blamed the bubble, not the cheap money that inflated it.
 
-**Wave 2: Surveillance capitalism.** You can't monetize value creation directly when users expect "free." Why do they expect free? When savings lose value, consumers chase what's free now---unwilling to pay upfront for anything they can get now. Advertising fills the gap: a third party pays, users pay with attention and data. Facebook and Twitter solved the business model problem: give away the product, sell the users. More engagement means more revenue---quality becomes secondary to outrage, addiction, polarization. Even the "good actors" got captured. Google's "don't be evil" met the ad business model. Facebook's "connect the world" became surveillance to sell ads.
+**Wave 2: Surveillance capitalism.** You can't monetize value creation directly when users expect "free." Why do they expect free? Personal savings rates dropped from 13% in 1971 to under 5% today. Credit card rates stayed at 18-20% even when prime fell to 7%---and consumers kept borrowing. A generation learned to consume now, pay later. When savings lose value, consumers chase what's free now---unwilling to pay upfront for anything they can get now. Advertising fills the gap: a third party pays, users pay with attention and data. Facebook and Twitter solved the business model problem: give away the product, sell the users. More engagement means more revenue---quality becomes secondary to outrage, addiction, polarization. Even the "good actors" got captured. Google's "don't be evil" met the ad business model. Facebook's "connect the world" became surveillance to sell ads.
 
 **Wave 3: Enshittification.** Platforms lock users in, then abuse them to serve business customers, then abuse everyone to extract maximum value. I watched this from inside the creator economy---co-founded a music tech accelerator, then moved into personal data ownership. Streaming platforms promised to liberate artists, then extracted from them. We built real frameworks for data sovereignty---software and legal structures that actually worked. But we couldn't compete with "free." Whoever captures attention sells it to advertisers, because that's the only model that works when money itself is losing value.
 
@@ -89,6 +89,8 @@ Stop treating symptoms. Regulation can constrain bad behavior and interop can cr
 If you're building on the internet right now, ask yourself: Is your business model ad-funded or VC-subsidized? Competing with "free" and losing? If you're building on fiat incentives, you're building extraction. Whether you see it or not.
 
 I don't have proof at scale. The Bitcoin-native examples are small. We won't know if the thesis holds until companies built on sound money face the same pressures that captured Google and Facebook. That test is coming.
+
+This path is not for everyone. Extraction can make you rich. But it will never be true.
 
 For most of my career, there was no solution. Bitcoin didn't exist. Now it does. Sixteen years in, the pattern is visible---if you're willing to look.
 
