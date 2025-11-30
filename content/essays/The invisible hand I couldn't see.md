@@ -46,7 +46,7 @@ The pattern was repeating, but I still didn't see the underlying mechanism.
 
 ### Wave 3: Creator Economy & Data Sovereignty
 
-<!--Parners and I built a music tech accelerator, for context. Worked with > 100 startups, VCs, labels, publishers.--> The promise: the internet would let people own what they create. Musicians would escape the labels. Users would control their own data. I worked on both sides of this--music tech, then personal data ownership.
+The promise: the internet would let people own what they create. Musicians would escape the labels. Users would control their own data. I worked on both sides of this--co-founded a music tech accelerator, worked with over a hundred startups, VCs, labels, and publishers. Then moved into personal data ownership.
 
 What I found: extraction everywhere. Digital Rights Management, nonstop lawfare from RIAA, streaming platforms extracting value from artists they claimed to liberate. And in personal data, we built real frameworks for sovereignty--software and legal structures that actually worked. But we couldn't compete with "free." When the alternative is ad-funded and costs nothing, ownership is a tough sell.
 
@@ -154,6 +154,12 @@ So here's my message to builders--Bitcoin builders and everyone else:
 
 Stop treating symptoms. Regulation can constrain bad behavior. Interop can create exits. But neither fixes why extraction becomes the rational choice. Only fixing the money does that.
 
-For most of my career, there was no solution. Bitcoin didn't exist. Now it does--and sixteen years in, there's no excuse for not seeing the pattern.
+I've barely scratched the surface here. The mechanism runs deeper than one essay can cover. But you don't need the full theory to start.
 
-<!-- And then so what? Where do we take it? I think we need to at least suggest where to look, what to investigate, where to look for inspiration.-->
+Start with a question: *What if the money were fixed?*
+
+Every time you see extraction--ad-funded platforms, VC-subsidized growth, subscription fatigue, enshittification--ask what would change if the money weren't melting. If saving were rational. If long-term thinking paid off.
+
+Some problems dissolve. Some remain but look different. The exercise isn't to make Bitcoin the answer to everything. It's to see where broken money is the invisible variable you've been ignoring.
+
+For most of my career, there was no solution. Bitcoin didn't exist. Now it does. Sixteen years in, the pattern is visible to anyone willing to look.
