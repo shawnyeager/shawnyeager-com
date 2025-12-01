@@ -4,8 +4,9 @@
   "description": "Open Graph image generation for shawnyeager.com",
   "type": "module",
   "scripts": {
+    "generate-essays": "node scripts/generate-essays-json.js",
     "generate-og": "node scripts/generate-og-images.js",
-    "build": "npm run generate-og && hugo",
+    "build": "npm run generate-essays && npm run generate-og && hugo",
     "v4v-report": "NWC_CONNECTION_STRING=$(netlify env:get NWC_CONNECTION_STRING 2>/dev/null) node scripts/v4v-report.js",
     "dashboard": "NWC_CONNECTION_STRING=$(netlify env:get NWC_CONNECTION_STRING 2>/dev/null) node scripts/v4v-server.js"
   },

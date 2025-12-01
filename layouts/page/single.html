@@ -2,18 +2,12 @@
 Purpose: Single page template for type:page content
 
 Features:
-- Page title via page-title.html partial (smart visibility)
-- Simple content wrapper with page-body class (div, not article)
-- Supports markdown content with safeHTML rendering
-
-Used By:
-- Pages with `type: page` in frontmatter
-- Utility pages that aren't essays (connect, media, encrypt, subscribed)
+- Page title via page-title.html partial
+- Simple content wrapper with page-body class
 
 Important Notes:
-- Overrides theme default for pages with explicit type: page
-- Uses div.page-body instead of article for semantic correctness (utility content)
-- Title visibility controlled by show_title frontmatter flag via partial
+- Matches pages with type: page in frontmatter
+- Nearly identical to _default/single.html but with div instead of article
 */}}
 
 {{ define "main" }}
