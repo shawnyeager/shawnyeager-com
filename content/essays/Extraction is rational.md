@@ -7,7 +7,7 @@ topics: [bitcoin, freedom-tech]
 tags: []
 cta: true
 featured: false
-draft: true
+draft: false
 ---
 
 Every wave of the internet promised to democratize something. Every wave ended in extraction.
