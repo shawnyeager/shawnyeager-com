@@ -44,13 +44,13 @@ Extraction existed under the gold standard, including robber barons and railroad
 
 **Enshittification.** I moved into personal data ownership. We built real frameworks for data sovereignty---software and legal structures that actually worked. We got a pilot with Mastercard. It died. Not because legal was slow or product couldn't align---but because Mastercard sells data. Transaction processing is just the means. We were asking an extraction company to adopt anti-extraction infrastructure. They couldn't swallow the thing. No one could. When the core business is extraction, you can't sell them tools that threaten it.
 
-The pattern accelerated when cheap money dried up. Uber took fourteen years to turn a quarterly profit. Spotify took seventeen to post a profitable year. When rates rose in 2022, Netflix added ads, Spotify cut staff and raised prices, streaming services consolidated. The extraction that ZIRP subsidized came due.
+The pattern accelerated when cheap money dried up. Uber took fourteen years to turn a quarterly profit. Spotify took seventeen to post a profitable year. When rates rose in 2022, Netflix began injecting ads, Spotify cut staff and raised prices, streaming services consolidated. The extraction that ZIRP subsidized came due.
 
 Three stages. Same mechanism. I thought the failures were local: bad actors, poor execution, bad timing. Each explanation felt sufficient. It wasn't.
 
 ## Where sharp critics stop
 
-Cory Doctorow nailed the diagnosis. His "enshittification" framework describes what I witnessed: platforms start good to users while locking them in, then abuse users to serve business customers, then abuse everyone to extract maximum value.
+Cory Doctorow nailed the diagnosis. His "enshittification" framework describes what I witnessed: platforms start off good to users while locking them in, then abuse users to serve business customers, then abuse everyone to extract maximum value.
 
 His solution: antitrust enforcement, break up monopolies, strengthen regulation, mandate interoperability. He's right about what happened. These things matter. But this strain of thinking---diagnose monopoly power, prescribe antitrust---stops one layer short.
 
@@ -64,7 +64,7 @@ But Bitcoin, sixteen years in with real problems being solved? Dismissed outrigh
 
 Even the sharpest critics of extraction stop at monopoly power and regulatory capture. They ask how platforms become extractive, but not why extraction becomes the rational choice across every industry, every decade. Break up a monopoly and you get smaller companies running the same playbook. "This time is different" is the oldest delusion in financial history.[^3]
 
-I don't have proof at scale. Neither did the internet in 1995. The examples are small because the money is young. The test is coming.
+I don't have proof at scale. Neither did proponents of the internet in 1995. The examples are small because the money is young. The test is coming.
 
 I was watching Mastercard choke on data sovereignty when Bitcoin clicked. I finally saw a way out.
 
