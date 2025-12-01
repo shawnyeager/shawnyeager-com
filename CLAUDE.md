@@ -274,6 +274,18 @@ This site uses a Node.js script to generate OG images for essays at build time.
 
 ---
 
+## ⚠️ CRITICAL: Essay Commit Rules
+
+**ALWAYS squash essay commits before pushing to origin.** Essay development may involve many edits, but the final push must be a single clean commit.
+
+**Workflow:**
+1. Develop essay with as many local commits as needed
+2. Before pushing: `git reset --soft <base-commit>` to squash
+3. Create single commit with clean message (e.g., "Publish: Essay title")
+4. Push to origin
+
+---
+
 ## Theme Updates (PR-Based Workflow)
 
 This site uses a **PR-based workflow** for theme updates to save Netlify credits.
