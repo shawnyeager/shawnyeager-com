@@ -1,16 +1,3 @@
-{{/*
-Purpose: Podcast subscription link with Plausible tracking
-
-Usage: podcast-link url="https://..." text="Listen on Spotify"
-
-Parameters:
-- url: Full URL to podcast platform
-- text: Link text to display
-
-Important Notes:
-- Includes Plausible event tracking (Podcast+Subscribe)
-- Used on /podcast page for platform links
-*/}}
 {{- $url := .Get "url" -}}
 {{- $text := .Get "text" -}}
 <a href="{{ $url }}" class="plausible-event-name=Podcast+Subscribe">{{ $text }}</a>

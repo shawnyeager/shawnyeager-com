@@ -3,6 +3,9 @@ public/
 .hugo_build.lock
 resources/
 
+# Generated files
+data/essays.json
+
 # Netlify
 .netlify/
 deno.lock
