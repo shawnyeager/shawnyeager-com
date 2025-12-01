@@ -19,8 +19,8 @@ Context Expected:
 {{- if .IsHome -}}
   <title>{{ .Site.Title }}</title>
 {{- else if .Params.essay_title -}}
-  {{- /* Per-essay V4V pages: just the essay title */ -}}
-  <title>{{ .Params.essay_title }}</title>
+  {{- /* Per-essay V4V pages: mirror essay title format */ -}}
+  <title>{{ .Params.essay_title }} | {{ default .Site.Title .Site.Params.site_display_name }}</title>
 {{- else if eq .Kind "section" -}}
   {{- /* List pages: Use short site name to avoid redundancy */ -}}
   <title>{{ .Title }} | {{ default .Site.Title .Site.Params.site_display_name }}</title>
