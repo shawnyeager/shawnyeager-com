@@ -3,14 +3,14 @@ title: "Extraction is rational"
 description: "Every wave of the internet promised to democratize something. Every wave ended in extraction. The pattern isn't greed—it's the money."
 date: 2025-11-29T15:00:00Z
 slug: extraction-is-rational
-topics: [bitcoin, trust, freedom-tech]
+topics: [bitcoin, freedom-tech]
 tags: []
 cta: true
 featured: false
 draft: true
 ---
 
-I've been working on the internet for over thirty years. I watched every wave of the internet promise to democratize something. Web. Mobile. SaaS. Creator economy. Each ended in extraction.
+I watched every wave of the internet promise to democratize something. Web. Mobile. SaaS. Creator economy. Each ended in extraction.
 
 For twenty years I thought the problem was execution, or regulation, or bad actors. It was simpler than that.
 
@@ -26,21 +26,21 @@ This is everywhere fiat touches. Real estate speculation. Stock buybacks over R&
 
 The invisible hand I couldn't see for over twenty years: fiat debasement drives high time preference, and high time preference makes extraction rational.
 
-Native internet money changes the equation. With Lightning, you can monetize value creation directly---no advertising intermediary required. Unchained has originated over a billion dollars in Bitcoin-collateralized loans over nine years---zero rehypothecation, no extraction. Nostr clients charge for premium features instead of selling user data---because they can't. Strike competes with Venmo without extraction---because their margins are rich.
+Native internet money changes the equation.
 
 Podcasting 2.0 proves the point. In 2020, Adam Curry and Dave Jones built the Podcast Index---an open alternative to Apple's closed directory. They added Lightning payments to the RSS spec. No platform required. Apps like Fountain let listeners stream sats directly to creators as they listen---a few cents per minute, paid instantly, globally, without permission from anyone. Over 11,000 shows now support it. My own podcast runs on value-for-value---no ads, no sponsors, just listeners who pay for what they value. Creators keep 96% instead of the 50%+ that ad-funded platforms extract. When the money works, people pay.
 
-Fiat systems reward extracting now before value depreciates. Sound money lowers time preference.[^3] You can afford to build for the long term.
+Fiat systems reward extracting now before value depreciates. Sound money lowers time preference.[^1] You can afford to build for the long term.
 
-Extraction existed under the gold standard---robber barons, railroad monopolies. But fiat systematized it. Made short-term thinking the default winning strategy across every industry, every wave.[^1]
+Extraction existed under the gold standard---robber barons, railroad monopolies. But fiat systematized it. Made short-term thinking the default winning strategy across every industry, every wave.[^2]
 
 ## How extraction evolved
 
-**Stage 1: The eyeball era.** In 1998, the Fed cut rates after Long-Term Capital Management collapsed. Cheap credit flooded the market, funded companies with no real business model. Growth at all costs. Get in, get as much as you can, get out. I was there---Internet Evangelist at Microsoft, then Exodus Communications hosting the biggest sites on the internet. Somewhere along the way, everything became about "eyeballs." Late 2001, I laid off my entire team, then got the boot. Exodus went into bankruptcy. I understood it was a bubble. But I blamed the bubble, not the cheap money that inflated it.
+**Stage 1: The eyeball era.** In 1998, the Fed cut rates after Long-Term Capital Management collapsed. Cheap credit flooded the market, funded companies with no real business model. Growth at all costs. Get in, get as much as you can, get out. I was there---on Microsoft's first browser team, then Exodus Communications hosting the biggest sites on the internet. Early 2000, a dotcom executive gave me a tour of their newly installed rooftop drive-in theater and lobby full of millions in fine art. In the meeting, he told me capital was drying up. The only saleable asset they had was clickstream data. He was looking to sell. Desperate. Somewhere along the way, everything became about "eyeballs." Late 2001, I laid off my entire team, then got the boot. Exodus went into bankruptcy. I understood it was a bubble. But I blamed the bubble, not the cheap money that inflated it.
 
-**Stage 2: Surveillance capitalism.** You can't monetize value creation directly when users expect "free." Why do they expect free? Inflation teaches people to consume now---before their money loses value. By the 1980s, consumers paid 18% credit card interest even when prime fell to 7%. Personal savings dropped from 13% in 1971 to under 5% today. Buy Now Pay Later exploded from $120 billion to $576 billion in five years---same behavior, new wrapper. When the future is worth less than the present, "free now" beats "pay upfront" every time. Advertising fills the gap: a third party pays, users pay with attention and data. I worked on grid computing as it became cloud---infrastructure that promised democratization but enabled centralized platforms with unprecedented surveillance. All that data needed a business model. Facebook and Twitter found one: give away the product, sell the users. More engagement means more revenue---quality becomes secondary to outrage, addiction, polarization. Even the "good actors" got captured. Google's "don't be evil" met the ad business model. Facebook's "connect the world" became surveillance to sell ads.
+**Stage 2: Surveillance capitalism.** You can't monetize value creation directly when users expect "free." Why do they expect free? Inflation trains people to consume now. Personal savings dropped from 13% in 1971 to under 5% today. When the future is worth less than the present, "free now" beats "pay upfront" every time. I was selling grid computing to Wall Street. Sat across from a Merrill executive who told me "don't fuck this up"---multimillion dollar bonus on the line, tied to extracting more from client data. We were part of the machinery. I didn't see it then. The pattern was everywhere. All that data needed a business model. Facebook found one: give away the product, sell the users. More engagement means more revenue. Quality becomes secondary to outrage, addiction, polarization.
 
-**Stage 3: Enshittification.** Platforms lock users in, then abuse them to serve business customers, then abuse everyone to extract maximum value. I watched this from inside the creator economy---co-founded a music tech accelerator, then moved into personal data ownership. Streaming platforms promised to liberate artists, then extracted from them. We built real frameworks for data sovereignty---software and legal structures that actually worked. But we couldn't compete with "free." Whoever captures attention sells it to advertisers, because that's the only model that works when money itself is losing value.
+**Stage 3: Enshittification.** I moved into personal data ownership. We built real frameworks for data sovereignty---software and legal structures that actually worked. We got a pilot with Mastercard. It died. Not because legal was slow or product couldn't align---but because Mastercard sells data. Transaction processing is just the means. We were asking an extraction company to adopt anti-extraction infrastructure. They couldn't swallow the thing. No one could. When the core business is extraction, you can't sell them tools that threaten it.
 
 The pattern accelerated when cheap money dried up. Uber took fourteen years to turn a quarterly profit. Spotify took seventeen to post a profitable year. When rates rose in 2022, Netflix added ads, Spotify cut staff and raised prices, streaming services consolidated. The extraction that ZIRP subsidized came due.
 
@@ -68,26 +68,14 @@ Where's "Lightning has problems, let's fix them"?
 
 Even the sharpest critics of extraction stop at monopoly power and regulatory capture. They ask *how* platforms become extractive, but not *why* extraction becomes the rational choice across every industry, every decade.
 
-## What to do about it
-
-For years, I watched smart people fight extraction with the wrong tools---content moderation, legislation, more enlightened executives, open standards. None of them address why extraction becomes rational in the first place.
-
-The leverage is in the money layer.
-
-Regulation matters. Antitrust and interoperability create constraints and exits. But regulation alone can't fix the root cause---break up an ad-funded company and you get smaller ad-funded companies running the same extraction logic. "This time is different" is the oldest delusion in financial history.[^2]
-
-My message to builders:
-
-Stop treating symptoms. Regulation can constrain bad behavior and interop can create exits. But neither fixes why extraction becomes the rational choice. Only fixing the money does that.
-
-If you're building on the internet right now, ask yourself: Is your business model ad-funded or VC-subsidized? Competing with "free" and losing? If you're building on fiat incentives, you're building extraction. Whether you see it or not.
+Break up a monopoly and you get smaller companies running the same logic. "This time is different" is the oldest delusion in financial history.[^3]
 
 I don't have proof at scale. Neither did the internet in 1995. The examples are small because the money is young. The test is coming.
 
-For most of my career, there was no solution. Bitcoin didn't exist. Now it does.
+I was watching Mastercard choke on data sovereignty when I fell down the Bitcoin rabbit hole. For most of my career, there was no solution. Now there is.
 
-This path is not for everyone. Extraction can make you rich. It will never be true. A lot of us are building on this thesis. We'll know soon enough if it holds.
+This path is not for everyone. Extraction can make you rich. It won't make you right. A lot of us are building on this thesis. We'll know soon enough if it holds.
 
-[^1]: For data on how this pattern shows up across wages, housing, healthcare, and more since 1971, see [wtfhappenedin1971.com](https://wtfhappenedin1971.com). For economic history, see Niall Ferguson, *The Ascent of Money* (Penguin, 2008).
-[^2]: Carmen Reinhart and Kenneth Rogoff documented eight centuries of this delusion in *This Time Is Different* (Princeton, 2009).
-[^3]: For the full argument on time preference and sound money, see Saifedean Ammous, *The Bitcoin Standard* (Wiley, 2018).
+[^1]: For the full argument on time preference and sound money, see Saifedean Ammous, *The Bitcoin Standard* (Wiley, 2018).
+[^2]: For data on how this pattern shows up across wages, housing, healthcare, and more since 1971, see [wtfhappenedin1971.com](https://wtfhappenedin1971.com). For economic history, see Niall Ferguson, *The Ascent of Money* (Penguin, 2008).
+[^3]: Carmen Reinhart and Kenneth Rogoff documented eight centuries of this delusion in *This Time Is Different* (Princeton, 2009).
