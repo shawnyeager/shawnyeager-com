@@ -15,7 +15,7 @@
 <article class="v4v-page">
   <div class="v4v-content">
     <p class="v4v-intro">
-      {{ if $hasEssay }}Pay what it was worth.{{ else }}Support this work.{{ end }}
+      {{ if $hasEssay }}Found value? Give value back—or <a href="#" id="share-essay">share it</a>.{{ else }}Support this work.{{ end }}
     </p>
 
     <!-- Amount Selection (replaced by QR when amount selected) -->
@@ -78,9 +78,6 @@
       <summary>New to value for value?</summary>
       <p>
         Value for value means no paywalls, no tracking, no platform cut. You read first, decide what the work is worth, then pay directly. Bitcoin makes this possible—no middlemen, no surveillance, just creator and reader.
-      </p>
-      <p>
-        {{ if $hasEssay }}If this essay saved you time or changed your thinking, support it.{{ else }}If this work has helped you, support it.{{ end }}
       </p>
       <a href="https://value4value.info/" class="cta-link"><span class="link-text">How V4V works</span> <span aria-hidden="true">→</span></a>
     </details>
@@ -158,7 +155,26 @@ const elements = {
   paymentStatus: document.getElementById('payment-status'),
   confirmedAmount: document.getElementById('confirmed-amount'),
   errorMessage: document.getElementById('error-message'),
+  shareBtn: document.getElementById('share-essay'),
 };
+
+// Share essay URL (Web Share API with clipboard fallback)
+if (elements.shareBtn && essaySlug) {
+  const essayUrl = `https://shawnyeager.com/${essaySlug}/`;
+
+  elements.shareBtn.addEventListener('click', async (e) => {
+    e.preventDefault();
+    if (navigator.share) {
+      // Mobile/native share sheet
+      await navigator.share({ title: essayTitle, url: essayUrl });
+    } else {
+      // Fallback: copy URL to clipboard with visual feedback
+      await navigator.clipboard.writeText(essayUrl);
+      elements.shareBtn.textContent = 'copied';
+      setTimeout(() => elements.shareBtn.textContent = 'share it', 2000);
+    }
+  });
+}
 
 function showError(message) {
   elements.errorMessage.textContent = message;
@@ -528,6 +544,16 @@ document.addEventListener('visibilitychange', () => {
   color: var(--text-secondary);
   margin-bottom: var(--space-xl);
   line-height: var(--line-height-body);
+}
+
+#share-essay {
+  color: var(--brand-orange);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#share-essay:hover {
+  text-decoration: underline;
 }
 
 .amount-selection {
