@@ -3,7 +3,7 @@ title: "Extraction is rational"
 description: "Every wave of the internet promised to democratize something. Every wave ended in extraction. The pattern isn't greed—it's the money."
 date: 2025-11-30T15:00:00Z
 slug: extraction-is-rational
-topics: [bitcoin, freedom-tech]
+topics: [bitcoin]
 tags: []
 cta: true
 featured: false
