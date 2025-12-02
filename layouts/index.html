@@ -88,11 +88,8 @@ Important Notes:
                     {{ $subtitle = replaceRE `^–\s*` "" $subtitle }}
                 {{ end }}
                 <div class="episode-info">
-                    {{ if $epTag }}<span class="episode-tag">{{ $epTag }}</span>{{ end }}
                     <span class="episode-hook">{{ $subtitle }}</span>
-                    {{ if ne $guest "" }}
-                    <span class="episode-guest">with {{ $guest }}</span>
-                    {{ end }}
+                    <span class="episode-meta">{{ if ne $guest "" }}<span class="episode-guest">with {{ $guest }}</span>{{ end }}{{ if $epTag }}<span class="separator">·</span><span class="episode-tag">{{ $epTag }}</span>{{ end }}</span>
                 </div>
                 {{ end }}
                 <div class="podcast-links">
