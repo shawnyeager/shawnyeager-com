@@ -107,7 +107,7 @@ enableEmoji = true
 
   # Social
   copyright = "Copyright © 2025, Shawn Yeager"
-  nostr = "https://primal.net/shawn"
+  nostr = "https://shawnyeager.com/nostr"
   github = "https://github.com/shawnyeager"
   twitter_handle = "shawnyeager"
 
@@ -137,7 +137,7 @@ enableEmoji = true
 [params.author.sameAs]
   linkedin = "https://www.linkedin.com/in/shawnyeager"
   github = "https://github.com/shawnyeager"
-  nostr = "https://primal.net/shawn"
+  nostr = "https://shawnyeager.com/nostr"
   podcast = "https://fountain.fm/show/Mk0fJte5vrfiDQ5RyCZd"
 
 # =============================================================================
