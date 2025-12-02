@@ -82,7 +82,6 @@ enableEmoji = true
 
   # Open Graph
   og_image = "/images/og-image.png"
-  og_type = "website"
 
   # Theme
   content_type = "essays"
