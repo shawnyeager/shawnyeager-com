@@ -43,7 +43,6 @@ collections:
       - {label: "Topics", name: "topics", widget: "list", required: false, hint: "e.g., bitcoin, sales, strategy"}
       - {label: "Tags", name: "tags", widget: "list", required: false, hint: "e.g., go-to-market, enterprise"}
       - {label: "Featured", name: "featured", widget: "boolean", default: false, required: false}
-      - {label: "Show CTA", name: "cta", widget: "boolean", default: true, required: false}
       - {label: "Draft", name: "draft", widget: "boolean", default: false, required: false}
       - {label: "Body", name: "body", widget: "markdown", required: true}
 
