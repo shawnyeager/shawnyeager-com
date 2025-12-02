@@ -52,17 +52,53 @@ Important Notes:
     {{ end }}
 
     <!-- Podcast Feature Box -->
+    {{/* Fetch RSS to check if we have an episode */}}
+    {{ $episode := false }}
+    {{ with try (resources.GetRemote .Site.Params.podcast_rss) }}
+        {{ with .Value }}
+            {{ $feed := . | transform.Unmarshal }}
+            {{ $episode = index $feed.channel.item 0 }}
+        {{ end }}
+    {{ end }}
+
+    {{ if $episode }}
+    <h2 class="essay-section-header">Latest Episode</h2>
+    {{ end }}
     <section class="podcast">
         <div class="podcast-header">
-            <img src="/images/trust-revolution-cover.webp" alt="Trust Revolution Podcast" class="podcast-art" width="150" height="150" fetchpriority="high">
+            <img src="/images/trust-revolution-cover.webp" alt="Trust Revolution Podcast cover art" class="podcast-art" width="150" height="150" fetchpriority="high">
             <div class="podcast-info">
-                <h2>{{ .Site.Params.podcast_name }}</h2>
-                <p class="tagline">{{ .Site.Params.podcast_description }}</p>
+                {{ with $episode }}
+                {{/* Extract S##E## tag and parse guest/subtitle */}}
+                {{ $epTag := "" }}
+                {{ with findRE `^S\d+E\d+` .title }}
+                    {{ $epTag = index . 0 }}
+                {{ end }}
+                {{ $cleaned := replaceRE `^S\d+E\d+\s*` "" .title }}
+                {{ $parts := split $cleaned " – " }}
+                {{ $guest := "" }}
+                {{ $subtitle := $cleaned }}
+                {{ if gt (len $parts) 1 }}
+                    {{ $guest = index $parts 0 }}
+                    {{ $subtitle = index $parts 1 }}
+                {{ end }}
+                {{/* Handle solo eps: "– Title" leaves empty guest */}}
+                {{ if eq $guest "" }}
+                    {{ $subtitle = replaceRE `^–\s*` "" $subtitle }}
+                {{ end }}
+                <div class="episode-info">
+                    {{ if $epTag }}<span class="episode-tag">{{ $epTag }}</span>{{ end }}
+                    <span class="episode-hook">{{ $subtitle }}</span>
+                    {{ if ne $guest "" }}
+                    <span class="episode-guest">with {{ $guest }}</span>
+                    {{ end }}
+                </div>
+                {{ end }}
+                <div class="podcast-links">
+                    <a href="{{ .Site.Params.podcast_url }}" target="_blank"{{ with .Site.Params.plausible_events.podcast_external }} class="plausible-event-name={{ . }}"{{ end }}><span class="link-text">Listen now</span> <span aria-hidden="true">→</span></a>
+                    <a href="{{ "podcast" | relURL }}"{{ with .Site.Params.plausible_events.podcast_subscribe }} class="plausible-event-name={{ . }}"{{ end }}><span class="link-text">Subscribe</span> <span aria-hidden="true">→</span></a>
+                </div>
             </div>
-        </div>
-        <div class="podcast-links">
-            <a href="{{ .Site.Params.podcast_url }}" target="_blank"{{ with .Site.Params.plausible_events.podcast_external }} class="plausible-event-name={{ . }}"{{ end }}><span class="link-text">Listen now</span> <span aria-hidden="true">→</span></a>
-            <a href="{{ "podcast" | relURL }}"{{ with .Site.Params.plausible_events.podcast_subscribe }} class="plausible-event-name={{ . }}"{{ end }}><span class="link-text">Subscribe</span> <span aria-hidden="true">→</span></a>
         </div>
     </section>
 

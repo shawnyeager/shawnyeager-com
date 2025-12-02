@@ -1,0 +1,46 @@
+name: Check Podcast Feed
+
+on:
+  # Check Wed & Thu at 7:30 AM Central (13:30 UTC)
+  # Note: During daylight saving (CDT), this is 8:30 AM Central
+  schedule:
+    - cron: '30 13 * * 3,4'
+
+  # Allow manual triggering
+  workflow_dispatch:
+
+jobs:
+  check-feed:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Fetch RSS and get latest episode GUID
+        id: check
+        run: |
+          FEED_URL="https://feeds.fountain.fm/OIYZniSDb9jd3Pb78CpF"
+          # Extract the first GUID from the RSS feed
+          LATEST_GUID=$(curl -s "$FEED_URL" | grep -oP '(?<=<guid[^>]*>)[^<]+' | head -1)
+          echo "Latest episode GUID: $LATEST_GUID"
+          echo "latest_guid=$LATEST_GUID" >> $GITHUB_OUTPUT
+
+      - name: Check cache for previous GUID
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: .podcast-guid
+          key: podcast-guid-${{ steps.check.outputs.latest_guid }}
+
+      - name: Trigger Netlify build if new episode
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          echo "New episode detected! Triggering Netlify build..."
+          curl -X POST -d '{}' ${{ secrets.NETLIFY_BUILD_HOOK_URL }}
+          # Save GUID for cache
+          mkdir -p $(dirname .podcast-guid)
+          echo "${{ steps.check.outputs.latest_guid }}" > .podcast-guid
+          echo "Build triggered for new episode"
+
+      - name: No new episode
+        if: steps.cache.outputs.cache-hit == 'true'
+        run: |
+          echo "No new episode. Latest GUID already processed: ${{ steps.check.outputs.latest_guid }}"

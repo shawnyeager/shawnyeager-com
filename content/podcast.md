@@ -10,7 +10,7 @@ show_title: true
 
 {{< image src="/images/trust-revolution-cover.webp" alt="Trust Revolution Podcast" variant="img-md" >}}
 
-Unfiltered conversations with builders, thinkers, and operators in Bitcoin and beyond. Exploring the systems we trust, why they work (or don't), and what comes next.
+I sit down with builders, thinkers, and operators in Bitcoin and beyond for unfiltered conversations about the systems we trust, why they work (or don't), and what comes next.
 
 ## Listen & subscribe
 
