@@ -31,7 +31,7 @@ High-resolution headshot available for download:
 
 {{< image src="/images/shawn-media.webp" alt="Shawn Yeager headshot" variant="img-lg circular-image" >}}
 
-{{< button url="/images/shawn-media-full.jpg" text="Download high-res (JPG, 2048x2048px)" variant="cta" event="Media+Kit+Download" >}}
+{{< cta url="/images/shawn-media-full.jpg" text="Download high-res (JPG, 2048x2048px)" event="Media+Kit+Download" >}}
 
 ## Contact
 

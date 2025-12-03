@@ -13,4 +13,4 @@ build:
 
 {{< link url="https://keys.openpgp.org/search?q=shawn@shawnyeager.com" text="Lookup my public key on OpenPGP" style="cta" >}}
 
-{{< button url="/assets/public-key.asc" text="Download ASCII-armored public key" variant="download" >}}
+{{< cta url="/assets/public-key.asc" text="Download ASCII-armored public key" variant="download" >}}

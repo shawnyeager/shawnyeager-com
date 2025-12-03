@@ -30,6 +30,8 @@ jobs:
   quality-check:
     uses: shawnyeager/shared-workflows/.github/workflows/complete-content-quality.yml@master
     permissions:
+      contents: read
       issues: write
+    secrets: inherit
     with:
       site_type: 'essays'

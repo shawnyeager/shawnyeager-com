@@ -4,13 +4,12 @@ Purpose: /now page template - displays current activities and focus
 Features:
 - Page title via page-title.html partial
 - Updated date display from frontmatter with proper datetime attribute
-- Removes <!-- FOLLOWING_ALONG --> HTML comment from content
+- CTA comes from content via shortcode
 
 Important Notes:
 - Overrides theme default single.html for /now page
 - Updated field in frontmatter must be ISO date format (YYYY-MM-DD)
 - Template formats date for display while maintaining machine-readable datetime
-- Comment removal allows conditional content blocks in markdown
 */}}
 
 {{ define "main" }}
@@ -30,7 +29,4 @@ Important Notes:
         {{ $content = replace $content "<!-- FOLLOWING_ALONG -->" "" }}
         {{ $content | safeHTML }}
     </div>
-
-    <!-- Connect CTA -->
-    <a href="{{ "connect" | relURL }}" class="cta-link{{ with .Site.Params.plausible_events.connect_cta }} plausible-event-name={{ . }}{{ end }}"><span class="link-text">Let's win</span> <span aria-hidden="true">→</span></a>
 {{ end }}

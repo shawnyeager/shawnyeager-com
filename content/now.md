@@ -29,3 +29,5 @@ Latest episode with Cory Doctorow on platform enshittification and why every tec
 ## Advisory & operating work
 
 Working with Bitcoin and freedom tech startups through fractional roles, project-based consulting, and advisory. Current work includes go-to-market strategy for new freedom tech services, channel sales frameworks, and proof-of-concept programs for enterprise adoption. The goal: compete commercially so freedom tech wins on distribution and user experience, not just technology.
+
+{{< cta url="/connect" text="Let's win" event="connect_cta" >}}

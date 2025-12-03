@@ -7,6 +7,7 @@ https://shawnyeager-com.netlify.app/*           https://shawnyeager.com/:splat  
 /contact                                        /connect                                                            301
 /encrypt                                        /pgp                                                                301
 /pubkey                                         /assets/public-key.asc
+/vcard                                          /assets/shawnyeager.vcf
 /work-with-me                                   /connect                                                            301
 
 # Gone (410) - Content permanently removed
