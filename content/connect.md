@@ -6,7 +6,7 @@ type: page
 hide_footer_signup: true
 ---
 
-Building in Bitcoin or freedom tech? Whether you're finding fit or scaling revenue, let's talk. 
+Building in Bitcoin or freedom tech? Whether you're finding fit or scaling revenue, let's talk.
 
 {{< contact-section >}}
 
