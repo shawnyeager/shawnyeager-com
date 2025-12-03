@@ -6,7 +6,7 @@ type: page
 hide_footer_signup: true
 ---
 
-I help Bitcoin and freedom tech startups compete and win commercially---from product-market fit through revenue.
+Building in Bitcoin or freedom tech? Whether you're finding fit or scaling revenue, let's talk. 
 
 {{< contact-section >}}
 
