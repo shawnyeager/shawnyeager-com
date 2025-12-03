@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = "npm ci && npm run generate-essays && npm run generate-og && hugo --gc --minify"
+  command = "npm ci && npm run generate-essays && npm run generate-og && echo '=== Hugo mod graph ===' && hugo mod graph && echo '=== Building ===' && hugo --gc --minify && echo '=== Essay file check ===' && ls -la public/extraction-is-rational/ && wc -c public/extraction-is-rational/index.html"
 
 [build.environment]
   HUGO_VERSION = "0.152.2"
