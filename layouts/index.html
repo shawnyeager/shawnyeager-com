@@ -2,10 +2,10 @@
 Purpose: Homepage for shawnyeager.com - The Gallery
 
 Features:
-- Bio section from index.md content
+- Bio section from index.md content (includes CTA via shortcode)
 - Featured or latest essay display
 - Podcast feature section
-- Recent essays listing (10 most recent)
+- Recent essays listing (5 most recent)
 - Topic browsing
 
 Logic:
@@ -16,15 +16,13 @@ Logic:
 
 Important Notes:
 - Overrides theme default index.html
-- Bio content comes from /content/_index.md
-- CTA links include Plausible event tracking
+- Bio content and CTA come from /content/_index.md
 */}}
 
 {{ define "main" }}
     <!-- Bio -->
     <div class="bio">
         {{ .Content | safeHTML }}
-        <a href="{{ "connect" | relURL }}" class="cta-link{{ with .Site.Params.plausible_events.connect_cta }} plausible-event-name={{ . }}{{ end }}"><span class="link-text">Let's win</span> <span aria-hidden="true">→</span></a>
     </div>
 
     <!-- Featured or Latest Essay -->
