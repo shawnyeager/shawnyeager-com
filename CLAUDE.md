@@ -18,6 +18,12 @@ Built with Hugo using the tangerine-theme module. Content is indexed by search e
 
 ## Quick Start
 
+**⚠️ ALWAYS start work in a branch:**
+```bash
+git checkout -b feature-name
+```
+This ensures changes go through PR with deploy preview. Never work directly on master.
+
 ```bash
 # Install git hooks (first time setup)
 ./scripts/install-hooks.sh
