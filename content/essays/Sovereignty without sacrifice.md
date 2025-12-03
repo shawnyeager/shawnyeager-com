@@ -63,7 +63,7 @@ Every product decision has to drive adoption. Every feature decision should answ
 
 Most freedom tech companies market exclusively to people who already understand why self-sovereignty matters. That guarantees a tiny addressable market. Winning means marketing to people who just want better payments, better social media, better financial tools---who discover the inherent benefits after they're already using the product.
 
-What I've learned from decades in sales: customers don't care about a paradigm shift until they experience a product that works better than what they're using now. Meet them where they are. Start with what fits their expectations and actual needs. Let them discover the benefits through use. That's not compromising on Bitcoin's principles. It's sequencing the conversation correctly.
+What I've learned from decades in sales: customers don't care about a paradigm shift until they experience a product that works better than what they're using now. Meet them where they are. Start with what fits their expectations and actual needs. Let them discover the benefits through use. It's not compromising on Bitcoin's principles. It's sequencing the conversation correctly.
 
 We can't win by being better at one thing (self-sovereignty) while being worse at everything else (speed, cost, UX, features). We have to be better at everything---or at minimum, comparable on the basics while being superior on self-sovereignty.
 
