@@ -51,9 +51,10 @@ Important Notes:
     {{ end }}
 
     <!-- Podcast Feature Box -->
-    {{/* Fetch RSS to check if we have an episode */}}
+    {{/* Fetch RSS - use date-based cache key for daily refresh */}}
     {{ $episode := false }}
-    {{ with try (resources.GetRemote .Site.Params.podcast_rss) }}
+    {{ $cacheKey := print "v2-" .Site.Params.podcast_rss (now.Format "2006-01-02") }}
+    {{ with try (resources.GetRemote .Site.Params.podcast_rss (dict "key" $cacheKey)) }}
         {{ with .Value }}
             {{ $feed := . | transform.Unmarshal }}
             {{/* Check for early-access episode first, then fall back to regular item */}}
@@ -92,7 +93,7 @@ Important Notes:
                 {{ end }}
                 <div class="episode-info">
                     <span class="episode-hook">{{ $subtitle }}</span>
-                    <span class="episode-meta">{{ if ne $guest "" }}<span class="episode-guest">with {{ $guest }}</span>{{ end }}{{ if $epTag }}<span class="separator">·</span><span class="episode-tag">{{ $epTag }}</span>{{ end }}</span>
+                    <span class="episode-meta">{{ if ne $guest "" }}<span class="episode-guest">with {{ $guest }}</span>{{ if $epTag }}<span class="separator">·</span>{{ end }}{{ end }}{{ if $epTag }}<span class="episode-tag">{{ $epTag }}</span>{{ end }}</span>
                 </div>
                 {{ end }}
                 <div class="podcast-links">
