@@ -204,6 +204,9 @@ enableEmoji = true
   [caches.assets]
     dir = ":cacheDir/:project"
     maxAge = -1
+  [caches.getresource]
+    dir = ":cacheDir/:project"
+    maxAge = 0
 
 # =============================================================================
 # MENU
