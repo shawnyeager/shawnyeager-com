@@ -12,8 +12,6 @@ I'll tell you what's not working. Then we'll fix it.
 
 Have a product that needs to win? Need help with go-to-market, sales, or partnerships?
 
-Let's talk.
-
 {{< contact-section >}}
 
 {{< contact-method type="email" value="hello@shawnyeager.com" >}}
