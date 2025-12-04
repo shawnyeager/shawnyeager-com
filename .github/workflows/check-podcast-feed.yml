@@ -19,7 +19,7 @@ jobs:
         run: |
           FEED_URL="https://feeds.fountain.fm/OIYZniSDb9jd3Pb78CpF"
           # Extract the first GUID from the RSS feed
-          LATEST_GUID=$(curl -s "$FEED_URL" | grep -oP '(?<=<guid[^>]*>)[^<]+' | head -1)
+          LATEST_GUID=$(curl -s "$FEED_URL" | grep -m1 '<guid' | sed 's/.*<guid[^>]*>//;s/<\/guid>.*//')
           echo "Latest episode GUID: $LATEST_GUID"
           echo "latest_guid=$LATEST_GUID" >> $GITHUB_OUTPUT
 
