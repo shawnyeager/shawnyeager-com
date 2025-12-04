@@ -53,7 +53,8 @@ Important Notes:
     <!-- Podcast Feature Box -->
     {{/* Fetch RSS to check if we have an episode */}}
     {{ $episode := false }}
-    {{ with try (resources.GetRemote .Site.Params.podcast_rss) }}
+    {{ $cacheKey := print .Site.Params.podcast_rss (now.Format "2006-01-02") }}
+    {{ with try (resources.GetRemote .Site.Params.podcast_rss (dict "key" $cacheKey)) }}
         {{ with .Value }}
             {{ $feed := . | transform.Unmarshal }}
             {{ $episode = index $feed.channel.item 0 }}
