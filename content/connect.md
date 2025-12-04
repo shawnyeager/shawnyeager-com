@@ -8,6 +8,8 @@ hide_footer_signup: true
 
 I like hard commercial problems: positioning, sales process, partnerships, revenue. The stuff that turns a good product into a growing company.
 
+I'll tell you what's not working. Then we'll fix it.
+
 Have a product that needs to win? Need help with go-to-market, sales, or partnerships?
 
 Let's talk.
