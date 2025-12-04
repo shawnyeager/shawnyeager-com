@@ -126,7 +126,7 @@ enableEmoji = true
   plausible_events.cross_site_nav = "Cross-Site-Navigation"
   plausible_events.v4v_essay = "CTA-V4V-Essay"
   plausible_events.v4v_footer = "CTA-V4V-Footer"
-  plausible_events.connect_cta = "CTA-Ready-To-Compete"
+  plausible_events.connect_cta = "CTA-Lets-Win"
 
 [params.author]
   name = "Shawn Yeager"
