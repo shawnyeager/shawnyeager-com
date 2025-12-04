@@ -53,11 +53,15 @@ Important Notes:
     <!-- Podcast Feature Box -->
     {{/* Fetch RSS to check if we have an episode */}}
     {{ $episode := false }}
-    {{ $cacheKey := print .Site.Params.podcast_rss (now.Unix) }}
-    {{ with try (resources.GetRemote .Site.Params.podcast_rss (dict "key" $cacheKey)) }}
+    {{ with try (resources.GetRemote .Site.Params.podcast_rss) }}
         {{ with .Value }}
             {{ $feed := . | transform.Unmarshal }}
-            {{ $episode = index $feed.channel.item 0 }}
+            {{/* Check for early-access episode first, then fall back to regular item */}}
+            {{ with $feed.channel.paidItem }}
+                {{ $episode = . }}
+            {{ else }}
+                {{ $episode = index $feed.channel.item 0 }}
+            {{ end }}
         {{ end }}
     {{ end }}
 
