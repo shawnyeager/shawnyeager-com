@@ -6,7 +6,9 @@ type: page
 hide_footer_signup: true
 ---
 
-Building in Bitcoin or freedom tech? Whether you're finding fit or scaling revenue, let's talk.
+I like hard commercial problems: positioning, sales process, partnerships, revenue. The stuff that turns a good product into a growing company.
+
+Have a product that needs to win? Need help with go-to-market, sales, or partnerships? Let's talk.
 
 {{< contact-section >}}
 

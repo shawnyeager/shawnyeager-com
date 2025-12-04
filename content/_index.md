@@ -1,8 +1,10 @@
 ---
 title: Shawn Yeager
 ---
-I've built my career around technology that increases human freedom. That work has created more than $300M in revenue. Most recently, I led sales and partnerships at Amboss Technologies, NYDIG Payments, and Bottlepay.
+I'm working toward a future built on Bitcoin. I operate, advise, and invest in startups doing the same.
 
-Today I help Bitcoin and freedom tech startups compete and win commercially. Surveillance Economy platforms dominate distribution and user experience. We win by being better at both.
+30 years in tech, $300M in revenue---from browsers to Bitcoin. Operator at Amboss, NYDIG, and Bottlepay.
 
-{{< cta url="/connect" text="Let's win" event="connect_cta" >}}
+Freedom tech has to win in the market---not just on principle. I help make that happen.
+
+{{< cta url="/connect" text="Let's win →" event="connect_cta" >}}
