@@ -17,7 +17,7 @@ But it's a false choice. The protocols are built. Bitcoin works. Lightning works
 
 <!--more-->
 
-Leading sales at Bitcoin infrastructure companies taught me this: normal business customers can't see the value through a thicket of technical obfuscation. The concepts, terminology, and complexity baffle them. They want better payments. We give them liquidity management, routing, and channel rebalancing. Industry players continue to struggle with closing this gap.
+Leading sales at Bitcoin infrastructure companies taught me this: normal customers can't see the value through a thicket of technical obfuscation. The concepts, terminology, and complexity baffle them. They want better payments. We give them liquidity management, routing, and channel rebalancing. Industry players continue to struggle with closing this gap.
 
 Meanwhile, centralized platforms get smoother, faster, and more deeply integrated into daily life. Apple Pay works everywhere. Instagram launches new features weekly. Neobanks make sending money trivially easy.
 
