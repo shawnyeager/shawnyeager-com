@@ -10,9 +10,7 @@ featured: false
 draft: false
 ---
 
-Every wave of the internet promised to democratize something. Every wave ended in extraction.
-
-For twenty years I thought the problem was execution, or regulation, or bad actors. It was simpler than that.
+Every wave of the internet promised to democratize something. Every wave ended in extraction. For twenty years I thought the problem was execution, or regulation, or bad actors. It was simpler than that.
 
 It was the money.
 
