@@ -12,17 +12,19 @@ Bio, photos, and contact information for journalists, conference organizers, and
 ## Short bio (~50 words)
 
 {{< card class="bio-text" >}}
-Shawn Yeager built his career around technology that increases human freedom, creating over $300M in revenue. Most recently, he led sales at Amboss Technologies, NYDIG Payments, and Bottlepay. He helps Bitcoin and freedom tech founders win commercially---as an advisor and operator on product-market fit, go-to-market, and revenue. He hosts Trust Revolution podcast.
+Shawn Yeager is working toward a future built on Bitcoin—as an operator, advisor, and investor in startups doing the same. He's created more than $300M in revenue and previously led sales at Amboss, NYDIG Payments, and Bottlepay. He hosts Trust Revolution podcast.
 {{< /card >}}
 
 ## Extended bio (~150 words)
 
 {{< card class="bio-text" >}}
-Shawn Yeager helps Bitcoin and freedom tech startups compete and win commercially against Surveillance Economy platforms. Over 30 years, he's created more than $300M in revenue---most recently leading sales and partnerships at Amboss Technologies (Lightning Network infrastructure), NYDIG Payments (institutional Bitcoin services), and Bottlepay (Lightning payments).
+Shawn Yeager is working toward a future built on Bitcoin—as an operator, advisor, and investor in startups doing the same.
 
-He helps Bitcoin and freedom tech founders win commercially---as an advisor and operator on product-market fit, go-to-market, and revenue. He hosts Trust Revolution, a podcast exploring how Bitcoin and decentralized technologies are reshaping trust, sovereignty, and freedom. His writing on Bitcoin strategy, go-to-market, and building for the long term appears at shawnyeager.com.
+Over 30 years, he's created more than $300M in revenue—from browsers to Bitcoin. Most recently, he led sales and partnerships at Amboss Technologies (Lightning Network infrastructure), NYDIG Payments (institutional Bitcoin services), and Bottlepay (Lightning payments).
 
-His work is guided by a belief that Surveillance Economy platforms own distribution and user experience---and that freedom tech wins by being undeniably better at both.
+Now he helps founders solve hard commercial problems: positioning, sales process, partnerships, revenue—the stuff that turns a good product into a growing company.
+
+He hosts Trust Revolution, a podcast exploring how Bitcoin and decentralized technologies are reshaping trust, sovereignty, and freedom. His writing appears at shawnyeager.com.
 {{< /card >}}
 
 ## Professional photo
