@@ -1,7 +1,8 @@
 ---
 title: Shawn Yeager
+headline: "I'm working toward a future built on Bitcoin."
 ---
-I'm working toward a future built on Bitcoin. I operate, advise, and invest in startups building it.
+I operate, advise, and invest in startups building it.
 
 30 years in tech, $300M in revenue---from browsers to Bitcoin. Led sales at Amboss, NYDIG Payments, and Bottlepay.
 

@@ -22,6 +22,7 @@ Important Notes:
 {{ define "main" }}
     <!-- Bio -->
     <div class="bio">
+        {{ with .Params.headline }}<h1 class="display-title">{{ . }}</h1>{{ end }}
         {{ .Content | safeHTML }}
     </div>
 

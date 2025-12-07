@@ -3,6 +3,7 @@ title: Media
 description: Bio, photos, and contact information for journalists, conference organizers, and podcast hosts. Bitcoin go-to-market leader and Trust Revolution podcast host.
 date: 2025-10-11
 type: page
+show_title: true
 build:
   list: false
   render: true
@@ -31,7 +32,7 @@ He hosts Trust Revolution, a podcast exploring how Bitcoin and decentralized tec
 
 High-resolution headshot available for download:
 
-{{< image src="/images/shawn-media.webp" alt="Shawn Yeager headshot" variant="img-lg circular-image" >}}
+{{< image src="/images/shawn-media.webp" alt="Shawn Yeager headshot" variant="img-lg" >}}
 
 {{< cta url="/images/shawn-media-full.jpg" text="Download high-res (JPG, 2048x2048px)" event="Media+Kit+Download" >}}
 

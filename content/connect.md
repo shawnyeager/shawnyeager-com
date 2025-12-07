@@ -1,8 +1,9 @@
 ---
-title: Connect
+title: Let's win
 description: Contact Shawn Yeager about product-market fit, go-to-market, and revenue for Bitcoin and freedom tech. Working with founders and investors.
 date: 2025-10-29T07:27:00
 type: page
+show_title: true
 hide_footer_signup: true
 ---
 
