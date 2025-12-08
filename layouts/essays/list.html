@@ -24,7 +24,7 @@ Important Notes:
     {{ end }}
 
     <!-- All Essays -->
-    <section class="recent-essays">
+    <section class="recent-essays full-list">
         {{ $posts := where .Pages "Type" "essays" }}
         {{ if not hugo.IsServer }}
         {{ $posts = where $posts "Draft" false }}
