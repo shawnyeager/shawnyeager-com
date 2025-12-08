@@ -24,7 +24,7 @@ Publishing monthly [essays](/essays/) on how freedom tech wins---sales, partners
 
 Latest episode with Cory Doctorow on platform enshittification and why every tech giant eventually betrays its users. Previously: Average Gary on the path from Navy special operations to Bitcoin mining and building local community resilience. Next: I explore whether voluntary payment can actually compete against the Big Tech extraction economy.
 
-{{< link url="/podcast" text="Subscribe" style="cta" >}}
+{{< link url="podcast" text="Listen now" style="cta" >}}
 
 ## Advisory & operating work
 
