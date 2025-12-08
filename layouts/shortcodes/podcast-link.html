@@ -1,3 +1,0 @@
-{{- $url := .Get "url" -}}
-{{- $text := .Get "text" -}}
-<a href="{{ $url }}"{{ with $.Site.Params.plausible_events.podcast_subscribe }} class="plausible-event-name={{ . }}"{{ end }}>{{ $text }}</a>
