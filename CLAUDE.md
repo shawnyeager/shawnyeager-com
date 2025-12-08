@@ -258,7 +258,7 @@ This site uses a Node.js script to generate OG images for essays at build time.
 
 **Dependencies:** satori, sharp, gray-matter (installed via npm)
 
-**Font files:** The script uses `assets/fonts/Inter-Bold.otf` and `assets/fonts/Inter-SemiBold.otf` for OG image generation. These are **separate from the theme's web font** (`tangerine-theme/static/fonts/inter-variable.woff2`) because:
+**Font files:** The script uses `assets/fonts/Satoshi-Bold.otf` for OG image generation (matches the site's header/title font). This is **separate from the theme's web font** (`tangerine-theme/static/fonts/Satoshi-Variable.woff2`) because:
 - Satori (OG image generator) requires OTF/TTF format
 - Satori doesn't support WOFF2 format
 - The web font is optimized for browser delivery, not image generation
