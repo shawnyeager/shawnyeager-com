@@ -4,10 +4,10 @@ import { readFileSync, readdirSync, existsSync, mkdirSync } from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
 
-// Load Inter Bold font (700 weight)
+// Load Satoshi Bold font (700 weight) - matches site header/title font
 // Note: Satori doesn't support WOFF2, requires OTF/TTF format
-// This is separate from theme's inter-variable.woff2 used for web
-const fontData = readFileSync('assets/fonts/Inter-Bold.otf');
+// This is separate from theme's satoshi-variable.woff2 used for web
+const fontData = readFileSync('assets/fonts/Satoshi-Bold.otf');
 
 function calculateFontSize(title, maxSize, minSize, maxLength) {
   if (title.length <= 20) return maxSize;
@@ -96,7 +96,7 @@ async function generateOGImage(title, outputPath, format = 'landscape') {
                     fontWeight: 700,
                     lineHeight: 1.15,
                     color: '#1a1a1a',
-                    fontFamily: 'Inter',
+                    fontFamily: 'Satoshi',
                     textAlign: 'left',
                   },
                   children: title,
@@ -111,7 +111,7 @@ async function generateOGImage(title, outputPath, format = 'landscape') {
       ...dimensions,
       fonts: [
         {
-          name: 'Inter',
+          name: 'Satoshi',
           data: fontData,
           weight: 700,
           style: 'normal',

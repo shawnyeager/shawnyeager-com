@@ -31,7 +31,7 @@ hugo --minify
 - **Hugo** 0.152.2 — Static site generator
 - **Hugo Modules** — Theme imported from public [tangerine-theme](https://github.com/shawnyeager/tangerine-theme)
 - **Netlify** — Automatic deployment on push to master
-- **Inter variable font** — Provided by theme
+- **Satoshi + Inter variable fonts** — Provided by theme
 
 ## Configuration
 
