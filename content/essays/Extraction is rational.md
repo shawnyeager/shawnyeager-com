@@ -52,7 +52,7 @@ Cory Doctorow nailed the diagnosis. His "enshittification" framework describes w
 
 His solution: antitrust enforcement, break up monopolies, strengthen regulation, mandate interoperability. He's right about what happened. These things matter. But this strain of thinking---diagnose monopoly power, prescribe antitrust---stops one layer short.
 
-When I [interviewed Doctorow on my podcast](https://fountain.fm/episode/bJgdt0hJAnppEve6Qmt8), I asked about protocols over platforms. If platforms inevitably enshittify, what about permissionless protocols that bypass them entirely? He pivoted. Protocols are fine for everything except money. For money, he insists it's government's job, not a protocol problem. Bitcoin? "The shittiest money imaginable." Only good for buying "shitty monkey JPEGs and more Bitcoin."
+When I [interviewed Doctorow](https://fountain.fm/episode/bJgdt0hJAnppEve6Qmt8), I asked about protocols over platforms. If platforms inevitably enshittify, what about permissionless protocols that bypass them entirely? He pivoted. Protocols are fine for everything except money. For money, he insists it's government's job, not a protocol problem. Bitcoin? "The shittiest money imaginable." Only good for buying "shitty monkey JPEGs and more Bitcoin."
 
 The critique didn't bother me. The asymmetry did.
 
