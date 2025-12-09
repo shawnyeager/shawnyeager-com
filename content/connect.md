@@ -9,6 +9,8 @@ hide_footer_signup: true
 
 I help Bitcoin and freedom tech startups solve hard commercial problems---positioning, sales process, channel strategy, revenue operations. The stuff that turns a good product into a growing company.
 
+Product works but sales don't? Enterprise wants features that compromise the mission? Traction but no repeatable process to scale it?
+
 {{< contact-section >}}
 
 {{< contact-method type="email" value="hello@shawnyeager.com" >}}
