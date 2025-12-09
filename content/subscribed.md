@@ -14,4 +14,5 @@ You'll get occasional updates on Bitcoin strategy, go-to-market thinking, and es
 **Check your email to confirm your subscription.**
 
 In the meantime, check out {{< link url="/essays/" text="recent essays" >}} or learn more {{< link url="/now/" text="about what I'm working on now" >}}.
-{{< link url="/" text="Back to home" style="back" >}}
+
+{{< link url="/" text="Home" style="back" >}}
