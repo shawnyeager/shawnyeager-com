@@ -74,9 +74,7 @@
     </div>
 
     {{ if $hasEssay }}
-    <nav class="essay-nav">
-      {{- partial "links/back.html" (dict "url" (printf "/%s/" $essaySlug) "text" "Back to essay") -}}
-    </nav>
+    {{- partial "content-nav.html" (dict "back_url" (printf "/%s/" $essaySlug) "back_text" "Back to essay") -}}
     {{ end }}
 
     <!-- V4V Info -->
@@ -85,7 +83,7 @@
       <p>
         Value for value means no paywalls, no tracking, no platform cut. You read first, decide what the work is worth, then pay directly. Bitcoin makes this possible—no middlemen, no surveillance, just creator and reader.
       </p>
-      {{- partial "links/cta.html" (dict "url" "https://value4value.info/" "text" "How V4V works") -}}
+      {{- partial "links/action.html" (dict "url" "https://value4value.info/" "text" "How V4V works") -}}
     </details>
   </div>
 </article>

@@ -26,17 +26,18 @@ description: "A concise 1-2 sentence summary of the essay for SEO meta tags and 
             {{ .Content | safeHTML }}
         </div>
 
-        <!-- Essay Footer -->
-        <footer class="essay-footer">
-            {{- with .Params.acknowledgment }}
-            <p class="essay-acknowledgement">{{ . }}</p>
-            {{- end }}
-            {{- partial "links/cta.html" (dict "url" (printf "/%s/v4v/" .Params.slug) "text" "Zap this essay" "event" .Site.Params.plausible_events.v4v_essay "icon" "lightning") -}}
-        </footer>
-
-        <!-- Essay Navigation -->
-        <nav class="essay-nav">
-            {{- partial "links/back.html" (dict "url" ("essays" | relURL) "text" "All essays" "event" .Site.Params.plausible_events.all_essays) -}}
-        </nav>
+        <!-- Essay Footer & Navigation -->
+        {{- with .Params.acknowledgment }}
+        <p class="essay-acknowledgement">{{ . }}</p>
+        {{- end }}
+        {{- partial "content-nav.html" (dict
+            "action_url" (printf "/%s/v4v/" .Params.slug)
+            "action_text" "Zap this essay"
+            "action_icon" "lightning"
+            "action_event" .Site.Params.plausible_events.v4v_essay
+            "back_url" ("essays" | relURL)
+            "back_text" "All essays"
+            "back_event" .Site.Params.plausible_events.all_essays
+        ) -}}
     </article>
 {{ end }}
