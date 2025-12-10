@@ -106,10 +106,16 @@ Important Notes:
     </section>
 
       <!-- Recent Essays -->
-      {{ if $posts }}
+      {{/* Exclude featured essay from list to avoid duplication */}}
+      {{ $recentPosts := where $posts "Params.featured" "!=" true }}
+      {{/* If no featured, skip the first (already shown as Latest) */}}
+      {{ if not $isFeatured }}
+          {{ $recentPosts = after 1 $posts }}
+      {{ end }}
+      {{ if $recentPosts }}
       <section class="recent-essays">
           <h2 class="section-label-small">Recent Essays</h2>
-         {{ range first 5 $posts }}
+         {{ range first 5 $recentPosts }}
          <article class="essay-item">
              <a href="{{ .RelPermalink }}">
                  <time datetime="{{ .Date.Format "2006-01-02" }}" class="essay-date">{{ .Date.Format "2006 · 01" }}</time>

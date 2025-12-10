@@ -146,6 +146,9 @@ enableEmoji = true
 [markup.goldmark.renderer]
   unsafe = false
 
+[markup.goldmark.parser.attribute]
+  block = true
+
 [markup.goldmark.extensions.extras.mark]
   enable = true
 
