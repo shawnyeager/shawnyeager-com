@@ -40,18 +40,5 @@ Important Notes:
         {{ end }}
     </section>
 
-    {{ if or $paginator.HasPrev $paginator.HasNext }}
-    <nav class="pagination">
-        {{ if $paginator.HasPrev }}
-        <a href="{{ $paginator.Prev.URL }}" class="pagination-prev">
-            <span class="arrow" aria-hidden="true">←</span><span class="link-text">Newer essays</span>
-        </a>
-        {{ end }}
-        {{ if $paginator.HasNext }}
-        <a href="{{ $paginator.Next.URL }}" class="pagination-next">
-            <span class="link-text">Older essays</span><span class="arrow" aria-hidden="true">→</span>
-        </a>
-        {{ end }}
-    </nav>
-    {{ end }}
+    {{ partial "pagination.html" (dict "paginator" $paginator "prevText" "Newer essays" "nextText" "Older essays") }}
 {{ end }}
