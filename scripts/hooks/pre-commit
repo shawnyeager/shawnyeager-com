@@ -1,29 +1,55 @@
 #!/bin/bash
-# Block go.mod commits on master branch (theme updates should come via GitHub Actions)
-# Feature/preview branches can update theme manually for testing
+# pre-commit hook for Hugo site repos
+# 1. Blocks commits on master (must use feature branches)
+# 2. Blocks replace directives in go.mod (breaks Netlify builds)
 
-# Only block on master branch
-CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-if [ "$CURRENT_BRANCH" != "master" ]; then
+# Skip in CI/automated contexts
+if [ -n "$CI" ] || [ -n "$GITHUB_ACTIONS" ]; then
     exit 0
 fi
 
+# Block commits on master branch
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if [ "$BRANCH" = "master" ]; then
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "ERROR: Cannot commit directly to master!"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo ""
+    echo "Site changes must go through PRs with deploy previews."
+    echo ""
+    echo "TO FIX:"
+    echo "  git checkout -b feature-name    # Create a feature branch"
+    echo "  git add -A && git commit        # Commit your changes"
+    echo "  git push -u origin feature-name # Push branch"
+    echo "  gh pr create --fill             # Create PR"
+    echo ""
+    echo "This commit has been BLOCKED."
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    exit 1
+fi
+
+# Check if go.mod is staged for commit
 if git diff --cached --name-only | grep -q "^go.mod$"; then
-    if git diff --cached go.mod | grep -q "tangerine-theme"; then
+    # Check the staged content (not working tree) for replace directive
+    if git show :go.mod 2>/dev/null | grep -q "^replace.*tangerine-theme"; then
         echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-        echo "❌ ERROR: Do NOT manually commit go.mod theme updates!"
+        echo "ERROR: Cannot commit go.mod with replace directive!"
         echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
         echo ""
-        echo "Theme updates must come via GitHub Actions workflow."
+        echo "Replace directives are for LOCAL TESTING ONLY."
+        echo "Netlify cannot access ../tangerine-theme and builds will fail."
         echo ""
-        echo "CORRECT WORKFLOW:"
-        echo "  1. Push theme changes to tangerine-theme master"
-        echo "  2. Run: gh workflow run auto-theme-update-pr.yml --repo shawnyeager/shawnyeager-com"
-        echo "  3. Wait for GitHub Actions to create the PR"
-        echo "  4. Review deploy preview and merge"
+        echo "TO FIX:"
+        echo "  git restore go.mod        # Remove replace directive"
+        echo "  git add go.mod            # Re-stage the clean version"
+        echo ""
+        echo "Or unstage go.mod from this commit:"
+        echo "  git restore --staged go.mod"
         echo ""
         echo "This commit has been BLOCKED."
         echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
         exit 1
     fi
 fi
+
+exit 0
