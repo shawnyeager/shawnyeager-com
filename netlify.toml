@@ -22,3 +22,16 @@ for = "/*"
 Referrer-Policy = "no-referrer"
 X-Content-Type-Options = "nosniff"
 Content-Security-Policy = "default-src 'self'; frame-src 'self' https://app.netlify.com; script-src 'self' 'unsafe-inline' https://plausible.io https://cdn.jsdelivr.net https://esm.sh; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://plausible.io https://api.github.com https://github.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
+
+# Proxy SRS microsite (invisible rewrite - user stays on shawnyeager.com/score/)
+[[redirects]]
+  from = "/score/*"
+  to = "https://srs.shawnyeager.com/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/score"
+  to = "https://srs.shawnyeager.com/"
+  status = 200
+  force = true

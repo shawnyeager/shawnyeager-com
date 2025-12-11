@@ -1,15 +1,11 @@
 ---
-title: Let's win
-description: Contact Shawn Yeager about product-market fit, go-to-market, and revenue for Bitcoin and freedom tech. Working with founders and investors.
+title: Connect
+description: "Get in touch with Shawn Yeager. Email, Signal, or book a meeting."
 date: 2025-10-29T07:27:00
 type: page
 show_title: true
 hide_footer_signup: true
 ---
-
-I help Bitcoin and freedom tech startups solve hard commercial problems---positioning, sales process, channel strategy, revenue operations. The stuff that turns a good product into a growing company.
-
-Product works but sales don't? Enterprise wants features that compromise the mission? Traction but no repeatable process to scale it?
 
 {{< contact-section >}}
 
