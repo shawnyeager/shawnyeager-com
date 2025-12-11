@@ -1,6 +1,7 @@
 [build]
   publish = "public"
-  command = "npm ci && npm run generate-essays && npm run generate-og && hugo --gc --minify"
+  # Clear Hugo's getresource cache to ensure fresh RSS feed fetch for podcast card
+  command = "rm -rf /opt/build/cache/hugo_cache/*/filecache/getresource && npm ci && npm run generate-essays && npm run generate-og && hugo --gc --minify"
 
 [build.environment]
   HUGO_VERSION = "0.152.2"
