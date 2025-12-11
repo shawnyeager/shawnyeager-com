@@ -1,13 +1,15 @@
 {{/*
   Let's Win - Conversion Page
-  Simple structure: title, intro, CTA block, secondary
+  Structure: title, body content, CTA block, secondary
 */}}
 
 {{ define "main" }}
 <article class="landing-page">
     <h1 class="landing-title">{{ .Title }}</h1>
 
-    <p class="landing-intro">{{ .Params.intro }}</p>
+    <div class="landing-body">
+        {{ .Content }}
+    </div>
 
     <div class="landing-cta-block">
         {{- partial "links/action.html" (dict "url" .Params.cta_url "text" .Params.cta_text) -}}
