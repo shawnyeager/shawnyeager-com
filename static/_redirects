@@ -23,10 +23,12 @@ https://shawnyeager-com.netlify.app/*           https://shawnyeager.com/:splat  
 /the-end-of-the-independent-software-vendor     /gone                                                               410
 /want-the-deal-push-for-it                      /gone                                                               410
 
+# SRS proxy (user stays on shawnyeager.com/score)
+/score                                          https://srs.shawnyeager.com/                                            200!
+/score/*                                        https://srs.shawnyeager.com/:splat                                      200!
+
 # External service redirects
 /cal                                            https://cal.com/shawnyeager
-/score                                          https://srs.shawnyeager.com/
-/score/*                                        https://srs.shawnyeager.com/:splat
 /interview                                      https://cal.com/shawnyeager/interview
 /meet                                           https://cal.com/shawnyeager
 /music                                          https://music.apple.com/profile/shawnyeager
