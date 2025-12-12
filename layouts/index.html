@@ -81,9 +81,11 @@ Important Notes:
                     {{ $epTag = index . 0 }}
                 {{ end }}
                 {{ $cleaned := replaceRE `^S\d+E\d+\s*` "" .title }}
-                {{ $parts := split $cleaned " – " }}
+                {{/* Normalize both em dash (—) and en dash (–) to consistent delimiter */}}
+                {{ $normalized := replaceRE `\s*[–—]\s*` " – " $cleaned }}
+                {{ $parts := split $normalized " – " }}
                 {{ $guest := "" }}
-                {{ $subtitle := $cleaned }}
+                {{ $subtitle := $normalized }}
                 {{ if gt (len $parts) 1 }}
                     {{ $guest = index $parts 0 }}
                     {{ $subtitle = index $parts 1 }}
