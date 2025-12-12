@@ -22,7 +22,7 @@ for = "/*"
 [headers.values]
 Referrer-Policy = "no-referrer"
 X-Content-Type-Options = "nosniff"
-Content-Security-Policy = "default-src 'self'; frame-src 'self' https://app.netlify.com; script-src 'self' 'unsafe-inline' https://plausible.io https://cdn.jsdelivr.net https://esm.sh; style-src 'self' 'unsafe-inline' https:; font-src 'self' https:; img-src 'self' data: https:; connect-src 'self' https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
+Content-Security-Policy = "default-src 'self'; frame-src 'self' https://app.netlify.com; script-src 'self' 'unsafe-inline' https://plausible.io https://cdn.jsdelivr.net https://esm.sh; style-src 'self' 'unsafe-inline' https:; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
 
 # Proxy SRS microsite (invisible rewrite - user stays on shawnyeager.com/score/)
 [[redirects]]
