@@ -1,20 +1,19 @@
 ---
-title: Let's win
+title: "You've got the product"
+seo_title: "Let's win"
+subtitle: "Now you need customers, revenue, and a repeatable way to get both."
 description: "You've got the product. Now you need customers, revenue, and a repeatable way to get both. Find out where you stand."
 date: 2025-12-11
 type: lets-win
 hide_footer_signup: true
-cta_text: "See where you stand"
+cta_text: "Get your score"
 cta_url: "/score"
-supporting_text: "10 questions. 3 mins. The clarity you need to scale."
+secondary_cta_text: "Or just reach out."
+secondary_cta_url: "/connect"
 ---
 
-You've got the product. Now you need customers, revenue, and a repeatable way to get both.
+I've seen this pattern across dozens of startups. Deep in engineering and product, but flying blind on commercial fundamentals. Deals stall. Revenue depends on the founder being in every conversation.
 
-But something's not working:
+So I built a scorecard. Ten questions, five minutes. It shows you where the gaps are, what's blocking scale, and what to fix first.
 
-Positioning that makes sense to you but confuses buyers. Deals that stall and you can't figure out why. Revenue that depends on you being in every conversation. No way to tell if you're getting better or just getting lucky.
-
-I've seen this pattern across dozens of Bitcoin and freedom tech startups. Deep in engineering and product, but flying blind on commercial fundamentals.
-
-The Sales Readiness Score shows you where the gaps are, what's blocking scale, and what to fix first.
+Take it. If you want, we'll review your answers together and figure out where to start.
