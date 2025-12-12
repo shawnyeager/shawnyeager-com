@@ -11,9 +11,10 @@
         {{ .Content }}
     </div>
 
-    <div class="landing-cta-block">
-        {{- partial "links/action.html" (dict "url" .Params.cta_url "text" .Params.cta_text) -}}
-        <p class="landing-supporting">{{ .Params.supporting_text }}</p>
+    <div class="landing-body">
+        <p>{{ .Params.supporting_text }}</p>
     </div>
+
+    <a href="{{ .Params.cta_url }}" class="btn-ghost btn-ghost--primary">{{ .Params.cta_text }}<span class="arrow" aria-hidden="true">→</span></a>
 </article>
 {{ end }}
