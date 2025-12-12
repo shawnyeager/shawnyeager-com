@@ -1,19 +1,18 @@
 {{/*
   Let's Win - Conversion Page
-  Structure: title, body content, CTA block, secondary
+  Structure: title, subtitle, body, CTA
 */}}
 
 {{ define "main" }}
 <article class="landing-page">
     <h1 class="landing-title">{{ .Title }}</h1>
+    {{ with .Params.subtitle }}<p class="landing-subtitle">{{ . }}</p>{{ end }}
 
     <div class="landing-body">
         {{ .Content }}
     </div>
 
-    <div class="landing-cta-block">
-        {{- partial "links/action.html" (dict "url" .Params.cta_url "text" .Params.cta_text) -}}
-        <p class="landing-supporting">{{ .Params.supporting_text }}</p>
-    </div>
+    <a href="{{ .Params.cta_url }}" class="action-link"><span class="link-text">{{ .Params.cta_text }}</span><span class="arrow" aria-hidden="true">→</span></a>
+    {{ with .Params.secondary_cta_url }}<a href="{{ . }}" class="secondary-link">{{ $.Params.secondary_cta_text }}</a>{{ end }}
 </article>
 {{ end }}
