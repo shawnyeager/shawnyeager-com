@@ -15,7 +15,5 @@
         {{- partial "links/action.html" (dict "url" .Params.cta_url "text" .Params.cta_text) -}}
         <p class="landing-supporting">{{ .Params.supporting_text }}</p>
     </div>
-
-    <p class="landing-secondary">{{ .Params.secondary_text }} {{ partial "links/action.html" (dict "url" .Params.secondary_cta_url "text" .Params.secondary_cta_text) }}</p>
 </article>
 {{ end }}
