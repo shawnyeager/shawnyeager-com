@@ -29,8 +29,6 @@ https://shawnyeager-com.netlify.app/*           https://shawnyeager.com/:splat  
 
 # External service redirects
 /cal                                            https://cal.com/shawnyeager
-/score                                          https://srs.shawnyeager.com/
-/score/*                                        https://srs.shawnyeager.com/:splat
 /interview                                      https://cal.com/shawnyeager/interview
 /meet                                           https://cal.com/shawnyeager
 /music                                          https://music.apple.com/profile/shawnyeager
