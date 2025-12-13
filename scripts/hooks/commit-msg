@@ -1,0 +1,40 @@
+#!/bin/bash
+# commit-msg hook for Hugo site repos
+# Blocks commit messages that reveal AI editing process
+
+# Skip in CI/automated contexts
+if [ -n "$CI" ] || [ -n "$GITHUB_ACTIONS" ]; then
+    exit 0
+fi
+
+COMMIT_MSG_FILE="$1"
+SUBJECT=$(head -n 1 "$COMMIT_MSG_FILE")
+
+# Patterns that reveal AI editing process (case-insensitive)
+BLOCKED_PATTERNS=(
+    "AI tell"
+    "AI pattern"
+    "remove AI"
+    "fix AI"
+)
+
+for pattern in "${BLOCKED_PATTERNS[@]}"; do
+    if echo "$SUBJECT" | grep -qi "$pattern"; then
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo "ERROR: Commit message reveals AI editing process!"
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo ""
+        echo "Blocked pattern: \"$pattern\""
+        echo "Your message: \"$SUBJECT\""
+        echo ""
+        echo "TO FIX:"
+        echo "  Use a neutral commit message that describes the change,"
+        echo "  not the process. Example: \"Edit: tighten prose\""
+        echo ""
+        echo "This commit has been BLOCKED."
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        exit 1
+    fi
+done
+
+exit 0
