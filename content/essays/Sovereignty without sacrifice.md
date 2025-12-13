@@ -125,6 +125,6 @@ Make them accessible. Make them usable. Make them undeniable.
 
 Then we win.
 
-{{< acknowledgement >}}
+{{< aside >}}
 Thanks to Steven DeLorme, Fran, Marks, Steve Myers, Matt O'Dell, Matthew Ramsden, and Derek Ross for feedback on drafts of this essay.
-{{< /acknowledgement >}}
+{{< /aside >}}
