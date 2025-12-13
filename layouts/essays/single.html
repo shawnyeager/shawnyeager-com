@@ -28,7 +28,7 @@ description: "A concise 1-2 sentence summary of the essay for SEO meta tags and 
 
         <!-- Essay Footer & Navigation -->
         {{- with .Params.acknowledgment }}
-        <p class="essay-acknowledgement">{{ . }}</p>
+        <p class="aside">{{ . }}</p>
         {{- end }}
         {{- partial "content-nav.html" (dict
             "action_url" (printf "/%s/v4v/" .Params.slug)
