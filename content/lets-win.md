@@ -6,7 +6,7 @@ description: "You've got the product. Now you need customers, revenue, and a rep
 date: 2025-12-11
 type: lets-win
 hide_footer_signup: true
-cta_text: "Get your score"
+cta_text: "Get started"
 cta_url: "/score"
 secondary_cta_text: "Or just reach out."
 secondary_cta_url: "/connect"
