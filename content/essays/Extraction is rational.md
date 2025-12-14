@@ -5,7 +5,6 @@ date: 2025-11-30T15:00:00Z
 slug: extraction-is-rational
 topics: [bitcoin]
 tags: []
-cta: true
 featured: false
 draft: false
 ---
