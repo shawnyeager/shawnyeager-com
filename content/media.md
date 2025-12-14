@@ -13,17 +13,17 @@ Bio, photos, and contact information for journalists, conference organizers, and
 ## Short bio (~50 words)
 
 {{< card class="bio-text" >}}
-Shawn Yeager is working toward a future built on Bitcoin. He helps startups building that future compete and win commercially. Over 30 years, he's driven more than $300M in revenue and led sales at Amboss, NYDIG Payments, and Bottlepay. He hosts Trust Revolution podcast.
+Shawn Yeager is working toward a future built on Bitcoin---helping founders on the same mission solve hard commercial problems. Over 30 years, he's driven more than $300M in revenue and led sales at Amboss, NYDIG Payments, and Bottlepay. He hosts Trust Revolution podcast.
 {{< /card >}}
 
 ## Extended bio (~150 words)
 
 {{< card class="bio-text" >}}
-Shawn Yeager is working toward a future built on Bitcoin---helping startups building it compete and win commercially.
+Shawn Yeager is working toward a future built on Bitcoin---helping founders on the same mission solve hard commercial problems.
 
 Over 30 years, he's driven more than $300M in revenue---from browsers to Bitcoin. Most recently, he led sales and partnerships at Amboss Technologies (Lightning Network infrastructure), NYDIG Payments (institutional Bitcoin services), and Bottlepay (Lightning payments).
 
-He focuses on hard commercial problems---positioning, sales process, channel strategy, revenue operations. The stuff that turns a good product into a growing company.
+He focuses on positioning, sales process, channel strategy, and revenue operations---the stuff that turns a good product into a growing company.
 
 He hosts Trust Revolution, a podcast exploring how Bitcoin and decentralized technologies are reshaping trust, sovereignty, and freedom. His writing appears at shawnyeager.com.
 {{< /card >}}
