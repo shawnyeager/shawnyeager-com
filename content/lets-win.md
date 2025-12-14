@@ -14,6 +14,7 @@ So I built a scorecard. Ten questions, five minutes. It shows you where the gaps
 
 Take it. If you want, we'll review your answers together and figure out where to start.
 
+{{< cta-group >}}
 {{< cta url="/score" text="Get started" variant="ghost" >}}
-
 {{< cta url="/connect" text="Or just reach out." variant="secondary" event="connect_cta" >}}
+{{< /cta-group >}}
