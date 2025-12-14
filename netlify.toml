@@ -22,29 +22,5 @@ for = "/*"
 [headers.values]
 Referrer-Policy = "no-referrer"
 X-Content-Type-Options = "nosniff"
-# Content Security Policy
-# -----------------------
-# default-src 'self'              - Default fallback
-# frame-src                       - Allowed iframe sources
-#   - app.netlify.com             - Netlify Identity widget
-# script-src                      - Allowed script sources
-#   - 'unsafe-inline'             - Inline scripts (Hugo shortcodes)
-#   - plausible.io                - Analytics
-#   - cdn.jsdelivr.net, esm.sh    - Sveltia CMS
-# style-src                       - Allowed style sources
-#   - 'unsafe-inline'             - Inline styles
-#   - srs.shawnyeager.com         - Social card preview proxy
-# font-src                        - Allowed font sources
-#   - srs.shawnyeager.com         - Social card preview proxy
-# img-src                         - Allowed image sources
-#   - data:, https:               - Data URIs and any HTTPS
-# connect-src                     - Allowed fetch/XHR destinations
-#   - plausible.io                - Analytics
-#   - srs.shawnyeager.com         - Social card preview proxy
-#   - api.github.com, github.com  - Sveltia CMS GitHub auth
-# frame-ancestors 'none'          - Prevent embedding in iframes
-# base-uri 'self'                 - Restrict <base> tag
-# form-action                     - Allowed form submission targets
-#   - github.com                  - Sveltia CMS OAuth flow
-Content-Security-Policy = "default-src 'self'; frame-src 'self' https://app.netlify.com; script-src 'self' 'unsafe-inline' https://plausible.io https://cdn.jsdelivr.net https://esm.sh; style-src 'self' 'unsafe-inline' https://srs.shawnyeager.com; font-src 'self' https://srs.shawnyeager.com; img-src 'self' data: https:; connect-src 'self' https://plausible.io https://srs.shawnyeager.com https://api.github.com https://github.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://github.com;"
-
+# CSP: allow HTTPS resources, block iframe embedding
+Content-Security-Policy = "default-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' https:; frame-ancestors 'none';"
