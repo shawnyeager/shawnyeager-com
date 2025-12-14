@@ -24,10 +24,10 @@ Publishing monthly [essays](/essays/) on how freedom tech wins---sales, partners
 
 Latest episode with Cory Doctorow on platform enshittification and why every tech giant eventually betrays its users. Previously: Average Gary on the path from Navy special operations to Bitcoin mining and building local community resilience. Next: I explore whether voluntary payment can actually compete against the Big Tech extraction economy.
 
-{{< link url="podcast" text="Listen now" style="cta" >}}
+{{< cta url="podcast" text="Listen now" >}}
 
 ## Advisory & operating work
 
 Working with Bitcoin and freedom tech startups through fractional roles, project-based consulting, and advisory. Current work includes go-to-market strategy for new freedom tech services, channel sales frameworks, and proof-of-concept programs for enterprise adoption. The goal: compete commercially so freedom tech wins on distribution and user experience, not just technology.
 
-{{< cta url="/connect" text="Let's win" event="connect_cta" >}}
+{{< cta url="/lets-win" text="Let's win" event="lets_win_cta" >}}

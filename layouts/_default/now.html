@@ -23,10 +23,8 @@ Important Notes:
     </div>
     {{ end }}
 
-    <!-- Page Content wrapped in sections -->
+    <!-- Page Content -->
     <div class="page-body{{ if .Params.long_form }} long-form{{ end }}">
-        {{ $content := .Content }}
-        {{ $content = replace $content "<!-- FOLLOWING_ALONG -->" "" }}
-        {{ $content | safeHTML }}
+        {{ .Content }}
     </div>
 {{ end }}

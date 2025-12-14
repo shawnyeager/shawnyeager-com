@@ -11,15 +11,5 @@
     <div class="landing-body">
         {{ .Content }}
     </div>
-
-    <div class="landing-cta">
-        <a href="{{ .Params.cta_url }}" class="btn-ghost btn-ghost--primary">
-            <span class="link-text">{{ .Params.cta_text }}</span>
-            <span class="arrow" aria-hidden="true">→</span>
-        </a>
-        {{ with .Params.secondary_cta_url }}
-        <a href="{{ . }}" class="secondary-link">{{ $.Params.secondary_cta_text }}</a>
-        {{ end }}
-    </div>
 </article>
 {{ end }}
