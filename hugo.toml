@@ -134,10 +134,11 @@ enableEmoji = true
   image = "/images/shawn-media.jpg"
 
 [params.author.sameAs]
-  linkedin = "https://www.linkedin.com/in/shawnyeager"
+  fountain = "https://fountain.fm/p/npub1clk6vc9xhjp8q5cws262wuf2eh4zuvwupft03hy4ttqqnm7e0jrq3upup9"
   github = "https://github.com/shawnyeager"
+  linkedin = "https://www.linkedin.com/in/shawnyeager"
   nostr = "https://shawnyeager.com/nostr"
-  podcast = "https://fountain.fm/show/Mk0fJte5vrfiDQ5RyCZd"
+  substack = "https://substack.com/@shawnyeager"
 
 # =============================================================================
 # MARKUP
