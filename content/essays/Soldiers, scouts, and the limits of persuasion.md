@@ -100,3 +100,7 @@ Toward the people who are ready to look. Content that answers the questions they
 The scouts are out there. Circumstances are making more of them. The job is to be worth finding when they start looking.
 
 That's where the energy goes.
+
+{{< aside >}}
+Thanks to Gary Krause and Trey Sellers for feedback on drafts of this essay.
+{{< /aside >}}
