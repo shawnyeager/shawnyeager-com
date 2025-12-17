@@ -4,7 +4,7 @@ description: "What I'm focused on right now: Trust Revolution podcast, advisory 
 date: 2025-11-13
 type: page
 layout: now
-updated: 2025-12-02
+updated: 2025-12-17
 show_title: true
 ---
 
@@ -18,11 +18,17 @@ show_title: true
 
 ## Writing & building
 
-Publishing monthly [essays](/essays/) on how freedom tech wins---sales, partnerships, and product. Thinking in public at [notes.shawnyeager.com](https://notes.shawnyeager.com). Recently shipped [nostr-ux.com](https://nostr-ux.com)---evidence-based UX patterns for building Nostr apps that people actually use.
+Publishing monthly [essays](/essays/) on how freedom tech wins---sales, partnerships, and product. Thinking in public at [notes.shawnyeager.com](https://notes.shawnyeager.com).
+
+New projects:
+
+- **[Sales Readiness Score](/score)** --- A 10-question GTM diagnostic for B2B founders. Answer questions across market clarity, positioning, sales process, acquisition, and unit economics. Get a score out of 100 and optional personalized follow-up.
+
+- **[Interview to Roadmap Kit](https://github.com/shawnyeager/interview-to-roadmap)** --- Point an LLM at a folder of customer interview transcripts and get frequency-ranked problems, solution desires, and concrete build recommendations. Answers: "What should we build next, and why?"
 
 ## Trust Revolution podcast
 
-Latest episode with Cory Doctorow on platform enshittification and why every tech giant eventually betrays its users. Previously: Average Gary on the path from Navy special operations to Bitcoin mining and building local community resilience. Next: I explore whether voluntary payment can actually compete against the Big Tech extraction economy.
+Latest episode with Pippellia on decentralized reputation systems—how Web of Trust can create portable reputation without centralized kill switches. Previously: Christian Keroles on Bitcoin as essential infrastructure for human rights, and my solo episode on why ads keep winning against voluntary payment.
 
 {{< cta url="podcast" text="Listen now" >}}
 
