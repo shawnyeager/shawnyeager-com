@@ -31,7 +31,7 @@ Soldiers defend positions. Information is either ammunition or threat. New data 
 
 Scouts map territory. Information is data to be integrated. Being wrong is an update, not a loss---the map gets more accurate. Scouts are motivated to see clearly, even when clarity is uncomfortable.
 
-These are modes we all move between, not personality types. But some people are in soldier mode on specific topics, and that's where evangelism breaks down.
+These are modes we all move between, not personality types. But some people are in soldier mode on specific topics, and that's where persuasion breaks down.
 
 When you pitch a scout, you can feel it. They ask questions---real ones, not rhetorical traps. They're testing their map, genuinely curious whether yours is better.
 
