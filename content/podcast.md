@@ -6,6 +6,7 @@ date: 2025-10-11
 type: page
 layout: podcast
 show_title: true
+hide_footer_signup: true
 ---
 
 {{< image src="/images/trust-revolution-cover.webp" alt="Trust Revolution Podcast" >}}
