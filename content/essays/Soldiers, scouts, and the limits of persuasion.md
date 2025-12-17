@@ -97,6 +97,6 @@ Not toward soldiers. That VC who dismissed you, that journalist who wrote you of
 
 Toward the people who are ready to look. Content that answers the questions they ask when circumstances have opened them up. Products that work for their first transaction, not just their hundredth.
 
-The scouts are out there. Circumstances are making more of them---every inflation spike, every bank failure, every frozen account. The job is to be worth finding when they start looking.
+The scouts are out there. Circumstances are making more of them. The job is to be worth finding when they start looking.
 
 That's where the energy goes.
