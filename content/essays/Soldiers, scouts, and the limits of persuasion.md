@@ -13,6 +13,8 @@ When Galileo pointed his telescope at Jupiter, he invited the scholars to look. 
 
 You've seen this. You point to Bitcoin. You explain what you see. And watch them refuse to look.
 
+<!--more-->
+
 So you try harder. Better analogies. More patience. You assume the problem is knowledge, and knowledge can be transferred.
 
 It doesn't work. The curious stay curious. The dismissive stay dismissive. The energy spent on conversion produces nothing.
