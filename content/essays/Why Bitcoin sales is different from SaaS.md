@@ -59,6 +59,6 @@ When we gave them the artifacts to enable that internal work, sales cycles compr
 
 The company that helps prospects navigate internal politics and stakeholder complexity wins the deal. The one that just explains why Bitcoin is technically superior doesn't.
 
-Those wins accumulate into expertise. They reveal which objections actually matter and which are smoke screens. They expose what moves deals forward versus what sounds good in theory. Frameworks for navigating regulatory uncertainty emerge from real experience, not theory. That knowledge becomes playbooks. Sales motions. Institutional muscle memory that new competitors can't replicate by hiring someone who worked at a SaaS company.
+Those wins accumulate into expertise. They reveal which objections actually matter and which are smoke screens. They expose what moves deals forward versus what sounds good in theory. Frameworks for navigating regulatory uncertainty emerge from real experience, not theory. That knowledge becomes playbooks. Institutional muscle memory that new competitors can't replicate by hiring someone who worked at a SaaS company.
 
 The accumulated expertise becomes your moat. Not because Bitcoin is proprietary---it's open and permissionless. Because knowing how to sell it effectively is rare, hard-won, and impossible to acquire without closing the deals yourself. The companies investing in figuring this out now build a head start that's hard to catch.
