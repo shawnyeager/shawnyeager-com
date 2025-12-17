@@ -1,5 +1,5 @@
 ---
-title: "Scouts, soldiers, and the limits of persuasion"
+title: "Soldiers, scouts, and the limits of persuasion"
 description: "Why smart people dismiss Bitcoin without looking, and where to direct your energy instead."
 date: 2025-12-17T12:00:00Z
 slug: limits-of-persuasion
@@ -21,8 +21,6 @@ This is the trap: the belief that the right explanation will unlock understandin
 
 It's not. Understanding why shifts where the energy goes.
 
----
-
 ## Two mindsets
 
 Julia Galef describes two cognitive modes: the soldier and the scout.
@@ -43,8 +41,6 @@ Whatever they're defending, explanations can't touch it. You're having an argume
 
 The trap is pattern-matching on intelligence and credentials---exactly the wrong filter. Smart soldiers are harder to move, not easier. They have more resources for defense. More sophisticated arguments for why they're already right.
 
----
-
 ## Structural soldiers
 
 Some soldiers aren't just protecting ego. They're protecting income.
@@ -60,8 +56,6 @@ Only losing the position itself would expose them. And that's rare.
 I stopped spending energy here. The incentives are structural---pushing against economics.
 
 Time and energy are finite. Spending them on structural soldiers wastes both.
-
----
 
 ## What creates scouts
 
@@ -81,8 +75,6 @@ For Bitcoin, that shift is usually painful. Nobody stress-tests their assumption
 
 Those circumstances can't be caused or manufactured. They happen on their own schedule.
 
----
-
 ## The mirror
 
 Bitcoiners become soldiers too. I've done it.
@@ -95,7 +87,7 @@ Founders do this with their companies too. The product becomes identity, and fee
 
 Two ways to lose: pushing against soldiers who won't budge, or becoming one yourself.
 
----
+{{< dinkus >}}
 
 So where does the energy go?
 
