@@ -21,11 +21,11 @@ It doesn't work. The curious stay curious. The dismissive stay dismissive. The e
 
 This is the trap: the belief that the right explanation will unlock understanding. That resistance is a puzzle you can solve with better arguments.
 
-It's not. Understanding why shifts where the energy goes.
+It's not. Once you understand why, it changes where you put your energy.
 
 ## Two mindsets
 
-Julia Galef describes two cognitive modes: the soldier and the scout.
+Julia Galef, in *The Scout Mindset*, describes two cognitive modes: the soldier and the scout.
 
 Soldiers defend positions. Information is either ammunition or threat. New data gets evaluated by a single criterion: does this support or undermine what I already believe? Being wrong feels like defeat, so soldiers are motivated---usually unconsciously---to avoid it.
 
@@ -41,7 +41,7 @@ The soldier isn't evaluating Bitcoin. They're defending something. Expertise tha
 
 Whatever they're defending, explanations can't touch it. You're having an argument about maps while they're fighting a war about territory.
 
-The trap is pattern-matching on intelligence and credentials---exactly the wrong filter. Smart soldiers are harder to move, not easier. They have more resources for defense. More sophisticated arguments for why they're already right.
+Intelligence doesn't predict openness---if anything, the opposite. Smart soldiers have more resources for defense. More sophisticated arguments for why they're already right. Credentials are the wrong filter for finding people who'll listen.
 
 ## Structural soldiers
 
