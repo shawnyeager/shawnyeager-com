@@ -5,6 +5,7 @@ resources/
 
 # Generated files
 data/essays.json
+lighthouse-report.*
 
 # Netlify
 .netlify/
