@@ -22,9 +22,9 @@ Publishing monthly [essays](/essays/) on how freedom tech wins---sales, partners
 
 New projects:
 
-- **[Sales Readiness Score](/score)** --- A 10-question GTM diagnostic for B2B founders. Answer questions across market clarity, positioning, sales process, acquisition, and unit economics. Get a score out of 100 and optional personalized follow-up.
+- [Sales Readiness Score](/score) --- A 10-question GTM diagnostic for B2B founders. Answer questions across market clarity, positioning, sales process, acquisition, and unit economics. Get a score out of 100 and optional personalized follow-up.
 
-- **[Interview to Roadmap Kit](https://github.com/shawnyeager/interview-to-roadmap)** --- Point an LLM at a folder of customer interview transcripts and get frequency-ranked problems, solution desires, and concrete build recommendations. Answers: "What should we build next, and why?"
+- [Interview to Roadmap Kit](https://github.com/shawnyeager/interview-to-roadmap) --- Point an LLM at a folder of customer interview transcripts and get frequency-ranked problems, solution desires, and concrete build recommendations. Answers: "What should we build next, and why?"
 
 ## Trust Revolution podcast
 
