@@ -1,12 +1,13 @@
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
-import { readFileSync, readdirSync, existsSync, mkdirSync, writeFileSync } from 'fs';
-import { join, basename } from 'path';
-import matter from 'gray-matter';
+import { readFileSync, writeFileSync, mkdirSync } from 'fs';
 
 const satoshiBold = readFileSync('assets/fonts/Satoshi-Bold.otf');
 
-// Design config - landscape uses 2x rendering for crispness
+// Both formats are 1200px wide - text is width-constrained
+// Square has 1.9x height (1200 vs 630) - vertical spacing scales up
+// Text sizes stay similar (~10% larger for square to use vertical space)
+
 const LANDSCAPE = {
   width: 1200,
   height: 630,
@@ -22,18 +23,19 @@ const LANDSCAPE = {
 const SQUARE = {
   width: 1200,
   height: 1200,
-  bar: 28,
-  paddingV: 100,
-  paddingH: 64,
-  brandMark: 72,
-  title: { short: 104, medium: 88, long: 72 },
-  description: 36,
-  author: 32,
-  titleMargin: 40,
+  bar: 28,                                    // similar to landscape
+  paddingV: 100,                              // vertical: scaled for height
+  paddingH: 64,                               // horizontal: similar to landscape
+  brandMark: 72,                              // 1.5x landscape (not 1.9x)
+  title: { short: 104, medium: 88, long: 72 }, // ~8% larger than landscape
+  description: 36,                            // ~12% larger
+  author: 32,                                 // ~14% larger
+  titleMargin: 40,                            // scaled for height
 };
 
-async function generateOG(title, description, outputPath, format = 'landscape') {
+async function generateOG(title, description, outputPath, format) {
   const isSquare = format === 'square';
+  // Landscape renders at 2x for crispness
   const scale = isSquare ? 1 : 2;
   const config = isSquare ? SQUARE : LANDSCAPE;
 
@@ -101,7 +103,7 @@ async function generateOG(title, description, outputPath, format = 'landscape') 
                   },
                 },
               },
-              // Title + Description (description optional)
+              // Title + Description
               {
                 type: 'div',
                 props: {
@@ -117,12 +119,12 @@ async function generateOG(title, description, outputPath, format = 'landscape') 
                           color: '#1a1a1a',
                           lineHeight: 1.1,
                           letterSpacing: '-0.02em',
-                          marginBottom: description ? `${(isSquare ? config.titleMargin : config.titleMargin * scale)}px` : 0,
+                          marginBottom: `${(isSquare ? config.titleMargin : config.titleMargin * scale)}px`,
                         },
                         children: title,
                       },
                     },
-                    ...(description ? [{
+                    {
                       type: 'div',
                       props: {
                         style: {
@@ -134,7 +136,7 @@ async function generateOG(title, description, outputPath, format = 'landscape') 
                         },
                         children: description,
                       },
-                    }] : []),
+                    },
                   ],
                 },
               },
@@ -169,73 +171,41 @@ async function generateOG(title, description, outputPath, format = 'landscape') 
   writeFileSync(outputPath, pngBuffer);
 }
 
-function getSlug(filename, frontmatterSlug) {
-  if (frontmatterSlug) return frontmatterSlug;
-  return basename(filename, '.md')
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
+// Test with real essays
+mkdirSync('/tmp/og-test', { recursive: true });
+
+const essays = [
+  {
+    slug: 'extraction',
+    title: 'Extraction is rational',
+    desc: "Every wave of the internet promised to democratize something. Every wave ended in extraction. The pattern isn't greed—it's the money.",
+  },
+  {
+    slug: 'product-first',
+    title: 'Product first, partnerships second',
+    desc: 'Bitcoin partnerships succeed when product readiness comes first. Prove the product in market, then use partnerships to scale.',
+  },
+  {
+    slug: 'soldiers-scouts',
+    title: 'Soldiers, scouts, and the limits of persuasion',
+    desc: 'Why smart people dismiss Bitcoin without looking, and where to direct your energy instead.',
+  },
+  {
+    slug: 'sovereignty',
+    title: 'Sovereignty without sacrifice',
+    desc: 'Freedom tech loses when it demands sacrifice. Winning means building products that are better on every dimension—not just principles.',
+  },
+  {
+    slug: 'bitcoin-sales',
+    title: 'Why Bitcoin sales is different from SaaS',
+    desc: "Bitcoin sales differs from SaaS because you're asking buyers to rethink money itself, not just evaluate software.",
+  },
+];
+
+for (const essay of essays) {
+  await generateOG(essay.title, essay.desc, `/tmp/og-test/${essay.slug}-landscape.png`, 'landscape');
+  await generateOG(essay.title, essay.desc, `/tmp/og-test/${essay.slug}-square.png`, 'square');
+  console.log(`Generated: ${essay.slug}`);
 }
 
-async function processDirectory(dir, outputDir, isEssays = false) {
-  if (!existsSync(outputDir)) {
-    mkdirSync(outputDir, { recursive: true });
-  }
-
-  const files = readdirSync(dir).filter(f => f.endsWith('.md') && !f.startsWith('_'));
-
-  for (const file of files) {
-    const content = readFileSync(join(dir, file), 'utf-8');
-    const { data } = matter(content);
-
-    if (!data.title || !data.description) {
-      console.log(`Skipping ${file}: missing title or description`);
-      continue;
-    }
-
-    const slug = getSlug(file, data.slug);
-
-    // Generate both landscape and square
-    await generateOG(data.title, data.description, join(outputDir, `${slug}.png`), 'landscape');
-    await generateOG(data.title, data.description, join(outputDir, `${slug}-square.png`), 'square');
-    console.log(`Generated: ${slug} (landscape + square)`);
-  }
-}
-
-async function processHomepage() {
-  const content = readFileSync('content/_index.md', 'utf-8');
-  const { data } = matter(content);
-
-  if (!data.title || !data.description) {
-    console.log('Skipping homepage: missing title or description');
-    return;
-  }
-
-  const outputDir = 'static/images';
-  if (!existsSync(outputDir)) {
-    mkdirSync(outputDir, { recursive: true });
-  }
-
-  // Homepage uses headline (H1) + description
-  const title = data.headline || data.title;
-  await generateOG(title, data.description, join(outputDir, 'og-image.png'), 'landscape');
-  await generateOG(title, data.description, join(outputDir, 'og-image-square.png'), 'square');
-  console.log('Generated: og-image (landscape + square)');
-}
-
-async function main() {
-  console.log('Generating OG images...\n');
-
-  // Essays
-  await processDirectory('content/essays', 'static/images/og-essays', true);
-
-  // Non-essay pages
-  await processDirectory('content', 'static/images/og-pages', false);
-
-  // Homepage (special case)
-  await processHomepage();
-
-  console.log('\nDone!');
-}
-
-main().catch(console.error);
+console.log('\nAll images in /tmp/og-test/');
