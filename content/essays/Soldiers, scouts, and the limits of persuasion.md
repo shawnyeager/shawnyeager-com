@@ -1,14 +1,15 @@
 ---
-title: "Soldiers, scouts, and the limits of persuasion"
-description: "Why smart people dismiss Bitcoin without looking, and where to direct your energy instead."
+title: Soldiers, scouts, and the limits of persuasion
+description: Why smart people dismiss Bitcoin without looking, and where to direct your energy instead.
 date: 2025-12-17T12:00:00Z
 slug: limits-of-persuasion
-topics: [bitcoin, go-to-market]
+topics:
+  - bitcoin
+  - go-to-market
 tags: []
 featured: false
 draft: false
 ---
-
 When Galileo pointed his telescope at Jupiter, he invited the scholars to look. Some refused. They already knew the answer---Aristotle had settled the heavens. Looking wouldn't teach them anything. It would only threaten what they'd built their careers defending.
 
 You've seen this. You point to Bitcoin. You explain what you see. And watch them refuse to look.
@@ -25,7 +26,7 @@ It's not. Once you understand why, it changes where you put your energy.
 
 ## Two mindsets
 
-Julia Galef, in *The Scout Mindset*, describes two cognitive modes: the soldier and the scout.
+Julia Galef, in _The Scout Mindset_, describes two cognitive modes: the soldier and the scout.
 
 Soldiers defend positions. Information is either ammunition or threat. New data gets evaluated by a single criterion: does this support or undermine what I already believe? Being wrong feels like defeat, so soldiers are motivated---usually unconsciously---to avoid it.
 
@@ -37,7 +38,7 @@ When you pitch a scout, you can feel it. They ask questions---real ones, not rhe
 
 When you pitch a soldier, you feel that too. Objections that aren't questions. Dismissals that come before engagement. The emotional charge that signals you've threatened identity, not just ideas.
 
-The soldier isn't evaluating Bitcoin. They're defending something. Expertise that already answered the question of what money is. A public stance that would be embarrassing to reverse. An identity built on the current system working.
+The soldier isn't evaluating Bitcoin. They're dug in, defending something. Expertise that already answered the question of what money is. A public stance that would be embarrassing to reverse. An identity built on the current system working.
 
 Whatever they're defending, explanations can't touch it. You're having an argument about maps while they're fighting a war about territory.
 
