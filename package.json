@@ -6,21 +6,13 @@
   "scripts": {
     "generate-essays": "node scripts/generate-essays-json.js",
     "generate-og": "node scripts/generate-og-images.js",
-    "build": "npm run generate-essays && npm run generate-og && hugo",
-    "v4v-report": "NWC_CONNECTION_STRING=$(netlify env:get NWC_CONNECTION_STRING 2>/dev/null) node scripts/v4v-report.js",
-    "dashboard": "NWC_CONNECTION_STRING=$(netlify env:get NWC_CONNECTION_STRING 2>/dev/null) node scripts/v4v-server.js"
+    "build": "npm run generate-essays && npm run generate-og && hugo"
   },
   "dependencies": {
-    "@getalby/sdk": "^7.0.0",
-    "bolt11": "^1.4.1",
-    "commander": "^14.0.2",
-    "dotenv": "^17.2.3",
-    "express": "^5.1.0",
     "glob": "^10.3.10",
     "gray-matter": "^4.0.3",
     "satori": "^0.10.14",
-    "sharp": "^0.33.2",
-    "ws": "^8.18.3"
+    "sharp": "^0.33.2"
   },
   "devDependencies": {
     "@netlify/functions": "^5.1.0"
