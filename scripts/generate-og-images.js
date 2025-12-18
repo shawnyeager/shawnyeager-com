@@ -43,12 +43,12 @@ async function generateOGImage(title, outputPath, format = 'landscape') {
     ? { width: 1200, height: 1200 }
     : { width: 1200, height: 630 };
 
-  // Font sizing - slightly smaller to fit in centered panel
+  // Font sizing - maximize for landscape while fitting in panel
   const fontSize = isSquare
     ? calculateSquareFontSize(title)
-    : calculateFontSize(title, 72, 52, 60);
+    : calculateFontSize(title, 80, 60, 60);
 
-  // White panel dimensions - centered, fits in any crop
+  // White panel dimensions - centered, survives square crop with 55px orange margin
   const panelWidth = 520;
   const panelPadding = 48;
 
@@ -85,6 +85,7 @@ async function generateOGImage(title, outputPath, format = 'landscape') {
                     fontSize: `${fontSize}px`,
                     fontWeight: 700,
                     lineHeight: 1.2,
+                    letterSpacing: '-0.02em',
                     color: '#1a1a1a',
                     fontFamily: 'Satoshi',
                     textAlign: 'center',
