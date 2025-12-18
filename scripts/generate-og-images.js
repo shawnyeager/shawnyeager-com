@@ -43,14 +43,14 @@ async function generateOGImage(title, outputPath, format = 'landscape') {
     ? { width: 1200, height: 1200 }
     : { width: 1200, height: 630 };
 
-  // Orange panel dimensions - vertical panel on left for both formats
-  const orangeWidth = isSquare ? 300 : 240;
-  const orangeHeight = isSquare ? 1200 : 630;
-
-  // Font sizing
+  // Font sizing - slightly smaller to fit in centered panel
   const fontSize = isSquare
     ? calculateSquareFontSize(title)
-    : calculateFontSize(title, 90, 64, 60);
+    : calculateFontSize(title, 72, 52, 60);
+
+  // White panel dimensions - centered, fits in any crop
+  const panelWidth = 520;
+  const panelPadding = 48;
 
   const svg = await satori(
     {
@@ -58,35 +58,25 @@ async function generateOGImage(title, outputPath, format = 'landscape') {
       props: {
         style: {
           display: 'flex',
-          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'center',
           width: '100%',
           height: '100%',
-          backgroundColor: '#ffffff',
+          backgroundColor: '#F84200',
         },
         children: [
-          // Orange panel - vertical on left for both formats
-          {
-            type: 'div',
-            props: {
-              style: {
-                width: `${orangeWidth}px`,
-                height: `${orangeHeight}px`,
-                backgroundColor: '#F84200',
-                flexShrink: 0,
-              },
-            },
-          },
-          // Text area
+          // Centered white panel with text
           {
             type: 'div',
             props: {
               style: {
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'flex-start',
-                width: `${dimensions.width - orangeWidth}px`,
-                height: '100%',
-                padding: '0 100px 0 100px',
+                justifyContent: 'center',
+                width: `${panelWidth}px`,
+                minHeight: '200px',
+                padding: `${panelPadding}px`,
+                backgroundColor: '#ffffff',
               },
               children: {
                 type: 'div',
@@ -94,10 +84,10 @@ async function generateOGImage(title, outputPath, format = 'landscape') {
                   style: {
                     fontSize: `${fontSize}px`,
                     fontWeight: 700,
-                    lineHeight: 1.15,
+                    lineHeight: 1.2,
                     color: '#1a1a1a',
                     fontFamily: 'Satoshi',
-                    textAlign: 'left',
+                    textAlign: 'center',
                   },
                   children: title,
                 },
