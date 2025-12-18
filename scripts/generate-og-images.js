@@ -32,7 +32,10 @@ const SQUARE = {
   titleMargin: 40,
 };
 
-async function generateOG(title, description, outputPath, format = 'landscape') {
+// All pages use site URL for attribution
+const SITE_URL = 'shawnyeager.com';
+
+async function generateOG(title, description, outputPath, format = 'landscape', author = 'Shawn Yeager') {
   const isSquare = format === 'square';
   const scale = isSquare ? 1 : 2;
   const config = isSquare ? SQUARE : LANDSCAPE;
@@ -116,7 +119,6 @@ async function generateOG(title, description, outputPath, format = 'landscape') 
                           fontFamily: 'Satoshi',
                           color: '#1a1a1a',
                           lineHeight: 1.1,
-                          letterSpacing: '-0.02em',
                           marginBottom: description ? `${(isSquare ? config.titleMargin : config.titleMargin * scale)}px` : 0,
                         },
                         children: title,
@@ -138,7 +140,7 @@ async function generateOG(title, description, outputPath, format = 'landscape') 
                   ],
                 },
               },
-              // Author at bottom
+              // Attribution at bottom
               {
                 type: 'div',
                 props: {
@@ -148,7 +150,7 @@ async function generateOG(title, description, outputPath, format = 'landscape') 
                     fontFamily: 'Satoshi',
                     color: '#777',
                   },
-                  children: 'Shawn Yeager',
+                  children: author,
                 },
               },
             ],
@@ -196,8 +198,8 @@ async function processDirectory(dir, outputDir, isEssays = false) {
     const slug = getSlug(file, data.slug);
 
     // Generate both landscape and square
-    await generateOG(data.title, data.description, join(outputDir, `${slug}.png`), 'landscape');
-    await generateOG(data.title, data.description, join(outputDir, `${slug}-square.png`), 'square');
+    await generateOG(data.title, data.description, join(outputDir, `${slug}.png`), 'landscape', SITE_URL);
+    await generateOG(data.title, data.description, join(outputDir, `${slug}-square.png`), 'square', SITE_URL);
     console.log(`Generated: ${slug} (landscape + square)`);
   }
 }
@@ -218,8 +220,8 @@ async function processHomepage() {
 
   // Homepage uses headline (H1) + description
   const title = data.headline || data.title;
-  await generateOG(title, data.description, join(outputDir, 'og-image.png'), 'landscape');
-  await generateOG(title, data.description, join(outputDir, 'og-image-square.png'), 'square');
+  await generateOG(title, data.description, join(outputDir, 'og-image.png'), 'landscape', SITE_URL);
+  await generateOG(title, data.description, join(outputDir, 'og-image-square.png'), 'square', SITE_URL);
   console.log('Generated: og-image (landscape + square)');
 }
 

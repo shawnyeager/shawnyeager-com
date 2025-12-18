@@ -1,6 +1,6 @@
 ---
 title: Shawn Yeager
-description: "I solve hard commercial problems for Bitcoin startups. 30 years in tech, $300M in revenue. Freedom tech wins in the market—or not at all."
+description: "I help Bitcoin founders solve hard commercial problems. 30 years in tech, $300M revenue. Led sales at Amboss, NYDIG Payments, and Bottlepay."
 headline: "I'm working toward a future built on Bitcoin."
 ---
 I help founders on the same mission solve hard commercial problems.

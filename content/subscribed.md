@@ -1,6 +1,6 @@
 ---
 title: "Thanks for subscribing"
-description: "Thanks for subscribing to occasional updates on Bitcoin strategy and go-to-market thinking."
+description: "You'll receive occasional essays on Bitcoin strategy, go-to-market execution, and building freedom tech that wins."
 type: page
 show_title: true
 hide_footer_signup: true

@@ -1,6 +1,6 @@
 ---
 title: "Trust Revolution"
-description: "Trust Revolution podcast: Unfiltered conversations with builders, thinkers, and operators in Bitcoin. Exploring trust, decentralization, and what comes next."
+description: "Unfiltered conversations with builders, thinkers, and operators in Bitcoin about the systems we trust, why they work (or don't), and what comes next."
 subtitle: "Rethinking trust for a decentralized future"
 date: 2025-10-11
 type: page

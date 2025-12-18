@@ -2,7 +2,7 @@
 title: "You've got the product"
 seo_title: "Let's win"
 subtitle: "Now you need customers, revenue, and a repeatable way to get both."
-description: "You've got the product. Now you need customers, revenue, and a repeatable way to get both. Find out where you stand."
+description: "Deep in engineering but flying blind on commercial fundamentals? The 10-question GTM scorecard shows you where to start."
 date: 2025-12-11
 type: lets-win
 hide_footer_signup: true
