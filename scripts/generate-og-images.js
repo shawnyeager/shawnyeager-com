@@ -66,7 +66,7 @@ async function generateOG(title, description, outputPath, format = 'landscape', 
         display: 'flex',
         width: '100%',
         height: '100%',
-        backgroundColor: '#f8f6f3',
+        backgroundColor: '#FDFCFA',
       },
       children: [
         // Left orange accent bar
@@ -166,7 +166,7 @@ async function generateOG(title, description, outputPath, format = 'landscape', 
     fonts: [{ name: 'Satoshi', data: satoshiBold, weight: 700, style: 'normal' }],
   });
 
-  const resvg = new Resvg(svg, { background: '#f8f6f3' });
+  const resvg = new Resvg(svg, { background: '#FDFCFA' });
   const pngBuffer = resvg.render().asPng();
   writeFileSync(outputPath, pngBuffer);
 }
