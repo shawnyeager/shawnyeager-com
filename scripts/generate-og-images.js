@@ -190,24 +190,55 @@ async function processDirectory(dir, outputDir) {
   }
 }
 
-async function processHomepage() {
-  const content = readFileSync('content/_index.md', 'utf-8');
-  const { data } = matter(content);
+async function processSectionIndexes() {
+  // Find all _index.md files recursively
+  const findIndexFiles = (dir, files = []) => {
+    const indexPath = join(dir, '_index.md');
+    if (existsSync(indexPath)) {
+      files.push(indexPath);
+    }
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      if (entry.isDirectory()) {
+        findIndexFiles(join(dir, entry.name), files);
+      }
+    }
+    return files;
+  };
 
-  if (!data.title && !data.headline) {
-    console.log('Skipping homepage: missing title/headline');
-    return;
-  }
+  const indexFiles = findIndexFiles('content');
+  const outputDir = 'static/images/og-sections';
 
-  const outputDir = 'static/images';
   if (!existsSync(outputDir)) {
     mkdirSync(outputDir, { recursive: true });
   }
 
-  const title = data.headline || data.title;
-  await generateOG(title, join(outputDir, 'og-image.png'), 'landscape');
-  await generateOG(title, join(outputDir, 'og-image-square.png'), 'square');
-  console.log('Generated: og-image (landscape + square)');
+  for (const filePath of indexFiles) {
+    const content = readFileSync(filePath, 'utf-8');
+    const { data } = matter(content);
+
+    if (!data.title && !data.headline) {
+      console.log(`Skipping ${filePath}: missing title/headline`);
+      continue;
+    }
+
+    const title = data.headline || data.title;
+
+    // Determine output filename based on path
+    // content/_index.md → og-image (homepage)
+    // content/essays/_index.md → essays
+    const relativePath = filePath.replace('content/', '').replace('/_index.md', '').replace('_index.md', '');
+    const isHomepage = relativePath === '';
+    const slug = isHomepage ? 'og-image' : relativePath;
+    const outputBase = isHomepage ? 'static/images' : outputDir;
+
+    if (!existsSync(outputBase)) {
+      mkdirSync(outputBase, { recursive: true });
+    }
+
+    await generateOG(title, join(outputBase, `${slug}.png`), 'landscape');
+    await generateOG(title, join(outputBase, `${slug}-square.png`), 'square');
+    console.log(`Generated: ${slug} (landscape + square)`);
+  }
 }
 
 async function main() {
@@ -215,7 +246,7 @@ async function main() {
 
   await processDirectory('content/essays', 'static/images/og-essays');
   await processDirectory('content', 'static/images/og-pages');
-  await processHomepage();
+  await processSectionIndexes();
 
   console.log('\nDone!');
 }
