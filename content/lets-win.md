@@ -8,7 +8,7 @@ type: lets-win
 hide_footer_signup: true
 ---
 
-I've seen this pattern across dozens of startups. Deep in engineering and product, but flying blind on commercial fundamentals. Deals stall. Revenue depends on the founder being in every conversation.
+Here's what I usually sse: deep in engineering and product, but flying blind on commercial fundamentals. Deals stall. Revenue depends on the founder being in every conversation.
 
 So I built a scorecard. Ten questions, five minutes. It shows you where the gaps are, what's blocking scale, and what to fix first.
 
