@@ -15,7 +15,7 @@ Important Notes:
 {{ partial "page-title.html" . }}
 
 <!-- Page Content -->
-<div class="page-body{{ if .Params.long_form }} long-form{{ end }}">
+<div class="page-body">
     {{ .Content | safeHTML }}
 </div>
 {{ end }}
