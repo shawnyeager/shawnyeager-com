@@ -1,6 +1,7 @@
 import type { Context, Config } from "@netlify/functions";
 import { errorResponse, jsonResponse } from "./_shared/responses.ts";
 import { withNWCClient, NWCNotConfiguredError } from "./_shared/nwc.ts";
+import { alertFailure } from "./_shared/alerts.ts";
 
 export default async (req: Request, context: Context) => {
   const url = new URL(req.url);
@@ -29,11 +30,13 @@ export default async (req: Request, context: Context) => {
 
   } catch (error) {
     if (error instanceof NWCNotConfiguredError) {
+      await alertFailure('Invoice Lookup', 'NWC not configured');
       return errorResponse(500, "Server configuration error");
     }
 
     const errorMessage = error instanceof Error ? error.message : String(error);
     console.error('Invoice lookup error:', errorMessage);
+    await alertFailure('Invoice Lookup', errorMessage);
     return errorResponse(500, `Lookup failed: ${errorMessage}`);
   }
 };
