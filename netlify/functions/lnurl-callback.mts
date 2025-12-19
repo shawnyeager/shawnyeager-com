@@ -3,6 +3,7 @@ import bolt11 from "bolt11";
 import { errorResponse, jsonResponse } from "./_shared/responses.ts";
 import { withNWCClient, NWCNotConfiguredError } from "./_shared/nwc.ts";
 import { ALBY_CALLBACK, ALBY_TIMEOUT_MS } from "./_shared/config.ts";
+import { alertFailure } from "./_shared/alerts.ts";
 
 export default async (req: Request, context: Context) => {
   const url = new URL(req.url);
@@ -41,6 +42,7 @@ export default async (req: Request, context: Context) => {
 
       if (!albyResponse.ok) {
         console.error(`Alby callback error: ${albyResponse.status}`);
+        await alertFailure('Alby Callback', `HTTP ${albyResponse.status}`, { amount });
         return errorResponse(502, "Upstream error");
       }
 
@@ -49,9 +51,12 @@ export default async (req: Request, context: Context) => {
     } catch (error) {
       clearTimeout(timeoutId);
       if (error instanceof Error && error.name === 'AbortError') {
+        await alertFailure('Alby Callback', 'Timeout (10s)', { amount });
         return errorResponse(504, "Upstream timeout");
       }
       console.error('Alby callback fetch error:', error);
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      await alertFailure('Alby Callback', errorMessage, { amount });
       return errorResponse(502, "Upstream error");
     }
   }
@@ -98,11 +103,16 @@ export default async (req: Request, context: Context) => {
   } catch (error) {
     if (error instanceof NWCNotConfiguredError) {
       console.error('NWC_CONNECTION_STRING environment variable not set');
+      await alertFailure('Invoice Generation', 'NWC not configured');
       return errorResponse(500, "Server configuration error");
     }
 
     const errorMessage = error instanceof Error ? error.message : String(error);
     console.error('NWC invoice generation error:', errorMessage, error);
+    await alertFailure('Invoice Generation', errorMessage, {
+      source: essaySlug || 'footer',
+      amount
+    });
     return errorResponse(500, `Invoice generation failed: ${errorMessage}`);
   }
 };
