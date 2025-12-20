@@ -39,9 +39,9 @@ Important Notes:
         {{ $isFeatured = true }}
     {{ end }}
     {{ with $latestPost }}
+    <h2 class="essay-section-header">{{ if $isFeatured }}Featured Essay{{ else }}Latest Essay{{ end }}</h2>
     <article class="latest-essay">
         <header>
-            <h2 class="essay-section-header">{{ if $isFeatured }}Featured Essay{{ else }}Latest Essay{{ end }}</h2>
             <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
         </header>
         {{ .Summary }}
