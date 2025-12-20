@@ -7,6 +7,8 @@ topics: [bitcoin]
 tags: []
 featured: false
 draft: false
+hero_image: images/essays/extraction-is-rational.png
+hero_alt: Abstract illustration of extraction patterns in internet platforms
 ---
 
 Every wave of the internet promised to democratize something. Every wave ended in extraction. For twenty years I thought the problem was execution, or regulation, or bad actors. It was simpler than that.
