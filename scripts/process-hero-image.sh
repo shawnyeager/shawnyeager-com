@@ -2,9 +2,9 @@
 #
 # Process essay hero images for shawnyeager.com
 #
-# Converts images to grayscale and replaces background with site background
-# color (#FDFCFA) for seamless light mode integration. CSS invert handles
-# dark mode automatically.
+# Converts images to grayscale, replaces background with site background
+# color (#FDFCFA), and lifts mid-tones (gamma 1.4) for consistent dark mode
+# rendering. CSS applies sepia tint in dark mode for brand warmth.
 #
 # Usage:
 #   ./scripts/process-hero-image.sh <input-image> <essay-slug> [fuzz-percent]
@@ -70,6 +70,7 @@ MAX_Y=$((HEIGHT - 1))
 # Process image:
 # 1. Convert to grayscale
 # 2. Flood fill background from corners with site background color
+# 3. Lift mid-tones (gamma 1.4) for consistent dark mode rendering
 magick "$INPUT" \
     -colorspace Gray \
     -fuzz "$FUZZ" -fill "$SITE_BG" \
@@ -77,6 +78,7 @@ magick "$INPUT" \
     -draw "color 0,$MAX_Y floodfill" \
     -draw "color $MAX_X,0 floodfill" \
     -draw "color $MAX_X,$MAX_Y floodfill" \
+    -level 0%,100%,1.4 \
     "$OUTPUT"
 
 echo "Done: $OUTPUT"
