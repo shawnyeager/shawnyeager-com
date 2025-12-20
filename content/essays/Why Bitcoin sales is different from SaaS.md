@@ -11,6 +11,8 @@ topics:
 tags: []
 featured: false
 draft: false
+hero_image: /images/essays/why-bitcoin-sales-is-different.png
+hero_alt: Abstract illustration representing the complexity of Bitcoin sales versus traditional SaaS
 ---
 Most Bitcoin companies try to apply standard SaaS approaches to selling Bitcoin infrastructure. This rarely works. Bitcoin sales requires a fundamentally different approach because you're asking buyers to rethink how money and trust work, not just evaluate software.
 

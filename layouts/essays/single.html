@@ -7,6 +7,18 @@ description: "A concise 1-2 sentence summary of the essay for SEO meta tags and 
 */}}
 {{ define "main" }}
     <article class="essay-content">
+        {{/* Hero Image - displays when hero_image is set in frontmatter */}}
+        {{ with .Params.hero_image }}
+        <figure class="essay-hero">
+            <img
+                src="{{ . }}"
+                alt="{{ $.Params.hero_alt | default $.Title }}"
+                class="essay-hero-image"
+                loading="eager"
+            >
+        </figure>
+        {{ end }}
+
         <header>
             <!-- Essay Title -->
             <h1 class="essay-title-single">{{ .Title }}</h1>
