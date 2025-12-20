@@ -10,7 +10,7 @@ topics:
 tags: []
 featured: false
 draft: false
-hero_image: /images/essays/product-first-partnerships-second.png
+hero_image: images/essays/product-first-partnerships-second.png
 hero_alt: Abstract illustration of product development priorities and partnership timing
 ---
 Most Bitcoin startups chase partnerships too early. The outcomes are the same. The product has gaps---UX is rough, reliability issues persist, features are missing. But the company needs distribution, needs validation, needs someone else's reach.

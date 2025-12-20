@@ -9,7 +9,7 @@ topics:
 tags: []
 featured: false
 draft: false
-hero_image: /images/essays/limits-of-persuasion.png
+hero_image: images/essays/limits-of-persuasion.png
 hero_alt: Abstract illustration of soldiers and scouts representing different mindsets toward new ideas
 ---
 When Galileo pointed his telescope at Jupiter, he invited the scholars to look. Some refused. They already knew the answer---Aristotle had settled the heavens. Looking wouldn't teach them anything. It would only threaten what they'd built their careers defending.

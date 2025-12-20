@@ -7,7 +7,7 @@ topics: [bitcoin]
 tags: []
 featured: false
 draft: false
-hero_image: /images/essays/extraction-is-rational.png
+hero_image: images/essays/extraction-is-rational.png
 hero_alt: Abstract illustration of extraction patterns in internet platforms
 ---
 

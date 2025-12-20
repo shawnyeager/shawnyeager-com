@@ -29,7 +29,7 @@
 set -e
 
 SITE_BG="#FDFCFA"
-OUTPUT_DIR="static/images/essays"
+OUTPUT_DIR="assets/images/essays"
 DEFAULT_FUZZ="20%"
 
 if [[ -z "$1" || -z "$2" ]]; then
@@ -82,5 +82,5 @@ magick "$INPUT" \
 echo "Done: $OUTPUT"
 echo ""
 echo "Add to essay frontmatter:"
-echo "  hero_image: /images/essays/$OUTPUT_NAME.png"
+echo "  hero_image: images/essays/$OUTPUT_NAME.png"
 echo "  hero_alt: Description of the image"
