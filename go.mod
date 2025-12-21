@@ -2,4 +2,4 @@ module github.com/shawnyeager/shawnyeager-com
 
 go 1.25.3
 
-require github.com/shawnyeager/tangerine-theme v0.0.0-20251221154705-a31fe526f5a0
+require github.com/shawnyeager/tangerine-theme v0.0.0-20251221165028-738514d09dc0
