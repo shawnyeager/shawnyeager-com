@@ -1,5 +1,5 @@
 ---
-title: "Why ads keep winning"
+title: "V4V can't win. Build it anyway."
 description: "Voluntary payment can't replace ads at scale. Fifty years of data says so. But that was never the point."
 date: 2025-12-23T10:00:00Z
 slug: why-ads-keep-winning
@@ -13,7 +13,7 @@ There's an idea I find compelling: what if you could pay creators directly inste
 
 This is the promise behind "value for value"---a model where you voluntarily pay for content instead of being monetized through surveillance. It's the philosophy behind Bitcoin micropayments, Podcasting 2.0, and platforms like Nostr. The premise: if you're paying, you're the customer. If you're not, you're the product. Payment equals sovereignty over your own attention.
 
-But if you're building V4V platforms, Lightning infrastructure, Nostr clients---you need to know what the data actually says. Not to abandon the mission, but to position it correctly.
+But if you're building V4V platforms, Lightning infrastructure, Nostr clients---you need to know what the data actually says. Not to abandon the mission, but to build with clear eyes.
 
 <!--more-->
 
