@@ -40,6 +40,10 @@ jobs:
           BEFORE=$(grep 'github.com/shawnyeager/tangerine-theme' go.mod | head -n1)
           echo "Current: $BEFORE"
 
+          # Reset to master branch to avoid "unknown revision" errors from rebased commits
+          echo "Resetting to master branch..."
+          sed -i 's|github.com/shawnyeager/tangerine-theme v[^ ]*|github.com/shawnyeager/tangerine-theme master|' go.mod
+
           echo "Updating theme..."
           GOPROXY=direct hugo mod get -u github.com/shawnyeager/tangerine-theme
           hugo mod tidy
