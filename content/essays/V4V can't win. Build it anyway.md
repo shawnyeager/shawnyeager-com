@@ -2,7 +2,7 @@
 title: "V4V can't win. Build it anyway."
 description: "Voluntary payment can't replace ads at scale. Fifty years of data says so. But that was never the point."
 date: 2025-12-23T10:00:00Z
-slug: why-ads-keep-winning
+slug: build-it-anyway
 topics: [bitcoin, freedom-tech, go-to-market]
 tags: []
 featured: false
