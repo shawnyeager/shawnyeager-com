@@ -6,7 +6,7 @@ slug: why-ads-keep-winning
 topics: [bitcoin, freedom-tech, go-to-market]
 tags: []
 featured: false
-draft: true
+draft: false
 ---
 
 There's an idea I find compelling: what if you could pay creators directly instead of watching ads? What if the money currently flowing to Big Tech through your attention and data went to the people actually making things you value?
