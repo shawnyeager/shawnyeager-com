@@ -13,13 +13,11 @@ hero_alt: A hand placing a poker chip down
 
 There's an idea I find compelling: what if you could pay creators directly instead of watching ads? What if the money currently flowing to Big Tech through your attention and data went to the people actually making things you value?
 
-This is the promise behind "value for value"---a model where you voluntarily pay for content instead of being monetized through surveillance. It's the philosophy behind Bitcoin micropayments, Podcasting 2.0, and platforms like Nostr. The premise: if you're paying, you're the customer. If you're not, you're the product. Payment equals sovereignty over your own attention.
-
-But if you're building V4V platforms, Lightning infrastructure, Nostr clients---you need to know what the data actually says. Not to abandon the mission, but to build with clear eyes.
+This is the promise behind "value for value"---a model where you voluntarily pay for content instead of being monetized through surveillance. It's the philosophy behind Bitcoin micropayments, Podcasting 2.0, and platforms like Nostr. The premise: if you're paying, you're the customer. If you're not, you're the product.
 
 <!--more-->
 
-I host my podcast, Trust Revolution, on a V4V platform. I accept these payments. I want this model to work. But wanting something to work isn't the same as it working. Anyone exploring alternatives to the extraction economy deserves an honest look at the results---not just the philosophy.
+But if you're building V4V platforms, Lightning infrastructure, Nostr clients---you need to know what the data actually says. Not to abandon the mission, but to build with clear eyes. I host my podcast, Trust Revolution, on a V4V platform. I accept these payments. I want this model to work. That doesn't mean it does.
 
 Companies like Google and Meta capture roughly $670 a year from the average American through attention and data. That's real money, even if you never see it leave your pocket. The question is whether voluntary payment can redirect even a fraction of that---and whether it can do so at a scale that actually sustains creators and platforms.
 
