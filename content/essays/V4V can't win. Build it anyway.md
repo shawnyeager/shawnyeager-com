@@ -7,6 +7,8 @@ topics: [bitcoin, freedom-tech, go-to-market]
 tags: []
 featured: false
 draft: false
+hero_image: images/essays/build-it-anyway.png
+hero_alt: A hand placing a poker chip down
 ---
 
 There's an idea I find compelling: what if you could pay creators directly instead of watching ads? What if the money currently flowing to Big Tech through your attention and data went to the people actually making things you value?
