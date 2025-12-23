@@ -6,7 +6,7 @@ slug: build-it-anyway
 topics: [bitcoin, freedom-tech, go-to-market]
 tags: []
 featured: false
-draft: false
+draft: true
 hero_image: images/essays/build-it-anyway.png
 hero_alt: A hand placing a poker chip down
 ---
