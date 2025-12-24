@@ -44,7 +44,7 @@ Important Notes:
         <header>
             <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
         </header>
-        {{ with .Params.summary }}<p>{{ . }}</p>{{ else }}{{ .Summary }}{{ end }}
+        {{ with .Params.summary }}{{ . | markdownify }}{{ else }}{{ .Summary }}{{ end }}
         <footer>
             {{- partial "links/action.html" (dict "url" .RelPermalink "text" "Read more" "event" $.Site.Params.plausible_events.essay_cta) -}}
         </footer>

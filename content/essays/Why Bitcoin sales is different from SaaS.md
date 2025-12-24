@@ -1,7 +1,10 @@
 ---
 title: Why Bitcoin sales is different from SaaS
 description: Bitcoin sales differs from SaaS because you're asking buyers to rethink money itself, not just evaluate software.
-summary: "The company that helps prospects navigate internal politics and stakeholder complexity wins the deal. The one that just explains why Bitcoin is technically superior doesn't. Those wins accumulate into expertise. They reveal which objections actually matter and which are smoke screens. They expose what moves deals forward versus what sounds good in theory."
+summary: |
+  The company that helps prospects navigate internal politics and stakeholder complexity wins the deal. The one that just explains why Bitcoin is technically superior doesn't.
+
+  Those wins accumulate into expertise. They reveal which objections actually matter and which are smoke screens. They expose what moves deals forward versus what sounds good in theory.
 date: 2025-10-15T10:00:00-05:00
 slug: why-bitcoin-sales-is-different
 aliases:
