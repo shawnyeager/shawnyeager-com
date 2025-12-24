@@ -1,13 +1,13 @@
 ---
-title: "V4V can't win. Build it anyway."
+title: "A bet worth making"
 description: "Voluntary payment can't replace ads at scale. Fifty years of data says so. But that was never the point."
 date: 2025-12-23T10:00:00Z
-slug: build-it-anyway
+slug: bet-worth-making
 topics: [bitcoin, freedom-tech, go-to-market]
 tags: []
 featured: false
 draft: false
-hero_image: images/essays/build-it-anyway.png
+hero_image: images/essays/bet-worth-making.png
 hero_alt: A hand placing a poker chip down
 ---
 
