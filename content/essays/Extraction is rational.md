@@ -1,6 +1,7 @@
 ---
 title: "Extraction is rational"
 description: "Every wave of the internet promised to democratize something. Every wave ended in extraction. The pattern isn't greed—it's the money."
+summary: "Even the sharpest critics of extraction stop at monopoly power and regulatory capture. They ask how platforms become extractive, but not why extraction becomes the rational choice across every industry, every decade. Break up a monopoly and you get smaller companies running the same playbook. "This time is different" is the oldest delusion in financial history."
 date: 2025-11-30T15:00:00Z
 slug: extraction-is-rational
 topics: [bitcoin]

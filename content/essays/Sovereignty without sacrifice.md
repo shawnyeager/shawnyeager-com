@@ -1,6 +1,7 @@
 ---
 title: Sovereignty without sacrifice
 description: Freedom tech loses when it demands sacrifice. Winning means building products that are better on every dimension—not just principles.
+summary: "We can't win by being better at one thing (self-sovereignty) while being worse at everything else (speed, cost, UX, features). We have to be better at everything—or at minimum, comparable on the basics while being superior on self-sovereignty. The best protocol in the world accomplishes nothing if nobody uses it. We have to win commercially to win ideologically."
 date: 2025-10-31T06:00:00-05:00
 slug: sovereignty-without-sacrifice
 topics:
