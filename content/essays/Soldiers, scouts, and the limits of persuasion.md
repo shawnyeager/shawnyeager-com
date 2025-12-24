@@ -1,6 +1,7 @@
 ---
 title: Soldiers, scouts, and the limits of persuasion
 description: Why smart people dismiss Bitcoin without looking, and where to direct your energy instead.
+summary: "At any given time, most people aren't ready to hear what you're saying. Not because they're stupid—because nothing in their world has broken yet. They're not evaluating alternatives because they don't need alternatives. People start looking when something in their world shifts. For Bitcoin, that shift is usually painful."
 date: 2025-12-17T12:00:00Z
 slug: limits-of-persuasion
 topics:
