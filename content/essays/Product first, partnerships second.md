@@ -1,6 +1,7 @@
 ---
 title: Product first, partnerships second
 description: Bitcoin partnerships succeed when product readiness comes first. Prove the product in market, then use partnerships to scale.
+summary: "What works for products in Bitcoin works for partnerships: win on the basics first. Make Bitcoin's advantages the bonus, not the trade-off. Partners won't sacrifice reliability, product design, or economics for Bitcoin's native properties. They'll choose Bitcoin when it comes with better products, not instead of better products."
 date: 2025-10-27T16:30:00Z
 slug: product-first-partnerships-second
 topics:
