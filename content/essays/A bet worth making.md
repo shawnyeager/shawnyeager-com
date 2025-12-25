@@ -77,7 +77,7 @@ The participation rate is around 0.5%.
 
 Nostr has millions of registered accounts. Of those, roughly 165,000 have ever sent a payment. Ever. That's about half a percent. Even if you only count active users with real profiles, participation tops out around 17%.
 
-Meanwhile, Jack Dorsey and others have put over $30 million into the Nostr ecosystem through OpenSats and direct grants. The subsidy from a handful of wealthy believers dwarfs the organic value exchange happening on the platform.
+Meanwhile, Jack Dorsey and others have put ~$10 million into Nostr-specific development through OpenSats and direct grants. The subsidy from a handful of wealthy believers dwarfs the organic value exchange happening on the platform.
 
 Twitch has 30 million daily unique viewers, but streamers typically see only 5--15% of their audience subscribe. And that's for streamers who've built dedicated communities. The top 6% of streamers---the celebrity tier with real followings---hold nearly 60% of all subscribers. The long tail of creators gets scraps.
 
@@ -179,7 +179,7 @@ You have an escape route.
 
 Look at how the successful creators operate. They're not choosing between ads and voluntary support. They're running both.
 
-Chapo Trap House makes $140,000 a month on Patreon from a single $5 tier. They also have sponsors. Slate runs their podcast "Slow Burn" with eight free, ad-supported episodes plus bonus content for paying members. The Tim Dillon Show pulls in over $200,000 monthly from Patreon subscribers while also running ads.
+Chapo Trap House makes $180,000+ a month on Patreon from a single $5 tier. They also have sponsors. Slate runs their podcast "Slow Burn" with eight free, ad-supported episodes plus bonus content for paying members. The Tim Dillon Show pulls in over $200,000 monthly from Patreon subscribers while also running ads.
 
 The hybrid model works. Most people won't pay. Ads cover them.
 
