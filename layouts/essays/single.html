@@ -11,18 +11,41 @@ description: "A concise 1-2 sentence summary of the essay for SEO meta tags and 
         {{ with .Params.hero_image }}
             {{ $img := resources.Get . }}
             {{ if $img }}
-                {{ $webp := $img.Process "webp q85" }}
-                {{ $png := $img.Process "png q85" }}
+                {{/* Generate responsive sizes */}}
+                {{ $small := $img.Resize "640x" }}
+                {{ $medium := $img.Resize "1024x" }}
+                {{ $large := $img.Resize "1920x" }}
+
+                {{/* Generate formats for each size */}}
+                {{ $avifSmall := $small.Process "avif q80" }}
+                {{ $avifMedium := $medium.Process "avif q80" }}
+                {{ $avifLarge := $large.Process "avif q80" }}
+                {{ $webpSmall := $small.Process "webp q85" }}
+                {{ $webpMedium := $medium.Process "webp q85" }}
+                {{ $webpLarge := $large.Process "webp q85" }}
+
                 <figure class="essay-hero">
                     <picture>
-                        <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
+                        {{/* AVIF - smallest, best compression */}}
+                        <source
+                            type="image/avif"
+                            srcset="{{ $avifSmall.RelPermalink }} 640w, {{ $avifMedium.RelPermalink }} 1024w, {{ $avifLarge.RelPermalink }} 1920w"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1024px">
+                        {{/* WebP - fallback */}}
+                        <source
+                            type="image/webp"
+                            srcset="{{ $webpSmall.RelPermalink }} 640w, {{ $webpMedium.RelPermalink }} 1024w, {{ $webpLarge.RelPermalink }} 1920w"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1024px">
+                        {{/* PNG fallback with srcset */}}
                         <img
-                            src="{{ $png.RelPermalink }}"
+                            src="{{ $medium.RelPermalink }}"
+                            srcset="{{ $small.RelPermalink }} 640w, {{ $medium.RelPermalink }} 1024w, {{ $large.RelPermalink }} 1920w"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1024px"
                             alt="{{ $.Params.hero_alt | default $.Title }}"
                             class="essay-hero-image"
                             loading="eager"
-                            width="{{ $img.Width }}"
-                            height="{{ $img.Height }}"
+                            width="{{ $medium.Width }}"
+                            height="{{ $medium.Height }}"
                         >
                     </picture>
                 </figure>
