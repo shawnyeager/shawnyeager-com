@@ -10,7 +10,7 @@ slug: bet-worth-making
 topics: [bitcoin, freedom-tech, go-to-market]
 tags: []
 featured: false
-draft: false
+draft: true
 hero_image: images/essays/bet-worth-making.png
 hero_alt: A hand placing a poker chip down
 ---
