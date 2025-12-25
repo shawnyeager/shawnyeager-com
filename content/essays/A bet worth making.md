@@ -1,13 +1,16 @@
 ---
 title: "A bet worth making"
 description: "Voluntary payment can't replace ads at scale. Fifty years of data says so. But that was never the point."
-summary: "When Patreon bans you, when PayPal freezes your account, when YouTube demonetizes your channel, when your bank decides your business doesn't align with their values—most creators have no backup plan. But if you've spent years building a direct relationship with even 5% of your audience—on Patreon, on V4V, on Lightning, on whatever permissionless rail exists—you have something priceless. You have an escape route."
+summary: |
+  When Patreon bans you, when PayPal freezes your account, when YouTube demonetizes your channel, when your bank decides your business doesn't align with their values—most creators have no backup plan.
+
+  But if you've spent years building a direct relationship with even 5% of your audience—on V4V, on Lightning, on whatever permissionless rail exists—you have something priceless. You have an escape route.
 date: 2025-12-23T10:00:00Z
 slug: bet-worth-making
 topics: [bitcoin, freedom-tech, go-to-market]
 tags: []
 featured: false
-draft: true
+draft: false
 hero_image: images/essays/bet-worth-making.png
 hero_alt: A hand placing a poker chip down
 ---
@@ -150,9 +153,7 @@ I left something out.
 
 It's only the end of the story if you think voluntary payment needs to *replace* extraction economics.
 
-It doesn't.
-
-It needs to exist as an exit.
+It doesn't. It needs to exist as an exit.
 
 In December 2018, Patreon banned a YouTuber named Carl Benjamin---known online as Sargon of Akkad---for something he said on a completely different platform. The ban wasn't for violating Patreon's terms of service. It was political. And it triggered a cascade.
 
@@ -172,7 +173,7 @@ Voluntary payment doesn't replace the $670 per year the average person already p
 
 When Patreon bans you, when PayPal freezes your account, when YouTube demonetizes your channel, when your bank decides your business doesn't align with their values---most creators have no backup plan.
 
-But if you've spent years building a direct relationship with even 5% of your audience---on Patreon, on V4V, on Lightning, on whatever permissionless rail exists---you have something priceless.
+But if you've spent years building a direct relationship with even 5% of your audience---on V4V, on Lightning, on whatever permissionless rail exists---you have something priceless.
 
 You have an escape route.
 
