@@ -52,18 +52,13 @@ Important Notes:
     {{ end }}
 
     <!-- Podcast Feature Box -->
-    {{/* Fetch RSS - use date-based cache key for daily refresh */}}
     {{ $episode := false }}
-    {{ $cacheKey := print "v2-" .Site.Params.podcast_rss (now.Format "2006-01-02") }}
-    {{ with try (resources.GetRemote .Site.Params.podcast_rss (dict "key" $cacheKey)) }}
+    {{ $rssUrl := "https://trustrevolution.co/episodes/index.xml" }}
+    {{ $cacheKey := print "v7-" $rssUrl (now.Format "2006-01-02") }}
+    {{ with try (resources.GetRemote $rssUrl (dict "key" $cacheKey)) }}
         {{ with .Value }}
             {{ $feed := . | transform.Unmarshal }}
-            {{/* Check for early-access episode first, then fall back to regular item */}}
-            {{ with $feed.channel.paidItem }}
-                {{ $episode = . }}
-            {{ else }}
-                {{ $episode = index $feed.channel.item 0 }}
-            {{ end }}
+            {{ $episode = index $feed.channel.item 0 }}
         {{ end }}
     {{ end }}
 
@@ -75,14 +70,8 @@ Important Notes:
             <img src="/images/trust-revolution-cover.webp" alt="Trust Revolution Podcast cover art" class="podcast-art" width="150" height="150" fetchpriority="high">
             <div class="podcast-info">
                 {{ with $episode }}
-                {{/* Extract S##E## tag and parse guest/subtitle */}}
-                {{ $epTag := "" }}
-                {{ with findRE `^S\d+E\d+` .title }}
-                    {{ $epTag = index . 0 }}
-                {{ end }}
-                {{ $cleaned := replaceRE `^S\d+E\d+\s*` "" .title }}
-                {{/* Normalize both em dash (—) and en dash (–) to consistent delimiter */}}
-                {{ $normalized := replaceRE `\s*[–—]\s*` " – " $cleaned }}
+                {{/* Parse title: "Pippellia – Reputation Without a Kill Switch" */}}
+                {{ $normalized := replaceRE `\s*[–—]\s*` " – " .title }}
                 {{ $parts := split $normalized " – " }}
                 {{ $guest := "" }}
                 {{ $subtitle := $normalized }}
@@ -90,19 +79,17 @@ Important Notes:
                     {{ $guest = index $parts 0 }}
                     {{ $subtitle = index $parts 1 }}
                 {{ end }}
-                {{/* Handle solo eps: "– Title" leaves empty guest */}}
-                {{ if eq $guest "" }}
-                    {{ $subtitle = replaceRE `^–\s*` "" $subtitle }}
-                {{ end }}
+                {{ $episodeUrl := .link }}
                 <div class="episode-info">
-                    <span class="episode-hook">{{ $subtitle }}</span>
-                    <span class="episode-meta">{{ if ne $guest "" }}<span class="episode-guest">with {{ $guest }}</span>{{ if $epTag }}<span class="separator">·</span>{{ end }}{{ end }}{{ if $epTag }}<span class="episode-tag">{{ $epTag }}</span>{{ end }}</span>
+                    <span class="episode-title">{{ $subtitle }}</span>
+                    {{ if ne $guest "" }}<span class="episode-guest">with {{ $guest }}</span>{{ end }}
+                    {{ with .description }}<p class="episode-hook">{{ . }}</p>{{ end }}
+                </div>
+                <div class="podcast-links">
+                    {{ partial "links/action.html" (dict "url" $episodeUrl "text" "Listen" "event" $.Site.Params.plausible_events.trustrev) }}
+                    {{ partial "links/secondary.html" (dict "url" $.Site.Params.trustrevolution_url "text" "More episodes" "event" $.Site.Params.plausible_events.trustrev) }}
                 </div>
                 {{ end }}
-                <div class="podcast-links">
-                    {{ partial "links/action.html" (dict "url" .Site.Params.podcast_url "text" "Listen now" "event" .Site.Params.plausible_events.podcast_external) }}
-                    {{ partial "links/action.html" (dict "url" ("podcast" | relURL) "text" "Subscribe" "event" .Site.Params.plausible_events.podcast_subscribe) }}
-                </div>
             </div>
         </div>
     </section>
