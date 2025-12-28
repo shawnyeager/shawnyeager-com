@@ -79,15 +79,11 @@ Important Notes:
                     {{ $guest = index $parts 0 }}
                     {{ $subtitle = index $parts 1 }}
                 {{ end }}
-                {{ $epTag := "" }}
-                {{ with findRE `s\d+e\d+` .link }}
-                    {{ $epTag = index . 0 | upper }}
-                {{ end }}
                 {{ $episodeUrl := .link }}
                 <div class="episode-info">
-                    <span class="episode-hook">{{ $subtitle }}</span>
-                    <span class="episode-meta">{{ if ne $guest "" }}<span class="episode-guest">with {{ $guest }}</span>{{ if $epTag }}<span class="separator">·</span>{{ end }}{{ end }}{{ if $epTag }}<span class="episode-tag">{{ $epTag }}</span>{{ end }}</span>
-                    {{ with .description }}<p class="episode-dek">{{ . }}</p>{{ end }}
+                    <span class="episode-title">{{ $subtitle }}</span>
+                    {{ if ne $guest "" }}<span class="episode-guest">with {{ $guest }}</span>{{ end }}
+                    {{ with .description }}<p class="episode-hook">{{ . }}</p>{{ end }}
                 </div>
                 <div class="podcast-links">
                     {{ partial "links/action.html" (dict "url" $episodeUrl "text" "Listen" "event" $.Site.Params.plausible_events.trustrev) }}
