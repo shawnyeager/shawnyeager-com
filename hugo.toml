@@ -99,11 +99,7 @@ enableEmoji = true
   secondary_site_name = "Notes"
 
   # Podcast
-  podcast_name = "Trust Revolution podcast"
-  podcast_url = "https://fountain.fm/show/Mk0fJte5vrfiDQ5RyCZd"
-  podcast_rss = "https://feeds.fountain.fm/OIYZniSDb9jd3Pb78CpF"
-  podcast_description = "Rethinking trust for a decentralized future"
-  podcast_image = "/images/trust-revolution-official.webp"
+  trustrevolution_url = "https://trustrevolution.co"
 
   # Social
   copyright = "Copyright © 2025, Shawn Yeager"
@@ -117,8 +113,7 @@ enableEmoji = true
   plausible_events.contact_email = "Email-Contact"
   plausible_events.contact_signal = "Signal-Contact"
   plausible_events.contact_calendar = "Calendar-Booking"
-  plausible_events.podcast_subscribe = "CTA-Podcast-Subscribe"
-  plausible_events.podcast_external = "CTA-Podcast-Listen"
+  plausible_events.trustrev = "CTA-TrustRev"
   plausible_events.essay_cta = "CTA-Read-More"
   plausible_events.all_essays = "CTA-All-Essays"
   plausible_events.cross_site_nav = "Cross-Site-Navigation"
