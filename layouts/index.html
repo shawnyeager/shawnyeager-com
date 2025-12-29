@@ -53,8 +53,8 @@ Important Notes:
 
     <!-- Podcast Feature Box -->
     {{ $episode := false }}
-    {{ $rssUrl := "https://trustrevolution.co/episodes/index.xml" }}
-    {{ $cacheKey := print "v7-" $rssUrl (now.Format "2006-01-02") }}
+    {{ $rssUrl := "https://trustrevolution.co/index.xml" }}
+    {{ $cacheKey := print "v8-" $rssUrl (now.Format "2006-01-02") }}
     {{ with try (resources.GetRemote $rssUrl (dict "key" $cacheKey)) }}
         {{ with .Value }}
             {{ $feed := . | transform.Unmarshal }}
@@ -87,7 +87,6 @@ Important Notes:
                 </div>
                 <div class="podcast-links">
                     {{ partial "links/action.html" (dict "url" $episodeUrl "text" "Listen" "event" $.Site.Params.plausible_events.trustrev) }}
-                    {{ partial "links/secondary.html" (dict "url" $.Site.Params.trustrevolution_url "text" "More episodes" "event" $.Site.Params.plausible_events.trustrev) }}
                 </div>
                 {{ end }}
             </div>
