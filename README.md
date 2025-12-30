@@ -61,44 +61,25 @@ git clone git@github.com:shawnyeager/tangerine-theme.git
 
 **Daily workflow:**
 
-**Start local development:**
-Add this line to `go.mod`:
-```
-replace github.com/shawnyeager/tangerine-theme => ../tangerine-theme
-```
-
-Run hugo server:
+Use the `theme-dev.sh` script from the workspace root:
 ```bash
-hugo server -D -p 1313
+cd ~/Work/shawnyeager
+./theme-dev.sh        # Start both sites
+./theme-dev.sh com    # Start only this site (port 1313)
 ```
 
-Changes to theme appear immediately.
-
-**CRITICAL:** Remove replace directive before committing:
-```bash
-git restore go.mod
-```
-
-**Verify go.mod has no replace directive:**
-```bash
-git diff go.mod | grep "replace"  # Should return nothing
-```
+The script handles replace directives and cleanup automatically.
 
 ### Deploy Theme Changes
 
-**Sites use PR-based workflow.**
-
-After pushing theme to master:
+**Automatic.** Push theme to master → PRs appear in ~3 min.
 
 ```bash
-# Trigger workflow (or wait for daily cron)
-gh workflow run auto-theme-update-pr.yml --repo shawnyeager/shawnyeager-com
+# Push theme
+git -C ~/Work/shawnyeager/tangerine-theme push origin master
 
-# Check for PR
+# Wait for PR, review deploy preview, merge when ready
 gh pr list --label theme-update
-
-# Review deploy preview in PR
-# Merge when satisfied
 ```
 
 **DO NOT manually run `hugo mod get`** - workflow handles everything.
