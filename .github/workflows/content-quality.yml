@@ -1,15 +1,7 @@
 name: Content Quality
 
 on:
-  # Run on PRs to catch issues before merge
-  pull_request:
-    paths:
-      - 'content/**/*.md'
-      - '*.md'
-      - 'go.mod'
-      - 'go.sum'
-
-  # Run on push to master to validate all content
+  # Run on push to master only (not PRs - saves Actions minutes)
   push:
     branches:
       - master
