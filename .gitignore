@@ -1,0 +1,30 @@
+# Hugo build outputs
+public/
+.hugo_build.lock
+resources/
+
+# Generated files
+data/essays.json
+lighthouse-report.*
+static/images/og-essays/
+static/images/og-pages/
+static/images/og-sections/
+static/images/og-image.png
+static/images/og-image-square.png
+
+# Netlify
+.netlify/
+deno.lock
+
+# Node.js
+node_modules/
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,12 @@
+{{/*
+  Empty fallback for implicit sections from content adapter.
+
+  IMPORTANT: Do NOT use {{ define "main" }} here!
+
+  The V4V content adapter creates pages at /{essay-slug}/v4v/ which causes
+  Hugo to create implicit parent sections at /{essay-slug}/. These implicit
+  sections share URLs with essay pages.
+
+  By not defining any blocks, this template produces empty output, allowing
+  the essay page (which uses single.html with baseof.html) to take precedence.
+*/}}

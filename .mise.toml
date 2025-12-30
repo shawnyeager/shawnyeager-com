@@ -1,0 +1,15 @@
+# mise (https://mise.jdx.dev) configuration
+# Auto-installs tools when you cd into this directory
+
+[tools]
+# Core tools for builds
+node = "latest"
+
+# Note: Hugo version is set in netlify.toml for Netlify builds.
+# For local dev, install Hugo via: mise use -g hugo-extended@0.152.2
+# Note: markdownlint-cli2 is used by pre-commit hooks (local dev only).
+# Install manually if needed: npm install -g markdownlint-cli2
+
+[env]
+# Ensure npm global packages are in PATH
+_.path = ["./node_modules/.bin", "$PATH"]

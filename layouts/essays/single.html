@@ -1,0 +1,78 @@
+{{/*
+REMINDER: Always add a description in frontmatter for SEO and social sharing:
+---
+title: "Essay Title"
+description: "A concise 1-2 sentence summary of the essay for SEO meta tags and social media."
+---
+*/}}
+{{ define "main" }}
+    <article class="essay-content">
+        {{/* Hero Image - displays when hero_image is set in frontmatter */}}
+        {{ with .Params.hero_image }}
+            {{ $img := resources.Get . }}
+            {{ if $img }}
+                {{/* Generate responsive sizes */}}
+                {{ $small := $img.Resize "640x" }}
+                {{ $medium := $img.Resize "1024x" }}
+                {{ $large := $img.Resize "1920x" }}
+
+                {{/* Generate WebP for each size */}}
+                {{ $webpSmall := $small.Process "webp q85" }}
+                {{ $webpMedium := $medium.Process "webp q85" }}
+                {{ $webpLarge := $large.Process "webp q85" }}
+
+                <figure class="essay-hero">
+                    <picture>
+                        <source
+                            type="image/webp"
+                            srcset="{{ $webpSmall.RelPermalink }} 640w, {{ $webpMedium.RelPermalink }} 1024w, {{ $webpLarge.RelPermalink }} 1920w"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1024px">
+                        <img
+                            src="{{ $webpMedium.RelPermalink }}"
+                            srcset="{{ $small.RelPermalink }} 640w, {{ $medium.RelPermalink }} 1024w, {{ $large.RelPermalink }} 1920w"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1024px"
+                            alt="{{ $.Params.hero_alt | default $.Title }}"
+                            class="essay-hero-image"
+                            loading="eager"
+                            width="{{ $medium.Width }}"
+                            height="{{ $medium.Height }}"
+                        >
+                    </picture>
+                </figure>
+            {{ end }}
+        {{ end }}
+
+        <header>
+            <!-- Essay Title -->
+            <h1 class="essay-title-single">{{ .Title }}</h1>
+
+            <!-- Essay Metadata -->
+            <div class="page-meta">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                {{ if .Site.Params.show_read_time }}
+                <span class="page-meta-separator">·</span>
+                <span class="essay-reading-time">{{ .ReadingTime }} min read</span>
+                {{ end }}
+            </div>
+        </header>
+
+        <!-- Essay Content -->
+        <div class="essay-body">
+            {{ .Content | safeHTML }}
+        </div>
+
+        <!-- Essay Footer & Navigation -->
+        {{- with .Params.acknowledgment }}
+        <p class="aside">{{ . }}</p>
+        {{- end }}
+        {{- partial "content-nav.html" (dict
+            "action_url" (printf "/%s/v4v/" .Params.slug)
+            "action_text" "Zap this essay"
+            "action_icon" "lightning"
+            "action_event" .Site.Params.plausible_events.v4v_essay
+            "back_url" ("essays" | relURL)
+            "back_text" "All essays"
+            "back_event" .Site.Params.plausible_events.all_essays
+        ) -}}
+    </article>
+{{ end }}

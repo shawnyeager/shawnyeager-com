@@ -1,0 +1,35 @@
+[build]
+  publish = "public"
+  # Clear Hugo's getresource cache to ensure fresh RSS feed fetch for podcast card
+  command = "rm -rf /opt/build/cache/hugo_cache/*/filecache/getresource && npm ci && npm run generate-essays && npm run generate-og && hugo --gc --minify"
+
+[build.environment]
+  HUGO_VERSION = "0.152.2"
+  GO_VERSION = "1.25.3"
+  NODE_VERSION = "20"
+  GOPROXY = "direct"
+
+[context.production.environment]
+  HUGO_ENV = "production"
+
+[[headers]]
+for = "/.well-known/*"
+[headers.values]
+Access-Control-Allow-Origin = "*"
+
+[[headers]]
+for = "/*"
+[headers.values]
+Referrer-Policy = "no-referrer"
+X-Content-Type-Options = "nosniff"
+# CSP: allow HTTPS resources, block iframe embedding
+# style-src needs 'unsafe-inline' for Sveltia CMS
+# media-src and frame-src need blob: for Sveltia asset previews
+Content-Security-Policy = "default-src 'self' https: data: blob:; connect-src 'self' https: wss:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; media-src 'self' https: blob:; frame-src 'self' https: blob:; frame-ancestors 'none';"
+
+# Podcast page now lives at trustrevolution.co
+[[redirects]]
+  from = "/podcast"
+  to = "https://trustrevolution.co"
+  status = 301
+  force = true

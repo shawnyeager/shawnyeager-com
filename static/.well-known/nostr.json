@@ -1,0 +1,17 @@
+{
+   "names": {
+      "_": "c7eda660a6bc8270530e82b4a7712acdea2e31dc0a56f8dc955ac009efd97c86",
+      "shawn": "c7eda660a6bc8270530e82b4a7712acdea2e31dc0a56f8dc955ac009efd97c86"
+      },
+   "relays": {
+"c7eda660a6bc8270530e82b4a7712acdea2e31dc0a56f8dc955ac009efd97c86": [
+      "wss://relay.shawnyeager.com/outbox",
+      "wss://relay.shawnyeager.com/inbox",
+      "wss://relay.shawnyeager.com/private",
+      "wss://relay.shawnyeager.com/chat",
+      "wss://wot.nostr.party",
+      "wss://wot.utxo.one",
+      "wss://relay.bitcoinpark.com"
+      ]
+   }
+}

@@ -1,0 +1,22 @@
+{{/*
+Purpose: Default single page template
+
+Features:
+- Page title via page-title.html partial
+- Simple content wrapper
+
+Important Notes:
+- Overrides theme default single.html
+- Used for utility pages (connect, media, encrypt, subscribed)
+- More specific templates (essays/single.html, now.html, podcast.html) take precedence
+*/}}
+
+{{ define "main" }}
+    <!-- Page Title (smart visibility: show_title frontmatter flag controls display) -->
+    {{ partial "page-title.html" . }}
+
+    <!-- Page Content -->
+    <article class="page-body">
+        {{ .Content | safeHTML }}
+    </article>
+{{ end }}

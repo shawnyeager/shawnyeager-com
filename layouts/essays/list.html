@@ -1,0 +1,44 @@
+{{/*
+Purpose: Essays listing page for shawnyeager.com
+
+Features:
+- Page title via page-title.html partial
+- Topic browsing section
+- Paginated essays list (chronological, newest first)
+- Pagination controls
+- Draft filtering in production
+
+Important Notes:
+- Overrides theme default list.html for essays
+- Date format: "2006 · 01" (year · month)
+- Pagination configured in hugo.toml (pagerSize)
+*/}}
+
+{{ define "main" }}
+    <!-- Page Title (smart visibility: essays type always shows title) -->
+    {{ partial "page-title.html" . }}
+
+    <!-- Topics -->
+    {{ if .Site.Taxonomies.topics }}
+    {{ partial "topic-list.html" (dict "context" . "heading" "Browse by Topic") }}
+    {{ end }}
+
+    <!-- All Essays -->
+    <section class="recent-essays full-list">
+        {{ $posts := where .Pages "Type" "essays" }}
+        {{ if not hugo.IsServer }}
+        {{ $posts = where $posts "Draft" false }}
+        {{ end }}
+        {{ $paginator := .Paginate $posts }}
+        {{ range $paginator.Pages }}
+        <article class="essay-item">
+            <a href="{{ .RelPermalink }}">
+                <time datetime="{{ .Date.Format "2006-01-02" }}" class="essay-date">{{ .Date.Format "2006 · 01" }}</time>
+                <span class="essay-title">{{ .Title }}</span>
+            </a>
+        </article>
+        {{ end }}
+    </section>
+
+    {{ partial "pagination.html" (dict "paginator" $paginator "prevText" "Newer essays" "nextText" "Older essays") }}
+{{ end }}

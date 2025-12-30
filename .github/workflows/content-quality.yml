@@ -1,0 +1,29 @@
+name: Content Quality
+
+on:
+  # Run on push to master only (not PRs - saves Actions minutes)
+  push:
+    branches:
+      - master
+    paths:
+      - 'content/**/*.md'
+      - '*.md'
+      - 'go.mod'
+      - 'go.sum'
+
+  # Run weekly on Mondays to catch link rot
+  schedule:
+    - cron: '0 9 * * 1'
+
+  # Allow manual triggering
+  workflow_dispatch:
+
+jobs:
+  quality-check:
+    uses: shawnyeager/shared-workflows/.github/workflows/complete-content-quality.yml@master
+    permissions:
+      contents: read
+      issues: write
+    secrets: inherit
+    with:
+      site_type: 'essays'

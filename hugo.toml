@@ -1,0 +1,217 @@
+# Hugo Configuration for shawnyeager.com
+# Professional site - The Gallery (finished work)
+#
+# Shared configuration inherited from tangerine-theme/hugo.toml
+# This file contains only site-specific overrides
+
+# =============================================================================
+# CORE SETTINGS
+# =============================================================================
+
+baseURL = "https://shawnyeager.com/"
+title = "Shawn Yeager | Bitcoin Go-to-Market & Revenue Leader"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+enableRobotsTXT = true
+enableEmoji = true
+
+# =============================================================================
+# HUGO MODULE
+# =============================================================================
+
+[module]
+  [[module.imports]]
+    path = "github.com/shawnyeager/tangerine-theme"
+
+# =============================================================================
+# CONTENT DELIVERY
+# =============================================================================
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML"]
+
+[outputFormats.RSS]
+  mediaType = "application/rss+xml"
+  baseName = "feed"
+
+[services.rss]
+  limit = 15
+
+[pagination]
+  pagerSize = 20
+
+[permalinks]
+  essays = "/:slug/"
+
+# =============================================================================
+# TAXONOMIES
+# =============================================================================
+
+[taxonomies]
+  topic = "topics"
+  tag = "tags"
+
+# =============================================================================
+# SEO & CRAWLING
+# =============================================================================
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+
+[[cascade]]
+  _target.kind = "term"
+  _target.path = "/tags"
+  [cascade.sitemap]
+    disable = true
+
+[[cascade]]
+  _target.kind = "taxonomy"
+  _target.path = "/tags/**"
+  [cascade.sitemap]
+    disable = true
+
+# =============================================================================
+# SITE PARAMETERS
+# =============================================================================
+
+[params]
+  site_display_name = "Shawn Yeager"
+  description = "Bitcoin go-to-market and revenue leader. Previously led sales at Amboss Technologies, NYDIG Payments, and Bottlepay. Hosts Trust Revolution podcast."
+
+  # Open Graph
+  og_image = "/images/og-image.png"
+
+  # Theme
+  content_type = "essays"
+  favicon_style = "solid"
+  noindex = false
+
+  # Display
+  show_read_time = true
+  show_email_signup = true
+  email_signup_text = "I send new essays and updates via email."
+  email_signup_action = "https://buttondown.com/api/emails/embed-subscribe/shawnyeager"
+
+  # Cross-site
+  secondary_site_url = "https://notes.shawnyeager.com"
+  secondary_site_name = "Notes"
+
+  # Podcast
+  trustrevolution_url = "https://trustrevolution.co"
+
+  # Social
+  copyright = "Copyright © 2025, Shawn Yeager"
+  nostr = "https://shawnyeager.com/nostr"
+  github = "https://github.com/shawnyeager"
+  twitter_handle = "shawnyeager"
+
+  # Analytics
+  plausible_script_id = "pa-Qxf1mpF6qNZ8714Ucvs50"
+  plausible_form_event = "Form-Submission"
+  plausible_events.contact_email = "Email-Contact"
+  plausible_events.contact_signal = "Signal-Contact"
+  plausible_events.contact_calendar = "Calendar-Booking"
+  plausible_events.trustrev = "CTA-TrustRev"
+  plausible_events.essay_cta = "CTA-Read-More"
+  plausible_events.all_essays = "CTA-All-Essays"
+  plausible_events.cross_site_nav = "Cross-Site-Navigation"
+  plausible_events.v4v_essay = "CTA-V4V-Essay"
+  plausible_events.v4v_footer = "CTA-V4V-Footer"
+  plausible_events.connect_cta = "CTA-Lets-Win"
+
+[params.author]
+  name = "Shawn Yeager"
+  email = "hello@shawnyeager.com"
+  description = "Bitcoin go-to-market and revenue leader"
+  jobTitle = "Bitcoin Go-to-Market & Revenue Leadership"
+  image = "/images/shawn-media.jpg"
+
+[params.author.sameAs]
+  fountain = "https://fountain.fm/p/npub1clk6vc9xhjp8q5cws262wuf2eh4zuvwupft03hy4ttqqnm7e0jrq3upup9"
+  github = "https://github.com/shawnyeager"
+  linkedin = "https://www.linkedin.com/in/shawnyeager"
+  nostr = "https://shawnyeager.com/nostr"
+  substack = "https://substack.com/@shawnyeager"
+
+# =============================================================================
+# MARKUP
+# =============================================================================
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[markup.goldmark.parser.attribute]
+  block = true
+
+[markup.goldmark.extensions.extras.mark]
+  enable = true
+
+[markup.highlight]
+  style = "monokailight"
+  lineNos = false
+  lineNumbersInTable = false
+
+# =============================================================================
+# IMAGE PROCESSING
+# =============================================================================
+
+[imaging]
+  quality = 85
+  resampleFilter = "Lanczos"
+  anchor = "Smart"
+
+[imaging.exif]
+  disableDate = false
+  disableLatLong = true
+
+# =============================================================================
+# PRIVACY & SECURITY
+# =============================================================================
+
+[privacy]
+  [privacy.youtube]
+    privacyEnhanced = true
+
+[security]
+  enableInlineShortcodes = false
+  [security.exec]
+    allow = ['^(dart-)?sass(-embedded)?$', '^go$', '^npx$', '^postcss$']
+  [security.funcs]
+    getenv = ['^HUGO_', '^CI$']
+
+# =============================================================================
+# BUILD & CACHE
+# =============================================================================
+
+[build]
+  writeStats = false
+
+[caches]
+  [caches.getjson]
+    dir = ":cacheDir/:project"
+    maxAge = "24h"
+  [caches.getcsv]
+    dir = ":cacheDir/:project"
+    maxAge = "24h"
+  [caches.images]
+    dir = ":cacheDir/:project"
+    maxAge = -1
+  [caches.assets]
+    dir = ":cacheDir/:project"
+    maxAge = -1
+
+# =============================================================================
+# MENU
+# =============================================================================
+
+[[menu.main]]
+  name = "Essays"
+  url = "/essays/"
+  weight = 1
+
+[[menu.main]]
+  name = "Now"
+  url = "/now/"
+  weight = 2
