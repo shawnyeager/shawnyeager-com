@@ -99,7 +99,7 @@ enableEmoji = true
   secondary_site_name = "Notes"
 
   # Podcast
-  trustrevolution_url = "https://trustrevolution.co"
+  podcast_url = "https://trustrevolution.co"
 
   # Social
   copyright = "Copyright © 2025, Shawn Yeager"

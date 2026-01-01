@@ -30,7 +30,7 @@ New projects:
 
 Latest episode with Pippellia on decentralized reputation systems—how Web of Trust can create portable reputation without centralized kill switches. Previously: Christian Keroles on Bitcoin as essential infrastructure for human rights, and my solo episode on why ads keep winning against voluntary payment.
 
-{{< cta url="podcast" text="Listen now" >}}
+{{< cta url="podcast" text="Listen now" event="trustrev" >}}
 
 ## Advisory & operating work
 
