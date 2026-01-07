@@ -4,7 +4,7 @@
   command = "rm -rf /opt/build/cache/hugo_cache/*/filecache/getresource && npm ci && npm run generate-essays && npm run generate-og && hugo --gc --minify"
 
 [build.environment]
-  HUGO_VERSION = "0.154.1"
+  HUGO_VERSION = "0.154.3"
   GO_VERSION = "1.25.3"
   NODE_VERSION = "20"
   GOPROXY = "direct"
