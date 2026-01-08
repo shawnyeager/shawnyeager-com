@@ -139,11 +139,12 @@
 */
 
 [data-theme="dark"] {
+  --color-accent: #FF5733;    /* Sync with main.css --brand-orange dark mode */
   --color-primary: #f5f5f5;
   --color-secondary: #d0d0d0;
   --color-muted: #a0a0a0;
   --color-light: #808080;
-  --color-bg: #1a1a1a;
+  --color-bg: #1e1c1a;        /* Sync with main.css --background-body dark mode (warm) */
   --color-border: #404040;
 }
 
@@ -230,7 +231,7 @@ body {
 
 .print-button:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(214, 57, 0, 0.3);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-accent) 30%, transparent);
 }
 
 
