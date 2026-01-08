@@ -2,7 +2,10 @@
 title: "Resume"
 layout: "resume/list"
 type: "resume"
-private: true
-sitemap_exclude: true
 robots: "noindex, nofollow"
+_build:
+  list: never
+  render: always
+sitemap:
+  disable: true
 ---
