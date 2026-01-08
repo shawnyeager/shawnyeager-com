@@ -58,7 +58,13 @@ Important Notes:
     {{ with try (resources.GetRemote $rssUrl (dict "key" $cacheKey)) }}
         {{ with .Value }}
             {{ $feed := . | transform.Unmarshal }}
-            {{ $episode = index $feed.channel.item 0 }}
+            {{/* Find first actual episode (skip essays and static pages) */}}
+            {{ range $feed.channel.item }}
+                {{ if strings.Contains .link "/episodes/" }}
+                    {{ $episode = . }}
+                    {{ break }}
+                {{ end }}
+            {{ end }}
         {{ end }}
     {{ end }}
 
