@@ -72,11 +72,18 @@ enableEmoji = true
   [cascade.sitemap]
     disable = true
 
+[[cascade]]
+  _target.kind = "page"
+  _target.path = "/resume/**"
+  [cascade.sitemap]
+    disable = true
+
 # =============================================================================
 # SITE PARAMETERS
 # =============================================================================
 
 [params]
+  robotsDisallow = ["/resume/"]
   site_display_name = "Shawn Yeager"
   description = "Bitcoin go-to-market and revenue leader. Previously led sales at Amboss Technologies, NYDIG Payments, and Bottlepay. Hosts Trust Revolution podcast."
 

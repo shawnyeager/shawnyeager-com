@@ -1,0 +1,189 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Shawn Yeager",
+    "label": "Fractional CRO | $300M+ Revenue | Revenue Turnaround for Growth-Stage Tech",
+    "image": "https://shawnyeager.com/images/shawn-media.webp",
+    "email": "hello@shawnyeager.com",
+    "phone": "+1 615 398 9518",
+    "url": "https://shawnyeager.com",
+    "summary": "I fix revenue engines for founders with strong products that aren't scaling.\n\n30 years in tech. $300M+ generated. From Microsoft and Exodus ($180M partner-led) to two IBM acquisitions to CEO of an IoT startup (Best Buy, Home Depot distribution). Now focused on Bitcoin and fintech infrastructure.\n\nPositioning, sales process, channel strategy, revenue operations—the commercial problems that separate good products from growing companies.",
+    "location": {
+      "city": "Nashville",
+      "countryCode": "US",
+      "region": "Tennessee"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "shawnyeager",
+        "url": "https://linkedin.com/in/shawnyeager"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "YGR",
+      "position": "Fractional CRO & Advisor",
+      "url": "https://shawnyeager.com",
+      "startDate": "2024-07-01",
+      "summary": "Go-to-market and revenue leadership for Bitcoin and fintech startups. Fractional CRO work, strategic advisory, and consulting focused on sales, partnerships, and scaling revenue operations.",
+      "highlights": [
+        "Fractional CRO for Bitvora (Bitcoin wallet infrastructure for developers); built GTM strategy, launched devrel program, and closed first paying customers before transitioning to inbound-led growth.",
+        "Repositioned Wall Street veteran-led startup for Bitcoin market; company closed $4M seed round.",
+        "Led strategic pivot for decentralized protocol startup—killed dead-end market, repositioned for real revenue."
+      ]
+    },
+    {
+      "name": "Amboss Technologies",
+      "position": "Head of Sales",
+      "url": "https://amboss.space",
+      "startDate": "2023-08-01",
+      "endDate": "2024-07-01",
+      "summary": "Lightning Network analytics, liquidity management, and risk control for payments businesses. Joined Board of Advisors February 2023; recruited to lead sales full-time in August.",
+      "highlights": [
+        "Conducted 40+ customer discovery interviews that reshaped product roadmap and pricing strategy.",
+        "Delivered 50+ enterprise pitches; built partnerships with Voltage, LQWD, and Boltz Exchange.",
+        "Built GTM from scratch: positioning, messaging, sales playbooks, CRM, and revenue operations."
+      ]
+    },
+    {
+      "name": "Various (Board of Advisors)",
+      "position": "Strategic Advisor",
+      "startDate": "2022-11-01",
+      "endDate": "2025-02-01",
+      "summary": "Strategic advisory for early-stage Bitcoin and decentralized technology companies.",
+      "highlights": [
+        "Orange Pill App (Bitcoin social network) — 2022-2025",
+        "Synota (Lightning-based energy settlement) — 2023-2024",
+        "Clovyr (decentralized application tools) — 2023-2024"
+      ]
+    },
+    {
+      "name": "NYDIG",
+      "position": "Vice President of Business Development, Payments",
+      "url": "https://nydig.com",
+      "startDate": "2021-10-01",
+      "endDate": "2022-10-31",
+      "summary": "Hired to bring UK Bitcoin payments business, Bottlepay (acq.), to US and international markets. Led sales and partnerships for new payments business unit.",
+      "highlights": [
+        "Developed go-to-market plan and year-one targets for new payments business unit.",
+        "Created first, paid pilot of Bitcoin payments with top-10 US bank, and drove proofs-of-concept with leading international banks and ATM/kiosk operators.",
+        "Spearheaded global Lightning Network-based remittances program with partners in 8 countries.",
+        "Asked by president to step into challenged partnerships, including NEC, where I secured first commitments to strategic and revenue targets."
+      ]
+    },
+    {
+      "name": "Dataswift",
+      "position": "Vice President of Sales",
+      "url": "https://dataswift.io",
+      "startDate": "2020-02-01",
+      "endDate": "2021-09-01",
+      "summary": "Led sales, partnerships, and developer relations for vanguard provider of infrastructure that delivers personal data access, storage, and portability.",
+      "highlights": [
+        "Grew revenue from zero to $550k in 6 months with no marketing spend, and closed deals worth $3.25M within 9 months.",
+        "Designed, launched, and hired team for Jumpstart, Dataswift's partner program and solution design offering, adding 6 partners and closing joint opportunities in 4 countries in first 10 months.",
+        "Designed, launched, and hired team for DevX, Dataswift's developer relations program.",
+        "Drove redesign of product, pricing, and messaging before VP Product hire."
+      ]
+    },
+    {
+      "name": "ANKR",
+      "position": "CEO",
+      "url": "https://web.archive.org/web/20190207083210/https://www.ankr.com/",
+      "startDate": "2016-06-01",
+      "endDate": "2018-06-01",
+      "summary": "Recruited to scale up sales and operations and raise growth capital for groundbreaking Internet of Things startup. Identified, led and successfully executed on strategic initiatives in software development, product manufacturing and distribution, marketing, and customer service that enabled company to realize breakout growth.",
+      "highlights": [
+        "Drove retail sales growth to 43% month-over-month by the end of my first quarter.",
+        "Closed distribution deals with major retailers, Best Buy and Home Depot.",
+        "Grew and sustained business-to-business sales growth at 80+% month-over-month through first year.",
+        "Oversaw the release of two major versions of the ANKR app and the next generation of ANKR hardware.",
+        "Secured commitment to $2.5M in Series A financing."
+      ]
+    },
+    {
+      "name": "SHAWNYEAGER+CO.",
+      "position": "Consultant & Advisor",
+      "startDate": "2010-01-01",
+      "endDate": "2019-12-31",
+      "summary": "Built thriving business models, products, and partnerships in software, music, and digital media, with startup founders and industry innovators. Created and led go-to-market strategies, customer acquisition, and profitable sales channels and revenue generation. Clients ranged from early-stage startups to Global 1000.",
+      "highlights": [
+        "Grew pipeline by 300% and doubled average opportunity size in less than 90 days for pioneer in email marketing automation, AudiencePoint.",
+        "Drove 45% annual revenue growth and successful $2.25M seed round for digital media distribution SaaS provider, AudioSalad.",
+        "Engaged by Microsoft to help transform numerous strategic Independent Software Vendor partners to cloud/SaaS business model.",
+        "Developed channel sales strategy and led partner recruitment for leading channel management SaaS provider, ChannelAssist, resulting in international expansion, 175% increase in annual revenue and seat on client's board."
+      ]
+    },
+    {
+      "name": "Back Porch Group",
+      "position": "Founding Partner",
+      "url": "https://backporchgroup.com",
+      "startDate": "2013-01-01",
+      "endDate": "2016-12-01",
+      "summary": "Music tech venture-builder and startup advisor.",
+      "highlights": [
+        "Advised 100+ startups on business model, GTM, and growth.",
+        "Acquired MAGCON (original Vine stars fan convention) and exited to Live Nation."
+      ]
+    },
+    {
+      "name": "Microsoft · Exodus · Platform · Varicent",
+      "position": "Director, BD & Alliances",
+      "startDate": "1997-02-01",
+      "endDate": "2009-12-01",
+      "summary": "Built partnerships and revenue engines at industry-defining companies.",
+      "highlights": [
+        "Exodus: $180M in partner-led revenue; 200%+ of quota in 2000; held $75M through 2001 crash.",
+        "Platform Computing (acquired by IBM): $850k in co-marketing from Microsoft/Intel; Bill Gates endorsement; created Intel Cluster Ready.",
+        "Microsoft: 1.3M corporate IE deployments; millions of consumer users via ISP partnerships.",
+        "Varicent (acquired by IBM): First multimillion-dollar deal via Accenture; Microsoft ISV IMPACT Award."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Tennessee Technological University",
+      "area": "Computer Science",
+      "studyType": "B.Sc.",
+      "endDate": "1994-05-01"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Leadership",
+      "keywords": ["Vision", "Culture", "Coaching", "Team Building"]
+    },
+    {
+      "name": "Strategy",
+      "keywords": ["Revenue Turnaround", "Business Models", "Go-to-Market", "Sales Process Design", "Sales Forecasting", "Pricing", "Fundraising"]
+    },
+    {
+      "name": "Growth",
+      "keywords": ["Business Development", "Strategic Partnerships", "Enterprise Sales", "Channel Sales", "Revenue Operations", "Pipeline Management"]
+    },
+    {
+      "name": "Technology",
+      "keywords": ["Bitcoin", "Lightning Network", "Decentralized Systems", "Cloud Infrastructure", "SaaS", "Digital Media"]
+    }
+  ],
+  "references": [
+    {
+      "name": "Charles Alexander, Founder, Systemic",
+      "reference": "Shawn is by far one of the smartest and savviest people I know. He is equally adept in conventional and unconventional business environments. Shawn is a master magician at getting things moving in the right direction with focus and clarity. He is a leader."
+    },
+    {
+      "name": "Austin Mitchell, Cofounder, Synota",
+      "reference": "Shawn is our go-to when it comes to business development and enterprise sales. He does an amazing job relating his experiences and applying frameworks to the problems we're looking to solve. He's responsive and flexible, and he naturally makes connections relevant for our business."
+    },
+    {
+      "name": "Iain Catling, Co-founder, AudioSalad",
+      "reference": "Shawn brings great experience, wide-ranging knowledge and deep expertise to the table. He was able to quickly understand our existing strategy, market position and operations, then fine tune and adjust to drive tremendous results."
+    }
+  ],
+  "meta": {
+    "canonical": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+    "version": "v1.0.0",
+    "lastModified": "2026-01-07"
+  }
+}

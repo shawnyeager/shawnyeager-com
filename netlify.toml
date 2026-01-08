@@ -4,7 +4,7 @@
   command = "rm -rf /opt/build/cache/hugo_cache/*/filecache/getresource && npm ci && npm run generate-essays && npm run generate-og && hugo --gc --minify"
 
 [build.environment]
-  HUGO_VERSION = "0.154.1"
+  HUGO_VERSION = "0.154.3"
   GO_VERSION = "1.25.3"
   NODE_VERSION = "20"
   GOPROXY = "direct"
@@ -26,6 +26,12 @@ X-Content-Type-Options = "nosniff"
 # style-src needs 'unsafe-inline' for Sveltia CMS
 # media-src and frame-src need blob: for Sveltia asset previews
 Content-Security-Policy = "default-src 'self' https: data: blob:; connect-src 'self' https: wss:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; media-src 'self' https: blob:; frame-src 'self' https: blob:; frame-ancestors 'none';"
+
+# Resume page - prevent indexing
+[[headers]]
+for = "/resume/*"
+[headers.values]
+X-Robots-Tag = "noindex, nofollow"
 
 # Podcast page now lives at trustrevolution.co
 [[redirects]]
