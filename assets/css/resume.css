@@ -669,6 +669,11 @@ h3 .company {
 
   .experience-item {
     margin-bottom: 12pt;
+    break-inside: avoid;
+  }
+
+  .experience-header {
+    break-after: avoid;
   }
 
   .experience-summary {
