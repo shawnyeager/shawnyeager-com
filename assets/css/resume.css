@@ -762,4 +762,130 @@ h3 .company {
     text-decoration: none;
     color: inherit;
   }
+
+  /* Hide keyboard help modal in print */
+  .keyboard-help-overlay {
+    display: none !important;
+  }
+}
+
+
+/* =============================================================================
+   16. KEYBOARD HELP MODAL
+   =============================================================================
+   Styles for the "?" keyboard shortcuts modal. Copied from theme main.css
+   since resume.css is standalone and doesn't load main.css.
+*/
+
+.keyboard-help-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 26, 26, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+
+[data-theme="dark"] .keyboard-help-overlay {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.keyboard-help-overlay[data-visible="true"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.keyboard-help-card {
+  position: relative;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: var(--space-8);
+  max-width: 320px;
+  width: calc(100% - var(--space-8) * 2);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(var(--space-2));
+  transition: transform 0.15s ease;
+}
+
+.keyboard-help-card:focus {
+  outline: none;
+}
+
+.keyboard-help-overlay[data-visible="true"] .keyboard-help-card {
+  transform: translateY(0);
+}
+
+.keyboard-help-heading {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: var(--weight-semibold);
+  color: var(--color-primary);
+  margin: 0 0 var(--space-6) 0;
+  letter-spacing: var(--tracking-tight);
+}
+
+.keyboard-help-list {
+  margin: 0;
+  padding: 0;
+}
+
+.keyboard-help-item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  margin-bottom: var(--space-2);
+}
+
+.keyboard-help-item:last-child {
+  margin-bottom: 0;
+}
+
+.keyboard-help-item dt {
+  flex-shrink: 0;
+}
+
+.keyboard-help-item dd {
+  margin: 0;
+  color: var(--color-secondary);
+  font-size: var(--text-base);
+}
+
+.keyboard-help-card kbd {
+  display: inline-block;
+  min-width: 1.75rem;
+  padding: 0.25rem var(--space-1);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  text-align: center;
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-bg) 90%, var(--color-border));
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+
+.keyboard-help-dismiss {
+  margin: var(--space-6) 0 0 0;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  text-align: center;
+}
+
+.keyboard-help-dismiss kbd {
+  font-size: var(--text-xs);
+  padding: 0.125rem 0.25rem;
+  min-width: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .keyboard-help-overlay,
+  .keyboard-help-card {
+    transition: none;
+  }
 }
