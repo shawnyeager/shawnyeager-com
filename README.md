@@ -1,7 +1,6 @@
 # shawnyeager.com
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/345f9641-36ce-4cef-a6ce-d2f0b1e1de73/deploy-status)](https://app.netlify.com/sites/shawnyeager-com/deploys)
-![Version](https://img.shields.io/badge/version-v1.0.0-orange)
 
 **The Gallery** — Finished essays and professional content.
 
