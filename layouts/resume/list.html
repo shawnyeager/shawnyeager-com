@@ -7,6 +7,10 @@
   <meta name="googlebot" content="noindex, nofollow">
   <title>{{ site.Data.resume.basics.name }} - Resume</title>
   
+  <!-- Preload fonts -->
+  <link rel="preload" href="{{ "fonts/Satoshi-Variable.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ "fonts/Inter-Variable.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+  
   <!-- Theme init script to prevent FOUC -->
   <script>
     (function() {
