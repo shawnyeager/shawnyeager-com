@@ -147,6 +147,7 @@
   </div>
 
   <!-- Keyboard Shortcuts: d (theme), a (auto), j/k (scroll), gg/G (top/bottom), ? (help) -->
-  <script src="{{ "js/keyboard-shortcuts.js" | relURL }}" defer></script>
+  {{- $js := resources.Get "js/keyboard-shortcuts.js" | minify | fingerprint -}}
+  <script src="{{ $js.RelPermalink }}" defer></script>
 </body>
 </html>
