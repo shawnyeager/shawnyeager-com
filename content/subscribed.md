@@ -1,6 +1,6 @@
 ---
 title: "Thanks for subscribing"
-description: "You'll receive occasional essays on Bitcoin strategy, go-to-market execution, and building freedom tech that wins."
+description: "You're on the list. Check your email to confirm. You'll get new essays when I publish them—usually once a month, sometimes less."
 type: page
 show_title: true
 hide_footer_signup: true
