@@ -7,7 +7,7 @@ show_title: true
 hide_footer_signup: true
 ---
 
-{{< contact-section >}}
+{{< section class="contact-section" >}}
 
 {{< contact-method type="email" value="hello@shawnyeager.com" >}}
 
@@ -15,4 +15,4 @@ hide_footer_signup: true
 
 {{< contact-method type="calendar" value="https://cal.com/shawnyeager" display="Book a meeting" >}}
 
-{{< /contact-section >}}
+{{< /section >}}
