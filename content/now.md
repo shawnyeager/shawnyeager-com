@@ -1,6 +1,6 @@
 ---
 title: "What I'm focused on now"
-description: "Trust Revolution podcast, Bitcoin startup advisory, and monthly essays on go-to-market strategy."
+description: "What I'm doing now: hosting Trust Revolution podcast, advising Bitcoin startups on go-to-market, and publishing essays when I have something worth saying."
 date: 2025-11-13
 type: page
 layout: now

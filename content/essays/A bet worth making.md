@@ -1,6 +1,6 @@
 ---
 title: "A bet worth making"
-description: "Voluntary payment can't replace ads at scale. Fifty years of data says so. But that was never the point."
+description: "Voluntary payment can't replace ads—fifty years of data says so. But that was never the point. Value for value is an escape route for when Patreon bans you or PayPal freezes your account."
 summary: |
   When Patreon bans you, when PayPal freezes your account, when YouTube demonetizes your channel, when your bank decides your business doesn't align with their values—most creators have no backup plan.
 

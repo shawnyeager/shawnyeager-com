@@ -1,6 +1,6 @@
 ---
 title: Soldiers, scouts, and the limits of persuasion
-description: Why smart people dismiss Bitcoin without looking, and where to direct your energy instead.
+description: "Soldiers defend positions. Scouts map territory. When someone dismisses Bitcoin without looking, they're not evaluating—they're defending. You can't argue them out of it. Circumstances do that."
 summary: |
   At any given time, most people aren't ready to hear what you're saying. Not because they're stupid—because nothing in their world has broken yet. They're not evaluating alternatives because they don't need alternatives.
 
