@@ -10,7 +10,7 @@
       "wss://relay.shawnyeager.com/private",
       "wss://relay.shawnyeager.com/chat",
       "wss://wot.nostr.party",
-      "wss://relay.bitcoinpark.com"
+      "wss://relay.bitcoinpark.com",
       "wss://premium.primal.net"
       ]
    }
