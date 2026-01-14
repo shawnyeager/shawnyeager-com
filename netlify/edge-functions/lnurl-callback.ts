@@ -1,11 +1,9 @@
-import type { Context, Config } from "@netlify/functions";
-import bolt11 from "bolt11";
-import { errorResponse, jsonResponse } from "./_shared/responses.ts";
+import type { Config } from "@netlify/edge-functions";
+import { decode as decodeBolt11 } from "npm:bolt11@1";
+import { errorResponse, jsonResponse, alertFailure, ALBY_CALLBACK, ALBY_TIMEOUT_MS } from "./_shared/config.ts";
 import { withNWCClient, NWCNotConfiguredError } from "./_shared/nwc.ts";
-import { ALBY_CALLBACK, ALBY_TIMEOUT_MS } from "./_shared/config.ts";
-import { alertFailure } from "./_shared/alerts.ts";
 
-export default async (req: Request, context: Context) => {
+export default async (req: Request) => {
   const url = new URL(req.url);
   const amount = url.searchParams.get('amount');
   const nostrParam = url.searchParams.get('nostr');
@@ -21,12 +19,10 @@ export default async (req: Request, context: Context) => {
   if (nostrParam) {
     console.log(`Zap request detected, forwarding to Alby: amount=${amount}ms`);
 
-    // Build Alby callback URL with all relevant params
     const albyUrl = new URL(ALBY_CALLBACK);
     albyUrl.searchParams.set('amount', amount);
     albyUrl.searchParams.set('nostr', nostrParam);
 
-    // Forward optional LNURL params if present
     const comment = url.searchParams.get('comment');
     if (comment) albyUrl.searchParams.set('comment', comment);
 
@@ -69,16 +65,16 @@ export default async (req: Request, context: Context) => {
         : 'shawnyeager.com';
 
       const invoice = await client.makeInvoice({
-        amount: parseInt(amount), // Amount is already in millisats from LNURL
+        amount: parseInt(amount),
         description: memo
       });
 
       // Extract payment hash from BOLT11 invoice
       let paymentHash = '';
       try {
-        const decoded = bolt11.decode(invoice.invoice);
-        const paymentHashTag = decoded.tags.find((t: any) => t.tagName === 'payment_hash');
-        paymentHash = paymentHashTag?.data || '';
+        const decoded = decodeBolt11(invoice.invoice);
+        const paymentHashTag = decoded.tags.find((t: { tagName: string }) => t.tagName === 'payment_hash');
+        paymentHash = (paymentHashTag?.data as string) || '';
       } catch (e) {
         console.error('Failed to decode BOLT11:', e);
       }
