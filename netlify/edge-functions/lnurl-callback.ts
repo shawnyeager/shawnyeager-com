@@ -1,5 +1,5 @@
 import type { Config } from "@netlify/edge-functions";
-import { decode as decodeBolt11 } from "npm:bolt11@1";
+import bolt11 from "bolt11";
 import { errorResponse, jsonResponse, alertFailure, ALBY_CALLBACK, ALBY_TIMEOUT_MS } from "./_shared/config.ts";
 import { withNWCClient, NWCNotConfiguredError } from "./_shared/nwc.ts";
 
@@ -72,7 +72,7 @@ export default async (req: Request) => {
       // Extract payment hash from BOLT11 invoice
       let paymentHash = '';
       try {
-        const decoded = decodeBolt11(invoice.invoice);
+        const decoded = bolt11.decode(invoice.invoice);
         const paymentHashTag = decoded.tags.find((t: { tagName: string }) => t.tagName === 'payment_hash');
         paymentHash = (paymentHashTag?.data as string) || '';
       } catch (e) {

@@ -3,7 +3,7 @@
  * Uses Deno's native WebSocket - no polyfill needed
  */
 
-import { NWCClient } from "npm:@getalby/sdk@3";
+import { NWCClient } from "@getalby/sdk";
 
 export class NWCNotConfiguredError extends Error {
   constructor() {
