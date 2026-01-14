@@ -1,37 +1,27 @@
 /*
  * =============================================================================
- * RESUME STYLESHEET (Standalone)
+ * RESUME STYLESHEET
  * =============================================================================
  *
- * This is a STANDALONE stylesheet for the resume page at /resume/.
- * It does NOT load main.css from the tangerine-theme.
+ * Resume-specific styles for the /resume/ page.
+ * Fonts and core design tokens loaded via Hugo Pipes concatenation from
+ * tangerine-theme's _tokens.css.
  *
- * WHY STANDALONE?
- * ---------------
+ * WHY SEPARATE FROM MAIN.CSS?
+ * ---------------------------
  * The theme's main.css has global heading styles (h1, h2, h3, etc.) and spacing
  * that conflict with resume-specific typography. Rather than fighting specificity
- * battles, this stylesheet is completely self-contained.
+ * battles, this stylesheet uses only the tokens layer (no element styles).
  *
- * MAINTENANCE NOTES:
- * ------------------
- * 1. FONTS: Uses the same fonts as main.css (Satoshi + Inter) loaded from
- *    /fonts/. If theme font paths change, update Section 1.
+ * ARCHITECTURE:
+ * -------------
+ * - _tokens.css: Fonts, colors, core tokens (via concat)
+ * - resume.css: Resume-specific semantic aliases + component styles
  *
- * 2. COLORS: Brand accent (#d63900) matches --brand-orange in main.css.
- *    If the brand color changes, update --color-accent here.
+ * Dark mode is handled automatically via light-dark() in tangerine tokens.
  *
- * 3. DARK MODE: Controlled via [data-theme="dark"] attribute on <html>.
- *    The keyboard-shortcuts.js from the theme handles toggling (d/a keys).
- *    Initial state set in layouts/resume/list.html <head> script.
- *
- * 4. PRINT: Optimized for US Letter. Uses hardcoded light-mode colors
- *    (not CSS variables) to ensure consistent print output.
- *
- * CROSS-REFERENCE TO MAIN.CSS:
- * ----------------------------
- * - Fonts: main.css @font-face declarations (keep paths in sync)
- * - Brand color: main.css --brand-orange (#d63900)
- * - Dark mode colors: main.css [data-theme="dark"] block (keep in sync)
+ * PRINT: Optimized for US Letter. Uses hardcoded light-mode colors
+ * (not CSS variables) to ensure consistent print output.
  *
  * TEMPLATE: layouts/resume/list.html
  * DATA: data/resume.json (JSON Resume format)
@@ -41,80 +31,44 @@
 
 
 /* =============================================================================
-   1. FONTS
+   1. RESUME SEMANTIC TOKENS
    =============================================================================
-   Same fonts as tangerine-theme. Paths must match theme's static/fonts/.
-   If theme updates font files, update these paths.
-*/
-
-@font-face {
-  font-family: 'Satoshi';
-  font-weight: 300 900;
-  font-style: normal;
-  font-display: swap;
-  src: url('/fonts/Satoshi-Variable.woff2') format('woff2-variations');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-  src: url('/fonts/Inter-Variable.woff2') format('woff2-variations');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
-  src: url('/fonts/Inter-Italic-Variable.woff2') format('woff2-variations');
-}
-
-
-/* =============================================================================
-   2. DESIGN TOKENS
-   =============================================================================
-   Self-contained token system. NOT shared with main.css to avoid conflicts.
-   Keep --color-accent in sync with main.css --brand-orange.
+   Semantic aliases that map to tangerine design tokens.
+   This allows resume-specific naming while inheriting theme colors/fonts.
 */
 
 :root {
-  /* Brand - sync with main.css --brand-orange */
-  --color-accent: #d63900;
+  /* Colors - mapped to tangerine tokens (light-dark() handles dark mode) */
+  --color-accent: var(--brand-orange);
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-muted: var(--text-meta);
+  --color-light: var(--text-subtle);
+  --color-bg: var(--background-body);
+  --color-border: var(--border-color);
 
-  /* Text hierarchy (light mode) */
-  --color-primary: #1a1a1a;     /* Headings, strong text */
-  --color-secondary: #444444;   /* Body text */
-  --color-muted: #666666;       /* Secondary info */
-  --color-light: #888888;       /* Tertiary info (dates) */
+  /* Typography - mapped to tangerine tokens */
+  --font-display: var(--font-heading);
+  /* --font-body already exists in tangerine tokens */
 
-  /* Surfaces (light mode) */
-  --color-bg: #FDFCFA;
-  --color-border: #d5d5d5;
+  /* Font weights - mapped to tangerine tokens */
+  --weight-light: var(--font-weight-light);
+  --weight-normal: var(--font-weight-normal);
+  --weight-medium: var(--font-weight-medium);
+  --weight-semibold: var(--font-weight-semibold);
 
-  /* Typography */
-  --font-display: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Letter spacing - mapped to tangerine tokens */
+  --tracking-tight: var(--letter-spacing-tight-md);
+  --tracking-body: var(--letter-spacing-body);
+  --tracking-wide: 0.08em;  /* Resume-specific (wider than tangerine's 0.05em) */
 
-  /* Font weights */
-  --weight-light: 300;
-  --weight-normal: 400;
-  --weight-medium: 500;
-  --weight-semibold: 600;
+  /* Line heights - mapped to tangerine tokens */
+  --leading-tight: var(--line-height-title);
+  --leading-snug: var(--line-height-heading);
+  --leading-normal: var(--line-height-body);
+  --leading-relaxed: 1.6;  /* Resume-specific */
 
-  /* Letter spacing */
-  --tracking-tight: -0.02em;
-  --tracking-body: -0.01em;
-  --tracking-wide: 0.08em;
-
-  /* Line heights */
-  --leading-tight: 1.15;
-  --leading-snug: 1.3;
-  --leading-normal: 1.5;
-  --leading-relaxed: 1.6;
-
-  /* Spacing scale (8px base) */
+  /* Resume-specific spacing scale (8px base) */
   --space-1: 0.25rem;   /* 4px */
   --space-2: 0.5rem;    /* 8px */
   --space-3: 0.75rem;   /* 12px */
@@ -123,7 +77,7 @@
   --space-6: 1.5rem;    /* 24px */
   --space-8: 2rem;      /* 32px */
 
-  /* Font sizes */
+  /* Resume-specific font sizes */
   --text-xs: 0.8125rem;   /* 13px */
   --text-sm: 0.875rem;    /* 14px */
   --text-base: 1rem;      /* 16px */
@@ -132,25 +86,7 @@
 
 
 /* =============================================================================
-   3. DARK MODE
-   =============================================================================
-   Toggled via data-theme attribute. Keep colors in sync with main.css dark mode.
-   Keyboard shortcuts: 'd' toggles, 'a' resets to system preference.
-*/
-
-[data-theme="dark"] {
-  --color-accent: #FF5733;    /* Sync with main.css --brand-orange dark mode */
-  --color-primary: #f5f5f5;
-  --color-secondary: #d0d0d0;
-  --color-muted: #a0a0a0;
-  --color-light: #808080;
-  --color-bg: #1e1c1a;        /* Sync with main.css --background-body dark mode (warm) */
-  --color-border: #404040;
-}
-
-
-/* =============================================================================
-   4. RESET & BASE
+   2. RESET & BASE
    =============================================================================
 */
 
@@ -171,7 +107,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-weight: var(--weight-light);
+  font-weight: var(--weight-normal);  /* 400 for better contrast (was 300) */
   font-size: var(--text-base);
   line-height: var(--leading-normal);
   letter-spacing: var(--tracking-body);
@@ -181,7 +117,7 @@ body {
 
 
 /* =============================================================================
-   5. LAYOUT
+   3. LAYOUT
    =============================================================================
 */
 
@@ -193,7 +129,7 @@ body {
 
 
 /* =============================================================================
-   6. PRINT BUTTON
+   4. PRINT BUTTON
    =============================================================================
    Fixed position button in bottom-right. Hidden on print and icon-only on mobile.
 */
@@ -236,7 +172,7 @@ body {
 
 
 /* =============================================================================
-   7. HEADER
+   5. HEADER
    =============================================================================
    Name (h1), title (.label), and contact info.
 */
@@ -293,7 +229,7 @@ h1 {
 
 
 /* =============================================================================
-   8. SECTION HEADINGS
+   6. SECTION HEADINGS
    =============================================================================
    Uppercase, accented, with bottom border. Used for Summary, Experience, etc.
 */
@@ -318,7 +254,7 @@ h2 {
 
 
 /* =============================================================================
-   9. SUMMARY
+   7. SUMMARY
    =============================================================================
 */
 
@@ -338,7 +274,7 @@ h2 {
 
 
 /* =============================================================================
-   10. EXPERIENCE
+   8. EXPERIENCE
    =============================================================================
    Job entries with position, company, dates, summary, and bullet highlights.
 */
@@ -421,7 +357,7 @@ h3 .company {
 
 
 /* =============================================================================
-   11. SKILLS (Expertise)
+   9. SKILLS (Expertise)
    =============================================================================
    Two-column grid of skill categories with keyword lists.
 */
@@ -459,7 +395,7 @@ h3 .company {
 
 
 /* =============================================================================
-   12. REFERENCES
+   10. REFERENCES
    =============================================================================
    Testimonial quotes with attribution.
 */
@@ -489,7 +425,7 @@ h3 .company {
 
 
 /* =============================================================================
-   13. EDUCATION
+   11. EDUCATION
    =============================================================================
 */
 
@@ -509,7 +445,7 @@ h3 .company {
 
 
 /* =============================================================================
-   14. MOBILE (max-width: 640px)
+   12. MOBILE (max-width: 640px)
    =============================================================================
 */
 
@@ -573,7 +509,7 @@ h3 .company {
 
 
 /* =============================================================================
-   15. PRINT
+   13. PRINT
    =============================================================================
    Optimized for US Letter (8.5" x 11").
    Uses HARDCODED colors (not CSS variables) to ensure consistent output
@@ -772,7 +708,7 @@ h3 .company {
 
 
 /* =============================================================================
-   16. KEYBOARD HELP MODAL
+   14. KEYBOARD HELP MODAL
    =============================================================================
    Styles for the "?" keyboard shortcuts modal. Copied from theme main.css
    since resume.css is standalone and doesn't load main.css.

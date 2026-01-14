@@ -29,12 +29,13 @@
     })();
   </script>
   
-  <!-- Resume CSS (standalone, no main.css) -->
-  {{- $resumeCss := resources.Get "css/resume.css" -}}
-  {{- if $resumeCss -}}
-    {{- $resumeCssMinified := $resumeCss | resources.Minify -}}
-    {{- $resumeCssFingerprinted := $resumeCssMinified | resources.Fingerprint -}}
-    <link rel="stylesheet" href="{{ $resumeCssFingerprinted.RelPermalink }}" integrity="{{ $resumeCssFingerprinted.Data.Integrity }}">
+  <!-- Resume CSS: tangerine tokens + resume-specific styles -->
+  {{- $tokens := resources.Get "css/_tokens.css" -}}
+  {{- $resume := resources.Get "css/resume.css" -}}
+  {{- if and $tokens $resume -}}
+    {{- $combined := slice $tokens $resume | resources.Concat "css/resume-bundle.css" -}}
+    {{- $css := $combined | minify | fingerprint -}}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
   {{- else -}}
     <link rel="stylesheet" href="{{ "css/resume.css" | relURL }}">
   {{- end -}}
