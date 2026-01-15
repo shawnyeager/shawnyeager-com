@@ -1,9 +1,13 @@
 import type { Config } from "@netlify/edge-functions";
 import bolt11 from "bolt11";
-import { errorResponse, jsonResponse, alertFailure, ALBY_CALLBACK, ALBY_TIMEOUT_MS } from "./_shared/config.ts";
+import { errorResponse, jsonResponse, alertFailure, ALBY_CALLBACK, ALBY_TIMEOUT_MS, handleCorsPreflightResponse } from "./_shared/config.ts";
 import { withNWCClient, NWCNotConfiguredError } from "./_shared/nwc.ts";
 
 export default async (req: Request) => {
+  // Handle CORS preflight
+  const preflightResponse = handleCorsPreflightResponse(req);
+  if (preflightResponse) return preflightResponse;
+
   const url = new URL(req.url);
   const amount = url.searchParams.get('amount');
   const nostrParam = url.searchParams.get('nostr');
@@ -11,7 +15,7 @@ export default async (req: Request) => {
   const essayTitle = url.searchParams.get('title') || '';
 
   if (!amount) {
-    return errorResponse(400, "Amount parameter required");
+    return errorResponse(400, "Amount parameter required", req);
   }
 
   // If nostr param present, this is a zap request - forward to Alby
@@ -39,21 +43,21 @@ export default async (req: Request) => {
       if (!albyResponse.ok) {
         console.error(`Alby callback error: ${albyResponse.status}`);
         await alertFailure('Alby Callback', `HTTP ${albyResponse.status}`, { amount });
-        return errorResponse(502, "Upstream error");
+        return errorResponse(502, "Upstream error", req);
       }
 
       const albyData = await albyResponse.json();
-      return jsonResponse(albyData);
+      return jsonResponse(albyData, 200, req);
     } catch (error) {
       clearTimeout(timeoutId);
       if (error instanceof Error && error.name === 'AbortError') {
         await alertFailure('Alby Callback', 'Timeout (10s)', { amount });
-        return errorResponse(504, "Upstream timeout");
+        return errorResponse(504, "Upstream timeout", req);
       }
       console.error('Alby callback fetch error:', error);
       const errorMessage = error instanceof Error ? error.message : String(error);
       await alertFailure('Alby Callback', errorMessage, { amount });
-      return errorResponse(502, "Upstream error");
+      return errorResponse(502, "Upstream error", req);
     }
   }
 
@@ -94,13 +98,13 @@ export default async (req: Request) => {
           ? `Thank you for supporting ${essayTitle}.`
           : 'Thank you for your support.'
       }
-    });
+    }, 200, req);
 
   } catch (error) {
     if (error instanceof NWCNotConfiguredError) {
       console.error('NWC_CONNECTION_STRING environment variable not set');
       await alertFailure('Invoice Generation', 'NWC not configured');
-      return errorResponse(500, "Server configuration error");
+      return errorResponse(500, "Server configuration error", req);
     }
 
     const errorMessage = error instanceof Error ? error.message : String(error);
@@ -109,7 +113,7 @@ export default async (req: Request) => {
       source: essaySlug || 'footer',
       amount
     });
-    return errorResponse(500, `Invoice generation failed: ${errorMessage}`);
+    return errorResponse(500, `Invoice generation failed: ${errorMessage}`, req);
   }
 };
 
