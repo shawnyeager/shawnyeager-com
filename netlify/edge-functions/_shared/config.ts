@@ -7,19 +7,66 @@ export const ALBY_CALLBACK = "https://getalby.com/lnurlp/shawnyeager/callback";
 export const ALBY_TIMEOUT_MS = 10000;
 export const VALID_USERNAMES = ["sats", "shawn", "zap"] as const;
 
-export function errorResponse(status: number, reason: string): Response {
-  return new Response(JSON.stringify({ status: "ERROR", reason }), {
-    status,
-    headers: { "Content-Type": "application/json" }
+// Origins allowed to make cross-origin requests to V4V endpoints
+const CORS_ALLOWED_ORIGINS = [
+  "https://notes.shawnyeager.com",
+  "https://shawnyeager.com",
+];
+
+/**
+ * Get CORS headers if the request origin is allowed
+ */
+export function getCorsHeaders(req: Request): Record<string, string> {
+  const origin = req.headers.get("Origin");
+  if (!origin) return {};
+
+  // Allow deploy preview origins (e.g., deploy-preview-123--shawnyeager-notes.netlify.app)
+  const isAllowed = CORS_ALLOWED_ORIGINS.includes(origin) ||
+    origin.includes("--shawnyeager-com.netlify.app") ||
+    origin.includes("--shawnyeager-notes.netlify.app");
+
+  if (!isAllowed) return {};
+
+  return {
+    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Methods": "GET, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  };
+}
+
+/**
+ * Handle CORS preflight requests
+ */
+export function handleCorsPreflightResponse(req: Request): Response | null {
+  if (req.method !== "OPTIONS") return null;
+
+  const corsHeaders = getCorsHeaders(req);
+  if (Object.keys(corsHeaders).length === 0) {
+    return new Response(null, { status: 403 });
+  }
+
+  return new Response(null, {
+    status: 204,
+    headers: corsHeaders,
   });
 }
 
-export function jsonResponse(data: object, status = 200): Response {
+export function errorResponse(status: number, reason: string, req?: Request): Response {
+  const corsHeaders = req ? getCorsHeaders(req) : {};
+  return new Response(JSON.stringify({ status: "ERROR", reason }), {
+    status,
+    headers: { "Content-Type": "application/json", ...corsHeaders }
+  });
+}
+
+export function jsonResponse(data: object, status = 200, req?: Request): Response {
+  const corsHeaders = req ? getCorsHeaders(req) : {};
   return new Response(JSON.stringify(data), {
     status,
     headers: {
       "Content-Type": "application/json",
-      "Cache-Control": "no-store"
+      "Cache-Control": "no-store",
+      ...corsHeaders
     }
   });
 }
