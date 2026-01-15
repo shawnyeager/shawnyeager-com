@@ -187,6 +187,34 @@ Templates fall back to tangerine-theme if not overridden locally.
 
 ---
 
+## Edge Functions (V4V/Lightning)
+
+This site hosts V4V edge functions used by both .com and notes sites.
+
+**Functions:**
+- `/.well-known/lnurlp/*` → `lnurlp.ts` - LNURL-pay metadata
+- `/lnurl-callback` → `lnurl-callback.ts` - Invoice generation
+- `/invoice-status` → `invoice-status.ts` - Payment status polling
+
+**CORS:**
+Cross-origin requests allowed from:
+- `https://notes.shawnyeager.com`
+- `https://shawnyeager.com`
+- Netlify deploy preview origins
+
+**Environment Variables Required:**
+- `NWC_CONNECTION_STRING` - Nostr Wallet Connect URL for invoice generation
+- `NTFY_TOPIC` (optional) - ntfy.sh topic for failure alerts
+
+**Files:**
+- `netlify/edge-functions/_shared/config.ts` - CORS config, helpers
+- `netlify/edge-functions/_shared/nwc.ts` - NWC client wrapper
+- `netlify/edge-functions/lnurlp.ts`
+- `netlify/edge-functions/lnurl-callback.ts`
+- `netlify/edge-functions/invoice-status.ts`
+
+---
+
 ## ⚠️ CRITICAL: Never Commit Replace Directives
 
 **Replace directives break Netlify builds. NEVER commit them to go.mod:**

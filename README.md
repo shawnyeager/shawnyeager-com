@@ -30,6 +30,7 @@ hugo --minify
 - **Hugo** 0.152.2 — Static site generator
 - **Hugo Modules** — Theme imported from public [tangerine-theme](https://github.com/shawnyeager/tangerine-theme)
 - **Netlify** — Automatic deployment on push to master
+- **Netlify Edge Functions** — V4V Lightning payments (LNURL-pay)
 - **Satoshi + Inter variable fonts** — Provided by theme
 
 ## Configuration
@@ -98,6 +99,7 @@ gh pr list --label theme-update
 - **Newsletter signup** — Buttondown integration in footer
 - **RSS feed** — Available at `/feed.xml`
 - **Solid favicon** — Orange square distinguishes from notes.shawnyeager.com outlined square
+- **V4V Lightning payments** — Edge functions for LNURL-pay (also serves notes.shawnyeager.com via CORS)
 
 ## Philosophy
 
