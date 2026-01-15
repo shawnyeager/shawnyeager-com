@@ -1,6 +1,6 @@
 import type { Config } from "@netlify/edge-functions";
 import bolt11 from "bolt11";
-import { errorResponse, jsonResponse, alertFailure, ALBY_CALLBACK, ALBY_TIMEOUT_MS, handleCorsPreflightResponse } from "./_shared/config.ts";
+import { errorResponse, jsonResponse, alertFailure, siteUrl, ALBY_CALLBACK, ALBY_TIMEOUT_MS, handleCorsPreflightResponse } from "./_shared/config.ts";
 import { withNWCClient, NWCNotConfiguredError } from "./_shared/nwc.ts";
 
 export default async (req: Request) => {
@@ -65,8 +65,8 @@ export default async (req: Request) => {
   try {
     const result = await withNWCClient(async (client) => {
       const memo = essaySlug
-        ? `shawnyeager.com/${essaySlug}`
-        : 'shawnyeager.com';
+        ? `${siteUrl}/${essaySlug}`
+        : siteUrl || 'V4V payment';
 
       const invoice = await client.makeInvoice({
         amount: parseInt(amount),
