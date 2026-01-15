@@ -1,11 +1,23 @@
 /**
  * Shared configuration constants for edge functions
+ *
+ * Environment variables (set in Netlify UI):
+ * - ALBY_USERNAME: Your Alby username (required)
+ * - V4V_SITE_URL: Your site domain without protocol (required)
+ * - VALID_USERNAMES: Comma-separated Lightning address aliases (e.g., "sats,shawn,zap")
+ * - NTFY_TOPIC: Your ntfy.sh topic name (optional, for failure alerts)
  */
 
-export const ALBY_LNURL = "https://getalby.com/.well-known/lnurlp/shawnyeager";
-export const ALBY_CALLBACK = "https://getalby.com/lnurlp/shawnyeager/callback";
+const albyUsername = Deno.env.get("ALBY_USERNAME") || "";
+export const siteUrl = Deno.env.get("V4V_SITE_URL") || "";
+
+export const ALBY_LNURL = `https://getalby.com/.well-known/lnurlp/${albyUsername}`;
+export const ALBY_CALLBACK = `https://getalby.com/lnurlp/${albyUsername}/callback`;
 export const ALBY_TIMEOUT_MS = 10000;
-export const VALID_USERNAMES = ["sats", "shawn", "zap"] as const;
+
+// Lightning address aliases parsed from env var
+const usernamesEnv = Deno.env.get("VALID_USERNAMES") || "sats";
+export const VALID_USERNAMES = usernamesEnv.split(",").map(s => s.trim());
 
 // Origins allowed to make cross-origin requests to V4V endpoints
 const CORS_ALLOWED_ORIGINS = [
@@ -91,7 +103,7 @@ export async function alertFailure(
   try {
     await fetch(`https://ntfy.sh/${topic}`, {
       method: 'POST',
-      headers: { 'Title': 'shawnyeager.com V4V Alert' },
+      headers: { 'Title': `${siteUrl || 'V4V'} Alert` },
       body
     });
   } catch (e) {
