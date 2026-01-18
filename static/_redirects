@@ -23,9 +23,11 @@ https://shawnyeager-com.netlify.app/*           https://shawnyeager.com/:splat  
 /the-end-of-the-independent-software-vendor     /gone                                                               410
 /want-the-deal-push-for-it                      /gone                                                               410
 
-# SRS proxy (serves srs.shawnyeager.com content at /score/)
-/score                                          https://srs.shawnyeager.com/                                            200!
-/score/*                                        https://srs.shawnyeager.com/:splat                                      200!
+# GTM Map (old /score path)
+/score                                          https://gtm.shawnyeager.com                                             301!
+
+# Podcast moved to trustrevolution.co
+/podcast                                        https://trustrevolution.co                                              301!
 
 # External service redirects
 /cal                                            https://cal.com/shawnyeager
