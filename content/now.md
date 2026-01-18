@@ -4,7 +4,7 @@ description: "Trust Revolution podcast, Bitcoin startup advisory, and monthly es
 date: 2025-11-13
 type: page
 layout: now
-updated: 2025-12-17
+updated: 2026-01-17
 show_title: true
 ---
 
@@ -22,13 +22,13 @@ Publishing monthly [essays](/essays/) on how freedom tech wins---sales, partners
 
 New projects:
 
-- [Sales Readiness Score](/score) --- A 10-question GTM diagnostic for B2B founders. Answer questions across market clarity, positioning, sales process, acquisition, and unit economics. Get a score out of 100 and optional personalized follow-up.
+- [GTM Map](https://gtm.shawnyeager.com) --- Plot your go-to-market readiness across the full spectrum: market clarity, positioning, sales process, acquisition, and unit economics. Answer the go-to-market questions that come after product-market fit.
 
-- [Interview to Roadmap Kit](https://github.com/shawnyeager/interview-to-roadmap) --- Point an LLM at a folder of customer interview transcripts and get frequency-ranked problems, solution desires, and concrete build recommendations. Answers: "What should we build next, and why?"
+- [Hearsay](https://github.com/shawnyeager/hearsay) --- Feed customer interview transcripts to an LLM pipeline and get frequency-ranked problems, solution desires, and concrete build recommendations. An expansion of the Interview to Roadmap Kit with improved analysis and output formats.
 
 ## Trust Revolution podcast
 
-Latest episode with Pippellia on decentralized reputation systems—how Web of Trust can create portable reputation without centralized kill switches. Previously: Christian Keroles on Bitcoin as essential infrastructure for human rights, and my solo episode on why ads keep winning against voluntary payment.
+Season 3 begins recording next week. Previous seasons explored decentralized reputation, Bitcoin as human rights infrastructure, and why voluntary payment struggles against ads. New season continues the conversation on how trust systems shape freedom tech adoption.
 
 {{< cta url="podcast" text="Listen now" event="trustrev" >}}
 
