@@ -32,10 +32,3 @@ Content-Security-Policy = "default-src 'self' https: data: blob:; connect-src 's
 for = "/resume/*"
 [headers.values]
 X-Robots-Tag = "noindex, nofollow"
-
-# Podcast page now lives at trustrevolution.co
-[[redirects]]
-  from = "/podcast"
-  to = "https://trustrevolution.co"
-  status = 301
-  force = true
