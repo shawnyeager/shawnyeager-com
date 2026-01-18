@@ -22,7 +22,7 @@ Publishing monthly [essays](/essays/) on how freedom tech wins---sales, partners
 
 New projects:
 
-- [GTM Map](https://gtm.shawnyeager.com) --- Plot your go-to-market readiness across the full spectrum: market clarity, positioning, sales process, acquisition, and unit economics. Answer the go-to-market questions that come after product-market fit.
+- [GTM Map](https://gtm.shawnyeager.com) --- Plot your go-to-market readiness across foundation, growth, and monetization---from market clarity to retention. Answer the go-to-market questions that come after product-market fit.
 
 - [Hearsay](https://github.com/shawnyeager/hearsay) --- Feed customer interview transcripts to an LLM pipeline and get frequency-ranked problems, solution desires, and concrete build recommendations. An expansion of the Interview to Roadmap Kit with improved analysis and output formats.
 
