@@ -1,6 +1,7 @@
 # Domain redirects (process first)
 https://connect.shawnyeager.com/*               https://shawnyeager.com/connect                                     301!
 https://nostr.shawnyeager.com/*                 https://primal.net/shawn                                            302!
+https://srs.shawnyeager.com/*                   https://gtm.shawnyeager.com/:splat                                  301!
 https://shawnyeager-com.netlify.app/*           https://shawnyeager.com/:splat                                      301!
 
 # Path redirects
