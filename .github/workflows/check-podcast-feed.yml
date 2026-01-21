@@ -1,10 +1,10 @@
 name: Check Podcast Feed
 
 on:
-  # Check Wed & Thu at 7:30 AM Central (13:30 UTC)
-  # Note: During daylight saving (CDT), this is 8:30 AM Central
+  # Check Wed & Thu at 8:00 AM Central (14:00 UTC)
+  # Note: During daylight saving (CDT), this is 9:00 AM Central
   schedule:
-    - cron: '30 13 * * 3,4'
+    - cron: '0 14 * * 3,4'
 
   # Allow manual triggering
   workflow_dispatch:
