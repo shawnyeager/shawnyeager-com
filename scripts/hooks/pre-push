@@ -58,9 +58,9 @@ if [ -n "$(git status --porcelain)" ]; then
     WARNINGS=$((WARNINGS + 1))
 fi
 
-# Warning about pushing to master
-if [ "$BRANCH" = "master" ]; then
-    echo -e "${YELLOW}Pushing to master - Netlify will build automatically${NC}"
+# Warning about pushing to master (only for actual commits, not branch deletions)
+if [ "$BRANCH" = "master" ] && [ "${COMMITS_AHEAD:-0}" -gt 0 ]; then
+    echo -e "${YELLOW}Pushing to master - Netlify will build production${NC}"
     echo ""
 fi
 
