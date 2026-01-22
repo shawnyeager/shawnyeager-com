@@ -85,7 +85,7 @@ enableEmoji = true
 [params]
   robotsDisallow = ["/resume/"]
   site_display_name = "Shawn Yeager"
-  description = "Bitcoin go-to-market and revenue leader. Previously led sales at Amboss Technologies, NYDIG Payments, and Bottlepay. Hosts Trust Revolution podcast."
+  description = "I fix revenue engines for founders building on Bitcoin. Positioning, sales, pipeline. The stuff that turns a good product into a growing company."
 
   # Open Graph
   og_image = "/images/og-image.png"
