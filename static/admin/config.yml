@@ -23,6 +23,11 @@ collections:
     folder: "content/essays"
     create: true
     slug: "{{slug}}"
+    sortable_fields:
+      fields: ['date', 'title']
+      default:
+        field: date
+        direction: Descending
     editor:
       preview: true
     view_filters:
@@ -42,6 +47,8 @@ collections:
       - {label: "Slug", name: "slug", widget: "string", required: false, hint: "URL path (optional - defaults to title)"}
       - {label: "Topics", name: "topics", widget: "list", required: false, hint: "e.g., bitcoin, sales, strategy"}
       - {label: "Tags", name: "tags", widget: "list", required: false, hint: "e.g., go-to-market, enterprise"}
+      - {label: "Hero Image", name: "hero_image", widget: "image", required: false, hint: "Hero image displayed at top of essay"}
+      - {label: "Hero Alt Text", name: "hero_alt", widget: "string", required: false, hint: "Alt text for hero image (required for accessibility)"}
       - {label: "Featured", name: "featured", widget: "boolean", default: false, required: false}
       - {label: "Draft", name: "draft", widget: "boolean", default: false, required: false}
       - {label: "Body", name: "body", widget: "markdown", required: true}
