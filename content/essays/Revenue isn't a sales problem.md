@@ -1,13 +1,6 @@
 ---
 title: Revenue isn't a sales problem
-description: >-
-  When revenue stalls, sales gets blamed because it's visible and measurable.
-  The actual constraint usually lives upstream.
-summary: >-
-  You can't close deals if buyers can't explain what you do. You can't position
-  if you don't know who actually buys. The sequence: market clarity,
-  positioning, sales motion. Break a link upstream and everything downstream
-  fails.
+description: When revenue stalls, sales gets blamed because it's visible and measurable. The actual constraint usually lives upstream.
 date: 2026-01-28T10:00:00.000Z
 slug: revenue-isnt-a-sales-problem
 topics:
@@ -15,18 +8,15 @@ topics:
   - go-to-market
   - bitcoin
 tags: []
-cta: true
 featured: false
 draft: false
+nostr_id: nevent1qvzqqqr4guq3gamnwvaz7tmjv4kxz7fwv3sk6atn9e5k7qgdwaehxw309ahx7uewd3hkcqgmwaehxw309aex2mrp0yh8x6rpwah8jetpvajhytnrdaksqg93fm2qnxmd87j0dg7xp9rf4ppvw672lqx2746r6ugd7khkwvpldskcjgud
+nostr_image: https://i.nostr.build/81rJbBPQ0VjnEYKz.png
+cta: true
+summary: "You can't close deals if buyers can't explain what you do. You can't position if you don't know who actually buys. The sequence: market clarity, positioning, sales motion. Break a link upstream and everything downstream fails."
 hero_image: images/essays/revenue-isnt-sales-problem.png
-hero_alt: >-
-  A seedling with small leaves above ground and an extensive root system beneath
-  the surface
-nostr_image: 'https://i.nostr.build/81rJbBPQ0VjnEYKz.png'
-nostr_id: >-
-  nevent1qvzqqqr4guq3gamnwvaz7tmjv4kxz7fwv3sk6atn9e5k7qgdwaehxw309ahx7uewd3hkcqgmwaehxw309aex2mrp0yh8x6rpwah8jetpvajhytnrdaksqg93fm2qnxmd87j0dg7xp9rf4ppvw672lqx2746r6ugd7khkwvpldskcjgud
+hero_alt: A seedling with small leaves above ground and an extensive root system beneath the surface
 ---
-
 Revenue stalls and you look at sales. The instinct makes sense. Sales is where the data lives. Pipeline, conversion rates, win/loss. You can measure it. You can see which deals died and when. You can at least point at a rep and ask what happened.
 
 Sales is also hirable. When revenue is the problem, hiring a rep or a sales leader is doing something. It's a concrete move. The board sees action. You see action. It feels like momentum, even when nothing upstream has changed.
@@ -51,7 +41,7 @@ Bitcoin companies walk into this constantly. Mission creates conviction that dem
 
 When the protocol's truth is obvious to you, translating it into buyer language feels redundant. Why explain that trustless verification matters? Why justify removing counterparty risk? But the buyer doesn't share your priors. They're not evaluating your product against the fiat system. They're evaluating it against their current vendor, their current workflow, their current budget. The work isn't explaining Bitcoin. It's explaining what your product does for someone who doesn't already believe.
 
-That translation is positioning. Skip it and sales inherits an impossible job, and you'll end up blaming their close rate when the real problem was the conversation they inherited.
+That translation is positioning. Skip it and sales inherits an impossible job. You end up blaming their close rate when the real problem was the conversation they inherited.
 
 ## The questions that locate it
 
