@@ -1,16 +1,30 @@
 ---
-title: "Revenue isn't a sales problem"
-description: "When revenue stalls, sales gets blamed because it's visible and measurable. The actual constraint usually lives upstream."
-summary: "You can't close deals if buyers can't explain what you do. You can't position if you don't know who actually buys. The sequence: market clarity, positioning, sales motion. Break a link upstream and everything downstream fails."
-date: 2026-01-28T10:00:00Z
+title: Revenue isn't a sales problem
+description: >-
+  When revenue stalls, sales gets blamed because it's visible and measurable.
+  The actual constraint usually lives upstream.
+summary: >-
+  You can't close deals if buyers can't explain what you do. You can't position
+  if you don't know who actually buys. The sequence: market clarity,
+  positioning, sales motion. Break a link upstream and everything downstream
+  fails.
+date: 2026-01-28T10:00:00.000Z
 slug: revenue-isnt-a-sales-problem
-topics: [sales, go-to-market, bitcoin]
+topics:
+  - sales
+  - go-to-market
+  - bitcoin
 tags: []
 cta: true
 featured: false
 draft: false
 hero_image: images/essays/revenue-isnt-sales-problem.png
-hero_alt: A seedling with small leaves above ground and an extensive root system beneath the surface
+hero_alt: >-
+  A seedling with small leaves above ground and an extensive root system beneath
+  the surface
+nostr_image: 'https://i.nostr.build/81rJbBPQ0VjnEYKz.png'
+nostr_id: >-
+  nevent1qvzqqqr4guq3gamnwvaz7tmjv4kxz7fwv3sk6atn9e5k7qgdwaehxw309ahx7uewd3hkcqgmwaehxw309aex2mrp0yh8x6rpwah8jetpvajhytnrdaksqg93fm2qnxmd87j0dg7xp9rf4ppvw672lqx2746r6ugd7khkwvpldskcjgud
 ---
 
 Revenue stalls and you look at sales. The instinct makes sense. Sales is where the data lives. Pipeline, conversion rates, win/loss. You can measure it. You can see which deals died and when. You can at least point at a rep and ask what happened.
