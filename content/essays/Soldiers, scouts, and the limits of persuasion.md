@@ -1,11 +1,17 @@
 ---
-title: Soldiers, scouts, and the limits of persuasion
-description: Why smart people dismiss Bitcoin without looking, and where to direct your energy instead.
-summary: |
-  At any given time, most people aren't ready to hear what you're saying. Not because they're stupid—because nothing in their world has broken yet. They're not evaluating alternatives because they don't need alternatives.
+title: 'Soldiers, scouts, and the limits of persuasion'
+description: >-
+  Why smart people dismiss Bitcoin without looking, and where to direct your
+  energy instead.
+summary: >
+  At any given time, most people aren't ready to hear what you're saying. Not
+  because they're stupid—because nothing in their world has broken yet. They're
+  not evaluating alternatives because they don't need alternatives.
 
-  People start looking when something in their world shifts. For Bitcoin, that shift is usually painful.
-date: 2025-12-17T12:00:00Z
+
+  People start looking when something in their world shifts. For Bitcoin, that
+  shift is usually painful.
+date: 2025-12-17T12:00:00.000Z
 slug: limits-of-persuasion
 topics:
   - bitcoin
@@ -14,7 +20,12 @@ tags: []
 featured: false
 draft: false
 hero_image: images/essays/limits-of-persuasion.png
-hero_alt: Abstract illustration of soldiers and scouts representing different mindsets toward new ideas
+hero_alt: >-
+  Abstract illustration of soldiers and scouts representing different mindsets
+  toward new ideas
+nostr_image: 'https://i.nostr.build/yfLddgSwMb5lPovS.png'
+nostr_id: >-
+  nevent1qvzqqqr4guq3gamnwvaz7tmjv4kxz7fwv3sk6atn9e5k7qgdwaehxw309ahx7uewd3hkcqgmwaehxw309aex2mrp0yh8x6rpwah8jetpvajhytnrdaksqgzh8y77uxlzg3ev2lcymm7rg5kguagsuwgefa3ppadatcn4efjrhutg6xme
 ---
 When Galileo pointed his telescope at Jupiter, he invited the scholars to look. Some refused. They already knew the answer---Aristotle had settled the heavens. Looking wouldn't teach them anything. It would only threaten what they'd built their careers defending.
 

@@ -1,11 +1,17 @@
 ---
-title: Product first, partnerships second
-description: Bitcoin partnerships succeed when product readiness comes first. Prove the product in market, then use partnerships to scale.
-summary: |
-  What works for products in Bitcoin works for partnerships: win on the basics first. Make Bitcoin's advantages the bonus, not the trade-off.
+title: 'Product first, partnerships second'
+description: >-
+  Bitcoin partnerships succeed when product readiness comes first. Prove the
+  product in market, then use partnerships to scale.
+summary: >
+  What works for products in Bitcoin works for partnerships: win on the basics
+  first. Make Bitcoin's advantages the bonus, not the trade-off.
 
-  Partners won't sacrifice reliability, product design, or economics for Bitcoin's native properties. They'll choose Bitcoin when it comes with better products, not instead of better products.
-date: 2025-10-27T16:30:00Z
+
+  Partners won't sacrifice reliability, product design, or economics for
+  Bitcoin's native properties. They'll choose Bitcoin when it comes with better
+  products, not instead of better products.
+date: 2025-10-27T16:30:00.000Z
 slug: product-first-partnerships-second
 topics:
   - bitcoin
@@ -16,6 +22,9 @@ featured: false
 draft: false
 hero_image: images/essays/product-first-partnerships-second.png
 hero_alt: Abstract illustration of product development priorities and partnership timing
+nostr_image: 'https://i.nostr.build/udU21zr5edMnHhwa.png'
+nostr_id: >-
+  nevent1qvzqqqr4guq3gamnwvaz7tmjv4kxz7fwv3sk6atn9e5k7qgdwaehxw309ahx7uewd3hkcqgmwaehxw309aex2mrp0yh8x6rpwah8jetpvajhytnrdaksqgqhtt09mqxv4sk8py99qa5a05lpfqpqdfljg2ee97c9nptj0rnhdscew9um
 ---
 The product has gaps. UX is rough, reliability issues persist, features are missing. But the company needs distribution, needs validation, needs someone else's reach.
 
