@@ -52,7 +52,7 @@ Important Notes:
         <p>{{ . }}</p>
         {{ end }}
         {{- partial "links/action.html" (dict "url" .url "text" .text) -}}
-        <p style="margin-top: var(--space-lg);"><a href="/" class="back-link"><span class="arrow" aria-hidden="true">←</span> Back to home</a></p>
+        <a href="/" class="back-link"><span class="arrow" aria-hidden="true">←</span> Back to home</a>
     </section>
     {{ end }}
 
