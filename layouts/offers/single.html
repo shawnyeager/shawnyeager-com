@@ -15,14 +15,12 @@ Important Notes:
 <div class="landing-page">
 
     <!-- Hero -->
-    <section class="landing-hero" style="min-height: auto; padding: var(--space-2xl) 0;">
+    <section class="landing-hero landing-hero--offer">
         <div class="landing-hero-content">
             <h1 class="landing-headline">{{ .Title }}</h1>
             {{ with .Params.subtitle }}<p class="landing-subhead">{{ . }}</p>{{ end }}
             {{ with .Params.price }}
-            <p class="offer-card-price" style="font-size: var(--font-2xl); margin-top: var(--space-lg);">
-                {{ .amount }}{{ with .note }}<span style="font-size: var(--font-base); color: var(--text-meta);">{{ . }}</span>{{ end }}
-            </p>
+            <p class="offer-card-price">{{ .amount }}{{ with .note }}<span>{{ . }}</span>{{ end }}</p>
             {{ end }}
         </div>
     </section>
