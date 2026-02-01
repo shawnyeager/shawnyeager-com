@@ -1,128 +1,156 @@
 {{/*
-Purpose: Homepage for shawnyeager.com - The Gallery
+Purpose: Homepage for shawnyeager.com - Advisory Landing Page
 
-Features:
-- Bio section from index.md content (includes CTA via shortcode)
-- Featured or latest essay display
-- Podcast feature section
-- Recent essays listing (5 most recent)
-- Topic browsing
-
-Logic:
-- Shows featured essay if one has featured: true in frontmatter
-- Otherwise shows most recent essay
-- Filters drafts in production
-- Topic list via topic-list.html partial
+Sections:
+1. Hero - Headline, subhead, sector tags, CTA
+2. Intro - The "why before what" positioning
+3. Who I Work With - Qualification criteria
+4. How I Work - Process overview
+5. Why Me - Credentials and proof metrics
+6. Offers - Three service tiers
+7. CTA Banner - GTM Map lead magnet
+8. Essays - Demoted to credibility section
 
 Important Notes:
+- Content comes from /content/_index.md frontmatter and body
 - Overrides theme default index.html
-- Bio content and CTA come from /content/_index.md
 */}}
 
 {{ define "main" }}
-    <!-- Bio -->
-    <div class="site-intro">
-        {{ with .Params.headline }}<h1 class="display-title">{{ . }}</h1>{{ end }}
-        {{ .Content | safeHTML }}
-    </div>
+<div class="landing-page">
 
-    <!-- Featured or Latest Essay -->
+    <!-- Hero -->
+    <section class="landing-hero">
+        <div class="landing-hero-content">
+            <h1 class="landing-headline">{{ .Params.hero_headline }}</h1>
+            <p class="landing-subhead">{{ .Params.hero_subhead }}</p>
+            <p class="sector-tags">{{ .Params.sector_tags }}</p>
+            {{ with .Params.hero_cta }}
+            <a href="{{ .url }}" class="btn-ghost btn-ghost--primary">
+                <span class="link-text">{{ .text }}</span><span class="arrow" aria-hidden="true">→</span>
+            </a>
+            {{ end }}
+        </div>
+    </section>
+
+    <!-- Intro -->
+    {{ with .Params.intro }}
+    <section class="landing-section">
+        <p>{{ .text | safeHTML }}</p>
+        {{ with .emphasis }}<p class="landing-emphasis">{{ . }}</p>{{ end }}
+    </section>
+    {{ end }}
+
+    <!-- Who I Work With -->
+    {{ with .Params.who }}
+    <section class="landing-section">
+        <h2 class="landing-section-label">{{ .label }}</h2>
+        {{ range .paragraphs }}
+        <p>{{ . | safeHTML }}</p>
+        {{ end }}
+    </section>
+    {{ end }}
+
+    <!-- How I Work -->
+    {{ with .Params.how }}
+    <section class="landing-section">
+        <h2 class="landing-section-label">{{ .label }}</h2>
+        {{ range .paragraphs }}
+        <p>{{ . | safeHTML }}</p>
+        {{ end }}
+        {{ with .list }}
+        <ul>
+            {{ range . }}
+            <li>{{ . }}</li>
+            {{ end }}
+        </ul>
+        {{ end }}
+    </section>
+    {{ end }}
+
+    <!-- Why Me -->
+    {{ with .Params.why }}
+    <section class="landing-section">
+        <h2 class="landing-section-label">{{ .label }}</h2>
+
+        {{ with .metrics }}
+        <div class="proof-metrics">
+            {{ range . }}
+            <div class="proof-metric">
+                <div class="proof-metric-value">{{ .value }}</div>
+                <div class="proof-metric-label">{{ .label }}</div>
+            </div>
+            {{ end }}
+        </div>
+        {{ end }}
+
+        {{ with .credentials }}
+        <p class="proof-credentials">{{ . | safeHTML }}</p>
+        {{ end }}
+
+        {{ with .emphasis }}<p class="landing-emphasis">{{ . }}</p>{{ end }}
+    </section>
+    {{ end }}
+
+    <!-- Offers -->
+    {{ with .Params.offers }}
+    <section class="landing-section landing-section--offers">
+        <h2 class="landing-section-label">{{ .label }}</h2>
+        <div class="offer-grid">
+            {{ range .cards }}
+            <article class="offer-card{{ if .featured }} offer-card--featured{{ end }}">
+                <h3 class="offer-card-title">{{ .title }}</h3>
+                <p class="offer-card-price">{{ .price }}{{ with .price_note }} <span>{{ . }}</span>{{ end }}</p>
+                <p class="offer-card-description">{{ .description }}</p>
+                {{ with .features }}
+                <ul>
+                    {{ range . }}
+                    <li>{{ . }}</li>
+                    {{ end }}
+                </ul>
+                {{ end }}
+                {{- partial "links/action.html" (dict "url" .cta_url "text" .cta_text) -}}
+            </article>
+            {{ end }}
+        </div>
+    </section>
+    {{ end }}
+
+    <!-- CTA Banner -->
+    {{ with .Params.cta_banner }}
+    <section class="cta-banner">
+        <h2 class="cta-banner-headline">{{ .headline }}</h2>
+        {{ range .paragraphs }}
+        <p class="cta-banner-body">{{ . | safeHTML }}</p>
+        {{ end }}
+        <a href="{{ .cta_url }}" class="btn-ghost btn-ghost--primary">
+            <span class="link-text">{{ .cta_text }}</span><span class="arrow" aria-hidden="true">→</span>
+        </a>
+        {{ with .secondary }}
+        <p class="cta-banner-secondary">{{ . | safeHTML }}</p>
+        {{ end }}
+    </section>
+    {{ end }}
+
+    <!-- Recent Essays (demoted) -->
     {{ $posts := where .Site.RegularPages "Type" "essays" }}
     {{ if not hugo.IsServer }}
     {{ $posts = where $posts "Draft" false }}
     {{ end }}
-    {{ $featuredPost := where $posts "Params.featured" true }}
-    {{ $latestPost := index $posts 0 }}
-    {{ $isFeatured := false }}
-    {{ if $featuredPost }}
-        {{ $latestPost = index $featuredPost 0 }}
-        {{ $isFeatured = true }}
-    {{ end }}
-    {{ with $latestPost }}
-    <h2 class="essay-section-header">{{ if $isFeatured }}Featured Essay{{ else }}Latest Essay{{ end }}</h2>
-    <article class="latest-essay">
-        <header>
-            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        </header>
-        <p>{{ with .Params.summary }}{{ . | safeHTML }}{{ else }}{{ .Summary }}{{ end }}</p>
-        <footer>
-            {{- partial "links/action.html" (dict "url" .RelPermalink "text" "Read more" "event" $.Site.Params.plausible_events.essay_cta) -}}
-        </footer>
-    </article>
-    {{ end }}
-
-    <!-- Podcast Feature Box -->
-    {{ $episode := false }}
-    {{ $rssUrl := "https://trustrevolution.co/index.xml" }}
-    {{ $cacheKey := print "v8-" $rssUrl (now.Format "2006-01-02") }}
-    {{ with try (resources.GetRemote $rssUrl (dict "key" $cacheKey)) }}
-        {{ with .Value }}
-            {{ $feed := . | transform.Unmarshal }}
-            {{/* Find first actual episode (skip essays and static pages) */}}
-            {{ range $feed.channel.item }}
-                {{ if strings.Contains .link "/episodes/" }}
-                    {{ $episode = . }}
-                    {{ break }}
-                {{ end }}
-            {{ end }}
+    {{ if $posts }}
+    <section class="landing-essays">
+        <h2 class="section-label-small">Recent Essays</h2>
+        {{ range first 5 $posts }}
+        <article class="essay-item">
+            <a href="{{ .RelPermalink }}">
+                <time datetime="{{ .Date.Format "2006-01-02" }}" class="essay-date">{{ .Date.Format "2006 · 01" }}</time>
+                <span class="essay-title">{{ .Title }}</span>
+            </a>
+        </article>
         {{ end }}
-    {{ end }}
-
-    {{ if $episode }}
-    <h2 class="essay-section-header">Latest Episode</h2>
-    {{ end }}
-    <section class="podcast">
-        <div class="podcast-header">
-            <img src="/images/trust-revolution-cover.webp" alt="Trust Revolution Podcast cover art" class="podcast-art" width="150" height="150" fetchpriority="high">
-            <div class="podcast-info">
-                {{ with $episode }}
-                {{/* Parse title: "Pippellia – Reputation Without a Kill Switch" */}}
-                {{ $normalized := replaceRE `\s*[–—]\s*` " – " .title }}
-                {{ $parts := split $normalized " – " }}
-                {{ $guest := "" }}
-                {{ $subtitle := $normalized }}
-                {{ if gt (len $parts) 1 }}
-                    {{ $guest = index $parts 0 }}
-                    {{ $subtitle = index $parts 1 }}
-                {{ end }}
-                {{ $episodeUrl := .link }}
-                <div class="episode-info">
-                    <span class="episode-title">{{ $subtitle }}</span>
-                    {{ if ne $guest "" }}<span class="episode-guest">with {{ $guest }}</span>{{ end }}
-                    {{ with .description }}<p class="episode-hook">{{ . }}</p>{{ end }}
-                </div>
-                <div class="podcast-links">
-                    {{ partial "links/action.html" (dict "url" $episodeUrl "text" "Listen" "event" $.Site.Params.plausible_events.trustrev) }}
-                </div>
-                {{ end }}
-            </div>
-        </div>
+        <div class="all-essays">{{- partial "links/action.html" (dict "url" ("essays" | relURL) "text" "All essays" "event" .Site.Params.plausible_events.all_essays) -}}</div>
     </section>
+    {{ end }}
 
-      <!-- Recent Essays -->
-      {{/* Exclude featured essay from list to avoid duplication */}}
-      {{ $recentPosts := where $posts "Params.featured" "!=" true }}
-      {{/* If no featured, skip the first (already shown as Latest) */}}
-      {{ if not $isFeatured }}
-          {{ $recentPosts = after 1 $posts }}
-      {{ end }}
-      {{ if $recentPosts }}
-      <section class="recent-essays">
-          <h2 class="section-label-small">Recent Essays</h2>
-         {{ range first 5 $recentPosts }}
-         <article class="essay-item">
-             <a href="{{ .RelPermalink }}">
-                 <time datetime="{{ .Date.Format "2006-01-02" }}" class="essay-date">{{ .Date.Format "2006 · 01" }}</time>
-                 <span class="essay-title">{{ .Title }}</span>
-             </a>
-         </article>
-         {{ end }}
-         <div class="all-essays">{{- partial "links/action.html" (dict "url" ("essays" | relURL) "text" "All essays" "event" .Site.Params.plausible_events.all_essays) -}}</div>
-     </section>
-      {{ else }}
-      <section class="recent-essays">
-          <h2 class="section-label-small">Recent Essays</h2>
-          <p>No essays published yet.</p>
-      </section>
-      {{ end }}
+</div>
 {{ end }}

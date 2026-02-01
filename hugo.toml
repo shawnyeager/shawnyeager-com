@@ -147,7 +147,7 @@ enableEmoji = true
 # =============================================================================
 
 [markup.goldmark.renderer]
-  unsafe = false
+  unsafe = true
 
 [markup.goldmark.parser.attribute]
   block = true
@@ -219,6 +219,6 @@ enableEmoji = true
   weight = 1
 
 [[menu.main]]
-  name = "Now"
-  url = "/now/"
+  name = "Contact"
+  url = "/contact/"
   weight = 2
