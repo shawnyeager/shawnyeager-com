@@ -5,7 +5,7 @@ description: "GTM advisory for frontier tech founders. From product to pipeline�
 # Hero Section
 hero_headline: "Clarity. Focus. Revenue."
 hero_subhead: "From product to pipeline—GTM advisory for frontier tech founders."
-sector_tags: "Bitcoin <span>·</span> AI <span>·</span> Decentralized infrastructure"
+sector_tags: "Bitcoin <span>·</span> AI <span>·</span> Open source <span>·</span> Decentralized infrastructure"
 hero_cta:
   url: "https://gtm.shawnyeager.com"
   text: "See where you stand"
