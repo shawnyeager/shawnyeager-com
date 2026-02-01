@@ -147,7 +147,7 @@ enableEmoji = true
 # =============================================================================
 
 [markup.goldmark.renderer]
-  unsafe = true
+  unsafe = false
 
 [markup.goldmark.parser.attribute]
   block = true
