@@ -24,7 +24,7 @@ Important Notes:
         <div class="landing-hero-content">
             <h1 class="landing-headline">{{ .Params.hero_headline }}</h1>
             <p class="landing-subhead">{{ .Params.hero_subhead }}</p>
-            <p class="sector-tags">{{ .Params.sector_tags }}</p>
+            <p class="sector-tags">{{ .Params.sector_tags | safeHTML }}</p>
             {{ with .Params.hero_cta }}
             <a href="{{ .url }}" class="btn-ghost btn-ghost--primary">
                 <span class="link-text">{{ .text }}</span><span class="arrow" aria-hidden="true">→</span>
