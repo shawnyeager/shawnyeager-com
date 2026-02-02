@@ -215,6 +215,11 @@ enableEmoji = true
   weight = 1
 
 [[menu.main]]
-  name = "Book a Call"
-  url = "/cal/"
+  name = "Work with Me"
+  url = "/work-with-me/"
   weight = 2
+
+[[menu.main]]
+  name = "Contact"
+  url = "/contact/"
+  weight = 3

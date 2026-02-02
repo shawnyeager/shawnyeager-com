@@ -1,18 +1,15 @@
 ---
-title: Contact
-description: "Get in touch with Shawn Yeager. Email, Signal, or book a meeting."
-date: 2025-10-29T07:27:00
-type: page
-show_title: true
+title: "Contact"
+description: "Get in touch with Shawn Yeager. Tell me what you're building and where you want to take it."
+layout: contact
 hide_footer_signup: true
+
+headline: "Reach out."
+subhead: "Tell me what you're building and where you want to take it."
+
+alternative:
+  headline: "Or book a call directly"
+  description: "30 minutes to talk through where you are and what you need."
+  url: "/cal/"
+  cta_text: "Schedule a call"
 ---
-
-{{< section class="contact-section" >}}
-
-{{< contact-method type="email" value="hello@shawnyeager.com" >}}
-
-{{< contact-method type="signal" value="https://shawnyeager.com/signal" display="shawnyeager.com/signal" >}}
-
-{{< contact-method type="calendar" value="https://cal.com/shawnyeager" display="Book a meeting" >}}
-
-{{< /section >}}

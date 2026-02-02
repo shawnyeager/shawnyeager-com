@@ -1,0 +1,141 @@
+{{/*
+Purpose: Work With Me page - Services landing page
+
+Sections:
+1. Page header (title + problem statement)
+2. How I Work
+3. Offers (3 equal cards)
+4. Sprint Detail (Month 1/2/3 breakdown)
+5. Background (headshot + bio + recent work)
+6. Testimonials
+7. Full-width orange CTA
+
+Important Notes:
+- Content comes from frontmatter
+- Uses landing page CSS components from theme
+*/}}
+
+{{ define "main" }}
+<div class="landing-page">
+
+    <!-- Page Header -->
+    <section class="landing-hero">
+        <div class="landing-hero-content">
+            <h1 class="landing-headline">{{ .Title }}</h1>
+            {{ range .Params.header_paragraphs }}
+            <p class="landing-subhead">{{ . }}</p>
+            {{ end }}
+        </div>
+    </section>
+
+    <!-- How I Work -->
+    {{ with .Params.how_i_work }}
+    <section class="landing-section">
+        <h2 class="landing-section-label">{{ .label }}</h2>
+        {{ range .paragraphs }}
+        <p>{{ . | safeHTML }}</p>
+        {{ end }}
+    </section>
+    {{ end }}
+
+    <!-- Offers -->
+    {{ with .Params.offers }}
+    <section class="landing-section landing-section--offers">
+        <h2 class="landing-section-label">{{ .label }}</h2>
+        <div class="offer-grid">
+            {{ range .cards }}
+            <article class="offer-card{{ if .featured }} offer-card--featured{{ end }}">
+                {{ if .featured }}<span class="offer-badge">Most Popular</span>{{ end }}
+                <h3 class="offer-card-title">{{ .title }}</h3>
+                <p class="offer-card-price">{{ .price }}{{ with .price_note }} <span>{{ . }}</span>{{ end }}</p>
+                <p class="offer-card-description">{{ .description }}</p>
+                {{ with .features }}
+                <ul>
+                    {{ range . }}
+                    <li>{{ . }}</li>
+                    {{ end }}
+                </ul>
+                {{ end }}
+                {{ with .best_fit }}<p class="offer-fit">{{ . }}</p>{{ end }}
+                <a href="{{ .cta_url }}" class="offer-cta{{ if .featured }} offer-cta--featured{{ end }}">
+                    <span class="link-text">{{ .cta_text }}</span><span class="arrow" aria-hidden="true">→</span>
+                </a>
+            </article>
+            {{ end }}
+        </div>
+    </section>
+    {{ end }}
+
+    <!-- Sprint Detail -->
+    {{ with .Params.sprint_detail }}
+    <section class="landing-section sprint-detail">
+        <h2 class="landing-section-label">{{ .label }}</h2>
+        <div class="sprint-phases">
+            {{ range .phases }}
+            <div class="sprint-phase">
+                <h3>{{ .title }}</h3>
+                <ul>
+                    {{ range .items }}
+                    <li>{{ . }}</li>
+                    {{ end }}
+                </ul>
+            </div>
+            {{ end }}
+        </div>
+    </section>
+    {{ end }}
+
+    <!-- Background -->
+    {{ with .Params.background }}
+    <section class="landing-section background-section">
+        {{ $image := resources.Get "images/shawn-media.jpg" }}
+        {{ if $image }}
+        {{ $headshot := $image.Fill "240x240 smart" }}
+        <img src="{{ $headshot.RelPermalink }}" alt="Shawn Yeager" class="headshot" width="120" height="120">
+        {{ end }}
+        <h2 class="landing-section-label">{{ .label }}</h2>
+        {{ range .paragraphs }}
+        <p>{{ . | safeHTML }}</p>
+        {{ end }}
+
+        {{ with .recent_work }}
+        <div class="recent-work">
+            <h3>{{ .label }}</h3>
+            <ul>
+                {{ range .items }}
+                <li>{{ . }}</li>
+                {{ end }}
+            </ul>
+        </div>
+        {{ end }}
+    </section>
+    {{ end }}
+
+    <!-- Testimonials -->
+    {{ with .Params.testimonials }}
+    <section class="landing-section testimonials-section">
+        <h2 class="landing-section-label">{{ .label }}</h2>
+        {{ range .quotes }}
+        <blockquote class="testimonial">
+            <p>"{{ .quote }}"</p>
+            <cite>— {{ .name }}{{ with .title }}, {{ . }}{{ end }}</cite>
+        </blockquote>
+        {{ end }}
+    </section>
+    {{ end }}
+
+</div>
+
+<!-- Full-width CTA Banner -->
+{{ with .Params.cta_banner }}
+<section class="cta-banner cta-banner--fullwidth">
+    <div class="content-wrapper">
+        <h2 class="cta-banner-headline">{{ .headline }}</h2>
+        <p class="cta-banner-body">{{ .description }}</p>
+        <a href="{{ .url }}" class="btn-solid btn-solid--inverted">
+            <span class="link-text">{{ .cta_text }}</span><span class="arrow" aria-hidden="true">→</span>
+        </a>
+    </div>
+</section>
+{{ end }}
+{{ end }}
