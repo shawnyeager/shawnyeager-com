@@ -101,10 +101,6 @@ enableEmoji = true
   email_signup_text = "I send new essays and updates via email."
   email_signup_action = "https://buttondown.com/api/emails/embed-subscribe/shawnyeager"
 
-  # Cross-site
-  secondary_site_url = "https://notes.shawnyeager.com"
-  secondary_site_name = "Notes"
-
   # Podcast
   podcast_url = "https://trustrevolution.co"
 
@@ -112,7 +108,7 @@ enableEmoji = true
   copyright = "Copyright © 2025, Shawn Yeager"
   nostr = "https://shawnyeager.com/nostr"
   github = "https://github.com/shawnyeager"
-  twitter_handle = "shawnyeager"
+  linkedin = "https://linkedin.com/in/shawnyeager"
 
   # Analytics
   plausible_script_id = "pa-Qxf1mpF6qNZ8714Ucvs50"
@@ -219,6 +215,6 @@ enableEmoji = true
   weight = 1
 
 [[menu.main]]
-  name = "Contact"
-  url = "/contact/"
+  name = "Book a Call"
+  url = "/cal/"
   weight = 2
