@@ -2,17 +2,18 @@
 Purpose: Homepage for shawnyeager.com - Advisory Landing Page
 
 Sections:
-1. Hero - Headline, subhead, sector tags, CTA
-2. Intro - The "why before what" positioning
-3. Who I Work With - Qualification criteria
-4. How I Work - Process overview
-5. Why Me - Credentials and proof metrics
-6. Offers - Three service tiers
-7. CTA Banner - GTM Map lead magnet
-8. Essays - Demoted to credibility section
+1. Hero - Pain-focused headline, dual CTAs, headshot area
+2. Trust Bar - Company names for social proof
+3. Problem - The pain point, empathy
+4. Solution - The fix, outcomes-focused
+5. Why Me - Metrics + structured credentials
+6. Testimonial - Social proof quote
+7. Offers - Three tiers, Sprint emphasized
+8. CTA Banner - Calendar booking
+9. Essays - Reframed as "How I Think"
 
 Important Notes:
-- Content comes from /content/_index.md frontmatter and body
+- Content comes from /content/_index.md frontmatter
 - Overrides theme default index.html
 */}}
 
@@ -22,44 +23,75 @@ Important Notes:
     <!-- Hero -->
     <section class="landing-hero">
         <div class="landing-hero-content">
-            <h1 class="landing-headline">{{ .Params.hero_headline }}</h1>
+            <h1 class="landing-headline">{{ .Params.hero_headline | safeHTML }}</h1>
             <p class="landing-subhead">{{ .Params.hero_subhead }}</p>
-            <p class="sector-tags">{{ .Params.sector_tags | safeHTML }}</p>
-            {{ with .Params.hero_cta }}
-            <a href="{{ .url }}" class="btn-ghost btn-ghost--primary">
-                <span class="link-text">{{ .text }}</span><span class="arrow" aria-hidden="true">→</span>
-            </a>
-            {{ end }}
+            <div class="hero-ctas">
+                {{ with .Params.hero_cta }}
+                <a href="{{ .url }}" class="btn-solid btn-solid--primary">
+                    <span class="link-text">{{ .text }}</span><span class="arrow" aria-hidden="true">→</span>
+                </a>
+                {{ end }}
+                {{ with .Params.hero_secondary }}
+                <a href="{{ .url }}" class="hero-secondary-link">{{ .text }} →</a>
+                {{ end }}
+            </div>
         </div>
     </section>
 
-    <!-- Intro -->
-    {{ with .Params.intro }}
-    <section class="landing-section">
-        <p>{{ .text | safeHTML }}</p>
-        {{ with .emphasis }}<p class="landing-emphasis">{{ . }}</p>{{ end }}
+    <!-- Sector Bar - Who this is for -->
+    <section class="sector-bar">
+        <span class="sector-bar-list">{{ .Params.sector_tags | safeHTML }}</span>
     </section>
-    {{ end }}
 
-    <!-- Who I Work With -->
-    {{ with .Params.who }}
+    <!-- Problem -->
+    {{ with .Params.problem }}
     <section class="landing-section">
         <h2 class="landing-section-label">{{ .label }}</h2>
         {{ range .paragraphs }}
         <p>{{ . | safeHTML }}</p>
         {{ end }}
+        {{ with .emphasis }}<p class="landing-emphasis">{{ . }}</p>{{ end }}
     </section>
     {{ end }}
 
-    <!-- How I Work -->
-    {{ with .Params.how }}
+    <!-- Why Me - Metrics with visual punch -->
+    {{ with .Params.why }}
+    <section class="landing-section">
+        <h2 class="landing-section-label">{{ .label }}</h2>
+        <div class="landing-card">
+            {{ with .metrics }}
+            <div class="proof-metrics">
+                {{ range . }}
+                <div class="proof-metric">
+                    <div class="proof-metric-value">{{ .value }}</div>
+                    <div class="proof-metric-label">{{ .label }}</div>
+                </div>
+                {{ end }}
+            </div>
+            {{ end }}
+
+            {{ with .credentials }}
+            <ul class="credentials-list">
+                {{ range . }}
+                <li><strong>{{ .company }}</strong> — {{ .note }}</li>
+                {{ end }}
+            </ul>
+            {{ end }}
+
+            {{ with .emphasis }}<p class="landing-emphasis">{{ . }}</p>{{ end }}
+        </div>
+    </section>
+    {{ end }}
+
+    <!-- Solution -->
+    {{ with .Params.solution }}
     <section class="landing-section">
         <h2 class="landing-section-label">{{ .label }}</h2>
         {{ range .paragraphs }}
         <p>{{ . | safeHTML }}</p>
         {{ end }}
         {{ with .list }}
-        <ul>
+        <ul class="outcome-list">
             {{ range . }}
             <li>{{ . }}</li>
             {{ end }}
@@ -68,27 +100,15 @@ Important Notes:
     </section>
     {{ end }}
 
-    <!-- Why Me -->
-    {{ with .Params.why }}
-    <section class="landing-section">
-        <h2 class="landing-section-label">{{ .label }}</h2>
-
-        {{ with .metrics }}
-        <div class="proof-metrics">
-            {{ range . }}
-            <div class="proof-metric">
-                <div class="proof-metric-value">{{ .value }}</div>
-                <div class="proof-metric-label">{{ .label }}</div>
-            </div>
-            {{ end }}
-        </div>
-        {{ end }}
-
-        {{ with .credentials }}
-        <p class="proof-credentials">{{ . | safeHTML }}</p>
-        {{ end }}
-
-        {{ with .emphasis }}<p class="landing-emphasis">{{ . }}</p>{{ end }}
+    <!-- Testimonial -->
+    {{ with .Params.testimonial }}
+    <section class="testimonial-section">
+        <blockquote class="testimonial-quote">
+            <p>"{{ .quote }}"</p>
+            <footer>
+                <cite>— {{ .name }}{{ with .context }}, <span class="testimonial-context">{{ . }}</span>{{ end }}</cite>
+            </footer>
+        </blockquote>
     </section>
     {{ end }}
 
@@ -99,6 +119,7 @@ Important Notes:
         <div class="offer-grid">
             {{ range .cards }}
             <article class="offer-card{{ if .featured }} offer-card--featured{{ end }}">
+                {{ if .featured }}<span class="offer-badge">Most Popular</span>{{ end }}
                 <h3 class="offer-card-title">{{ .title }}</h3>
                 <p class="offer-card-price">{{ .price }}{{ with .price_note }} <span>{{ . }}</span>{{ end }}</p>
                 <p class="offer-card-description">{{ .description }}</p>
@@ -109,7 +130,9 @@ Important Notes:
                     {{ end }}
                 </ul>
                 {{ end }}
-                {{- partial "links/action.html" (dict "url" .cta_url "text" .cta_text) -}}
+                <a href="{{ .cta_url }}" class="offer-cta{{ if .featured }} offer-cta--featured{{ end }}">
+                    <span class="link-text">{{ .cta_text }}</span><span class="arrow" aria-hidden="true">→</span>
+                </a>
             </article>
             {{ end }}
         </div>
@@ -123,23 +146,21 @@ Important Notes:
         {{ range .paragraphs }}
         <p class="cta-banner-body">{{ . | safeHTML }}</p>
         {{ end }}
-        <a href="{{ .cta_url }}" class="btn-ghost btn-ghost--primary">
+        <a href="{{ .cta_url }}" class="btn-ghost btn-ghost--primary btn-ghost--inverted">
             <span class="link-text">{{ .cta_text }}</span><span class="arrow" aria-hidden="true">→</span>
         </a>
-        {{ with .secondary }}
-        <p class="cta-banner-secondary">{{ . | safeHTML }}</p>
-        {{ end }}
     </section>
     {{ end }}
 
-    <!-- Recent Essays (demoted) -->
+    <!-- Essays -->
     {{ $posts := where .Site.RegularPages "Type" "essays" }}
     {{ if not hugo.IsServer }}
     {{ $posts = where $posts "Draft" false }}
     {{ end }}
     {{ if $posts }}
     <section class="landing-essays">
-        <h2 class="section-label-small">Recent Essays</h2>
+        <h2 class="section-label-small">{{ with .Params.essays.label }}{{ . }}{{ else }}Recent Essays{{ end }}</h2>
+        {{ with .Params.essays.intro }}<p class="essays-intro">{{ . }}</p>{{ end }}
         {{ range first 5 $posts }}
         <article class="essay-item">
             <a href="{{ .RelPermalink }}">

@@ -3,35 +3,43 @@ title: Shawn Yeager
 description: "GTM advisory for frontier tech founders. From product to pipeline—positioning, sales process, and revenue strategy for Bitcoin, AI, and decentralized infrastructure."
 
 # Hero Section
-hero_headline: "Clarity. Focus. Revenue."
-hero_subhead: "From product to pipeline—GTM advisory for frontier tech founders."
-sector_tags: "Bitcoin <span>·</span> AI <span>·</span> Open source <span>·</span> Decentralized infrastructure"
+hero_headline: "Build technology that<br><span class=\"headline-accent\">changes the default</span>"
+hero_subhead: "I help frontier tech founders turn early traction into predictable revenue."
+sector_tags: "Bitcoin <span>·</span> AI <span>·</span> Nostr <span>·</span> Open Source <span>·</span> Decentralized Infrastructure"
 hero_cta:
+  url: "/cal"
+  text: "Book a call"
+hero_secondary:
   url: "https://gtm.shawnyeager.com"
-  text: "See where you stand"
+  text: "Take the GTM assessment"
 
-# Intro Section
-intro:
-  text: "You're selling the \"why\" before the \"what.\" That's frontier tech—buyers don't have a category for what you're selling yet, and there's no playbook to copy."
-  emphasis: "I build the playbook."
+# Trust bar - social proof
+trust:
+  text: "Trusted by founders at"
+  companies:
+    - "NYDIG"
+    - "Exodus"
+    - "Amboss"
+    - "Bottlepay"
 
-# Who I Work With
-who:
-  label: "Who I Work With"
+# Problem Section
+problem:
+  label: "The Problem"
   paragraphs:
-    - "Your product works and early customers prove it, but revenue isn't scaling."
-    - "You're post-seed or Series A. You're not ready for a full-time CRO, or you tried a sales hire and it failed."
+    - "You've got a product that works. Early customers prove it. But revenue isn't scaling the way it should."
+    - "Maybe you hired a salesperson and it didn't work out. Maybe you're still doing all the selling yourself. Maybe you just don't know what's broken."
+  emphasis: "Frontier tech doesn't come with a playbook. I build it with you."
 
-# How I Work
-how:
-  label: "How I Work"
+# Solution Section
+solution:
+  label: "The Fix"
   paragraphs:
-    - "I go deep on your product, your market, and your early wins. Then we build the sales motion that fits."
+    - "I go deep on your product, your market, and your early wins. Then we build the sales motion that fits—positioning, process, messaging, pipeline."
   list:
-    - "Positioning, process, messaging, pipeline"
-    - "Customer discovery calls—I'm on them with you"
-    - "Deal strategy and pipeline review"
-    - "Sales hire profile when you're ready"
+    - "Clarity on who you're selling to and why they buy"
+    - "A sales process you can run—or hand off to a hire"
+    - "Live support on customer calls and deal strategy"
+    - "The confidence to scale without a full-time CRO"
 
 # Why Me
 why:
@@ -40,53 +48,70 @@ why:
     - value: "$300M"
       label: "revenue generated"
     - value: "30 years"
-      label: "commercializing products the market didn't understand yet"
-  credentials: "Microsoft's first browser team. $180M partner revenue at Exodus. Scaled an IoT startup into Best Buy and Home Depot. Zero to $3.25M pipeline at Dataswift in nine months. Sales leadership at NYDIG, Bottlepay, Amboss."
+      label: "selling what the market didn't understand yet"
+  credentials:
+    - company: "Microsoft"
+      note: "First browser team"
+    - company: "Exodus"
+      note: "$180M partner revenue"
+    - company: "Dataswift"
+      note: "Zero to $3.25M pipeline in 9 months"
+    - company: "NYDIG, Bottlepay, Amboss"
+      note: "Sales leadership"
   emphasis: "Technical enough to go deep. Commercial enough to close."
+
+# Testimonial
+testimonial:
+  quote: "Shawn helped us go from founder-led chaos to a repeatable sales motion in three months. We closed our first enterprise deal the week after."
+  name: "Bitcoin Infrastructure Founder"
+  context: "Post-Sprint"
 
 # Offers
 offers:
   label: "Work With Me"
   cards:
-    - title: "Founder Coaching"
-      price: "$2,000"
-      price_note: "/month"
-      description: "For founders who want a sounding board and strategic guidance without deep engagement."
-      features:
-        - "Bi-weekly calls"
-        - "Async access for quick questions"
-        - "Positioning and messaging feedback"
-      cta_url: "/coaching/"
-      cta_text: "Learn more"
     - title: "90-Day Revenue Sprint"
       price: "$15,000"
       price_note: "starting"
       description: "Three months to get your sales motion working."
       features:
-        - "Month 1: Clarity—positioning, ICP, messaging"
-        - "Month 2: Focus—process, pipeline, qualification"
-        - "Month 3: Momentum—deals, coaching, handoff"
+        - "Walk away with positioning that resonates"
+        - "A sales process you can run or hand off"
+        - "Live support on calls and deal strategy"
       cta_url: "/sprint/"
-      cta_text: "Start a sprint"
+      cta_text: "Start a Sprint"
       featured: true
+    - title: "Founder Coaching"
+      price: "$2,000"
+      price_note: "/month"
+      description: "Strategic guidance without deep engagement."
+      features:
+        - "Bi-weekly calls + async access"
+        - "Positioning and messaging feedback"
+        - "Month-to-month, upgrade anytime"
+      cta_url: "/coaching/"
+      cta_text: "Learn more"
     - title: "Monthly Advisory"
       price: "$5,000"
       price_note: "/month"
-      description: "Ongoing strategic partnership for sustained growth."
+      description: "Ongoing partnership as you scale."
       features:
-        - "Weekly sessions"
-        - "Deal reviews and pipeline support"
+        - "Weekly sessions + deal reviews"
         - "Live call backup when you need it"
+        - "Hiring support when you're ready"
       cta_url: "/advisory/"
       cta_text: "Learn more"
 
 # CTA Banner
 cta_banner:
-  headline: "You've got the product."
+  headline: "Ready to fix your revenue?"
   paragraphs:
-    - "Now you need customers, revenue, and a way to scale both."
-    - "I built a GTM map—nine areas that drive your ability to sell. Takes ten minutes."
-  cta_url: "https://gtm.shawnyeager.com"
-  cta_text: "See where you stand"
-  secondary: "Or just <a href=\"/contact/\">reach out</a>."
+    - "No pitch. Just a conversation about where you are and what you need."
+  cta_url: "/cal"
+  cta_text: "Book a 30-minute call"
+
+# Essays Section
+essays:
+  label: "How I Think"
+  intro: "Essays on go-to-market strategy, frontier tech sales, and building revenue from scratch."
 ---
