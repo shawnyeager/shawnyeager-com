@@ -6,7 +6,7 @@ hide_footer_signup: true
 # Hero Section
 hero_headline: "Clarity. Focus.<br><span class=\"headline-accent\">Revenue.</span>"
 hero_subhead: "I help frontier tech founders turn early traction into predictable revenue."
-sector_tags: "Bitcoin <span>·</span> AI <span>·</span> Nostr <span>·</span> Open Source <span>·</span> Decentralized Infrastructure"
+sector_tags: "Bitcoin <span>·</span> AI <span>·</span> Open Protocols <span>·</span> Open Source <span>·</span> Energy"
 hero_cta:
   url: "https://gtm.shawnyeager.com"
   text: "Start here"
