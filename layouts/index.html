@@ -87,7 +87,14 @@ Important Notes:
     {{ with .Params.why }}
     <section class="landing-section">
         <h2 class="landing-section-label">{{ .label }}</h2>
-        <div class="landing-card">
+        <div class="landing-card proof-card">
+            {{ with .photo }}
+            {{ $img := resources.Get (strings.TrimPrefix "/" .) }}
+            {{ if $img }}
+            {{ $processed := $img.Fill "240x240" }}
+            <img src="{{ $processed.RelPermalink }}" alt="Shawn Yeager" class="proof-photo" width="120" height="120">
+            {{ end }}
+            {{ end }}
             {{ with .metrics }}
             <div class="proof-metrics">
                 {{ range . }}

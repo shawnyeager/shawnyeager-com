@@ -4,7 +4,7 @@ description: "GTM advisory for frontier tech founders. From product to pipeline�
 hide_footer_signup: true
 
 # Hero Section
-hero_headline: "Clarity. Focus.<br><span class=\"headline-accent\">Revenue.</span>"
+hero_headline: "Build technology that<br><span class=\"headline-accent\">changes the default.</span>"
 hero_subhead: "I help frontier tech founders turn early traction into predictable revenue."
 sector_tags: "Bitcoin <span>·</span> AI <span>·</span> Open Protocols <span>·</span> Open Source <span>·</span> Energy"
 hero_cta:
@@ -45,6 +45,7 @@ solution:
 # The Proof
 why:
   label: "The Proof"
+  photo: "/images/shawn-media.jpg"
   metrics:
     - value: "$300M"
       label: "revenue generated"
