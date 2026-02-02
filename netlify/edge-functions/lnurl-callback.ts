@@ -1,11 +1,13 @@
-import type { Context, Config } from "@netlify/functions";
+import type { Config } from "@netlify/edge-functions";
 import bolt11 from "bolt11";
-import { errorResponse, jsonResponse } from "./_shared/responses.ts";
+import { errorResponse, jsonResponse, alertFailure, siteUrl, ALBY_CALLBACK, ALBY_TIMEOUT_MS, handleCorsPreflightResponse } from "./_shared/config.ts";
 import { withNWCClient, NWCNotConfiguredError } from "./_shared/nwc.ts";
-import { ALBY_CALLBACK, ALBY_TIMEOUT_MS } from "./_shared/config.ts";
-import { alertFailure } from "./_shared/alerts.ts";
 
-export default async (req: Request, context: Context) => {
+export default async (req: Request) => {
+  // Handle CORS preflight
+  const preflightResponse = handleCorsPreflightResponse(req);
+  if (preflightResponse) return preflightResponse;
+
   const url = new URL(req.url);
   const amount = url.searchParams.get('amount');
   const nostrParam = url.searchParams.get('nostr');
@@ -13,7 +15,7 @@ export default async (req: Request, context: Context) => {
   const essayTitle = url.searchParams.get('title') || '';
 
   if (!amount) {
-    return errorResponse(400, "Amount parameter required");
+    return errorResponse(400, "Amount parameter required", req);
   }
 
   // If nostr param present, this is a zap request - forward to Alby
@@ -21,12 +23,10 @@ export default async (req: Request, context: Context) => {
   if (nostrParam) {
     console.log(`Zap request detected, forwarding to Alby: amount=${amount}ms`);
 
-    // Build Alby callback URL with all relevant params
     const albyUrl = new URL(ALBY_CALLBACK);
     albyUrl.searchParams.set('amount', amount);
     albyUrl.searchParams.set('nostr', nostrParam);
 
-    // Forward optional LNURL params if present
     const comment = url.searchParams.get('comment');
     if (comment) albyUrl.searchParams.set('comment', comment);
 
@@ -43,21 +43,21 @@ export default async (req: Request, context: Context) => {
       if (!albyResponse.ok) {
         console.error(`Alby callback error: ${albyResponse.status}`);
         await alertFailure('Alby Callback', `HTTP ${albyResponse.status}`, { amount });
-        return errorResponse(502, "Upstream error");
+        return errorResponse(502, "Upstream error", req);
       }
 
       const albyData = await albyResponse.json();
-      return jsonResponse(albyData);
+      return jsonResponse(albyData, 200, req);
     } catch (error) {
       clearTimeout(timeoutId);
       if (error instanceof Error && error.name === 'AbortError') {
         await alertFailure('Alby Callback', 'Timeout (10s)', { amount });
-        return errorResponse(504, "Upstream timeout");
+        return errorResponse(504, "Upstream timeout", req);
       }
       console.error('Alby callback fetch error:', error);
       const errorMessage = error instanceof Error ? error.message : String(error);
       await alertFailure('Alby Callback', errorMessage, { amount });
-      return errorResponse(502, "Upstream error");
+      return errorResponse(502, "Upstream error", req);
     }
   }
 
@@ -65,11 +65,11 @@ export default async (req: Request, context: Context) => {
   try {
     const result = await withNWCClient(async (client) => {
       const memo = essaySlug
-        ? `shawnyeager.com/${essaySlug}`
-        : 'shawnyeager.com';
+        ? `${siteUrl}/${essaySlug}`
+        : siteUrl || 'V4V payment';
 
       const invoice = await client.makeInvoice({
-        amount: parseInt(amount), // Amount is already in millisats from LNURL
+        amount: parseInt(amount),
         description: memo
       });
 
@@ -77,8 +77,8 @@ export default async (req: Request, context: Context) => {
       let paymentHash = '';
       try {
         const decoded = bolt11.decode(invoice.invoice);
-        const paymentHashTag = decoded.tags.find((t: any) => t.tagName === 'payment_hash');
-        paymentHash = paymentHashTag?.data || '';
+        const paymentHashTag = decoded.tags.find((t: { tagName: string }) => t.tagName === 'payment_hash');
+        paymentHash = (paymentHashTag?.data as string) || '';
       } catch (e) {
         console.error('Failed to decode BOLT11:', e);
       }
@@ -98,13 +98,13 @@ export default async (req: Request, context: Context) => {
           ? `Thank you for supporting ${essayTitle}.`
           : 'Thank you for your support.'
       }
-    });
+    }, 200, req);
 
   } catch (error) {
     if (error instanceof NWCNotConfiguredError) {
       console.error('NWC_CONNECTION_STRING environment variable not set');
       await alertFailure('Invoice Generation', 'NWC not configured');
-      return errorResponse(500, "Server configuration error");
+      return errorResponse(500, "Server configuration error", req);
     }
 
     const errorMessage = error instanceof Error ? error.message : String(error);
@@ -113,7 +113,7 @@ export default async (req: Request, context: Context) => {
       source: essaySlug || 'footer',
       amount
     });
-    return errorResponse(500, `Invoice generation failed: ${errorMessage}`);
+    return errorResponse(500, `Invoice generation failed: ${errorMessage}`, req);
   }
 };
 

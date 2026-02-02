@@ -16,7 +16,7 @@ description: "A concise 1-2 sentence summary of the essay for SEO meta tags and 
                 {{ $medium := $img.Resize "1024x" }}
                 {{ $large := $img.Resize "1920x" }}
 
-                {{/* Generate WebP for each size */}}
+                {{/* Generate WebP for each size (fast decode, matches preload) */}}
                 {{ $webpSmall := $small.Process "webp q85" }}
                 {{ $webpMedium := $medium.Process "webp q85" }}
                 {{ $webpLarge := $large.Process "webp q85" }}
@@ -34,6 +34,7 @@ description: "A concise 1-2 sentence summary of the essay for SEO meta tags and 
                             alt="{{ $.Params.hero_alt | default $.Title }}"
                             class="essay-hero-image"
                             loading="eager"
+                            fetchpriority="high"
                             width="{{ $medium.Width }}"
                             height="{{ $medium.Height }}"
                         >

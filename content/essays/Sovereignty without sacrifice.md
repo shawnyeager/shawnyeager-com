@@ -1,11 +1,18 @@
 ---
 title: Sovereignty without sacrifice
-description: Freedom tech loses when it demands sacrifice. Winning means building products that are better on every dimension—not just principles.
-summary: |
-  We can't win by being better at one thing (self-sovereignty) while being worse at everything else (speed, cost, UX, features). We have to be better at everything—or at minimum, comparable on the basics while being superior on self-sovereignty.
+description: >-
+  Freedom tech loses when it demands sacrifice. Winning means building products
+  that are better on every dimension—not just principles.
+summary: >
+  We can't win by being better at one thing (self-sovereignty) while being worse
+  at everything else (speed, cost, UX, features). We have to be better at
+  everything—or at minimum, comparable on the basics while being superior on
+  self-sovereignty.
 
-  The best protocol in the world accomplishes nothing if nobody uses it. We have to win commercially to win ideologically.
-date: 2025-10-31T06:00:00-05:00
+
+  The best protocol in the world accomplishes nothing if nobody uses it. We have
+  to win commercially to win ideologically.
+date: 2025-10-31T11:00:00.000Z
 slug: sovereignty-without-sacrifice
 topics:
   - bitcoin
@@ -16,6 +23,9 @@ featured: false
 draft: false
 hero_image: images/essays/sovereignty-without-sacrifice.png
 hero_alt: Abstract illustration of sovereignty and self-custody without compromise
+nostr_image: 'https://i.nostr.build/Wwj4IPs8V0u0ZPrk.png'
+nostr_id: >-
+  nevent1qvzqqqr4guq3gamnwvaz7tmjv4kxz7fwv3sk6atn9e5k7qgdwaehxw309ahx7uewd3hkcqgmwaehxw309aex2mrp0yh8x6rpwah8jetpvajhytnrdaksqgqn9r87gkhc048sq8ta8tf5alpmxqk7hgu74jess6tw3kwe8w89eqs9k0fv
 ---
 You can have easy payments or private payments. Good UX or self-custody. Censorship resistance or features people actually use. That's been the conventional wisdom for years.
 

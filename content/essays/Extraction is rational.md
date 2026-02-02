@@ -1,15 +1,26 @@
 ---
-title: "Extraction is rational"
-description: "Every wave of the internet promised to democratize something. Every wave ended in extraction. The pattern isn't greed—it's the money."
-summary: "Even the sharpest critics of extraction stop at monopoly power and regulatory capture. They ask how platforms become extractive, but not why extraction becomes the rational choice across every industry, every decade. Break up a monopoly and you get smaller companies running the same playbook. \"This time is different\" is the oldest delusion in financial history."
-date: 2025-11-30T15:00:00Z
+title: Extraction is rational
+description: >-
+  Every wave of the internet promised to democratize something. Every wave ended
+  in extraction. The pattern isn't greed—it's the money.
+summary: >-
+  Even the sharpest critics of extraction stop at monopoly power and regulatory
+  capture. They ask how platforms become extractive, but not why extraction
+  becomes the rational choice across every industry, every decade. Break up a
+  monopoly and you get smaller companies running the same playbook. "This time
+  is different" is the oldest delusion in financial history.
+date: 2025-11-30T15:00:00.000Z
 slug: extraction-is-rational
-topics: [bitcoin]
+topics:
+  - bitcoin
 tags: []
 featured: false
 draft: false
 hero_image: images/essays/extraction-is-rational.png
 hero_alt: Abstract illustration of extraction patterns in internet platforms
+nostr_image: 'https://i.nostr.build/topkIDr1OBxJL2vc.png'
+nostr_id: >-
+  nevent1qvzqqqr4guq3gamnwvaz7tmjv4kxz7fwv3sk6atn9e5k7qgdwaehxw309ahx7uewd3hkcqgmwaehxw309aex2mrp0yh8x6rpwah8jetpvajhytnrdaksqgz4lfkhsh0wt88c0vc4f2fgg07uys6rpnyuqldclrkacdaq7k6kvc9md9l7
 ---
 
 Every wave of the internet promised to democratize something. Every wave ended in extraction. For twenty years I thought the problem was execution, or regulation, or bad actors. It was simpler than that.

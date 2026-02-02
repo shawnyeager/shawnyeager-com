@@ -72,13 +72,20 @@ enableEmoji = true
   [cascade.sitemap]
     disable = true
 
+[[cascade]]
+  _target.kind = "page"
+  _target.path = "/resume/**"
+  [cascade.sitemap]
+    disable = true
+
 # =============================================================================
 # SITE PARAMETERS
 # =============================================================================
 
 [params]
+  robotsDisallow = ["/resume/"]
   site_display_name = "Shawn Yeager"
-  description = "Bitcoin go-to-market and revenue leader. Previously led sales at Amboss Technologies, NYDIG Payments, and Bottlepay. Hosts Trust Revolution podcast."
+  description = "I fix revenue engines for founders building on Bitcoin. Positioning, sales, pipeline. The stuff that turns a good product into a growing company."
 
   # Open Graph
   og_image = "/images/og-image.png"
@@ -94,18 +101,14 @@ enableEmoji = true
   email_signup_text = "I send new essays and updates via email."
   email_signup_action = "https://buttondown.com/api/emails/embed-subscribe/shawnyeager"
 
-  # Cross-site
-  secondary_site_url = "https://notes.shawnyeager.com"
-  secondary_site_name = "Notes"
-
   # Podcast
-  trustrevolution_url = "https://trustrevolution.co"
+  podcast_url = "https://trustrevolution.co"
 
   # Social
   copyright = "Copyright © 2025, Shawn Yeager"
   nostr = "https://shawnyeager.com/nostr"
   github = "https://github.com/shawnyeager"
-  twitter_handle = "shawnyeager"
+  linkedin = "https://linkedin.com/in/shawnyeager"
 
   # Analytics
   plausible_script_id = "pa-Qxf1mpF6qNZ8714Ucvs50"
@@ -212,6 +215,6 @@ enableEmoji = true
   weight = 1
 
 [[menu.main]]
-  name = "Now"
-  url = "/now/"
+  name = "Book a Call"
+  url = "/cal/"
   weight = 2

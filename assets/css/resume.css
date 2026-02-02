@@ -1,0 +1,828 @@
+/*
+ * =============================================================================
+ * RESUME STYLESHEET
+ * =============================================================================
+ *
+ * Resume-specific styles for the /resume/ page.
+ * Fonts and core design tokens loaded via Hugo Pipes concatenation from
+ * tangerine-theme's _tokens.css.
+ *
+ * WHY SEPARATE FROM MAIN.CSS?
+ * ---------------------------
+ * The theme's main.css has global heading styles (h1, h2, h3, etc.) and spacing
+ * that conflict with resume-specific typography. Rather than fighting specificity
+ * battles, this stylesheet uses only the tokens layer (no element styles).
+ *
+ * ARCHITECTURE:
+ * -------------
+ * - _tokens.css: Fonts, colors, core tokens (via concat)
+ * - resume.css: Resume-specific semantic aliases + component styles
+ *
+ * Dark mode is handled automatically via light-dark() in tangerine tokens.
+ *
+ * PRINT: Optimized for US Letter. Uses hardcoded light-mode colors
+ * (not CSS variables) to ensure consistent print output.
+ *
+ * TEMPLATE: layouts/resume/list.html
+ * DATA: data/resume.json (JSON Resume format)
+ *
+ * =============================================================================
+ */
+
+
+/* =============================================================================
+   1. RESUME SEMANTIC TOKENS
+   =============================================================================
+   Semantic aliases that map to tangerine design tokens.
+   This allows resume-specific naming while inheriting theme colors/fonts.
+*/
+
+:root {
+  /* Colors - mapped to tangerine tokens (light-dark() handles dark mode) */
+  --color-accent: var(--brand-orange);
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-muted: var(--text-meta);
+  --color-light: var(--text-subtle);
+  --color-bg: var(--background-body);
+  --color-border: var(--border-color);
+
+  /* Typography - mapped to tangerine tokens */
+  --font-display: var(--font-heading);
+  /* --font-body already exists in tangerine tokens */
+
+  /* Font weights - mapped to tangerine tokens */
+  --weight-light: var(--font-weight-light);
+  --weight-normal: var(--font-weight-normal);
+  --weight-medium: var(--font-weight-medium);
+  --weight-semibold: var(--font-weight-semibold);
+
+  /* Letter spacing - mapped to tangerine tokens */
+  --tracking-tight: var(--letter-spacing-tight-md);
+  --tracking-body: var(--letter-spacing-body);
+  --tracking-wide: 0.08em;  /* Resume-specific (wider than tangerine's 0.05em) */
+
+  /* Line heights - mapped to tangerine tokens */
+  --leading-tight: var(--line-height-title);
+  --leading-snug: var(--line-height-heading);
+  --leading-normal: var(--line-height-body);
+  --leading-relaxed: 1.6;  /* Resume-specific */
+
+  /* Resume-specific spacing scale (8px base) */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+
+  /* Resume-specific font sizes */
+  --text-xs: 0.8125rem;   /* 13px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-3xl: 2.25rem;    /* 36px */
+}
+
+
+/* =============================================================================
+   2. RESET & BASE
+   =============================================================================
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: var(--weight-normal);  /* 400 for better contrast (was 300) */
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-body);
+  color: var(--color-secondary);
+  background: var(--color-bg);
+}
+
+
+/* =============================================================================
+   3. LAYOUT
+   =============================================================================
+*/
+
+.resume-container {
+  max-width: 8in;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+}
+
+
+/* =============================================================================
+   4. PRINT BUTTON
+   =============================================================================
+   Fixed position button in bottom-right. Hidden on print and icon-only on mobile.
+*/
+
+.print-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  background-color: var(--color-bg);
+  color: var(--color-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  font-family: var(--font-display);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  z-index: 100;
+}
+
+.print-button:hover {
+  color: var(--color-secondary);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.print-button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.print-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-accent) 30%, transparent);
+}
+
+
+/* =============================================================================
+   5. HEADER
+   =============================================================================
+   Name (h1), title (.label), and contact info.
+*/
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-secondary);
+  letter-spacing: 0.02em;
+  line-height: var(--leading-snug);
+  margin-bottom: var(--space-4);
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+
+.contact a {
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact a:hover {
+  color: var(--color-accent);
+}
+
+.contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+
+/* =============================================================================
+   6. SECTION HEADINGS
+   =============================================================================
+   Uppercase, accented, with bottom border. Used for Summary, Experience, etc.
+*/
+
+h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  line-height: var(--leading-snug);
+  color: var(--color-accent);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-2);
+  border-bottom: 1.5px solid var(--color-accent);
+}
+
+.summary h2 {
+  margin-top: 0;  /* First section needs no top margin */
+}
+
+
+/* =============================================================================
+   7. SUMMARY
+   =============================================================================
+*/
+
+.summary-text {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-secondary);
+}
+
+.summary-text p {
+  margin-bottom: var(--space-3);
+}
+
+.summary-text p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =============================================================================
+   8. EXPERIENCE
+   =============================================================================
+   Job entries with position, company, dates, summary, and bullet highlights.
+*/
+
+.experience-item {
+  margin-bottom: var(--space-6);
+}
+
+.experience-item:last-child {
+  margin-bottom: 0;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-4);
+  margin-bottom: var(--space-2);
+}
+
+h3 {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-snug);
+  color: var(--color-primary);
+}
+
+h3 .company {
+  color: var(--color-secondary);
+  font-weight: var(--weight-normal);
+}
+
+.meta {
+  font-size: var(--text-sm);
+  color: var(--color-light);
+  font-weight: var(--weight-normal);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.experience-summary {
+  font-size: var(--text-sm);
+  color: var(--color-secondary);
+  line-height: var(--leading-normal);
+  margin-bottom: var(--space-2);
+}
+
+.highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.highlights li {
+  font-size: var(--text-sm);
+  color: var(--color-secondary);
+  line-height: var(--leading-relaxed);
+  padding-left: var(--space-4);
+  margin-bottom: var(--space-2);
+  position: relative;
+}
+
+.highlights li:last-child {
+  margin-bottom: 0;
+}
+
+.highlights li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  background: var(--color-accent);
+  border-radius: 50%;
+}
+
+
+/* =============================================================================
+   9. SKILLS (Expertise)
+   =============================================================================
+   Two-column grid of skill categories with keyword lists.
+*/
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5) var(--space-8);
+}
+
+.skill-category h4 {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  margin-bottom: var(--space-1);
+}
+
+.skill-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) 0;
+  font-size: var(--text-sm);
+  color: var(--color-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+.keyword:not(:last-child)::after {
+  content: '·';
+  margin: 0 0.4em;
+  color: var(--color-muted);
+}
+
+
+/* =============================================================================
+   10. REFERENCES
+   =============================================================================
+   Testimonial quotes with attribution.
+*/
+
+.references-grid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.reference {
+  padding-left: var(--space-4);
+  border-left: 2px solid color-mix(in srgb, var(--color-accent) 25%, transparent);
+}
+
+.reference-text {
+  font-size: var(--text-sm);
+  color: var(--color-secondary);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-2);
+}
+
+.reference-author {
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+  font-weight: var(--weight-medium);
+}
+
+
+/* =============================================================================
+   11. EDUCATION
+   =============================================================================
+*/
+
+.education-item {
+  font-size: var(--text-sm);
+  color: var(--color-secondary);
+}
+
+.education-degree {
+  font-weight: var(--weight-semibold);
+  color: var(--color-primary);
+}
+
+.education-school {
+  color: var(--color-muted);
+}
+
+
+/* =============================================================================
+   12. MOBILE (max-width: 640px)
+   =============================================================================
+*/
+
+@media (max-width: 640px) {
+  .resume-container {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .header {
+    margin-bottom: var(--space-5);
+  }
+
+  h1 {
+    font-size: 1.875rem;
+  }
+
+  .label {
+    font-size: var(--text-xs);
+    margin-bottom: var(--space-3);
+    text-wrap: balance;
+  }
+
+  .contact {
+    gap: var(--space-1) var(--space-4);
+    font-size: var(--text-xs);
+  }
+
+  h2 {
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-3);
+  }
+
+  .summary-text {
+    font-size: var(--text-sm);
+  }
+
+  .experience-header {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .meta {
+    font-size: var(--text-xs);
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .print-button {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .print-button span {
+    display: none;  /* Icon only on mobile */
+  }
+}
+
+
+/* =============================================================================
+   13. PRINT
+   =============================================================================
+   Optimized for US Letter (8.5" x 11").
+   Uses HARDCODED colors (not CSS variables) to ensure consistent output
+   regardless of light/dark mode state when printing.
+*/
+
+@page {
+  size: letter;
+  margin: 0.5in 0.7in;
+}
+
+@media print {
+  .print-button {
+    display: none !important;
+  }
+
+  html,
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    background: white;
+    font-size: 9.5pt;
+    line-height: 1.45;
+    color: #444;
+  }
+
+  .resume-container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  /* Header */
+  h1 {
+    font-size: 22pt;
+    margin-bottom: 4pt;
+    color: #1a1a1a;
+  }
+
+  .label {
+    font-size: 9.5pt;
+    margin-bottom: 10pt;
+    color: #444;
+  }
+
+  .contact {
+    font-size: 8.5pt;
+    gap: 4pt 12pt;
+    color: #666;
+  }
+
+  .contact a {
+    color: #666;
+  }
+
+  .header {
+    margin-bottom: 14pt;
+  }
+
+  /* Section headings */
+  h2 {
+    font-size: 9pt;
+    margin-top: 14pt;
+    margin-bottom: 8pt;
+    padding-bottom: 4pt;
+    break-after: avoid;
+  }
+
+  .summary h2 {
+    margin-top: 0;
+  }
+
+  /* Summary */
+  .summary-text {
+    font-size: 9.5pt;
+    line-height: 1.45;
+    color: #444;
+  }
+
+  /* Experience */
+  h3 {
+    font-size: 10pt;
+    color: #1a1a1a;
+  }
+
+  h3 .company {
+    color: #444;
+  }
+
+  .meta {
+    font-size: 8.5pt;
+    color: #888;
+  }
+
+  .experience-item {
+    margin-bottom: 12pt;
+    break-inside: avoid;
+  }
+
+  .experience-header {
+    break-after: avoid;
+  }
+
+  .experience-summary {
+    font-size: 9pt;
+    margin-bottom: 4pt;
+    color: #444;
+  }
+
+  .highlights li {
+    font-size: 9pt;
+    line-height: 1.4;
+    margin-bottom: 3pt;
+    padding-left: 12pt;
+    color: #444;
+  }
+
+  .highlights li::before {
+    width: 4pt;
+    height: 4pt;
+    top: 0.5em;
+  }
+
+  /* Skills */
+  .skills-section {
+    break-inside: avoid;
+  }
+
+  .skills-grid {
+    gap: 10pt 24pt;
+  }
+
+  .skill-category {
+    break-inside: avoid;
+  }
+
+  .skill-category h4 {
+    font-size: 8.5pt;
+    margin-bottom: 2pt;
+    color: #1a1a1a;
+  }
+
+  .skill-keywords {
+    font-size: 9pt;
+    line-height: 1.4;
+    color: #444;
+  }
+
+  /* References */
+  .references-grid {
+    gap: 10pt;
+  }
+
+  .reference {
+    padding-left: 10pt;
+    break-inside: avoid;
+  }
+
+  .reference-text {
+    font-size: 9pt;
+    line-height: 1.4;
+    margin-bottom: 3pt;
+    color: #444;
+  }
+
+  .reference-author {
+    font-size: 8.5pt;
+    color: #666;
+  }
+
+  /* Education */
+  .education-item {
+    font-size: 9pt;
+    color: #444;
+  }
+
+  .education-degree {
+    color: #1a1a1a;
+  }
+
+  .education-school {
+    color: #666;
+  }
+
+  /* Links */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Hide keyboard help modal in print */
+  .keyboard-help-overlay {
+    display: none !important;
+  }
+}
+
+
+/* =============================================================================
+   14. KEYBOARD HELP MODAL
+   =============================================================================
+   Styles for the "?" keyboard shortcuts modal. Copied from theme main.css
+   since resume.css is standalone and doesn't load main.css.
+*/
+
+.keyboard-help-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 26, 26, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+
+[data-theme="dark"] .keyboard-help-overlay {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.keyboard-help-overlay[data-visible="true"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.keyboard-help-card {
+  position: relative;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: var(--space-8);
+  max-width: 320px;
+  width: calc(100% - var(--space-8) * 2);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(var(--space-2));
+  transition: transform 0.15s ease;
+}
+
+.keyboard-help-card:focus {
+  outline: none;
+}
+
+.keyboard-help-overlay[data-visible="true"] .keyboard-help-card {
+  transform: translateY(0);
+}
+
+.keyboard-help-heading {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: var(--weight-semibold);
+  color: var(--color-primary);
+  margin: 0 0 var(--space-6) 0;
+  letter-spacing: var(--tracking-tight);
+}
+
+.keyboard-help-list {
+  margin: 0;
+  padding: 0;
+}
+
+.keyboard-help-item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  margin-bottom: var(--space-2);
+}
+
+.keyboard-help-item:last-child {
+  margin-bottom: 0;
+}
+
+.keyboard-help-item dt {
+  flex-shrink: 0;
+}
+
+.keyboard-help-item dd {
+  margin: 0;
+  color: var(--color-secondary);
+  font-size: var(--text-base);
+}
+
+.keyboard-help-card kbd {
+  display: inline-block;
+  min-width: 1.75rem;
+  padding: 0.25rem var(--space-1);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  text-align: center;
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-bg) 90%, var(--color-border));
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+
+.keyboard-help-dismiss {
+  margin: var(--space-6) 0 0 0;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  text-align: center;
+}
+
+.keyboard-help-dismiss kbd {
+  font-size: var(--text-xs);
+  padding: 0.125rem 0.25rem;
+  min-width: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .keyboard-help-overlay,
+  .keyboard-help-card {
+    transition: none;
+  }
+}

@@ -1,27 +1,14 @@
 name: Scheduled Netlify Build
 
 on:
-  # Schedule builds - runs every Friday at 11:30 AM UTC
-  # This is equivalent to:
-  #   - 6:30 AM CDT (March - early November, daylight saving time)
-  #   - 5:30 AM CST (early November - March, standard time)
-  # DEACTIVATED: Uncomment schedule section below if needed
-  # schedule:
-  #   - cron: '30 11 * * 5'
-
-  # Allow manual triggering from GitHub Actions tab
+  schedule:
+    - cron: '30 13 * * 4,5'  # Thu & Fri at 8:30 AM CT (13:30 UTC)
   workflow_dispatch:
 
 jobs:
-  trigger-netlify-build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Trigger Netlify Deploy
-        run: |
-          curl -X POST -d '{}' ${{ secrets.NETLIFY_BUILD_HOOK_URL }}
-
-      - name: Build triggered
-        run: |
-          echo "Netlify build triggered successfully"
-          echo "Check build status at: https://app.netlify.com/sites/shawnyeager/deploys"
+  build:
+    uses: shawnyeager/shared-workflows/.github/workflows/scheduled-build.yml@master
+    with:
+      netlify_site_name: 'shawnyeager'
+    secrets:
+      NETLIFY_BUILD_HOOK_URL: ${{ secrets.NETLIFY_BUILD_HOOK_URL }}

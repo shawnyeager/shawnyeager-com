@@ -1,10 +1,10 @@
 name: Check Podcast Feed
 
 on:
-  # Check Wed & Thu at 7:30 AM Central (13:30 UTC)
-  # Note: During daylight saving (CDT), this is 8:30 AM Central
+  # Check Wed & Thu at 8:00 AM Central (14:00 UTC)
+  # Note: During daylight saving (CDT), this is 9:00 AM Central
   schedule:
-    - cron: '30 13 * * 3,4'
+    - cron: '0 14 * * 3,4'
 
   # Allow manual triggering
   workflow_dispatch:
@@ -17,9 +17,9 @@ jobs:
       - name: Fetch RSS and get latest episode GUID
         id: check
         run: |
-          FEED_URL="https://feeds.fountain.fm/OIYZniSDb9jd3Pb78CpF"
-          # Extract the first GUID from the RSS feed
-          LATEST_GUID=$(curl -s "$FEED_URL" | grep -m1 '<guid' | sed 's/.*<guid[^>]*>//;s/<\/guid>.*//')
+          FEED_URL="https://trustrevolution.co/index.xml"
+          # Find first item with /episodes/ in the link (skip essays and static pages)
+          LATEST_GUID=$(curl -s "$FEED_URL" | tr '\n' ' ' | grep -oP '<item>.*?</item>' | grep '/episodes/' | head -1 | grep -oP '(?<=<guid>).*?(?=</guid>)')
           echo "Latest episode GUID: $LATEST_GUID"
           echo "latest_guid=$LATEST_GUID" >> $GITHUB_OUTPUT
 

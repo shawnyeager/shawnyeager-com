@@ -1,7 +1,6 @@
 # shawnyeager.com
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/345f9641-36ce-4cef-a6ce-d2f0b1e1de73/deploy-status)](https://app.netlify.com/sites/shawnyeager-com/deploys)
-![Version](https://img.shields.io/badge/version-v1.0.0-orange)
 
 **The Gallery** — Finished essays and professional content.
 
@@ -31,6 +30,7 @@ hugo --minify
 - **Hugo** 0.152.2 — Static site generator
 - **Hugo Modules** — Theme imported from public [tangerine-theme](https://github.com/shawnyeager/tangerine-theme)
 - **Netlify** — Automatic deployment on push to master
+- **Netlify Edge Functions** — V4V Lightning payments (LNURL-pay)
 - **Satoshi + Inter variable fonts** — Provided by theme
 
 ## Configuration
@@ -61,44 +61,25 @@ git clone git@github.com:shawnyeager/tangerine-theme.git
 
 **Daily workflow:**
 
-**Start local development:**
-Add this line to `go.mod`:
-```
-replace github.com/shawnyeager/tangerine-theme => ../tangerine-theme
-```
-
-Run hugo server:
+Use the `theme-dev.sh` script from the workspace root:
 ```bash
-hugo server -D -p 1313
+cd ~/Work/shawnyeager
+./theme-dev.sh        # Start both sites
+./theme-dev.sh com    # Start only this site (port 1313)
 ```
 
-Changes to theme appear immediately.
-
-**CRITICAL:** Remove replace directive before committing:
-```bash
-git restore go.mod
-```
-
-**Verify go.mod has no replace directive:**
-```bash
-git diff go.mod | grep "replace"  # Should return nothing
-```
+The script handles replace directives and cleanup automatically.
 
 ### Deploy Theme Changes
 
-**Sites use PR-based workflow.**
-
-After pushing theme to master:
+**Automatic.** Push theme to master → PRs appear in ~3 min.
 
 ```bash
-# Trigger workflow (or wait for daily cron)
-gh workflow run auto-theme-update-pr.yml --repo shawnyeager/shawnyeager-com
+# Push theme
+git -C ~/Work/shawnyeager/tangerine-theme push origin master
 
-# Check for PR
+# Wait for PR, review deploy preview, merge when ready
 gh pr list --label theme-update
-
-# Review deploy preview in PR
-# Merge when satisfied
 ```
 
 **DO NOT manually run `hugo mod get`** - workflow handles everything.
@@ -118,6 +99,7 @@ gh pr list --label theme-update
 - **Newsletter signup** — Buttondown integration in footer
 - **RSS feed** — Available at `/feed.xml`
 - **Solid favicon** — Orange square distinguishes from notes.shawnyeager.com outlined square
+- **V4V Lightning payments** — Edge functions for LNURL-pay (also serves notes.shawnyeager.com via CORS)
 
 ## Philosophy
 

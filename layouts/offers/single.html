@@ -1,0 +1,58 @@
+{{/*
+Purpose: Offer detail page layout (Sprint, Advisory, Coaching)
+
+Renders structured offer content from frontmatter:
+- Hero with title, subtitle, price
+- Multiple content sections with labels
+- CTA and back link
+
+Important Notes:
+- Uses landing page CSS components from theme
+- Content comes entirely from frontmatter
+*/}}
+
+{{ define "main" }}
+<div class="landing-page">
+
+    <!-- Hero -->
+    <section class="landing-hero landing-hero--offer">
+        <div class="landing-hero-content">
+            <h1 class="landing-headline">{{ .Title }}</h1>
+            {{ with .Params.subtitle }}<p class="landing-subhead">{{ . }}</p>{{ end }}
+            {{ with .Params.price }}
+            <p class="offer-card-price">{{ .amount }}{{ with .note }}<span>{{ . }}</span>{{ end }}</p>
+            {{ end }}
+        </div>
+    </section>
+
+    <!-- Content Sections -->
+    {{ range .Params.sections }}
+    <section class="landing-section">
+        <h2 class="landing-section-label">{{ .label }}</h2>
+        {{ range .paragraphs }}
+        <p>{{ . | safeHTML }}</p>
+        {{ end }}
+        {{ with .list }}
+        <ul>
+            {{ range . }}
+            <li>{{ . }}</li>
+            {{ end }}
+        </ul>
+        {{ end }}
+    </section>
+    {{ end }}
+
+    <!-- CTA Section -->
+    {{ with .Params.cta }}
+    <section class="landing-section">
+        <h2 class="landing-section-label">{{ .label }}</h2>
+        {{ range .paragraphs }}
+        <p>{{ . }}</p>
+        {{ end }}
+        {{- partial "links/action.html" (dict "url" .url "text" .text) -}}
+        <a href="/" class="back-link"><span class="arrow" aria-hidden="true">←</span> Back to home</a>
+    </section>
+    {{ end }}
+
+</div>
+{{ end }}

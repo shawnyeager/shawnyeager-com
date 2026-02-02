@@ -1,122 +1,214 @@
 {{/*
-Purpose: Homepage for shawnyeager.com - The Gallery
+Purpose: Homepage for shawnyeager.com - Advisory Landing Page
 
-Features:
-- Bio section from index.md content (includes CTA via shortcode)
-- Featured or latest essay display
-- Podcast feature section
-- Recent essays listing (5 most recent)
-- Topic browsing
-
-Logic:
-- Shows featured essay if one has featured: true in frontmatter
-- Otherwise shows most recent essay
-- Filters drafts in production
-- Topic list via topic-list.html partial
+Sections:
+1. Hero - Pain-focused headline, dual CTAs
+2. Sector Bar - Who this is for
+3. Problem - The pain point, empathy
+4. Solution - The fix, outcomes-focused
+   → Testimonial (after_fix) - validates the process
+5. The Proof - Metrics + credentials
+   → Testimonial (after_proof) - validates the results
+6. Offers - Three tiers, Sprint emphasized
+   → Testimonial (after_offers) - validates the experience
+7. CTA Banner - Calendar booking
+8. Essays - "How I Think"
 
 Important Notes:
+- Content comes from /content/_index.md frontmatter
 - Overrides theme default index.html
-- Bio content and CTA come from /content/_index.md
 */}}
 
 {{ define "main" }}
-    <!-- Bio -->
-    <div class="site-intro">
-        {{ with .Params.headline }}<h1 class="display-title">{{ . }}</h1>{{ end }}
-        {{ .Content | safeHTML }}
-    </div>
+<div class="landing-page">
 
-    <!-- Featured or Latest Essay -->
-    {{ $posts := where .Site.RegularPages "Type" "essays" }}
-    {{ if not hugo.IsServer }}
-    {{ $posts = where $posts "Draft" false }}
-    {{ end }}
-    {{ $featuredPost := where $posts "Params.featured" true }}
-    {{ $latestPost := index $posts 0 }}
-    {{ $isFeatured := false }}
-    {{ if $featuredPost }}
-        {{ $latestPost = index $featuredPost 0 }}
-        {{ $isFeatured = true }}
-    {{ end }}
-    {{ with $latestPost }}
-    <h2 class="essay-section-header">{{ if $isFeatured }}Featured Essay{{ else }}Latest Essay{{ end }}</h2>
-    <article class="latest-essay">
-        <header>
-            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        </header>
-        {{ with .Params.summary }}{{ . | markdownify }}{{ else }}{{ .Summary }}{{ end }}
-        <footer>
-            {{- partial "links/action.html" (dict "url" .RelPermalink "text" "Read more" "event" $.Site.Params.plausible_events.essay_cta) -}}
-        </footer>
-    </article>
-    {{ end }}
-
-    <!-- Podcast Feature Box -->
-    {{ $episode := false }}
-    {{ $rssUrl := "https://trustrevolution.co/index.xml" }}
-    {{ $cacheKey := print "v8-" $rssUrl (now.Format "2006-01-02") }}
-    {{ with try (resources.GetRemote $rssUrl (dict "key" $cacheKey)) }}
-        {{ with .Value }}
-            {{ $feed := . | transform.Unmarshal }}
-            {{ $episode = index $feed.channel.item 0 }}
-        {{ end }}
-    {{ end }}
-
-    {{ if $episode }}
-    <h2 class="essay-section-header">Latest Episode</h2>
-    {{ end }}
-    <section class="podcast">
-        <div class="podcast-header">
-            <img src="/images/trust-revolution-cover.webp" alt="Trust Revolution Podcast cover art" class="podcast-art" width="150" height="150" fetchpriority="high">
-            <div class="podcast-info">
-                {{ with $episode }}
-                {{/* Parse title: "Pippellia – Reputation Without a Kill Switch" */}}
-                {{ $normalized := replaceRE `\s*[–—]\s*` " – " .title }}
-                {{ $parts := split $normalized " – " }}
-                {{ $guest := "" }}
-                {{ $subtitle := $normalized }}
-                {{ if gt (len $parts) 1 }}
-                    {{ $guest = index $parts 0 }}
-                    {{ $subtitle = index $parts 1 }}
+    <!-- Hero -->
+    <section class="landing-hero">
+        <div class="landing-hero-content">
+            <h1 class="landing-headline">{{ .Params.hero_headline | safeHTML }}</h1>
+            <p class="landing-subhead">{{ .Params.hero_subhead }}</p>
+            <div class="hero-ctas">
+                {{ with .Params.hero_cta }}
+                <a href="{{ .url }}" class="btn-solid btn-solid--primary">
+                    <span class="link-text">{{ .text }}</span><span class="arrow" aria-hidden="true">→</span>
+                </a>
                 {{ end }}
-                {{ $episodeUrl := .link }}
-                <div class="episode-info">
-                    <span class="episode-title">{{ $subtitle }}</span>
-                    {{ if ne $guest "" }}<span class="episode-guest">with {{ $guest }}</span>{{ end }}
-                    {{ with .description }}<p class="episode-hook">{{ . }}</p>{{ end }}
-                </div>
-                <div class="podcast-links">
-                    {{ partial "links/action.html" (dict "url" $episodeUrl "text" "Listen" "event" $.Site.Params.plausible_events.trustrev) }}
-                </div>
+                {{ with .Params.hero_secondary }}
+                <a href="{{ .url }}" class="hero-secondary-link">
+                    <span class="link-text">{{ .text }}</span><span class="arrow" aria-hidden="true">→</span>
+                </a>
                 {{ end }}
             </div>
         </div>
     </section>
 
-      <!-- Recent Essays -->
-      {{/* Exclude featured essay from list to avoid duplication */}}
-      {{ $recentPosts := where $posts "Params.featured" "!=" true }}
-      {{/* If no featured, skip the first (already shown as Latest) */}}
-      {{ if not $isFeatured }}
-          {{ $recentPosts = after 1 $posts }}
-      {{ end }}
-      {{ if $recentPosts }}
-      <section class="recent-essays">
-          <h2 class="section-label-small">Recent Essays</h2>
-         {{ range first 5 $recentPosts }}
-         <article class="essay-item">
-             <a href="{{ .RelPermalink }}">
-                 <time datetime="{{ .Date.Format "2006-01-02" }}" class="essay-date">{{ .Date.Format "2006 · 01" }}</time>
-                 <span class="essay-title">{{ .Title }}</span>
-             </a>
-         </article>
-         {{ end }}
-         <div class="all-essays">{{- partial "links/action.html" (dict "url" ("essays" | relURL) "text" "All essays" "event" .Site.Params.plausible_events.all_essays) -}}</div>
-     </section>
-      {{ else }}
-      <section class="recent-essays">
-          <h2 class="section-label-small">Recent Essays</h2>
-          <p>No essays published yet.</p>
-      </section>
-      {{ end }}
+    <!-- Sector Bar - Who this is for -->
+    <section class="sector-bar">
+        <span class="sector-bar-list">{{ .Params.sector_tags | safeHTML }}</span>
+    </section>
+
+    <!-- Problem -->
+    {{ with .Params.problem }}
+    <section class="landing-section">
+        <h2 class="landing-section-label">{{ .label }}</h2>
+        {{ range .paragraphs }}
+        <p>{{ . | safeHTML }}</p>
+        {{ end }}
+        {{ with .emphasis }}<p class="landing-emphasis">{{ . }}</p>{{ end }}
+    </section>
+    {{ end }}
+
+    <!-- Solution -->
+    {{ with .Params.solution }}
+    <section class="landing-section">
+        <h2 class="landing-section-label">{{ .label }}</h2>
+        {{ range .paragraphs }}
+        <p>{{ . | safeHTML }}</p>
+        {{ end }}
+        {{ with .list }}
+        <ul class="outcome-list">
+            {{ range . }}
+            <li>{{ . }}</li>
+            {{ end }}
+        </ul>
+        {{ end }}
+    </section>
+    {{ end }}
+
+    <!-- Testimonial: after fix -->
+    {{ with .Params.testimonials.after_fix }}
+    <aside class="testimonial-inline">
+        <p>"{{ .quote }}"</p>
+        <cite>— {{ .name }}{{ with .context }}, <span class="testimonial-context">{{ . }}</span>{{ end }}</cite>
+    </aside>
+    {{ end }}
+
+    <!-- Proof - Metrics with visual punch -->
+    {{ with .Params.why }}
+    <section class="landing-section">
+        <h2 class="landing-section-label">{{ .label }}</h2>
+        <div class="landing-card">
+            {{ with .metrics }}
+            <div class="proof-metrics">
+                {{ range . }}
+                <div class="proof-metric">
+                    <div class="proof-metric-value">{{ .value }}</div>
+                    <div class="proof-metric-label">{{ .label }}</div>
+                </div>
+                {{ end }}
+            </div>
+            {{ end }}
+
+            {{ with .credentials }}
+            <ul class="credentials-list">
+                {{ range . }}
+                <li><strong>{{ .company }}</strong> — {{ .note }}</li>
+                {{ end }}
+            </ul>
+            {{ end }}
+
+            {{ with .emphasis }}<p class="landing-emphasis">{{ . }}</p>{{ end }}
+        </div>
+    </section>
+    {{ end }}
+
+    <!-- Testimonial: after proof -->
+    {{ with .Params.testimonials.after_proof }}
+    <aside class="testimonial-inline">
+        <p>"{{ .quote }}"</p>
+        <cite>— {{ .name }}{{ with .context }}, <span class="testimonial-context">{{ . }}</span>{{ end }}</cite>
+    </aside>
+    {{ end }}
+
+    <!-- Offers -->
+    {{ with .Params.offers }}
+    <section class="landing-section landing-section--offers">
+        <h2 class="landing-section-label">{{ .label }}</h2>
+        <div class="offer-grid">
+            {{ range .cards }}
+            <article class="offer-card{{ if .featured }} offer-card--featured{{ end }}">
+                {{ if .featured }}<span class="offer-badge">Most Popular</span>{{ end }}
+                <h3 class="offer-card-title">{{ .title }}</h3>
+                <p class="offer-card-price">{{ .price }}{{ with .price_note }} <span>{{ . }}</span>{{ end }}</p>
+                <p class="offer-card-description">{{ .description }}</p>
+                {{ with .features }}
+                <ul>
+                    {{ range . }}
+                    <li>{{ . }}</li>
+                    {{ end }}
+                </ul>
+                {{ end }}
+                <a href="{{ .cta_url }}" class="offer-cta{{ if .featured }} offer-cta--featured{{ end }}">
+                    <span class="link-text">{{ .cta_text }}</span><span class="arrow" aria-hidden="true">→</span>
+                </a>
+            </article>
+            {{ end }}
+        </div>
+    </section>
+    {{ end }}
+
+    <!-- Testimonial: after offers -->
+    {{ with .Params.testimonials.after_offers }}
+    <aside class="testimonial-inline">
+        <p>"{{ .quote }}"</p>
+        <cite>— {{ .name }}{{ with .context }}, <span class="testimonial-context">{{ . }}</span>{{ end }}</cite>
+    </aside>
+    {{ end }}
+
+    <!-- CTA Banner -->
+    {{ with .Params.cta_banner }}
+    <section class="cta-banner">
+        <h2 class="cta-banner-headline">{{ .headline }}</h2>
+        {{ range .paragraphs }}
+        <p class="cta-banner-body">{{ . | safeHTML }}</p>
+        {{ end }}
+        <a href="{{ .cta_url }}" class="btn-ghost btn-ghost--primary btn-ghost--inverted">
+            <span class="link-text">{{ .cta_text }}</span><span class="arrow" aria-hidden="true">→</span>
+        </a>
+        {{ if .secondary_url }}
+        <span class="cta-banner-secondary">
+            <a href="{{ .secondary_url }}">{{ .secondary_text }}</a><span class="arrow" aria-hidden="true"> →</span>
+        </span>
+        {{ end }}
+    </section>
+    {{ end }}
+
+    <!-- Essays -->
+    {{ $posts := where .Site.RegularPages "Type" "essays" }}
+    {{ if not hugo.IsServer }}
+    {{ $posts = where $posts "Draft" false }}
+    {{ end }}
+    {{ if $posts }}
+    <section class="landing-essays">
+        <h2 class="landing-section-label">{{ with .Params.essays.label }}{{ . }}{{ else }}Recent Essays{{ end }}</h2>
+        {{ with .Params.essays.intro }}<p class="essays-intro">{{ . }}</p>{{ end }}
+        <div class="essay-grid">
+            {{ range $i, $post := first 3 $posts }}
+            <article class="essay-card{{ if eq $i 0 }} essay-card--featured{{ end }}">
+                <a href="{{ $post.RelPermalink }}">
+                    <time datetime="{{ $post.Date.Format "2006-01-02" }}" class="essay-card-date">{{ $post.Date.Format "Jan 2006" }}</time>
+                    <h3 class="essay-card-title">{{ $post.Title }}</h3>
+                    <p class="essay-card-excerpt">{{ $post.Description }}</p>
+                </a>
+            </article>
+            {{ end }}
+        </div>
+
+        {{/* Newsletter signup - contextually tied to essays */}}
+        {{ if .Site.Params.show_email_signup }}
+        <div class="essays-newsletter">
+            <p class="essays-newsletter-text">Get new essays delivered.</p>
+            <form class="email-form" action="{{ .Site.Params.email_signup_action }}" method="post" target="popupwindow">
+                <label for="essays-email" class="sr-only">Email address</label>
+                <input type="email" id="essays-email" name="email" placeholder="you@example.com" required autocomplete="email" inputmode="email">
+                <button type="submit" class="btn-ghost btn-ghost--muted{{ with .Site.Params.plausible_form_event }} plausible-event-name={{ . }}{{ end }}">Subscribe</button>
+            </form>
+        </div>
+        {{ end }}
+
+        <div class="all-essays">{{- partial "links/action.html" (dict "url" ("essays" | relURL) "text" "All essays" "event" .Site.Params.plausible_events.all_essays) -}}</div>
+    </section>
+    {{ end }}
+
+</div>
 {{ end }}
