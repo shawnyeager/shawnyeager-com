@@ -2,15 +2,17 @@
 Purpose: Homepage for shawnyeager.com - Advisory Landing Page
 
 Sections:
-1. Hero - Pain-focused headline, dual CTAs, headshot area
-2. Trust Bar - Company names for social proof
+1. Hero - Pain-focused headline, dual CTAs
+2. Sector Bar - Who this is for
 3. Problem - The pain point, empathy
 4. Solution - The fix, outcomes-focused
-5. Why Me - Metrics + structured credentials
-6. Testimonial - Social proof quote
-7. Offers - Three tiers, Sprint emphasized
-8. CTA Banner - Calendar booking
-9. Essays - Reframed as "How I Think"
+   → Testimonial (after_fix) - validates the process
+5. The Proof - Metrics + credentials
+   → Testimonial (after_proof) - validates the results
+6. Offers - Three tiers, Sprint emphasized
+   → Testimonial (after_offers) - validates the experience
+7. CTA Banner - Calendar booking
+8. Essays - "How I Think"
 
 Important Notes:
 - Content comes from /content/_index.md frontmatter
@@ -32,7 +34,9 @@ Important Notes:
                 </a>
                 {{ end }}
                 {{ with .Params.hero_secondary }}
-                <a href="{{ .url }}" class="hero-secondary-link">{{ .text }} →</a>
+                <a href="{{ .url }}" class="hero-secondary-link">
+                    <span class="link-text">{{ .text }}</span><span class="arrow" aria-hidden="true">→</span>
+                </a>
                 {{ end }}
             </div>
         </div>
@@ -54,7 +58,32 @@ Important Notes:
     </section>
     {{ end }}
 
-    <!-- Why Me - Metrics with visual punch -->
+    <!-- Solution -->
+    {{ with .Params.solution }}
+    <section class="landing-section">
+        <h2 class="landing-section-label">{{ .label }}</h2>
+        {{ range .paragraphs }}
+        <p>{{ . | safeHTML }}</p>
+        {{ end }}
+        {{ with .list }}
+        <ul class="outcome-list">
+            {{ range . }}
+            <li>{{ . }}</li>
+            {{ end }}
+        </ul>
+        {{ end }}
+    </section>
+    {{ end }}
+
+    <!-- Testimonial: after fix -->
+    {{ with .Params.testimonials.after_fix }}
+    <aside class="testimonial-inline">
+        <p>"{{ .quote }}"</p>
+        <cite>— {{ .name }}{{ with .context }}, <span class="testimonial-context">{{ . }}</span>{{ end }}</cite>
+    </aside>
+    {{ end }}
+
+    <!-- Proof - Metrics with visual punch -->
     {{ with .Params.why }}
     <section class="landing-section">
         <h2 class="landing-section-label">{{ .label }}</h2>
@@ -83,33 +112,12 @@ Important Notes:
     </section>
     {{ end }}
 
-    <!-- Solution -->
-    {{ with .Params.solution }}
-    <section class="landing-section">
-        <h2 class="landing-section-label">{{ .label }}</h2>
-        {{ range .paragraphs }}
-        <p>{{ . | safeHTML }}</p>
-        {{ end }}
-        {{ with .list }}
-        <ul class="outcome-list">
-            {{ range . }}
-            <li>{{ . }}</li>
-            {{ end }}
-        </ul>
-        {{ end }}
-    </section>
-    {{ end }}
-
-    <!-- Testimonial -->
-    {{ with .Params.testimonial }}
-    <section class="testimonial-section">
-        <blockquote class="testimonial-quote">
-            <p>"{{ .quote }}"</p>
-            <footer>
-                <cite>— {{ .name }}{{ with .context }}, <span class="testimonial-context">{{ . }}</span>{{ end }}</cite>
-            </footer>
-        </blockquote>
-    </section>
+    <!-- Testimonial: after proof -->
+    {{ with .Params.testimonials.after_proof }}
+    <aside class="testimonial-inline">
+        <p>"{{ .quote }}"</p>
+        <cite>— {{ .name }}{{ with .context }}, <span class="testimonial-context">{{ . }}</span>{{ end }}</cite>
+    </aside>
     {{ end }}
 
     <!-- Offers -->
@@ -139,6 +147,14 @@ Important Notes:
     </section>
     {{ end }}
 
+    <!-- Testimonial: after offers -->
+    {{ with .Params.testimonials.after_offers }}
+    <aside class="testimonial-inline">
+        <p>"{{ .quote }}"</p>
+        <cite>— {{ .name }}{{ with .context }}, <span class="testimonial-context">{{ . }}</span>{{ end }}</cite>
+    </aside>
+    {{ end }}
+
     <!-- CTA Banner -->
     {{ with .Params.cta_banner }}
     <section class="cta-banner">
@@ -149,6 +165,11 @@ Important Notes:
         <a href="{{ .cta_url }}" class="btn-ghost btn-ghost--primary btn-ghost--inverted">
             <span class="link-text">{{ .cta_text }}</span><span class="arrow" aria-hidden="true">→</span>
         </a>
+        {{ if .secondary_url }}
+        <span class="cta-banner-secondary">
+            <a href="{{ .secondary_url }}">{{ .secondary_text }}</a><span class="arrow" aria-hidden="true"> →</span>
+        </span>
+        {{ end }}
     </section>
     {{ end }}
 
@@ -159,16 +180,32 @@ Important Notes:
     {{ end }}
     {{ if $posts }}
     <section class="landing-essays">
-        <h2 class="section-label-small">{{ with .Params.essays.label }}{{ . }}{{ else }}Recent Essays{{ end }}</h2>
+        <h2 class="landing-section-label">{{ with .Params.essays.label }}{{ . }}{{ else }}Recent Essays{{ end }}</h2>
         {{ with .Params.essays.intro }}<p class="essays-intro">{{ . }}</p>{{ end }}
-        {{ range first 5 $posts }}
-        <article class="essay-item">
-            <a href="{{ .RelPermalink }}">
-                <time datetime="{{ .Date.Format "2006-01-02" }}" class="essay-date">{{ .Date.Format "2006 · 01" }}</time>
-                <span class="essay-title">{{ .Title }}</span>
-            </a>
-        </article>
+        <div class="essay-grid">
+            {{ range $i, $post := first 3 $posts }}
+            <article class="essay-card{{ if eq $i 0 }} essay-card--featured{{ end }}">
+                <a href="{{ $post.RelPermalink }}">
+                    <time datetime="{{ $post.Date.Format "2006-01-02" }}" class="essay-card-date">{{ $post.Date.Format "Jan 2006" }}</time>
+                    <h3 class="essay-card-title">{{ $post.Title }}</h3>
+                    <p class="essay-card-excerpt">{{ $post.Description }}</p>
+                </a>
+            </article>
+            {{ end }}
+        </div>
+
+        {{/* Newsletter signup - contextually tied to essays */}}
+        {{ if .Site.Params.show_email_signup }}
+        <div class="essays-newsletter">
+            <p class="essays-newsletter-text">Get new essays delivered.</p>
+            <form class="email-form" action="{{ .Site.Params.email_signup_action }}" method="post" target="popupwindow">
+                <label for="essays-email" class="sr-only">Email address</label>
+                <input type="email" id="essays-email" name="email" placeholder="you@example.com" required autocomplete="email" inputmode="email">
+                <button type="submit" class="btn-ghost btn-ghost--muted{{ with .Site.Params.plausible_form_event }} plausible-event-name={{ . }}{{ end }}">Subscribe</button>
+            </form>
+        </div>
         {{ end }}
+
         <div class="all-essays">{{- partial "links/action.html" (dict "url" ("essays" | relURL) "text" "All essays" "event" .Site.Params.plausible_events.all_essays) -}}</div>
     </section>
     {{ end }}

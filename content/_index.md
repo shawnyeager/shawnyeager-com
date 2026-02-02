@@ -1,17 +1,18 @@
 ---
 title: Shawn Yeager
 description: "GTM advisory for frontier tech founders. From product to pipeline—positioning, sales process, and revenue strategy for Bitcoin, AI, and decentralized infrastructure."
+hide_footer_signup: true
 
 # Hero Section
-hero_headline: "Build technology that<br><span class=\"headline-accent\">changes the default</span>"
+hero_headline: "Clarity. Focus.<br><span class=\"headline-accent\">Revenue.</span>"
 hero_subhead: "I help frontier tech founders turn early traction into predictable revenue."
 sector_tags: "Bitcoin <span>·</span> AI <span>·</span> Nostr <span>·</span> Open Source <span>·</span> Decentralized Infrastructure"
 hero_cta:
+  url: "https://gtm.shawnyeager.com"
+  text: "Start here"
+hero_secondary:
   url: "/cal"
   text: "Book a call"
-hero_secondary:
-  url: "https://gtm.shawnyeager.com"
-  text: "Take the GTM assessment"
 
 # Trust bar - social proof
 trust:
@@ -41,9 +42,9 @@ solution:
     - "Live support on customer calls and deal strategy"
     - "The confidence to scale without a full-time CRO"
 
-# Why Me
+# The Proof
 why:
-  label: "Why Me"
+  label: "The Proof"
   metrics:
     - value: "$300M"
       label: "revenue generated"
@@ -60,55 +61,66 @@ why:
       note: "Sales leadership"
   emphasis: "Technical enough to go deep. Commercial enough to close."
 
-# Testimonial
-testimonial:
-  quote: "Shawn helped us go from founder-led chaos to a repeatable sales motion in three months. We closed our first enterprise deal the week after."
-  name: "Bitcoin Infrastructure Founder"
-  context: "Post-Sprint"
+# Testimonials - placed contextually throughout the page
+testimonials:
+  after_fix:
+    quote: "Placeholder: testimonial about the process/methodology working"
+    name: "Name"
+    context: "Context"
+  after_proof:
+    quote: "Shawn helped us go from founder-led chaos to a repeatable sales motion in three months. We closed our first enterprise deal the week after."
+    name: "Bitcoin Infrastructure Founder"
+    context: "Post-Sprint"
+  after_offers:
+    quote: "Placeholder: testimonial about the experience of working together"
+    name: "Name"
+    context: "Context"
 
 # Offers
 offers:
   label: "Work With Me"
   cards:
     - title: "90-Day Revenue Sprint"
-      price: "$15,000"
-      price_note: "starting"
+      price: "$20,000–$30,000"
+      price_note: "total"
       description: "Three months to get your sales motion working."
       features:
-        - "Walk away with positioning that resonates"
-        - "A sales process you can run or hand off"
-        - "Live support on calls and deal strategy"
+        - "Positioning and messaging locked down"
+        - "Sales process documented and handed off"
+        - "Pipeline building and deal coaching"
       cta_url: "/sprint/"
       cta_text: "Start a Sprint"
       featured: true
     - title: "Founder Coaching"
-      price: "$2,000"
+      price: "$3,500–$6,000"
       price_note: "/month"
-      description: "Strategic guidance without deep engagement."
+      description: "Guidance without the full engagement."
       features:
         - "Bi-weekly calls + async access"
         - "Positioning and messaging feedback"
-        - "Month-to-month, upgrade anytime"
+        - "For seed founders not ready for a sprint"
       cta_url: "/coaching/"
       cta_text: "Learn more"
     - title: "Monthly Advisory"
-      price: "$5,000"
+      price: "$7,500–$12,000"
       price_note: "/month"
-      description: "Ongoing partnership as you scale."
+      description: "Ongoing strategy and deal support."
       features:
         - "Weekly sessions + deal reviews"
-        - "Live call backup when you need it"
-        - "Hiring support when you're ready"
+        - "Live support on key calls"
+        - "Best post-sprint or with GTM basics"
       cta_url: "/advisory/"
       cta_text: "Learn more"
 
 # CTA Banner
 cta_banner:
-  headline: "Ready to fix your revenue?"
+  headline: "See where you stand."
   paragraphs:
-    - "No pitch. Just a conversation about where you are and what you need."
-  cta_url: "/cal"
-  cta_text: "Book a 30-minute call"
+    - "Nine areas that drive your ability to sell. Takes ten minutes. We'll review your results together and plan your next move."
+  cta_url: "https://gtm.shawnyeager.com"
+  cta_text: "Get started"
+  secondary_url: "/cal"
+  secondary_text: "Or just book a call"
 
 # Essays Section
 essays:
