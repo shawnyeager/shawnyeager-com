@@ -2,7 +2,7 @@
 Purpose: Essays listing page for shawnyeager.com
 
 Features:
-- Page title via page-title.html partial
+- Page header with title
 - Topic browsing section
 - Paginated essays list (chronological, newest first)
 - Pagination controls
@@ -10,21 +10,28 @@ Features:
 
 Important Notes:
 - Overrides theme default list.html for essays
+- Uses new page-container pattern for consistent vertical rhythm
 - Date format: "2006 · 01" (year · month)
 - Pagination configured in hugo.toml (pagerSize)
 */}}
 
 {{ define "main" }}
-    <!-- Page Title (smart visibility: essays type always shows title) -->
-    {{ partial "page-title.html" . }}
+<div class="page-container">
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>{{ .Title }}</h1>
+    </section>
 
     <!-- Topics -->
     {{ if .Site.Taxonomies.topics }}
-    {{ partial "topic-list.html" (dict "context" . "heading" "Browse by Topic") }}
+    <section class="essays-topics-section">
+        {{ partial "topic-list.html" (dict "context" . "heading" "Browse by Topic") }}
+    </section>
     {{ end }}
 
     <!-- All Essays -->
-    <section class="recent-essays full-list">
+    <section class="essays-list-section">
         {{ $posts := where .Pages "Type" "essays" }}
         {{ if not hugo.IsServer }}
         {{ $posts = where $posts "Draft" false }}
@@ -41,4 +48,6 @@ Important Notes:
     </section>
 
     {{ partial "pagination.html" (dict "paginator" $paginator "prevText" "Newer essays" "nextText" "Older essays") }}
+
+</div>
 {{ end }}

@@ -19,7 +19,7 @@ Important Notes:
 <div class="landing-page">
 
     <!-- Page Header -->
-    <section class="landing-hero">
+    <section class="landing-hero landing-hero--page">
         <div class="landing-hero-content">
             <h1 class="landing-headline">{{ .Title }}</h1>
             {{ range .Params.header_paragraphs }}
@@ -124,18 +124,16 @@ Important Notes:
     </section>
     {{ end }}
 
-</div>
-
-<!-- Full-width CTA Banner -->
-{{ with .Params.cta_banner }}
-<section class="cta-banner cta-banner--fullwidth">
-    <div class="content-wrapper">
+    <!-- CTA Banner -->
+    {{ with .Params.cta_banner }}
+    <section class="cta-banner">
         <h2 class="cta-banner-headline">{{ .headline }}</h2>
         <p class="cta-banner-body">{{ .description }}</p>
         <a href="{{ .url }}" class="btn-solid btn-solid--inverted">
             <span class="link-text">{{ .cta_text }}</span><span class="arrow" aria-hidden="true">→</span>
         </a>
-    </div>
-</section>
-{{ end }}
+    </section>
+    {{ end }}
+
+</div>
 {{ end }}
