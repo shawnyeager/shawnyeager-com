@@ -7,7 +7,7 @@ show_title: true
 hide_footer_signup: true
 ---
 
-{{< image src="/images/shawn-media.jpg" alt="Shawn Yeager" variant="headshot" lazy="false" >}}
+{{< image src="images/shawn-media.jpg" alt="Shawn Yeager" variant="headshot" lazy="false" >}}
 
 Your product works. Early customers prove it. But revenue isn't scaling.
 

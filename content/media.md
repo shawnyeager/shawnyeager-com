@@ -13,26 +13,22 @@ Bio, photos, and contact information for journalists, conference organizers, and
 ## Short bio (~50 words)
 
 {{< card class="bio-text" >}}
-Shawn Yeager is working toward a future built on Bitcoin---helping founders on the same mission solve hard commercial problems. Over 30 years, he's driven more than $300M in revenue and led sales at Amboss, NYDIG Payments, and Bottlepay. He hosts Trust Revolution podcast.
+Shawn Yeager helps frontier tech founders build the commercial engine their product needs. Over 30 years, he's generated more than $300M in revenue selling products the market didn't understand yet. He hosts Trust Revolution podcast.
 {{< /card >}}
 
 ## Extended bio (~150 words)
 
 {{< card class="bio-text" >}}
-Shawn Yeager is working toward a future built on Bitcoin---helping founders on the same mission solve hard commercial problems.
+Shawn Yeager helps frontier tech founders build the commercial engine their product needs. He's generated over $300M in revenue across three decades---starting on Microsoft's first browser team, then selling early internet infrastructure at Exodus, IoT hardware at ANKR, personal data sovereignty at Dataswift, and Bitcoin payments at NYDIG, Bottlepay, and Amboss.
 
-Over 30 years, he's driven more than $300M in revenue---from browsers to Bitcoin. Most recently, he led sales and partnerships at Amboss Technologies (Lightning Network infrastructure), NYDIG Payments (institutional Bitcoin services), and Bottlepay (Lightning payments).
-
-He focuses on positioning, sales process, channel strategy, and revenue operations---the stuff that turns a good product into a growing company.
-
-He hosts Trust Revolution, a podcast exploring how Bitcoin and decentralized technologies are reshaping trust, sovereignty, and freedom. His writing appears at shawnyeager.com.
+He works with founders in Bitcoin, AI, decentralized infrastructure, and open source. He hosts Trust Revolution, a podcast exploring how decentralized technologies are reshaping trust and sovereignty.
 {{< /card >}}
 
 ## Professional photo
 
 High-resolution headshot available for download:
 
-{{< image src="/images/shawn-media.webp" alt="Shawn Yeager headshot" variant="img-lg" >}}
+{{< image src="images/shawn-media.jpg" alt="Shawn Yeager headshot" variant="img-lg" >}}
 
 {{< cta url="/images/shawn-media-full.jpg" text="Download high-res (JPG, 2048x2048px)" event="Media+Kit+Download" >}}
 
