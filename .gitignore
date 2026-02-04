@@ -4,7 +4,6 @@ public/
 resources/
 
 # Generated files
-data/essays.json
 lighthouse-report.*
 static/images/og-essays/
 static/images/og-pages/
