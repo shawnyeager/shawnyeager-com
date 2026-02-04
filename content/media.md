@@ -28,7 +28,7 @@ He works with founders in Bitcoin, AI, decentralized infrastructure, and open so
 
 High-resolution headshot available for download:
 
-{{< image src="/images/shawn-media.webp" alt="Shawn Yeager headshot" variant="img-lg" >}}
+{{< image src="images/shawn-media.jpg" alt="Shawn Yeager headshot" variant="img-lg" >}}
 
 {{< cta url="/images/shawn-media-full.jpg" text="Download high-res (JPG, 2048x2048px)" event="Media+Kit+Download" >}}
 
