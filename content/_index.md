@@ -1,10 +1,15 @@
 ---
 title: Shawn Yeager
-description: "I fix revenue engines for Bitcoin founders---strong products that aren't scaling. 30 years in tech, $300M revenue. Led sales at Amboss, NYDIG Payments, and Bottlepay."
-headline: "Bitcoin is the foundation of what comes next."
+description: "GTM advisory for frontier tech founders. From product to pipeline. 30 years commercializing products the market didn't understand. $300M in revenue."
+headline: 'Clarity. Focus.<br><span class="text-accent">Revenue.</span>'
+tagline: "From product to pipeline — GTM advisory for frontier tech founders."
+sectors: "Bitcoin · AI · Distributed Systems · Open Source"
 ---
-I fix revenue engines for founders building on it---strong products that aren't scaling. Positioning, sales process, pipeline. The stuff that turns a good product into a growing company.
+You're selling the "why" before the "what." That's frontier tech—buyers don't have a category yet, no playbook to copy.
 
-30 years in tech, $300M in revenue. Led sales at Amboss, NYDIG Payments, and Bottlepay.
+I build the playbook. 30 years commercializing products the market didn't understand. $300M in revenue. Technical enough to go deep. Commercial enough to close.
 
-Products win in the market---or not at all. {{< cta url="/lets-win" text="Let's win" event="lets_win_cta" >}}
+{{< cta-group >}}
+{{< cta url="/cal" text="Let's talk" variant="ghost" event="calendar_cta" >}}
+{{< cta url="/services" text="How I help" variant="secondary" event="services_cta" >}}
+{{< /cta-group >}}

@@ -31,11 +31,12 @@ Important Notes:
         {{ end }}
         {{ $paginator := .Paginate $posts }}
         {{ range $paginator.Pages }}
-        <article class="essay-item">
+        <article class="essay-item has-excerpt">
             <a href="{{ .RelPermalink }}">
                 <time datetime="{{ .Date.Format "2006-01-02" }}" class="essay-date">{{ .Date.Format "2006 · 01" }}</time>
                 <span class="essay-title">{{ .Title }}</span>
             </a>
+            {{ with .Params.description }}<p class="essay-excerpt">{{ . }}</p>{{ end }}
         </article>
         {{ end }}
     </section>

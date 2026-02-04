@@ -105,8 +105,9 @@ enableEmoji = true
   secondary_site_url = "https://notes.shawnyeager.com"
   secondary_site_name = "Notes"
 
-  # Podcast
-  podcast_url = "https://trustrevolution.co"
+  # Footer links
+  show_now_footer = true
+  show_v4v_footer = false
 
   # Social
   copyright = "Copyright © 2025, Shawn Yeager"
@@ -219,6 +220,11 @@ enableEmoji = true
   weight = 1
 
 [[menu.main]]
-  name = "Now"
-  url = "/now/"
+  name = "Advisory"
+  url = "/services/"
   weight = 2
+
+[[menu.main]]
+  name = "Connect"
+  url = "/connect/"
+  weight = 3
