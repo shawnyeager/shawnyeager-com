@@ -9,7 +9,7 @@
 # =============================================================================
 
 baseURL = "https://shawnyeager.com/"
-title = "Shawn Yeager | Bitcoin Go-to-Market & Revenue Leader"
+title = "Frontier Tech GTM Advisory - Shawn Yeager"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 enableRobotsTXT = true
@@ -85,7 +85,7 @@ enableEmoji = true
 [params]
   robotsDisallow = ["/resume/"]
   site_display_name = "Shawn Yeager"
-  description = "I fix revenue engines for founders building on Bitcoin. Positioning, sales, pipeline. The stuff that turns a good product into a growing company."
+  description = "Go-to-market advisory for founders building at the frontier—Bitcoin, AI, distributed systems. Deep product understanding, hands-on deal support."
 
   # Open Graph
   og_image = "/images/og-image.png"
@@ -132,8 +132,8 @@ enableEmoji = true
 [params.author]
   name = "Shawn Yeager"
   email = "hello@shawnyeager.com"
-  description = "Bitcoin go-to-market and revenue leader"
-  jobTitle = "Bitcoin Go-to-Market & Revenue Leadership"
+  description = "GTM advisor for frontier tech founders"
+  jobTitle = "Frontier Tech GTM Advisor"
   image = "/images/shawn-media.jpg"
 
 [params.author.sameAs]
