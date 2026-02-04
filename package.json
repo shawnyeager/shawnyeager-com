@@ -4,8 +4,9 @@
   "description": "Open Graph image generation for shawnyeager.com",
   "type": "module",
   "scripts": {
+    "generate-essays": "node scripts/generate-essays-json.js",
     "generate-og": "node scripts/generate-og-images.js",
-    "build": "npm run generate-og && hugo"
+    "build": "npm run generate-essays && npm run generate-og && hugo"
   },
   "dependencies": {
     "@resvg/resvg-js": "^2.6.2",
