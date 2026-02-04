@@ -12,3 +12,5 @@ github.com/shawnyeager/tangerine-theme v0.0.0-20260130161147-565847c36878 h1:vde
 github.com/shawnyeager/tangerine-theme v0.0.0-20260130161147-565847c36878/go.mod h1:oI7/pq79iSOuNOgNXsUxKLxrb+Ulhm2bAslKpGktFJY=
 github.com/shawnyeager/tangerine-theme v0.0.0-20260130215053-af5c56c74bf3 h1:/WdmKDl44m3cUhtmo3sUu9oOH7VJu/2pJaxPTGVSWeE=
 github.com/shawnyeager/tangerine-theme v0.0.0-20260130215053-af5c56c74bf3/go.mod h1:oI7/pq79iSOuNOgNXsUxKLxrb+Ulhm2bAslKpGktFJY=
+github.com/shawnyeager/tangerine-theme v0.2.1-mobile h1:SO8mQLw/MUJX+0jzs7W4EnpkMkpznZH+uAhjBk4oeLE=
+github.com/shawnyeager/tangerine-theme v0.2.1-mobile/go.mod h1:oI7/pq79iSOuNOgNXsUxKLxrb+Ulhm2bAslKpGktFJY=
