@@ -1,5 +1,5 @@
 ---
 title: "Essays"
-description: "Essays on Bitcoin go-to-market strategy, revenue operations, and commercial execution for freedom tech startups."
+description: "Essays on go-to-market strategy, revenue operations, and commercial execution for frontier tech founders."
 show_title: true
 ---

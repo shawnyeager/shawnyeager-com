@@ -1,6 +1,6 @@
 ---
 title: Media
-description: Bio, photos, and contact information for journalists, conference organizers, and podcast hosts. Bitcoin go-to-market leader and Trust Revolution podcast host.
+description: Bio, photos, and contact information for journalists, conference organizers, and podcast hosts. Frontier tech GTM advisor and Trust Revolution podcast host.
 date: 2025-10-11
 type: page
 show_title: true
@@ -49,17 +49,16 @@ High-resolution headshot available for download:
 ## Current focus
 
 - Host of Trust Revolution podcast
-- Go-to-market and revenue advisor for Bitcoin startups
-- Writing about Bitcoin strategy and decentralized trust
+- GTM advisor for frontier tech founders—Bitcoin, AI, distributed systems
+- Writing about go-to-market strategy and decentralized trust
 
 ## Topics I speak & write about
 
-- Bitcoin go-to-market and sales strategy
-- Revenue leadership for Bitcoin startups
+- Go-to-market strategy for frontier tech
+- Revenue leadership for technical founders
 - Building trust in decentralized systems
 - Strategic partnerships and business development
-- Lightning Network adoption and infrastructure
-- Institutional Bitcoin services
+- Bitcoin, Lightning, and distributed infrastructure
 
 ## Recent speaking
 

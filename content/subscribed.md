@@ -1,6 +1,6 @@
 ---
 title: "Thanks for subscribing"
-description: "You'll receive occasional essays on Bitcoin strategy, go-to-market execution, and building freedom tech that wins."
+description: "You'll receive occasional essays on go-to-market strategy, revenue, and building frontier tech that wins."
 type: page
 show_title: true
 hide_footer_signup: true
@@ -9,7 +9,7 @@ build:
   render: true
 ---
 
-You'll get occasional updates on Bitcoin strategy, go-to-market thinking, and essays worth your time.
+You'll get occasional updates on go-to-market strategy, revenue thinking, and essays worth your time.
 
 **Check your email to confirm your subscription.**
 
