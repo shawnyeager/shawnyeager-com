@@ -1,5 +1,5 @@
 ---
-title: Services
+title: Advisory
 description: "GTM advisory for frontier tech founders. 90-day revenue sprints, monthly advisory, and founder coaching. From product to pipeline."
 date: 2025-02-03
 type: page

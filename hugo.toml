@@ -221,10 +221,10 @@ enableEmoji = true
 
 [[menu.main]]
   name = "Advisory"
-  url = "/services/"
+  url = "/advisory/"
   weight = 2
 
 [[menu.main]]
-  name = "Connect"
-  url = "/connect/"
+  name = "Contact"
+  url = "/contact/"
   weight = 3
