@@ -44,7 +44,7 @@ Important Notes:
                             src="{{ $webp.RelPermalink }}"
                             alt="{{ .Params.hero_alt | default .Title }}"
                             class="essay-list-hero"
-                            loading="lazy"
+                            {{ if eq $index 0 }}fetchpriority="high"{{ else }}loading="lazy"{{ end }}
                             width="{{ $resized.Width }}"
                             height="{{ $resized.Height }}"
                         >
