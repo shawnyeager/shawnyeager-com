@@ -30,12 +30,41 @@ Important Notes:
         {{ $posts = where $posts "Draft" false }}
         {{ end }}
         {{ $paginator := .Paginate $posts }}
-        {{ range $paginator.Pages }}
-        <article class="essay-item">
-            <a href="{{ .RelPermalink }}">
-                <time datetime="{{ .Date.Format "2006-01-02" }}" class="essay-date">{{ .Date.Format "2006 · 01" }}</time>
-                <span class="essay-title">{{ .Title }}</span>
-            </a>
+
+        {{ range $index, $page := $paginator.Pages }}
+        <article class="essay-item has-excerpt">
+            {{/* Hero images for first 3 essays (recent quarter) */}}
+            {{ if and (lt $index 3) .Params.hero_image }}
+                {{ $img := resources.Get .Params.hero_image }}
+                {{ if $img }}
+                    {{ $resized := $img.Resize "800x" }}
+                    {{ $webp := $resized.Process "webp q85" }}
+                    <a href="{{ .RelPermalink }}" class="essay-hero-link">
+                        <img
+                            src="{{ $webp.RelPermalink }}"
+                            alt="{{ .Params.hero_alt | default .Title }}"
+                            class="essay-list-hero"
+                            {{ if eq $index 0 }}fetchpriority="high"{{ else }}loading="lazy"{{ end }}
+                            width="{{ $resized.Width }}"
+                            height="{{ $resized.Height }}"
+                        >
+                    </a>
+                {{ end }}
+            {{ end }}
+
+            {{ if and (lt $index 3) .Params.hero_image }}
+                {{/* First 3 with images: No date (recency implied by position) */}}
+                <a href="{{ .RelPermalink }}" class="essay-title-link">
+                    <span class="essay-title">{{ .Title }}</span>
+                </a>
+            {{ else }}
+                {{/* Essays 4+: Date before title (chronological archive) */}}
+                <a href="{{ .RelPermalink }}">
+                    <time datetime="{{ .Date.Format "2006-01-02" }}" class="essay-date">{{ .Date.Format "2006 · 01" }}</time>
+                    <span class="essay-title">{{ .Title }}</span>
+                </a>
+            {{ end }}
+            {{ with .Params.description }}<p class="essay-excerpt">{{ . }}</p>{{ end }}
         </article>
         {{ end }}
     </section>

@@ -1,6 +1,6 @@
 ---
 title: "What I'm focused on now"
-description: "Trust Revolution podcast, Bitcoin startup advisory, and monthly essays on go-to-market strategy."
+description: "Trust Revolution podcast, frontier tech advisory, and monthly essays on go-to-market strategy."
 date: 2025-11-13
 type: page
 layout: now
@@ -34,6 +34,6 @@ Season 3 begins recording next week. Previous seasons explored decentralized rep
 
 ## Advisory & operating work
 
-Working with Bitcoin and freedom tech startups through fractional roles, project-based consulting, and advisory. Current work includes go-to-market strategy for new freedom tech services, channel sales frameworks, and proof-of-concept programs for enterprise adoption. The goal: compete commercially so freedom tech wins on distribution and user experience, not just technology.
+Working with frontier tech founders—Bitcoin, AI, distributed systems—through fractional roles, project-based consulting, and advisory. Current work includes go-to-market strategy, channel sales frameworks, and proof-of-concept programs for enterprise adoption. The goal: compete commercially so frontier tech wins on distribution and user experience, not just technology.
 
 {{< cta url="/lets-win" text="Let's win" event="lets_win_cta" >}}

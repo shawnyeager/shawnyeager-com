@@ -1,11 +1,13 @@
 ---
-title: Connect
+title: Contact
 description: "Get in touch with Shawn Yeager. Email, Signal, or book a meeting."
 date: 2025-10-29T07:27:00
 type: page
 show_title: true
 hide_footer_signup: true
 ---
+
+Have a question or want to explore working together? Reach out.
 
 {{< section class="contact-section" >}}
 

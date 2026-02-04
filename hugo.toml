@@ -9,7 +9,7 @@
 # =============================================================================
 
 baseURL = "https://shawnyeager.com/"
-title = "Shawn Yeager | Bitcoin Go-to-Market & Revenue Leader"
+title = "Frontier Tech GTM Advisory - Shawn Yeager"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 enableRobotsTXT = true
@@ -85,7 +85,7 @@ enableEmoji = true
 [params]
   robotsDisallow = ["/resume/"]
   site_display_name = "Shawn Yeager"
-  description = "I fix revenue engines for founders building on Bitcoin. Positioning, sales, pipeline. The stuff that turns a good product into a growing company."
+  description = "Go-to-market advisory for founders building at the frontier—Bitcoin, AI, distributed systems. Deep product understanding, hands-on deal support."
 
   # Open Graph
   og_image = "/images/og-image.png"
@@ -105,8 +105,9 @@ enableEmoji = true
   secondary_site_url = "https://notes.shawnyeager.com"
   secondary_site_name = "Notes"
 
-  # Podcast
-  podcast_url = "https://trustrevolution.co"
+  # Footer links
+  show_now_footer = true
+  show_v4v_footer = false
 
   # Social
   copyright = "Copyright © 2025, Shawn Yeager"
@@ -131,8 +132,8 @@ enableEmoji = true
 [params.author]
   name = "Shawn Yeager"
   email = "hello@shawnyeager.com"
-  description = "Bitcoin go-to-market and revenue leader"
-  jobTitle = "Bitcoin Go-to-Market & Revenue Leadership"
+  description = "GTM advisor for frontier tech founders"
+  jobTitle = "Frontier Tech GTM Advisor"
   image = "/images/shawn-media.jpg"
 
 [params.author.sameAs]
@@ -219,6 +220,16 @@ enableEmoji = true
   weight = 1
 
 [[menu.main]]
-  name = "Now"
-  url = "/now/"
+  name = "Advisory"
+  url = "/advisory/"
   weight = 2
+
+[[menu.main]]
+  name = "Podcast"
+  url = "https://trustrevolution.co"
+  weight = 3
+
+[[menu.main]]
+  name = "Contact"
+  url = "/contact/"
+  weight = 4

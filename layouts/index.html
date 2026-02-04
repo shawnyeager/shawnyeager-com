@@ -22,8 +22,12 @@ Important Notes:
 {{ define "main" }}
     <!-- Bio -->
     <div class="site-intro">
-        {{ with .Params.headline }}<h1 class="display-title">{{ . }}</h1>{{ end }}
-        {{ .Content | safeHTML }}
+        {{ with .Params.headline }}<h1 class="display-title">{{ . | safeHTML }}</h1>{{ end }}
+        {{ with .Params.tagline }}<p class="intro-tagline">{{ . }}</p>{{ end }}
+        {{ with .Params.sectors }}<p class="intro-sectors">{{ . }}</p>{{ end }}
+        <div class="intro-body">
+            {{ .Content | safeHTML }}
+        </div>
     </div>
 
     <!-- Featured or Latest Essay -->
@@ -51,55 +55,7 @@ Important Notes:
     </article>
     {{ end }}
 
-    <!-- Podcast Feature Box -->
-    {{ $episode := false }}
-    {{ $rssUrl := "https://trustrevolution.co/index.xml" }}
-    {{ $cacheKey := print "v8-" $rssUrl (now.Format "2006-01-02") }}
-    {{ with try (resources.GetRemote $rssUrl (dict "key" $cacheKey)) }}
-        {{ with .Value }}
-            {{ $feed := . | transform.Unmarshal }}
-            {{/* Find first actual episode (skip essays and static pages) */}}
-            {{ range $feed.channel.item }}
-                {{ if strings.Contains .link "/episodes/" }}
-                    {{ $episode = . }}
-                    {{ break }}
-                {{ end }}
-            {{ end }}
-        {{ end }}
-    {{ end }}
-
-    {{ if $episode }}
-    <h2 class="essay-section-header">Latest Episode</h2>
-    {{ end }}
-    <section class="podcast">
-        <div class="podcast-header">
-            <img src="/images/trust-revolution-cover.webp" alt="Trust Revolution Podcast cover art" class="podcast-art" width="150" height="150" fetchpriority="high">
-            <div class="podcast-info">
-                {{ with $episode }}
-                {{/* Parse title: "Pippellia – Reputation Without a Kill Switch" */}}
-                {{ $normalized := replaceRE `\s*[–—]\s*` " – " .title }}
-                {{ $parts := split $normalized " – " }}
-                {{ $guest := "" }}
-                {{ $subtitle := $normalized }}
-                {{ if gt (len $parts) 1 }}
-                    {{ $guest = index $parts 0 }}
-                    {{ $subtitle = index $parts 1 }}
-                {{ end }}
-                {{ $episodeUrl := .link }}
-                <div class="episode-info">
-                    <span class="episode-title">{{ $subtitle }}</span>
-                    {{ if ne $guest "" }}<span class="episode-guest">with {{ $guest }}</span>{{ end }}
-                    {{ with .description }}<p class="episode-hook">{{ . }}</p>{{ end }}
-                </div>
-                <div class="podcast-links">
-                    {{ partial "links/action.html" (dict "url" $episodeUrl "text" "Listen" "event" $.Site.Params.plausible_events.trustrev) }}
-                </div>
-                {{ end }}
-            </div>
-        </div>
-    </section>
-
-      <!-- Recent Essays -->
+    <!-- Recent Essays -->
       {{/* Exclude featured essay from list to avoid duplication */}}
       {{ $recentPosts := where $posts "Params.featured" "!=" true }}
       {{/* If no featured, skip the first (already shown as Latest) */}}
