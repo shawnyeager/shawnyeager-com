@@ -7,6 +7,8 @@ show_title: true
 hide_footer_signup: true
 ---
 
+Have a question or want to explore working together? Reach out.
+
 {{< section class="contact-section" >}}
 
 {{< contact-method type="email" value="hello@shawnyeager.com" >}}
