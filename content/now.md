@@ -10,7 +10,7 @@ show_title: true
 
 ## Themes
 
-**UX versus sovereignty:** How do you balance commercially desirable solutions (often custodial) with enabling true self-sovereignty? Most users choose convenience. Freedom tech needs to remove that forced choice.
+**UX versus sovereignty:** How do you balance commercially desirable solutions (often custodial) with enabling true self-sovereignty? Most users choose convenience. We need to remove that forced choice.
 
 **Timing the revenue engine:** When do you shift from founder-led selling to building scalable revenue systems in Bitcoin companies? Particularly when negative price action affects customer faith and interest.
 
@@ -18,7 +18,7 @@ show_title: true
 
 ## Writing & building
 
-Publishing monthly [essays](/essays/) on how freedom tech wins---sales, partnerships, and product. Thinking in public at [notes.shawnyeager.com](https://notes.shawnyeager.com).
+Publishing monthly [essays](/essays/) on how frontier tech wins---sales, partnerships, and product. Thinking in public at [notes.shawnyeager.com](https://notes.shawnyeager.com).
 
 New projects:
 
@@ -30,10 +30,10 @@ New projects:
 
 Season 3 begins recording next week. Previous seasons explored decentralized reputation, Bitcoin as human rights infrastructure, and why voluntary payment struggles against ads. New season continues the conversation on how trust systems shape freedom tech adoption.
 
-{{< cta url="podcast" text="Listen now" event="trustrev" >}}
+{{< cta url="/podcast" text="Listen now" event="trustrev" >}}
 
 ## Advisory & operating work
 
-Working with frontier tech founders—Bitcoin, AI, distributed systems—through fractional roles, project-based consulting, and advisory. Current work includes go-to-market strategy, channel sales frameworks, and proof-of-concept programs for enterprise adoption. The goal: compete commercially so frontier tech wins on distribution and user experience, not just technology.
+Working with founders through fractional roles, project-based consulting, and advisory. Current work includes go-to-market strategy, channel sales frameworks, and proof-of-concept programs for enterprise adoption. The goal: compete commercially so frontier tech wins on distribution and user experience, not just technology.
 
-{{< cta url="/lets-win" text="Let's win" event="lets_win_cta" >}}
+{{< cta url="/advisory" text="How I help" event="advisory_cta" >}}
