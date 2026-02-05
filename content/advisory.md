@@ -26,22 +26,22 @@ Three months to build a sales motion that works.
 
 Weekly 60-minute working sessions. Direct access via Slack or email (24-hour response).
 
-**Month 1: Clarity**
-- 4+ hours of deep-dive sessions on product, market, and traction so far
-- I join 3-5 customer conversations with you
-- Deliverable: Ideal customer profile and positioning document
+**Month 1: Clarity** --
+4+ hours of deep-dive sessions on product, market, and traction so far.
+I join 3-5 customer conversations with you.
+Deliverable: Ideal customer profile and positioning document.
 
-**Month 2: Focus**
-- Full sales process mapped
-- Outreach messaging developed
-- Pricing and packaging pressure-tested
-- Deliverable: Complete sales playbook
+**Month 2: Focus** --
+Full sales process mapped.
+Outreach messaging developed.
+Pricing and packaging pressure-tested.
+Deliverable: Complete sales playbook.
 
-**Month 3: Momentum**
-- Active pipeline building -- I'm in the room
-- Deal-by-deal coaching on live opportunities
-- Sales hire criteria defined (if needed)
-- Deliverable: Final playbook + 90-day forward plan
+**Month 3: Momentum** --
+Active pipeline building -- I'm in the room.
+Deal-by-deal coaching on live opportunities.
+Sales hire criteria defined (if needed).
+Deliverable: Final playbook + 90-day forward plan.
 
 *$20K: Defined ICP, shorter sales cycle. $30K: Technical product, enterprise buyers, or multiple segments.*
 {{< /service-tier >}}
@@ -57,7 +57,7 @@ Strategy and deal support on an ongoing basis.
 *$7.5K: Steady-state coaching and review. $12K adds up to 4 call ride-alongs per month and quarterly strategy reset.*
 {{< /service-tier >}}
 
-{{< service-tier name="Founder Coaching" price="$3,500-$6,000/month" fit="Seed founders who aren't ready for a sprint but need experienced eyes on what they're building." >}}
+{{< service-tier name="Founder Coaching" price="$3,000-$5,000/month" fit="Seed founders who aren't ready for a sprint but need experienced eyes on what they're building." >}}
 Guidance without the full engagement.
 
 - Bi-weekly 45-minute calls
