@@ -22,7 +22,7 @@ Not sure where you're stuck? [Find the gaps](https://gtm.shawnyeager.com) in you
 {{< service-tiers >}}
 
 {{< service-tier name="90-Day Revenue Sprint" price="$20,000-$30,000" fit="Post-seed founders ready to build repeatable revenue." >}}
-Three months to build a sales motion that works.
+Build a sales motion that works.
 
 Weekly 60-minute working sessions. Direct access via Slack or email (24-hour response).
 
@@ -47,7 +47,7 @@ Deliverable: Final playbook + 90-day forward plan.
 {{< /service-tier >}}
 
 {{< service-tier name="Monthly Advisory" price="$7,500-$12,000/month" fit="Post-sprint, or founders with GTM fundamentals who want a senior partner in the work." >}}
-Strategy and deal support on an ongoing basis.
+A senior partner in your deals.
 
 - Weekly 60-minute sessions
 - Async access via Slack or email (24-hour response)
@@ -58,7 +58,7 @@ Strategy and deal support on an ongoing basis.
 {{< /service-tier >}}
 
 {{< service-tier name="Founder Coaching" price="$3,000-$5,000/month" fit="Seed founders who aren't ready for a sprint but need experienced eyes on what they're building." >}}
-Guidance without the full engagement.
+Expert eyes on your GTM.
 
 - Bi-weekly 45-minute calls
 - Async access via email (48-hour response)
@@ -75,7 +75,7 @@ Guidance without the full engagement.
 Shawn is our go-to when it comes to business development and enterprise sales. He does an amazing job relating his experiences and applying frameworks to the problems we're looking to solve. He's responsive and flexible, and he naturally makes connections relevant for our business.
 {{< /testimonial >}}
 
-{{< testimonial name="Matteo Pellegrini" title="Founder, Orange Pill App" >}}
+{{< testimonial name="Matteo Pellegrini" title="Founder, Club Orange" >}}
 Shawn is an exceptional asset in any business context, especially so in Bitcoin-focused companies like ours. His guidance is practical, drawn from deep experience, and beneficial for both immediate action and long-term goals.
 {{< /testimonial >}}
 

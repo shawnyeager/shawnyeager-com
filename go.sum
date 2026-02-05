@@ -1,2 +1,6 @@
-github.com/shawnyeager/tangerine-theme v0.0.0-20260205050209-d5dd55d42956 h1:P0lh97mxiEXUS6ylWC1hL5njehJQ3Yp2CF6D5xaOorI=
-github.com/shawnyeager/tangerine-theme v0.0.0-20260205050209-d5dd55d42956/go.mod h1:oI7/pq79iSOuNOgNXsUxKLxrb+Ulhm2bAslKpGktFJY=
+github.com/shawnyeager/tangerine-theme v0.0.0-20260204215657-d17f27513405 h1:VHivZNk8VutiML7DHvxn31ymofUYjLCdpGtNNB3SWhk=
+github.com/shawnyeager/tangerine-theme v0.0.0-20260204215657-d17f27513405/go.mod h1:oI7/pq79iSOuNOgNXsUxKLxrb+Ulhm2bAslKpGktFJY=
+github.com/shawnyeager/tangerine-theme v0.0.0-20260205154520-55fa2b96a801 h1:mzokTtySsT/8WR46U1a9txYMa+edpssFjFywX+AO8+k=
+github.com/shawnyeager/tangerine-theme v0.0.0-20260205154520-55fa2b96a801/go.mod h1:oI7/pq79iSOuNOgNXsUxKLxrb+Ulhm2bAslKpGktFJY=
+github.com/shawnyeager/tangerine-theme v0.2.1-mobile h1:SO8mQLw/MUJX+0jzs7W4EnpkMkpznZH+uAhjBk4oeLE=
+github.com/shawnyeager/tangerine-theme v0.2.1-mobile/go.mod h1:oI7/pq79iSOuNOgNXsUxKLxrb+Ulhm2bAslKpGktFJY=
