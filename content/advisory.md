@@ -11,40 +11,60 @@ hide_footer_signup: true
 
 Your product works. Early customers prove it. But revenue isn't scaling.
 
-You're not ready for a full-time CRO—or you tried a sales hire and it failed. You need someone who understands what you built before they try to sell it.
+You're not ready for a full-time CRO -- or you tried a sales hire and it failed. You need someone who understands what you built before they try to sell it.
 
-I go deep on your product, market, and early wins. Then I build the playbook that fits—positioning, process, pipeline. I join calls, pressure-test deals, and help you close. When you're ready to hire, I help you find the right person.
+I go deep on your product, market, and early wins. Then I build the playbook that fits -- positioning, process, pipeline. I join calls, pressure-test deals, and help you close. When you're ready to hire, I help you find the right person.
 
-Not sure where you're stuck? [Find the gaps](https://gtm.shawnyeager.com) in your go-to-market — 10 minutes, free.
+Not sure where you're stuck? [Find the gaps](https://gtm.shawnyeager.com) in your go-to-market -- 10 minutes, free.
 
 {{< section-label "How I Work" >}}
 
 {{< service-tiers >}}
 
-{{< service-tier name="90-Day Revenue Sprint" price="$20,000–$30,000" fit="Post-seed founders ready to build a repeatable sales motion." >}}
-Three months to get your GTM working.
+{{< service-tier name="90-Day Revenue Sprint" price="$20,000-$30,000" fit="Post-seed founders ready to build repeatable revenue." >}}
+Three months to build a sales motion that works.
 
-**Month 1: Clarity** — Deep dive on product, market, early wins. Customer discovery. Positioning locked.
+Weekly 60-minute working sessions. Direct access via Slack or email (24-hour response).
 
-**Month 2: Focus** — Sales process documented. Outreach strategy. First deals in motion.
+**Month 1: Clarity**
+- 4+ hours of deep-dive sessions on product, market, and traction so far
+- I join 3-5 customer conversations with you
+- Deliverable: Ideal customer profile and positioning document
 
-**Month 3: Momentum** — Pipeline building. Deal coaching. Playbook handoff.
+**Month 2: Focus**
+- Full sales process mapped
+- Outreach messaging developed
+- Pricing and packaging pressure-tested
+- Deliverable: Complete sales playbook
+
+**Month 3: Momentum**
+- Active pipeline building -- I'm in the room
+- Deal-by-deal coaching on live opportunities
+- Sales hire criteria defined (if needed)
+- Deliverable: Final playbook + 90-day forward plan
+
+*$20K: Defined ICP, shorter sales cycle. $30K: Technical product, enterprise buyers, or multiple segments.*
 {{< /service-tier >}}
 
-{{< service-tier name="Monthly Advisory" price="$7,500–$12,000/month" fit="Post-sprint, or founders with GTM basics who need a sparring partner." >}}
-Ongoing strategy and deal support.
+{{< service-tier name="Monthly Advisory" price="$7,500-$12,000/month" fit="Post-sprint, or founders with GTM fundamentals who want a senior partner in the work." >}}
+Strategy and deal support on an ongoing basis.
 
-- Weekly sessions
-- Deal reviews and pipeline pressure-testing
-- Live support on key calls
+- Weekly 60-minute sessions
+- Async access via Slack or email (24-hour response)
+- Pipeline review: weekly, deal by deal
+- Live call support as needed
+
+*$7.5K: Steady-state coaching and review. $12K adds up to 4 call ride-alongs per month and quarterly strategy reset.*
 {{< /service-tier >}}
 
-{{< service-tier name="Founder Coaching" price="$3,500–$6,000/month" fit="Seed founders not ready for a sprint but need experienced eyes." >}}
+{{< service-tier name="Founder Coaching" price="$3,500-$6,000/month" fit="Seed founders who aren't ready for a sprint but need experienced eyes on what they're building." >}}
 Guidance without the full engagement.
 
-- Bi-weekly calls
-- Async access for deal questions
-- Positioning and messaging feedback
+- Bi-weekly 45-minute calls
+- Async access via email (48-hour response)
+- Feedback on decks, outreach, and positioning
+
+*$3K: Coaching and feedback. $5K: Weekly calls + one call ride-along per month.*
 {{< /service-tier >}}
 
 {{< /service-tiers >}}
@@ -65,7 +85,7 @@ Shawn's expertise in Bitcoin business strategy has been crucial in developing BD
 
 {{< section-label "Background" >}}
 
-I've generated over $300M in revenue across three decades—starting on Microsoft's first browser team, then commercializing early internet infrastructure at Exodus, IoT hardware at ANKR, personal data sovereignty at Dataswift, and Bitcoin payments at Bottlepay, NYDIG, and Amboss.
+I've generated over $300M in revenue across three decades -- starting on Microsoft's first browser team, then commercializing early internet infrastructure at Exodus, IoT hardware at ANKR, personal data sovereignty at Dataswift, and Bitcoin payments at Bottlepay, NYDIG, and Amboss.
 
 Technical enough to go deep. Commercial enough to close.
 
