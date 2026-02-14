@@ -18,7 +18,6 @@ topics:
   - bitcoin
   - product
   - go-to-market
-tags: []
 featured: false
 draft: false
 hero_image: images/essays/sovereignty-without-sacrifice.png

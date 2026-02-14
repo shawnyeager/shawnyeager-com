@@ -17,7 +17,6 @@ topics:
   - bitcoin
   - partnerships
   - product
-tags: []
 featured: false
 draft: false
 hero_image: images/essays/product-first-partnerships-second.png

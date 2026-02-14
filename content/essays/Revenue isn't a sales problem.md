@@ -7,7 +7,6 @@ topics:
   - sales
   - go-to-market
   - bitcoin
-tags: []
 featured: false
 draft: false
 nostr_id: nevent1qvzqqqr4guq3gamnwvaz7tmjv4kxz7fwv3sk6atn9e5k7qgdwaehxw309ahx7uewd3hkcqgmwaehxw309aex2mrp0yh8x6rpwah8jetpvajhytnrdaksqg93fm2qnxmd87j0dg7xp9rf4ppvw672lqx2746r6ugd7khkwvpldskcjgud
@@ -22,6 +21,8 @@ Revenue stalls and you look at sales. The instinct makes sense. Sales is where t
 Sales is also hirable. When revenue is the problem, hiring a rep or a sales leader is doing something. It's a concrete move. The board sees action. You see action. It feels like momentum, even when nothing upstream has changed.
 
 But most early-stage revenue problems don't live in sales. They surface there, sure, and the visibility of sales makes it the obvious target. However, the actual constraint usually sits elsewhere, invisible. CB Insights found 42% of startup failures trace to no market need---not sales, not funding, not competition.
+
+<!--more-->
 
 ## The dependency chain
 

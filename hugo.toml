@@ -50,7 +50,6 @@ enableEmoji = true
 
 [taxonomies]
   topic = "topics"
-  tag = "tags"
 
 # =============================================================================
 # SEO & CRAWLING
@@ -59,18 +58,6 @@ enableEmoji = true
 [sitemap]
   changefreq = "weekly"
   priority = 0.5
-
-[[cascade]]
-  _target.kind = "term"
-  _target.path = "/tags"
-  [cascade.sitemap]
-    disable = true
-
-[[cascade]]
-  _target.kind = "taxonomy"
-  _target.path = "/tags/**"
-  [cascade.sitemap]
-    disable = true
 
 [[cascade]]
   _target.kind = "page"
