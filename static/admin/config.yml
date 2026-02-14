@@ -53,6 +53,39 @@ collections:
       - {label: "Draft", name: "draft", widget: "boolean", default: false, required: false}
       - {label: "Body", name: "body", widget: "markdown", required: true}
 
+  # Notes - shorter-form content
+  - name: "notes"
+    label: "Notes"
+    label_singular: "Note"
+    folder: "content/notes"
+    create: true
+    slug: "{{slug}}"
+    sortable_fields:
+      fields: ['date', 'title']
+      default:
+        field: date
+        direction: Descending
+    editor:
+      preview: true
+    view_filters:
+      - label: "Drafts"
+        field: draft
+        pattern: true
+      - label: "Published"
+        field: draft
+        pattern: false
+    view_groups:
+      - label: "Draft Status"
+        field: draft
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Description", name: "description", widget: "string", required: true, hint: "Used for SEO meta description and Open Graph tags"}
+      - {label: "Publish Date", name: "date", widget: "datetime", required: true}
+      - {label: "Slug", name: "slug", widget: "string", required: false, hint: "URL path (optional - defaults to title)"}
+      - {label: "Topics", name: "topics", widget: "list", required: false, hint: "e.g., bitcoin, sales, strategy"}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false, required: false}
+      - {label: "Body", name: "body", widget: "markdown", required: true}
+
   # Pages - static pages (now, media, connect, etc.)
   - name: "pages"
     label: "Pages"
