@@ -13,7 +13,7 @@ date: 2025-11-30T15:00:00.000Z
 slug: extraction-is-rational
 topics:
   - bitcoin
-featured: false
+tags: []
 draft: false
 hero_image: images/essays/extraction-is-rational.png
 hero_alt: Abstract illustration of extraction patterns in internet platforms

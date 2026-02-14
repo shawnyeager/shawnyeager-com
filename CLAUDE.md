@@ -159,7 +159,6 @@ This site uses smart page title visibility. Individual essays show H1 titles, wh
 **Visible title pages:**
 - Individual essays (automatic)
 - /now (has `show_title: true`)
-- /podcast (has `show_title: true`)
 
 **Hidden title pages (sr-only):**
 - /essays/ listing
@@ -173,12 +172,11 @@ To show a page title: add `show_title: true` to frontmatter.
 
 This site overrides these theme templates in `layouts/`:
 
-- `index.html` - Custom homepage (bio, latest essay, podcast, topics)
+- `index.html` - Custom homepage (bio, latest essay, topics)
 - `essays/single.html` - Individual essay page with reading time
 - `essays/list.html` - Essays index page
 - `page/single.html` - Generic pages (now, media, connect, etc.)
 - `_default/now.html` - Special layout for /now page
-- `_default/podcast.html` - Special layout for /podcast page
 - `partials/page-title.html` - Page title visibility logic
 - `partials/topic-list.html` - Topics navigation component
 - `shortcodes/contact-method.html` - Contact link component
@@ -270,7 +268,6 @@ content/
 ├── essays/              # Main content (title, description, date, topics, tags)
 ├── now.md              # Updated monthly
 ├── media.md            # Press/media info
-├── podcast.md          # Podcast feature page
 ├── connect.md          # Contact methods
 ├── encrypt.md          # PGP keys
 └── subscribed.md       # Newsletter confirmation
