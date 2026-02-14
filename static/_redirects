@@ -5,6 +5,7 @@ https://srs.shawnyeager.com/*                   https://gtm.shawnyeager.com/:spl
 https://shawnyeager-com.netlify.app/*           https://shawnyeager.com/:splat                                      301!
 
 # Path redirects
+/essays/                                        /writing/                                                           301
 /connect                                        /contact                                                            301
 /encrypt                                        /pgp                                                                301
 /pubkey                                         /assets/public-key.asc
