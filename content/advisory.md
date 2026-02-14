@@ -15,7 +15,9 @@ You're not ready for a full-time CRO -- or you tried a sales hire and it failed.
 
 I go deep on your product, market, and early wins. Then I build the playbook that fits -- positioning, process, pipeline. I join calls, pressure-test deals, and help you close. When you're ready to hire, I help you find the right person.
 
-Not sure where you're stuck? [Find the gaps](https://gtm.shawnyeager.com) in your go-to-market -- 10 minutes, free.
+{{< diagnostic-cta >}}
+Not sure where you're stuck? [Find the gaps](https://gtm.shawnyeager.com) in your go-to-market — 10 minutes, free.
+{{< /diagnostic-cta >}}
 
 {{< section-label "How I Work" >}}
 
@@ -71,15 +73,15 @@ Expert eyes on your GTM.
 
 {{< section-label "What Founders Say" >}}
 
-{{< testimonial name="Austin Mitchell" title="Cofounder, Synota" >}}
+{{< testimonial name="Austin Mitchell" title="Cofounder, Synota" image="/images/testimonials/austin-mitchell.webp" >}}
 Shawn is our go-to when it comes to business development and enterprise sales. He does an amazing job relating his experiences and applying frameworks to the problems we're looking to solve. He's responsive and flexible, and he naturally makes connections relevant for our business.
 {{< /testimonial >}}
 
-{{< testimonial name="Matteo Pellegrini" title="Founder, Club Orange" >}}
+{{< testimonial name="Matteo Pellegrini" title="Founder, Club Orange" image="/images/testimonials/matteo-pellegrini.webp" >}}
 Shawn is an exceptional asset in any business context, especially so in Bitcoin-focused companies like ours. His guidance is practical, drawn from deep experience, and beneficial for both immediate action and long-term goals.
 {{< /testimonial >}}
 
-{{< testimonial name="Steve Myers" title="President, Bitcoin Dev Kit Foundation" >}}
+{{< testimonial name="Steve Myers" title="President, Bitcoin Dev Kit Foundation" image="/images/testimonials/steve-myers.webp" >}}
 Shawn's expertise in Bitcoin business strategy has been crucial in developing BDK's outreach. As a developer, I struggle with project promotion, but Shawn helped me identify and communicate our value effectively. I highly recommend Shawn to anyone starting or growing a Bitcoin project.
 {{< /testimonial >}}
 
@@ -91,4 +93,10 @@ Technical enough to go deep. Commercial enough to close.
 
 **Ready to build your playbook?**
 
-{{< cta url="/talk" text="Let's talk" variant="primary" event="advisory_cta" >}}
+{{< what-to-expect >}}
+1. Book a 30-minute call
+2. We'll diagnose where revenue is stuck
+3. If it's a fit, I'll propose a path forward
+{{< /what-to-expect >}}
+
+{{< cta url="/talk" text="Book a free call" variant="primary" event="advisory_cta" >}}

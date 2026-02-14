@@ -1,0 +1,17 @@
+{{/*
+Purpose: Low-friction CTA for the GTM diagnostic tool
+
+Parameters: None
+
+Inner Content:
+- Markdown content with link to diagnostic tool
+
+Usage:
+{{< diagnostic-cta >}}
+Not sure where you're stuck? [Find the gaps](https://gtm.shawnyeager.com) — 10 minutes, free.
+{{< /diagnostic-cta >}}
+*/}}
+
+<div class="diagnostic-cta">
+    {{- .Inner | markdownify -}}
+</div>
