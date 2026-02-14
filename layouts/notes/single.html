@@ -1,0 +1,21 @@
+{{/*
+Purpose: Individual note page — minimal layout, no hero image, no reading time
+
+Navigation: Back link points to /writing/ (unified listing)
+*/}}
+{{ define "main" }}
+<article class="note-content">
+    <header>
+        <h1 class="note-title-single">{{ .Title }}</h1>
+        <div class="page-meta">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        </div>
+    </header>
+
+    <div class="note-body">
+        {{ .Content | safeHTML }}
+    </div>
+
+    {{- partial "content-nav.html" (dict "back_url" ("/writing/" | relURL) "back_text" "All writing") -}}
+</article>
+{{ end }}

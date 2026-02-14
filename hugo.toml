@@ -107,8 +107,7 @@ enableEmoji = true
   plausible_events.contact_calendar = "Calendar-Booking"
   plausible_events.trustrev = "CTA-TrustRev"
   plausible_events.essay_cta = "CTA-Read-More"
-  plausible_events.all_essays = "CTA-All-Essays"
-
+  plausible_events.all_writing = "CTA-All-Writing"
   plausible_events.v4v_essay = "CTA-V4V-Essay"
   plausible_events.v4v_footer = "CTA-V4V-Footer"
   plausible_events.connect_cta = "CTA-Lets-Win"

@@ -1,0 +1,76 @@
+{{/*
+Purpose: Unified writing page at /writing/
+
+Shows all essays and notes in a single chronological stream, newest first.
+Visual treatment differentiates content depth naturally:
+- Essays with hero_image (top 3): hero image + title + description
+- Notes and remaining essays: date + title + description
+
+Per-page CSS classes derived from .Type for correct styling.
+*/}}
+
+{{ define "main" }}
+    {{ partial "page-title.html" . }}
+
+    {{/* Topics */}}
+    {{ if .Site.Taxonomies.topics }}
+    {{ partial "topic-list.html" (dict "context" . "heading" "Browse by Topic") }}
+    {{ end }}
+
+    {{/* Collect all essays and notes, filter drafts in production */}}
+    {{ $essays := where .Site.RegularPages "Type" "essays" }}
+    {{ $notes := where .Site.RegularPages "Type" "notes" }}
+    {{ if not hugo.IsServer }}
+        {{ $essays = where $essays "Draft" false }}
+        {{ $notes = where $notes "Draft" false }}
+    {{ end }}
+
+    {{/* Merge and sort by date descending */}}
+    {{ $allWriting := union $essays $notes }}
+    {{ $allWriting = sort $allWriting "Date" "desc" }}
+
+    <section class="essay-list full-list">
+        {{ range $index, $page := $allWriting }}
+        {{/* Per-page CSS classes from content type */}}
+        {{ $singular := cond (eq .Type "notes") "note" "essay" }}
+        {{ $itemClass := printf "%s-item" $singular }}
+        {{ $titleClass := printf "%s-title" $singular }}
+        {{ $dateClass := printf "%s-date" $singular }}
+
+        <article class="{{ $itemClass }} has-excerpt">
+            {{/* Hero images for first 3 items that have them */}}
+            {{ if and (lt $index 3) .Params.hero_image }}
+                {{ $img := resources.Get .Params.hero_image }}
+                {{ if $img }}
+                    {{ $resized := $img.Resize "800x" }}
+                    {{ $webp := $resized.Process "webp q85" }}
+                    <a href="{{ .RelPermalink }}" class="{{ printf "%s-hero-link" $singular }}">
+                        <img
+                            src="{{ $webp.RelPermalink }}"
+                            alt="{{ .Params.hero_alt | default .Title }}"
+                            class="{{ printf "%s-list-hero" $singular }}"
+                            {{ if eq $index 0 }}fetchpriority="high"{{ else }}loading="lazy"{{ end }}
+                            width="{{ $resized.Width }}"
+                            height="{{ $resized.Height }}"
+                        >
+                    </a>
+                {{ end }}
+            {{ end }}
+
+            {{ if and (lt $index 3) .Params.hero_image }}
+                {{/* Items with hero: title only (recency implied by position) */}}
+                <a href="{{ .RelPermalink }}" class="{{ printf "%s-title-link" $singular }}">
+                    <span class="{{ $titleClass }}">{{ .Title }}</span>
+                </a>
+            {{ else }}
+                {{/* Items without hero: date + title */}}
+                <a href="{{ .RelPermalink }}">
+                    <time datetime="{{ .Date.Format "2006-01-02" }}" class="{{ $dateClass }}">{{ .Date.Format "2006 · 01" }}</time>
+                    <span class="{{ $titleClass }}">{{ .Title }}</span>
+                </a>
+            {{ end }}
+            {{ with .Params.description }}<p class="{{ printf "%s-excerpt" $singular }}">{{ . }}</p>{{ end }}
+        </article>
+        {{ end }}
+    </section>
+{{ end }}
