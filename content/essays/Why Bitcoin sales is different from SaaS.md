@@ -19,7 +19,7 @@ aliases:
 topics:
   - bitcoin
   - sales
-featured: false
+tags: []
 draft: false
 hero_image: images/essays/why-bitcoin-sales-is-different.png
 hero_alt: >-

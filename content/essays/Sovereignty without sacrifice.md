@@ -18,7 +18,7 @@ topics:
   - bitcoin
   - product
   - go-to-market
-featured: false
+tags: []
 draft: false
 hero_image: images/essays/sovereignty-without-sacrifice.png
 hero_alt: Abstract illustration of sovereignty and self-custody without compromise

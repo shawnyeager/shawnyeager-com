@@ -17,7 +17,7 @@ topics:
   - bitcoin
   - partnerships
   - product
-featured: false
+tags: []
 draft: false
 hero_image: images/essays/product-first-partnerships-second.png
 hero_alt: Abstract illustration of product development priorities and partnership timing
