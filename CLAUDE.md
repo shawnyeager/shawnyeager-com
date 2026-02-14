@@ -6,13 +6,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## About
 
-**shawnyeager.com** - "The Gallery" for finished essays and professional content.
+**shawnyeager.com** — Essays, notes, and advisory services for frontier tech founders.
 
-This is the public-facing side of a two-site system:
-- **shawnyeager.com** (this site) - Polished essays and published work
-- **notes.shawnyeager.com** - Rough notes and explorations (The Workshop)
+All writing lives on one domain. Essays are longer, polished pieces at `/:slug/`. Notes are shorter observations at `/notes/:slug/`. A unified `/writing/` page shows everything chronologically. The nav has three items: Writing, Advisory, Contact.
 
-Built with Hugo using the tangerine-theme module. Content is indexed by search engines and represents the professional brand.
+Built with Hugo using the tangerine-theme module. Content is indexed by search engines.
 
 ---
 
@@ -68,63 +66,69 @@ Key site-specific parameters in `hugo.toml`:
 
 ```toml
 [params]
-  content_type = "essays"         # Parameterizes theme templates
-  favicon_style = "solid"         # Solid square (vs "outlined" on .notes)
-  noindex = false                 # Allow search indexing (true on .notes)
-  show_read_time = true           # Show reading time (false on .notes)
+  content_type = "essays"         # Parameterizes theme templates (home RSS)
+  favicon_style = "solid"         # Solid square favicon
+  noindex = false                 # Allow search indexing
+  show_read_time = true           # Show reading time on essays
   show_email_signup = true        # Footer newsletter form
 
 [taxonomies]
   topic = "topics"
-  tag = "tags"
 
 [outputFormats.RSS]
   baseName = "feed"               # Output: /feed.xml not /index.xml
 
 [permalinks]
-  essays = "/:contentbasename/"   # Clean URLs without dates
+  essays = "/:slug/"              # Essays at root: /essay-slug/
+  notes = "/notes/:slug/"         # Notes under /notes/: /notes/note-slug/
 ```
 
 ---
 
-## Essay Frontmatter
+## Content Frontmatter
+
+### Essays
 
 ```yaml
 ---
 title: "Essay Title"
 description: "SEO description for social sharing"  # REQUIRED
 date: 2025-10-15
-topics: ["Bitcoin", "Strategy"]  # Taxonomy for topic browsing
-tags: ["go-to-market", "sales"]  # Taxonomy for tag filtering
+topics: ["Bitcoin", "Strategy"]
 ---
 ```
 
-**CRITICAL:** The `description` field is REQUIRED for all essays. Used for:
-- Meta description tag (SEO)
-- Open Graph og:description (social sharing)
-- Twitter Card description
-- Essays listing pages
+### Notes
+
+```yaml
+---
+title: "Note Title"
+description: "Brief summary for SEO and social"  # REQUIRED
+date: 2025-10-15
+slug: note-slug
+topics: ["bitcoin", "sales"]
+draft: false
+---
+```
+
+**CRITICAL:** The `description` field is REQUIRED for all content. Used for meta tags, OG, and listing pages.
 
 **Special frontmatter flags:**
 - `hide_footer_signup: true` - Hides newsletter form (utility pages)
 - `show_title: true` - Forces H1 title to be visible
 - `type: page` - Forces page layout instead of default
 
-**RSS Feed Requirement:**
+**RSS Feed Requirement (essays only):**
 
-All essays MUST include the `<!--more-->` separator to define the summary break point for RSS feeds. Place it after the first 1-3 paragraphs that introduce the topic.
+All essays MUST include the `<!--more-->` separator to define the summary break point for RSS feeds.
 
 ```markdown
 First paragraph introducing the topic.
-
-Second paragraph expanding on the intro.
 
 <!--more-->
 
 Rest of the essay content...
 ```
-
-This creates high-quality RSS feed summaries. Without it, Hugo auto-truncates summaries which may cut off mid-sentence.
 
 ---
 
@@ -157,11 +161,12 @@ This creates high-quality RSS feed summaries. Without it, Hugo auto-truncates su
 This site uses smart page title visibility. Individual essays show H1 titles, while utility pages hide them (sr-only for accessibility).
 
 **Visible title pages:**
-- Individual essays (automatic)
+- Individual essays and notes (automatic)
+- /writing/ (has `show_title: true`)
 - /now (has `show_title: true`)
 
 **Hidden title pages (sr-only):**
-- /essays/ listing
+- /essays/ and /notes/ section listings
 - /media, /connect, /encrypt, /subscribed (utility pages)
 
 To show a page title: add `show_title: true` to frontmatter.
@@ -172,12 +177,15 @@ To show a page title: add `show_title: true` to frontmatter.
 
 This site overrides these theme templates in `layouts/`:
 
-- `index.html` - Custom homepage (bio, latest essay, topics)
-- `essays/single.html` - Individual essay page with reading time
-- `essays/list.html` - Essays index page
+- `index.html` - Custom homepage (bio, featured essay, recent writing)
+- `essays/single.html` - Individual essay page with hero, reading time, zap CTA
+- `essays/list.html` - Essays section listing (redirects to /writing/ in production)
+- `notes/single.html` - Individual note page (minimal, no hero/reading time)
+- `notes/list.html` - Notes section listing
+- `_default/writing.html` - Unified chronological listing of all essays + notes
 - `page/single.html` - Generic pages (now, media, connect, etc.)
 - `_default/now.html` - Special layout for /now page
-- `partials/page-title.html` - Page title visibility logic
+- `_default/podcast.html` - Special layout for /podcast page
 - `partials/topic-list.html` - Topics navigation component
 - `shortcodes/contact-method.html` - Contact link component
 
@@ -187,18 +195,10 @@ Templates fall back to tangerine-theme if not overridden locally.
 
 ## Edge Functions (V4V/Lightning)
 
-This site hosts V4V edge functions used by both .com and notes sites.
-
 **Functions:**
 - `/.well-known/lnurlp/*` → `lnurlp.ts` - LNURL-pay metadata
 - `/lnurl-callback` → `lnurl-callback.ts` - Invoice generation
 - `/invoice-status` → `invoice-status.ts` - Payment status polling
-
-**CORS:**
-Cross-origin requests allowed from:
-- `https://notes.shawnyeager.com`
-- `https://shawnyeager.com`
-- Netlify deploy preview origins
 
 **Environment Variables Required:**
 - `NWC_CONNECTION_STRING` - Nostr Wallet Connect URL for invoice generation
@@ -265,7 +265,9 @@ git diff go.mod | grep "replace"  # Must return nothing before committing
 
 ```
 content/
-├── essays/              # Main content (title, description, date, topics, tags)
+├── essays/              # Long-form essays (hero images, reading time)
+├── notes/               # Shorter notes and observations
+├── writing.md           # Unified /writing/ page (layout: writing)
 ├── now.md              # Updated monthly
 ├── media.md            # Press/media info
 ├── connect.md          # Contact methods
@@ -277,7 +279,7 @@ content/
 
 ## Open Graph Image Generation
 
-This site uses a Node.js script to generate OG images for essays at build time.
+This site uses a Node.js script to generate OG images for essays and notes at build time.
 
 **File:** `scripts/generate-og-images.js`
 
@@ -290,16 +292,16 @@ This site uses a Node.js script to generate OG images for essays at build time.
 
 **Build integration:** `netlify.toml` runs `npm run generate-og` before Hugo build
 
-**Output:** `static/images/og-essays/{slug}.png` (1200x630px landscape format)
+**Output:** `static/images/og-essays/{slug}.png` and `static/images/og-notes/{slug}.png` (1200x630px landscape + 1200x1200px square)
 
 ---
 
 ## Critical Constraints
 
 1. **Never commit `public/` directory** - Build artifact (in `.gitignore`)
-2. **Preserve essay permalinks** - Changing `[permalinks]` breaks existing URLs
+2. **Preserve permalinks** - Essays at `/:slug/`, notes at `/notes/:slug/` — changing breaks indexed URLs
 3. **Monthly /now updates** - Convention to keep /now page current
-4. **Description required** - All essays must have `description` in frontmatter
+4. **Description required** - All essays and notes must have `description` in frontmatter
 5. **Design tokens only** - Never hardcode CSS values
 
 ---
@@ -354,4 +356,5 @@ git push origin master
 
 ## Related Sites
 
-- **notes.shawnyeager.com** - The Workshop (notes, WIP content)
+- **notes.shawnyeager.com** - Redirect-only; all content migrated to this site's `/notes/` section
+- **share.shawnyeager.com** - Private deliverables portal (unguessable URLs, noindex)
