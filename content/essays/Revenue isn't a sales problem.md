@@ -23,6 +23,8 @@ Sales is also hirable. When revenue is the problem, hiring a rep or a sales lead
 
 But most early-stage revenue problems don't live in sales. They surface there, sure, and the visibility of sales makes it the obvious target. However, the actual constraint usually sits elsewhere, invisible. CB Insights found 42% of startup failures trace to no market need---not sales, not funding, not competition.
 
+<!--more-->
+
 ## The dependency chain
 
 You can't close deals if buyers can't explain what you do. You can't position your product if you don't know who actually buys. The sequence: market clarity, positioning, sales motion. Break a link upstream and everything downstream fails.
