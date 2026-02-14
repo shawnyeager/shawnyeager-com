@@ -7,7 +7,6 @@ topics:
   - sales
   - go-to-market
   - bitcoin
-tags: []
 featured: false
 draft: false
 nostr_id: nevent1qvzqqqr4guq3gamnwvaz7tmjv4kxz7fwv3sk6atn9e5k7qgdwaehxw309ahx7uewd3hkcqgmwaehxw309aex2mrp0yh8x6rpwah8jetpvajhytnrdaksqg93fm2qnxmd87j0dg7xp9rf4ppvw672lqx2746r6ugd7khkwvpldskcjgud

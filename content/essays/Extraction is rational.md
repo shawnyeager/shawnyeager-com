@@ -13,7 +13,6 @@ date: 2025-11-30T15:00:00.000Z
 slug: extraction-is-rational
 topics:
   - bitcoin
-tags: []
 featured: false
 draft: false
 hero_image: images/essays/extraction-is-rational.png
