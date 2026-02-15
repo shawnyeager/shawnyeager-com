@@ -38,7 +38,7 @@ enableEmoji = true
   limit = 15
 
 [pagination]
-  pagerSize = 20
+  pagerSize = 10
 
 [permalinks]
   essays = "/:slug/"
