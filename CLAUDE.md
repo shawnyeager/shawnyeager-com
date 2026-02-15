@@ -229,7 +229,7 @@ replace github.com/shawnyeager/tangerine-theme => ../tangerine-theme
 2. Test changes with `hugo server -D -p 1313`
 3. **Before committing:** Run `git restore go.mod` to remove replace
 4. Commit ONLY template/content changes (not go.mod)
-5. GitHub Actions manages go.mod automatically
+5. Always remove replace directive before committing (pre-commit hook blocks it)
 
 **Pre-commit verification:**
 ```bash
@@ -318,37 +318,20 @@ This site uses a Node.js script to generate OG images for essays and notes at bu
 
 ---
 
-## Theme Updates (PR-Based Workflow)
+## Theme Updates
 
-This site uses a **PR-based workflow** for theme updates to save Netlify credits.
-
-**How it works:**
-1. Theme pushed to master → manual workflow trigger (or daily cron)
-2. GitHub Actions creates PR with theme updates
-3. Netlify builds FREE deploy preview
-4. Review preview, merge PR when ready
-5. Production build (15 credits)
-
-**After theme push, wait for PR:**
+After pushing theme changes to master, manually update this site:
 
 ```bash
-# Check for new PR
-gh pr list --repo shawnyeager/shawnyeager-com --label theme-update
-
-# Review deploy preview in PR
-# Merge when satisfied
-```
-
-**DO NOT manually run `hugo mod get`** - GitHub Actions handles everything.
-
-**Manual update only if workflow fails:**
-
-```bash
-hugo mod get -u github.com/shawnyeager/tangerine-theme
+git checkout -b theme/description
+hugo mod clean
+GOPROXY=direct go get github.com/shawnyeager/tangerine-theme@<commit-hash>
 git add go.mod go.sum
-git commit -m "chore: update theme"
-git push origin master
+git commit -m "chore: update theme - description"
+git push -u origin theme/description
 ```
+
+Then create a PR via MCP (`mcp__github__create_pull_request`). Netlify builds a deploy preview on the PR. Review and merge when ready.
 
 **Theme is public and tracks master branch.**
 
