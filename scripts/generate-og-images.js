@@ -1,7 +1,7 @@
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import { readFileSync, readdirSync, existsSync, mkdirSync, writeFileSync } from 'fs';
-import { join, basename } from 'path';
+import { join, basename, dirname } from 'path';
 import matter from 'gray-matter';
 
 const satoshiBold = readFileSync('assets/fonts/Satoshi-Bold.otf');
@@ -231,12 +231,14 @@ async function processSectionIndexes() {
     const slug = isHomepage ? 'og-image' : relativePath;
     const outputBase = isHomepage ? 'static/images' : outputDir;
 
-    if (!existsSync(outputBase)) {
-      mkdirSync(outputBase, { recursive: true });
-    }
+    const outputFile = join(outputBase, `${slug}.png`);
+    const outputFileSquare = join(outputBase, `${slug}-square.png`);
 
-    await generateOG(title, join(outputBase, `${slug}.png`), 'landscape');
-    await generateOG(title, join(outputBase, `${slug}-square.png`), 'square');
+    // Ensure parent directory exists (handles nested paths like topics/ai)
+    mkdirSync(dirname(outputFile), { recursive: true });
+
+    await generateOG(title, outputFile, 'landscape');
+    await generateOG(title, outputFileSquare, 'square');
     console.log(`Generated: ${slug} (landscape + square)`);
   }
 }

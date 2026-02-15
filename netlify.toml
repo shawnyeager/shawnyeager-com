@@ -11,6 +11,9 @@
 [context.production.environment]
   HUGO_ENV = "production"
 
+[edge_functions]
+  external_node_modules = ["bolt11", "@getalby/sdk"]
+
 [[headers]]
 for = "/.well-known/*"
 [headers.values]

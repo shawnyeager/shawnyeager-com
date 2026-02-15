@@ -9,7 +9,9 @@
     "build": "npm run generate-essays && npm run generate-og && hugo"
   },
   "dependencies": {
+    "@getalby/sdk": "^7.0.0",
     "@resvg/resvg-js": "^2.6.2",
+    "bolt11": "^1.4.1",
     "glob": "^10.3.10",
     "gray-matter": "^4.0.3",
     "satori": "^0.10.14"
