@@ -1,11 +1,10 @@
 {{/*
 Purpose: Unified writing page at /writing/
 
-"Rhythm Break" v2:
-  - Essays: accent bar + large title + description + meta — open, substantial
-  - Notes: clustered in card containers — enclosed, compact
-  - Topics: brand-orange discipline map at top
-  - Clustering: consecutive notes grouped via $.Scratch state tracking
+Essays: expanded blocks (h3 title + description + meta) — reuses .latest-essay h3 pattern
+Notes: compact rows — reuses .note-item/.note-title/.note-date pattern from homepage
+Topics: nav links at top
+Clustering: consecutive notes grouped via $.Scratch state tracking
 */}}
 
 {{ define "main" }}
@@ -49,9 +48,11 @@ Purpose: Unified writing page at /writing/
             {{ $.Scratch.Set "inCluster" false }}
             {{ end }}
 
-            {{/* Essay block — accent bar + title + description + meta */}}
+            {{/* Essay block — reuses .latest-essay h3 a pattern */}}
             <article class="writing-essay">
-                <a href="{{ .RelPermalink }}" class="writing-essay-title">{{ .Title }}</a>
+                <header>
+                    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                </header>
                 {{ with .Params.description }}<p class="writing-essay-desc">{{ . }}</p>{{ end }}
                 <div class="writing-essay-meta">
                     <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
@@ -65,11 +66,11 @@ Purpose: Unified writing page at /writing/
             {{ $.Scratch.Set "inCluster" true }}
             {{ end }}
 
-            {{/* Note row — compact date + title */}}
-            <article class="writing-note">
+            {{/* Note row — reuses .note-item pattern from homepage */}}
+            <article class="note-item">
                 <a href="{{ .RelPermalink }}">
-                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
-                    <span class="writing-note-title">{{ .Title }}</span>
+                    <time class="note-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
+                    <span class="note-title">{{ .Title }}</span>
                 </a>
             </article>
         {{ end }}
