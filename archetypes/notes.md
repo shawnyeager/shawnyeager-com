@@ -2,12 +2,7 @@
 title: "{{ replace .File.ContentBaseName "-" " " | title }}"
 description: ""
 date: {{ .Date }}
+slug: {{ .File.ContentBaseName }}
 topics: []
 draft: true
 ---
-
-Opening paragraph.
-
-<!--more-->
-
-Rest of the essay.
