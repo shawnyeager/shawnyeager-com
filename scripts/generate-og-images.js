@@ -13,7 +13,7 @@ const LANDSCAPE = {
   height: 630,
   paddingV: 60,
   paddingH: 80,
-  title: { short: 112, medium: 96, long: 76 },
+  title: { short: 112, medium: 96, long: 72, xlong: 60 },
   line: { width: 80, height: 6 },
   domain: 22,
   gap: 48,
@@ -26,7 +26,7 @@ const SQUARE = {
   height: 1200,
   paddingV: 114,
   paddingH: 80,
-  title: { short: 213, medium: 183, long: 145 },
+  title: { short: 213, medium: 183, long: 136, xlong: 112 },
   line: { width: 80, height: 11 },
   domain: 42,
   gap: 91,
@@ -55,10 +55,12 @@ async function generateOG(title, outputPath, format = 'landscape') {
   let titleSize;
   if (titleLen <= 25) {
     titleSize = config.title.short;
-  } else if (titleLen <= 45) {
+  } else if (titleLen <= 40) {
     titleSize = config.title.medium;
-  } else {
+  } else if (titleLen <= 55) {
     titleSize = config.title.long;
+  } else {
+    titleSize = config.title.xlong;
   }
 
   const padding = `${config.paddingV * scale}px ${config.paddingH * scale}px`;

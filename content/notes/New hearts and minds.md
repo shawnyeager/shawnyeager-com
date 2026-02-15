@@ -14,7 +14,7 @@ In OpenClaw, `SOUL.md` gets created through a first-run conversation. The agent 
 
 Today, humans still configure which tools an agent can access, but MCP is becoming the HTTP of agent-to-tool communication. Microsoft launched an MCP server registry last fall. Google's A2A protocol enables agents to discover each other's capabilities. There are already dozens of skill registries---Smithery, Glama, SkillsMP, ClawHub---indexing tens of thousands of agent capabilities.
 
-[Skillpub](https://skillpub.net) is an early example of where this is heading. An agent needs a capability. It queries a Nostr relay, finds a skill, checks the publisher's web-of-trust ranking, optionally pays 500 sats via Cashu, verifies the cryptographic signature, and installs. No accounts, no app store reviewers, no humans in the loop. Discovery, trust evaluation, payment, and installation---all running autonomously.
+[Skillpub](https://skillpub.net) is an early example of where this is heading. An agent needs a capability. It queries a Nostr relay, finds a skill, checks the publisher's web-of-trust ranking, pays 500 sats via Cashu, verifies the cryptographic signature, and installs. No accounts, no app store reviewers, no humans in the loop. Discovery, trust evaluation, payment, and installation---all running autonomously.
 
 As agent-driven discovery takes hold, your product needs to be legible to `SOUL.md` and memorable to `MEMORY.md`. The agent's values determine what gets chosen. Its memory determines who gets trusted again.
 
