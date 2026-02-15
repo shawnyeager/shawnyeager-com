@@ -1,0 +1,57 @@
+{{/*
+Purpose: Unified writing page at /writing/
+Editorial index — type label, title, description.
+*/}}
+
+{{ define "main" }}
+    {{ partial "page-title.html" . }}
+
+    {{ with .Content }}
+    <div class="page-intro">
+        {{ . }}
+    </div>
+    {{ end }}
+
+    {{/* Topic navigation */}}
+    {{ if .Site.Taxonomies.topics }}
+    <nav class="writing-topics" aria-label="Browse by topic">
+        {{ range .Site.Taxonomies.topics }}<a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a> <span class="topic-sep" aria-hidden="true">·</span> {{ end }}
+    </nav>
+    {{ end }}
+
+    {{/* Collect all essays and notes, filter drafts in production */}}
+    {{ $essays := where .Site.RegularPages "Type" "essays" }}
+    {{ $notes := where .Site.RegularPages "Type" "notes" }}
+    {{ if not hugo.IsServer }}
+        {{ $essays = where $essays "Draft" false }}
+        {{ $notes = where $notes "Draft" false }}
+    {{ end }}
+
+    {{/* Merge, sort by date descending, and paginate */}}
+    {{ $allWriting := union $essays $notes }}
+    {{ $allWriting = sort $allWriting "Date" "desc" }}
+    {{ $paginator := .Paginate $allWriting }}
+
+    <section class="writing-stream">
+        {{ range $paginator.Pages }}
+        <article class="writing-item">
+            <a href="{{ .RelPermalink }}">
+                <span class="writing-item-title">{{ .Title }} <span class="writing-item-type">{{ .Type | singularize }}</span></span>
+                {{ with .Params.description }}<span class="writing-item-desc">{{ . }}</span>{{ end }}
+            </a>
+        </article>
+        {{ end }}
+    </section>
+
+    {{/* Pagination */}}
+    {{ if or $paginator.HasPrev $paginator.HasNext }}
+    <div class="writing-pagination">
+        {{ if $paginator.HasPrev }}
+        {{- partial "links/action.html" (dict "url" $paginator.Prev.URL "text" "Recent") -}}
+        {{ end }}
+        {{ if $paginator.HasNext }}
+        {{- partial "links/action.html" (dict "url" $paginator.Next.URL "text" "More") -}}
+        {{ end }}
+    </div>
+    {{ end }}
+{{ end }}

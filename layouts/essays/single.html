@@ -71,9 +71,9 @@ description: "A concise 1-2 sentence summary of the essay for SEO meta tags and 
             "action_text" "Zap this essay"
             "action_icon" "lightning"
             "action_event" .Site.Params.plausible_events.v4v_essay
-            "back_url" ("essays" | relURL)
-            "back_text" "All essays"
-            "back_event" .Site.Params.plausible_events.all_essays
+            "back_url" ("/writing/" | relURL)
+            "back_text" "All writing"
+            "back_event" .Site.Params.plausible_events.all_writing
         ) -}}
     </article>
 {{ end }}

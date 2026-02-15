@@ -2,15 +2,13 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/345f9641-36ce-4cef-a6ce-d2f0b1e1de73/deploy-status)](https://app.netlify.com/sites/shawnyeager-com/deploys)
 
-**The Gallery** — Finished essays and professional content.
+Essays, notes, and advisory services for frontier tech founders.
 
 ## About
 
-This is the public-facing side of a two-site system:
-- **shawnyeager.com** (this site) — Polished essays and published work
-- **[notes.shawnyeager.com](https://notes.shawnyeager.com)** — Rough notes and explorations
+All writing lives on one domain. Essays are longer, polished pieces at `/:slug/`. Notes are shorter observations at `/notes/:slug/`. A unified `/writing/` page shows everything chronologically.
 
-Content here is indexed by search engines and represents the professional brand. Essays are organized by topics and tags for browsing.
+Content is indexed by search engines and organized by topics for browsing.
 
 ## Quick Start
 
@@ -41,9 +39,13 @@ Key parameters in `hugo.toml`:
 [params]
   content_type = "essays"
   favicon_style = "solid"
-  noindex = false                 # Optional: set to true to block search engines
+  noindex = false
   show_read_time = true
   show_email_signup = true
+
+[permalinks]
+  essays = "/:slug/"
+  notes = "/notes/:slug/"
 ```
 
 ## Theme
@@ -64,8 +66,7 @@ git clone git@github.com:shawnyeager/tangerine-theme.git
 Use the `theme-dev.sh` script from the workspace root:
 ```bash
 cd ~/Work/shawnyeager
-./theme-dev.sh        # Start both sites
-./theme-dev.sh com    # Start only this site (port 1313)
+./theme-dev.sh com    # Start this site (port 1313)
 ```
 
 The script handles replace directives and cleanup automatically.
@@ -86,21 +87,17 @@ gh pr list --label theme-update
 
 ## Publishing Workflow
 
-1. Create essay: `hugo new content/essays/essay-slug.md`
-2. Write content with frontmatter (title, description, date, topics, tags)
+1. Create content: `hugo new content/essays/essay-slug.md` or `hugo new content/notes/note-slug.md`
+2. Write content with frontmatter (title, description, date, topics)
 3. Preview locally: `hugo server -D -p 1313`
 4. Push to master — Netlify builds and deploys automatically
 
 ## Key Features
 
-- **Clean permalinks** — `/essay-title/` instead of `/essays/2025/10/essay-title/`
-- **Reading time** — Displayed on all essays
-- **Topics & tags** — Taxonomy-based browsing
+- **Clean permalinks** — `/essay-title/` for essays, `/notes/note-title/` for notes
+- **Unified /writing/ page** — Chronological stream of all content
+- **Reading time** — Displayed on essays
+- **Topics** — Taxonomy-based browsing across both content types
 - **Newsletter signup** — Buttondown integration in footer
-- **RSS feed** — Available at `/feed.xml`
-- **Solid favicon** — Orange square distinguishes from notes.shawnyeager.com outlined square
-- **V4V Lightning payments** — Edge functions for LNURL-pay (also serves notes.shawnyeager.com via CORS)
-
-## Philosophy
-
-The Gallery is for finished work. Essays here are polished, professional, and public. This is where ideas that started rough in the Workshop get refined and published for broader audiences.
+- **RSS feeds** — `/feed.xml` (essays), `/notes/feed.xml` (notes)
+- **V4V Lightning payments** — Edge functions for LNURL-pay

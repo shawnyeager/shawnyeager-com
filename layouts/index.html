@@ -1,17 +1,16 @@
 {{/*
-Purpose: Homepage for shawnyeager.com - The Gallery
+Purpose: Homepage for shawnyeager.com
 
 Features:
 - Bio section from index.md content (includes CTA via shortcode)
 - Featured or latest essay display
-- Recent essays listing (5 most recent)
-- Topic browsing
+- Recent writing listing (5 most recent, mixed essays + notes)
 
 Logic:
 - Shows featured essay if one has featured: true in frontmatter
 - Otherwise shows most recent essay
+- Recent section merges essays and notes chronologically
 - Filters drafts in production
-- Topic list via topic-list.html partial
 
 Important Notes:
 - Overrides theme default index.html
@@ -30,12 +29,12 @@ Important Notes:
     </div>
 
     <!-- Featured or Latest Essay -->
-    {{ $posts := where .Site.RegularPages "Type" "essays" }}
+    {{ $essays := where .Site.RegularPages "Type" "essays" }}
     {{ if not hugo.IsServer }}
-    {{ $posts = where $posts "Draft" false }}
+    {{ $essays = where $essays "Draft" false }}
     {{ end }}
-    {{ $featuredPost := where $posts "Params.featured" true }}
-    {{ $latestPost := index $posts 0 }}
+    {{ $featuredPost := where $essays "Params.featured" true }}
+    {{ $latestPost := index $essays 0 }}
     {{ $isFeatured := false }}
     {{ if $featuredPost }}
         {{ $latestPost = index $featuredPost 0 }}
@@ -54,30 +53,35 @@ Important Notes:
     </article>
     {{ end }}
 
-    <!-- Recent Essays -->
-      {{/* Exclude featured essay from list to avoid duplication */}}
-      {{ $recentPosts := where $posts "Params.featured" "!=" true }}
-      {{/* If no featured, skip the first (already shown as Latest) */}}
-      {{ if not $isFeatured }}
-          {{ $recentPosts = after 1 $posts }}
-      {{ end }}
-      {{ if $recentPosts }}
-      <section class="recent-essays">
-          <h2 class="section-label-small">Recent Essays</h2>
-         {{ range first 5 $recentPosts }}
-         <article class="essay-item">
-             <a href="{{ .RelPermalink }}">
-                 <time datetime="{{ .Date.Format "2006-01-02" }}" class="essay-date">{{ .Date.Format "2006 · 01" }}</time>
-                 <span class="essay-title">{{ .Title }}</span>
-             </a>
-         </article>
-         {{ end }}
-         <div class="all-essays">{{- partial "links/action.html" (dict "url" ("essays" | relURL) "text" "All essays" "event" .Site.Params.plausible_events.all_essays) -}}</div>
-     </section>
-      {{ else }}
-      <section class="recent-essays">
-          <h2 class="section-label-small">Recent Essays</h2>
-          <p>No essays published yet.</p>
-      </section>
-      {{ end }}
+    <!-- Recent Writing (mixed essays + notes) -->
+    {{ $notes := where .Site.RegularPages "Type" "notes" }}
+    {{ if not hugo.IsServer }}
+    {{ $notes = where $notes "Draft" false }}
+    {{ end }}
+    {{ $allWriting := union $essays $notes }}
+    {{ $allWriting = sort $allWriting "Date" "desc" }}
+
+    {{/* Remove the featured/latest essay already shown above */}}
+    {{ $recentWriting := slice }}
+    {{ range $allWriting }}
+        {{ if ne .Permalink $latestPost.Permalink }}
+            {{ $recentWriting = $recentWriting | append . }}
+        {{ end }}
+    {{ end }}
+
+    {{ if $recentWriting }}
+    <section class="recent-essays">
+        <h2 class="section-label-small">Recent Writing</h2>
+        {{ range first 5 $recentWriting }}
+        {{ $singular := cond (eq .Type "notes") "note" "essay" }}
+        <article class="{{ $singular }}-item">
+            <a href="{{ .RelPermalink }}">
+                <time datetime="{{ .Date.Format "2006-01-02" }}" class="{{ $singular }}-date">{{ .Date.Format "2006 · 01" }}</time>
+                <span class="{{ $singular }}-title">{{ .Title }}</span>
+            </a>
+        </article>
+        {{ end }}
+        <div class="all-essays">{{- partial "links/action.html" (dict "url" ("/writing/" | relURL) "text" "All writing" "event" .Site.Params.plausible_events.all_writing) -}}</div>
+    </section>
+    {{ end }}
 {{ end }}

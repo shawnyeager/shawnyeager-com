@@ -245,6 +245,7 @@ async function main() {
   console.log('Generating OG images...\n');
 
   await processDirectory('content/essays', 'static/images/og-essays');
+  await processDirectory('content/notes', 'static/images/og-notes');
   await processDirectory('content', 'static/images/og-pages');
   await processSectionIndexes();
 

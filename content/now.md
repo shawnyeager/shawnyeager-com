@@ -18,7 +18,7 @@ show_title: true
 
 ## Writing & building
 
-Publishing monthly [essays](/essays/) on how frontier tech wins---sales, partnerships, and product. Thinking in public at [notes.shawnyeager.com](https://notes.shawnyeager.com).
+Publishing [essays](/essays/) and [notes](/notes/) on how frontier tech wins---sales, partnerships, and product.
 
 New projects:
 

@@ -1,0 +1,28 @@
+{{/*
+Purpose: Notes section listing at /notes/
+
+Not in nav — exists as a Hugo section page and for /notes/feed.xml.
+Simple paginated list with date + title format.
+*/}}
+
+{{ define "main" }}
+    {{ partial "page-title.html" . }}
+
+    <section class="recent-notes full-list">
+        {{ $pages := .Pages }}
+        {{ if not hugo.IsServer }}
+        {{ $pages = where $pages "Draft" false }}
+        {{ end }}
+        {{ $paginator := .Paginate $pages }}
+        {{ range $paginator.Pages }}
+        <article class="note-item">
+            <a href="{{ .RelPermalink }}">
+                <time datetime="{{ .Date.Format "2006-01-02" }}" class="note-date">{{ .Date.Format "2006 · 01" }}</time>
+                <span class="note-title">{{ .Title }}</span>
+            </a>
+        </article>
+        {{ end }}
+    </section>
+
+    {{ partial "pagination.html" (dict "paginator" $paginator) }}
+{{ end }}

@@ -1,5 +1,4 @@
 # Hugo Configuration for shawnyeager.com
-# Professional site - The Gallery (finished work)
 #
 # Shared configuration inherited from tangerine-theme/hugo.toml
 # This file contains only site-specific overrides
@@ -29,7 +28,7 @@ enableEmoji = true
 
 [outputs]
   home = ["HTML", "RSS"]
-  section = ["HTML"]
+  section = ["HTML", "RSS"]
 
 [outputFormats.RSS]
   mediaType = "application/rss+xml"
@@ -39,10 +38,11 @@ enableEmoji = true
   limit = 15
 
 [pagination]
-  pagerSize = 20
+  pagerSize = 10
 
 [permalinks]
   essays = "/:slug/"
+  notes = "/notes/:slug/"
 
 # =============================================================================
 # TAXONOMIES
@@ -88,10 +88,6 @@ enableEmoji = true
   email_signup_text = "I send new essays and updates via email."
   email_signup_action = "https://buttondown.com/api/emails/embed-subscribe/shawnyeager"
 
-  # Cross-site
-  secondary_site_url = "https://notes.shawnyeager.com"
-  secondary_site_name = "Notes"
-
   # Footer links
   show_now_footer = true
   show_v4v_footer = false
@@ -110,8 +106,7 @@ enableEmoji = true
   plausible_events.contact_calendar = "Calendar-Booking"
   plausible_events.trustrev = "CTA-TrustRev"
   plausible_events.essay_cta = "CTA-Read-More"
-  plausible_events.all_essays = "CTA-All-Essays"
-  plausible_events.cross_site_nav = "Cross-Site-Navigation"
+  plausible_events.all_writing = "CTA-All-Writing"
   plausible_events.v4v_essay = "CTA-V4V-Essay"
   plausible_events.v4v_footer = "CTA-V4V-Footer"
   plausible_events.connect_cta = "CTA-Lets-Win"
@@ -202,8 +197,8 @@ enableEmoji = true
 # =============================================================================
 
 [[menu.main]]
-  name = "Essays"
-  url = "/essays/"
+  name = "Writing"
+  url = "/writing/"
   weight = 1
 
 [[menu.main]]
