@@ -1,11 +1,10 @@
 {{/*
 Purpose: Unified writing page at /writing/
 
-All essays and notes in a single chronological stream, newest first.
-Paginated. Two tiers:
-  - Hero items (has hero_image): image + title + description — visual anchors
-  - Text-only items: date + title — scannable index rows
-Per-page CSS classes from .Type for correct styling.
+"Rhythm Break" pattern:
+  - Essays: full blocks (title + description + meta) — breathe
+  - Notes: compact single-line rows (date + title) — cluster
+  - Topics: typographic nav at top, linking to /topics/ pages
 */}}
 
 {{ define "main" }}
@@ -15,6 +14,15 @@ Per-page CSS classes from .Type for correct styling.
     <div class="page-intro">
         {{ . }}
     </div>
+    {{ end }}
+
+    {{/* Topic navigation — editorial section headers */}}
+    {{ if .Site.Taxonomies.topics }}
+    <nav class="writing-topics" aria-label="Browse by topic">
+        {{ range .Site.Taxonomies.topics }}
+        <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+        {{ end }}
+    </nav>
     {{ end }}
 
     {{/* Collect all essays and notes, filter drafts in production */}}
@@ -30,58 +38,44 @@ Per-page CSS classes from .Type for correct styling.
     {{ $allWriting = sort $allWriting "Date" "desc" }}
     {{ $paginator := .Paginate $allWriting }}
 
-    <section class="writing-list">
-        {{ range $index, $page := $paginator.Pages }}
-        {{ $singular := cond (eq .Type "notes") "note" "essay" }}
-        {{ $hasHero := .Params.hero_image }}
-        <article class="{{ $singular }}-item{{ if $hasHero }} has-hero{{ end }}">
-            {{ if $hasHero }}
-                {{ $img := resources.Get .Params.hero_image }}
-                {{ if $img }}
-                    {{ $resized := $img.Resize "800x" }}
-                    {{ $webp := $resized.Process "webp q85" }}
-                    <a href="{{ .RelPermalink }}" class="{{ $singular }}-hero-link">
-                        <img
-                            src="{{ $webp.RelPermalink }}"
-                            alt="{{ .Params.hero_alt | default .Title }}"
-                            class="{{ $singular }}-list-hero"
-                            {{ if eq $index 0 }}fetchpriority="high"{{ else }}loading="lazy"{{ end }}
-                            width="{{ $resized.Width }}"
-                            height="{{ $resized.Height }}"
-                        >
-                    </a>
+    <section class="writing-stream">
+        {{ range $paginator.Pages }}
+        {{ if eq .Type "essays" }}
+        {{/* Essay block — title, description, meta line with reading time and topics */}}
+        <article class="writing-essay">
+            <a href="{{ .RelPermalink }}" class="writing-essay-title">{{ .Title }}</a>
+            {{ with .Params.description }}<p class="writing-essay-desc">{{ . }}</p>{{ end }}
+            <div class="writing-essay-meta">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
+                {{ with .ReadingTime }}<span class="writing-essay-readtime">{{ . }} min</span>{{ end }}
+                {{ with .GetTerms "topics" }}
+                <span class="writing-essay-topics">
+                    {{ range . }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
+                </span>
                 {{ end }}
-                <a href="{{ .RelPermalink }}" class="{{ $singular }}-title-link">
-                    <span class="{{ $singular }}-title">{{ .Title }}</span>
-                </a>
-                {{ with .Params.description }}<p class="{{ $singular }}-excerpt">{{ . }}</p>{{ end }}
-            {{ else }}
-                <a href="{{ .RelPermalink }}">
-                    <time datetime="{{ .Date.Format "2006-01-02" }}" class="{{ $singular }}-date">{{ .Date.Format "2006 · 01" }}</time>
-                    <span class="{{ $singular }}-title">{{ .Title }}</span>
-                </a>
-            {{ end }}
+            </div>
         </article>
+        {{ else }}
+        {{/* Note row — compact date + title */}}
+        <article class="writing-note">
+            <a href="{{ .RelPermalink }}">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
+                <span class="writing-note-title">{{ .Title }}</span>
+            </a>
+        </article>
+        {{ end }}
         {{ end }}
     </section>
 
-    <nav class="writing-nav" aria-label="Browse writing">
-        {{ if .Site.Taxonomies.topics }}
-        <div class="topic-tags">
-            {{ range .Site.Taxonomies.topics }}
-            <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
-            {{ end }}
-        </div>
+    {{/* Pagination */}}
+    {{ if or $paginator.HasPrev $paginator.HasNext }}
+    <nav class="writing-pagination" aria-label="Browse writing">
+        {{ if $paginator.HasPrev }}
+        <a href="{{ $paginator.Prev.URL }}" class="pagination-prev" aria-label="Go to previous page: Recent"><span class="arrow" aria-hidden="true">←</span><span class="link-text">Recent</span></a>
         {{ end }}
-        {{ if or $paginator.HasPrev $paginator.HasNext }}
-        <div class="writing-nav-pagination">
-            {{ if $paginator.HasPrev }}
-            <a href="{{ $paginator.Prev.URL }}" class="pagination-prev" aria-label="Go to previous page: Recent"><span class="arrow" aria-hidden="true">←</span><span class="link-text">Recent</span></a>
-            {{ end }}
-            {{ if $paginator.HasNext }}
-            <a href="{{ $paginator.Next.URL }}" class="pagination-next" aria-label="Go to next page: More"><span class="link-text">More</span><span class="arrow" aria-hidden="true">→</span></a>
-            {{ end }}
-        </div>
+        {{ if $paginator.HasNext }}
+        <a href="{{ $paginator.Next.URL }}" class="pagination-next" aria-label="Go to next page: More"><span class="link-text">More</span><span class="arrow" aria-hidden="true">→</span></a>
         {{ end }}
     </nav>
+    {{ end }}
 {{ end }}
