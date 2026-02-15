@@ -1,6 +1,6 @@
 {{/*
 Purpose: Unified writing page at /writing/
-All items rendered uniformly — title only, no type distinction.
+Editorial index — title + description, no type distinction.
 */}}
 
 {{ define "main" }}
@@ -35,7 +35,10 @@ All items rendered uniformly — title only, no type distinction.
     <section class="writing-stream">
         {{ range $paginator.Pages }}
         <article class="writing-item">
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <a href="{{ .RelPermalink }}">
+                <span class="writing-item-title">{{ .Title }}</span>
+                {{ with .Params.description }}<span class="writing-item-desc">{{ . }}</span>{{ end }}
+            </a>
         </article>
         {{ end }}
     </section>
