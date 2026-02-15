@@ -1,10 +1,11 @@
 {{/*
 Purpose: Unified writing page at /writing/
 
-"Rhythm Break" pattern:
-  - Essays: full blocks (title + description + meta) — breathe
-  - Notes: compact single-line rows (date + title) — cluster
-  - Topics: typographic nav at top, linking to /topics/ pages
+"Rhythm Break" v2:
+  - Essays: accent bar + large title + description + meta — open, substantial
+  - Notes: clustered in card containers — enclosed, compact
+  - Topics: brand-orange discipline map at top
+  - Clustering: consecutive notes grouped via $.Scratch state tracking
 */}}
 
 {{ define "main" }}
@@ -16,7 +17,7 @@ Purpose: Unified writing page at /writing/
     </div>
     {{ end }}
 
-    {{/* Topic navigation — editorial section headers */}}
+    {{/* Topic navigation — brand-orange discipline map */}}
     {{ if .Site.Taxonomies.topics }}
     <nav class="writing-topics" aria-label="Browse by topic">
         {{ range .Site.Taxonomies.topics }}
@@ -39,31 +40,51 @@ Purpose: Unified writing page at /writing/
     {{ $paginator := .Paginate $allWriting }}
 
     <section class="writing-stream">
+        {{/* Track note clustering state */}}
+        {{ $.Scratch.Set "inCluster" false }}
+
         {{ range $paginator.Pages }}
         {{ if eq .Type "essays" }}
-        {{/* Essay block — title, description, meta line with reading time and topics */}}
-        <article class="writing-essay">
-            <a href="{{ .RelPermalink }}" class="writing-essay-title">{{ .Title }}</a>
-            {{ with .Params.description }}<p class="writing-essay-desc">{{ . }}</p>{{ end }}
-            <div class="writing-essay-meta">
-                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
-                {{ with .ReadingTime }}<span class="writing-essay-readtime">{{ . }} min</span>{{ end }}
-                {{ with .GetTerms "topics" }}
-                <span class="writing-essay-topics">
-                    {{ range . }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
-                </span>
-                {{ end }}
+            {{/* Close any open note cluster before an essay */}}
+            {{ if $.Scratch.Get "inCluster" }}
             </div>
-        </article>
+            {{ $.Scratch.Set "inCluster" false }}
+            {{ end }}
+
+            {{/* Essay block — accent bar + title + description + meta */}}
+            <article class="writing-essay">
+                <a href="{{ .RelPermalink }}" class="writing-essay-title">{{ .Title }}</a>
+                {{ with .Params.description }}<p class="writing-essay-desc">{{ . }}</p>{{ end }}
+                <div class="writing-essay-meta">
+                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
+                    {{ with .ReadingTime }}<span class="writing-essay-readtime">{{ . }} min</span>{{ end }}
+                    {{ with .GetTerms "topics" }}
+                    <span class="writing-essay-topics">
+                        {{ range . }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
+                    </span>
+                    {{ end }}
+                </div>
+            </article>
         {{ else }}
-        {{/* Note row — compact date + title */}}
-        <article class="writing-note">
-            <a href="{{ .RelPermalink }}">
-                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
-                <span class="writing-note-title">{{ .Title }}</span>
-            </a>
-        </article>
+            {{/* Open a note cluster if not already in one */}}
+            {{ if not ($.Scratch.Get "inCluster") }}
+            <div class="writing-notes-cluster">
+            {{ $.Scratch.Set "inCluster" true }}
+            {{ end }}
+
+            {{/* Note row — compact date + title */}}
+            <article class="writing-note">
+                <a href="{{ .RelPermalink }}">
+                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
+                    <span class="writing-note-title">{{ .Title }}</span>
+                </a>
+            </article>
         {{ end }}
+        {{ end }}
+
+        {{/* Close final note cluster if the page ends with notes */}}
+        {{ if $.Scratch.Get "inCluster" }}
+        </div>
         {{ end }}
     </section>
 
