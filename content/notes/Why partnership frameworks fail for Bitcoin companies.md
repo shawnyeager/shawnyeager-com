@@ -6,7 +6,6 @@ slug: bitcoin-and-partnerships
 topics:
   - bitcoin
   - partnerships
-  - strategy
 draft: false
 ---
 Most partnership frameworks assume you're working with established categories and known business models.

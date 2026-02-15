@@ -1,6 +1,6 @@
 ---
 title: "Writing"
-description: "Essays and notes on go-to-market strategy, Bitcoin sales, partnerships, and building at the frontier."
+description: "Essays and notes on go-to-market strategy, sales, product, and partnerships for frontier tech — Bitcoin, AI, distributed systems, and open source."
 show_title: true
 ---
-Observations on go-to-market strategy, Bitcoin sales, and building at the frontier.
+Go-to-market strategy, sales, product, and partnerships for frontier tech.

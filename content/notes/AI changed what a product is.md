@@ -3,7 +3,7 @@ title: AI changed what a product is
 description: "AI agents and composability protocols broke the assumption that products have edges, with consequences for positioning, pricing, and competitive dynamics."
 date: 2026-02-12T10:00:00Z
 slug: ai-changed-what-a-product-is
-topics: [product, go-to-market]
+topics: [ai, product, go-to-market]
 draft: false
 ---
 

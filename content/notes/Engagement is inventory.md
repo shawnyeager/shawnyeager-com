@@ -3,8 +3,8 @@ title: Engagement is inventory
 date: 2025-12-13T09:34:00Z
 slug: engagement-is-inventory
 topics:
-  - freedom-tech
-  - trust
+  - bitcoin
+  - product
 draft: false
 description: Extractive platforms profit from degrading discourse. Nostr + Bitcoin fix the incentives.
 ---

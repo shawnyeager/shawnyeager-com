@@ -5,7 +5,6 @@ slug: the-trust-paradox
 date: 2025-09-14
 topics:
   - bitcoin
-  - trust
 draft: false
 ---
 Bitcoin is designed to minimize trust. That's the whole point---trustless, permissionless, decentralized.

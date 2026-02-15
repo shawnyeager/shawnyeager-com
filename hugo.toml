@@ -207,6 +207,11 @@ enableEmoji = true
   weight = 2
 
 [[menu.main]]
+  name = "Podcast"
+  url = "https://trustrevolution.co"
+  weight = 3
+
+[[menu.main]]
   name = "Contact"
   url = "/contact/"
-  weight = 3
+  weight = 4

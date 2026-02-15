@@ -5,8 +5,6 @@ date: 2025-10-21
 slug: aws-is-the-achilles-heel
 topics:
   - bitcoin
-  - trust
-  - observations
 draft: false
 ---
 This became readily apparent today as the infrastructure giant suffered one of its most severe outages in recent history. Everything from social media apps to publishing platforms went down. Many still are, late into the evening.

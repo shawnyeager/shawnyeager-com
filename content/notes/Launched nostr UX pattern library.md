@@ -5,7 +5,6 @@ date: 2025-11-08T18:30:00Z
 slug: nostr-ux-pattern-library-launch
 topics:
   - product
-  - trust
 draft: false
 ---
 

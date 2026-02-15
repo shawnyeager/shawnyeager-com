@@ -3,7 +3,7 @@ title: "Cloudflare went down again. Time to reframe resilience."
 description: "Recurring infrastructure failures create an opening: reframe decentralization as risk management, not ideology"
 date: 2025-11-19T11:25:00Z
 slug: reframe-resilience
-topics: [bitcoin, freedom-tech, go-to-market]
+topics: [bitcoin, go-to-market]
 draft: false
 ---
 Cloudflare crashed yesterday. X, ChatGPT, Uber---all down. Even DownDetector went offline because it runs on Cloudflare.
