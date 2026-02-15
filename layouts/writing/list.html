@@ -20,9 +20,7 @@ Purpose: Unified writing page at /writing/
     {{/* Topic navigation — brand-orange discipline map */}}
     {{ if .Site.Taxonomies.topics }}
     <nav class="writing-topics" aria-label="Browse by topic">
-        {{ range .Site.Taxonomies.topics }}
-        <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
-        {{ end }}
+        {{ range .Site.Taxonomies.topics }}<a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a> <span class="topic-sep" aria-hidden="true">·</span> {{ end }}
     </nav>
     {{ end }}
 
@@ -58,11 +56,6 @@ Purpose: Unified writing page at /writing/
                 <div class="writing-essay-meta">
                     <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
                     {{ with .ReadingTime }}<span class="writing-essay-readtime">{{ . }} min</span>{{ end }}
-                    {{ with .GetTerms "topics" }}
-                    <span class="writing-essay-topics">
-                        {{ range . }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
-                    </span>
-                    {{ end }}
                 </div>
             </article>
         {{ else }}
@@ -88,15 +81,15 @@ Purpose: Unified writing page at /writing/
         {{ end }}
     </section>
 
-    {{/* Pagination */}}
+    {{/* Pagination — uses site action link style for consistency */}}
     {{ if or $paginator.HasPrev $paginator.HasNext }}
-    <nav class="writing-pagination" aria-label="Browse writing">
+    <div class="writing-pagination">
         {{ if $paginator.HasPrev }}
-        <a href="{{ $paginator.Prev.URL }}" class="pagination-prev" aria-label="Go to previous page: Recent"><span class="arrow" aria-hidden="true">←</span><span class="link-text">Recent</span></a>
+        {{- partial "links/action.html" (dict "url" $paginator.Prev.URL "text" "Recent") -}}
         {{ end }}
         {{ if $paginator.HasNext }}
-        <a href="{{ $paginator.Next.URL }}" class="pagination-next" aria-label="Go to next page: More"><span class="link-text">More</span><span class="arrow" aria-hidden="true">→</span></a>
+        {{- partial "links/action.html" (dict "url" $paginator.Next.URL "text" "More") -}}
         {{ end }}
-    </nav>
+    </div>
     {{ end }}
 {{ end }}
