@@ -20,6 +20,8 @@ Revenue stalls and you look at sales. The instinct makes sense. Sales is where t
 
 Sales is also hirable. When revenue is the problem, hiring a rep or a sales leader is doing something. It's a concrete move. The board sees action. You see action. It feels like momentum, even when nothing upstream has changed.
 
+<!--more-->
+
 But most early-stage revenue problems don't live in sales. They surface there, sure, and the visibility of sales makes it the obvious target. However, the actual constraint usually sits elsewhere, invisible. CB Insights found 42% of startup failures trace to no market need---not sales, not funding, not competition.
 
 ## The dependency chain

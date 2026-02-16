@@ -13,6 +13,7 @@ languageCode = "en-us"
 defaultContentLanguage = "en"
 enableRobotsTXT = true
 enableEmoji = true
+enableGitInfo = true
 
 # =============================================================================
 # HUGO MODULE
@@ -93,23 +94,25 @@ enableEmoji = true
   show_v4v_footer = false
 
   # Social
-  copyright = "Copyright © 2025, Shawn Yeager"
+  copyright = "Copyright © 2026, Shawn Yeager"
   nostr = "https://shawnyeager.com/nostr"
   github = "https://github.com/shawnyeager"
   twitter_handle = "shawnyeager"
 
   # Analytics
   plausible_script_id = "pa-Qxf1mpF6qNZ8714Ucvs50"
-  plausible_form_event = "Form-Submission"
-  plausible_events.contact_email = "Email-Contact"
-  plausible_events.contact_signal = "Signal-Contact"
-  plausible_events.contact_calendar = "Calendar-Booking"
-  plausible_events.trustrev = "CTA-TrustRev"
-  plausible_events.essay_cta = "CTA-Read-More"
-  plausible_events.all_writing = "CTA-All-Writing"
-  plausible_events.v4v_essay = "CTA-V4V-Essay"
-  plausible_events.v4v_footer = "CTA-V4V-Footer"
-  plausible_events.connect_cta = "CTA-Lets-Win"
+  plausible_form_event = "form-submission"
+  plausible_events.contact_email = "email-contact"
+  plausible_events.contact_signal = "signal-contact"
+  plausible_events.contact_calendar = "calendar-booking"
+  plausible_events.essay_cta = "cta-read-more"
+  plausible_events.all_writing = "cta-all-writing"
+  plausible_events.v4v_essay = "cta-v4v-essay"
+  plausible_events.book_call = "cta-book-call"
+  plausible_events.gtm_diagnostic = "cta-gtm-diagnostic"
+  plausible_events.podcast = "cta-podcast"
+  plausible_events.advisory = "cta-advisory"
+  plausible_events.media_download = "cta-media-download"
 
 [params.author]
   name = "Shawn Yeager"
@@ -167,7 +170,7 @@ enableEmoji = true
 [security]
   enableInlineShortcodes = false
   [security.exec]
-    allow = ['^(dart-)?sass(-embedded)?$', '^go$', '^npx$', '^postcss$']
+    allow = ['^(dart-)?sass(-embedded)?$', '^go$', '^git$', '^npx$', '^postcss$']
   [security.funcs]
     getenv = ['^HUGO_', '^CI$']
 

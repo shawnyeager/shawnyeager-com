@@ -4,6 +4,9 @@ description: "You'll receive occasional essays on go-to-market strategy, revenue
 type: page
 show_title: true
 hide_footer_signup: true
+noindex: true
+sitemap:
+  disable: true
 build:
   list: false
   render: true

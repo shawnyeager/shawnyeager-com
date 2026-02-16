@@ -21,7 +21,6 @@ export const VALID_USERNAMES = usernamesEnv.split(",").map(s => s.trim());
 
 // Origins allowed to make cross-origin requests to V4V endpoints
 const CORS_ALLOWED_ORIGINS = [
-  "https://notes.shawnyeager.com",
   "https://shawnyeager.com",
 ];
 
@@ -32,10 +31,9 @@ export function getCorsHeaders(req: Request): Record<string, string> {
   const origin = req.headers.get("Origin");
   if (!origin) return {};
 
-  // Allow deploy preview origins (e.g., deploy-preview-123--shawnyeager-notes.netlify.app)
+  // Allow deploy preview origins (e.g., deploy-preview-123--shawnyeager-com.netlify.app)
   const isAllowed = CORS_ALLOWED_ORIGINS.includes(origin) ||
-    origin.includes("--shawnyeager-com.netlify.app") ||
-    origin.includes("--shawnyeager-notes.netlify.app");
+    origin.includes("--shawnyeager-com.netlify.app");
 
   if (!isAllowed) return {};
 

@@ -9,6 +9,6 @@ sectors: "Bitcoin · AI · Distributed Systems · Open Source"
 You built something real. I build the playbook. 30 years commercializing products the market didn't understand. $300M in revenue.
 
 {{< cta-group >}}
-{{< cta url="/talk" text="Book a free call" variant="ghost" event="calendar_cta" >}}
-{{< cta url="https://gtm.shawnyeager.com" text="Or come prepared: take the GTM diagnostic" variant="secondary" event="gtm_diagnostic" >}}
+{{< cta url="/talk" text="Book a free call" variant="ghost" event="cta-book-call" >}}
+{{< cta url="https://gtm.shawnyeager.com" text="Or come prepared: take the GTM diagnostic" variant="secondary" event="cta-gtm-diagnostic" >}}
 {{< /cta-group >}}

@@ -30,10 +30,10 @@ New projects:
 
 Season 3 begins recording next week. Previous seasons explored decentralized reputation, Bitcoin as human rights infrastructure, and why voluntary payment struggles against ads. New season continues the conversation on how trust systems shape freedom tech adoption.
 
-{{< cta url="/podcast" text="Listen now" event="trustrev" >}}
+{{< cta url="/podcast" text="Listen now" event="cta-podcast" >}}
 
 ## Advisory & operating work
 
 Working with founders through fractional roles, project-based consulting, and advisory. Current work includes go-to-market strategy, channel sales frameworks, and proof-of-concept programs for enterprise adoption. The goal: compete commercially so frontier tech wins on distribution and user experience, not just technology.
 
-{{< cta url="/advisory" text="How I help" event="advisory_cta" >}}
+{{< cta url="/advisory" text="How I help" event="cta-advisory" >}}
