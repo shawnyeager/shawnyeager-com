@@ -16,6 +16,10 @@ static/images/og-image-square.png
 .netlify/
 deno.lock
 
+# Vale (downloaded packages, not custom rules)
+.vale/styles/proselint/
+.vale/styles/write-good/
+
 # Node.js
 node_modules/
 
