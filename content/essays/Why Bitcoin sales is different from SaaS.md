@@ -55,10 +55,10 @@ Bitcoin sales cycles are longer, more complex, and more relationship-dependent t
 
 Enterprise Bitcoin adoption faces unique obstacles that don't exist in traditional software sales:
 
-- **Regulatory uncertainty** -- Legal teams need to approve something that regulators are still figuring out
-- **Operational complexity** -- Integrating Bitcoin infrastructure touches treasury, compliance, product, engineering, and operations
-- **Risk aversion** -- CFOs are compensated for stability, not innovation
-- **Education gaps** -- Decision-makers often don't understand the technology deeply enough to evaluate solutions
+- **Regulatory uncertainty**---Legal teams need to approve something that regulators are still figuring out
+- **Operational complexity**---Integrating Bitcoin infrastructure touches treasury, compliance, product, engineering, and operations
+- **Risk aversion**---CFOs are compensated for stability, not innovation
+- **Education gaps**---Decision-makers often don't understand the technology deeply enough to evaluate solutions
 
 Bitcoin sales processes involve more stakeholders, longer education cycles, and more hand-holding than typical enterprise software deals.
 

@@ -22,15 +22,15 @@ Traditional partnership plays:
 
 Bitcoin companies often can't deliver on these prerequisites because:
 
-1. **Categories are still forming** --- Is your product custody? Infrastructure? Payments? All three?
+1. **Categories are still forming**---Is your product custody? Infrastructure? Payments? All three?
 
-2. **Business models are evolving** --- SaaS pricing doesn't work when you're dealing with network effects and transaction economics
+2. **Business models are evolving**---SaaS pricing doesn't work when you're dealing with network effects and transaction economics
 
-3. **Regulatory uncertainty** --- Partners don't want to commit when regulatory landscape is unclear
+3. **Regulatory uncertainty**---Partners don't want to commit when regulatory landscape is unclear
 
-4. **Education burden** --- Partners need to educate their teams, who need to educate customers
+4. **Education burden**---Partners need to educate their teams, who need to educate customers
 
-5. **Long sales cycles** --- Traditional partnership ROI calculations break when deals take 12-18 months
+5. **Long sales cycles**---Traditional partnership ROI calculations break when deals take 12-18 months
 
 The partnerships that work in Bitcoin are less formal and more collaborative. Joint education initiatives. Technical integrations with flexible commercial terms. Strategic relationships built on shared vision rather than forecasted revenue.
 

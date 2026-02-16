@@ -22,9 +22,9 @@ Publishing [essays](/essays/) and [notes](/notes/) on how frontier tech wins---s
 
 New projects:
 
-- [GTM Map](https://gtm.shawnyeager.com) --- Plot your go-to-market readiness across foundation, growth, and monetization---from market clarity to retention. Answer the go-to-market questions that come after product-market fit.
+- [GTM Map](https://gtm.shawnyeager.com)---Plot your go-to-market readiness across foundation, growth, and monetization---from market clarity to retention. Answer the go-to-market questions that come after product-market fit.
 
-- [Hearsay](https://github.com/shawnyeager/hearsay) --- Feed customer interview transcripts to an LLM pipeline and get frequency-ranked problems, solution desires, and concrete build recommendations. An expansion of the Interview to Roadmap Kit with improved analysis and output formats.
+- [Hearsay](https://github.com/shawnyeager/hearsay)---Feed customer interview transcripts to an LLM pipeline and get frequency-ranked problems, solution desires, and concrete build recommendations. An expansion of the Interview to Roadmap Kit with improved analysis and output formats.
 
 ## Trust Revolution podcast
 

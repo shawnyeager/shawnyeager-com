@@ -1,0 +1,8 @@
+extends: existence
+message: "Use closed em-dash with no spaces: '---' in body, '—' in frontmatter."
+level: error
+nonword: true
+tokens:
+  - ' --- '
+  - ' -- '
+  - ' — '

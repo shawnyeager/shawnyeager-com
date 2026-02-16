@@ -60,11 +60,11 @@ High-resolution headshot available for download:
 
 {{< youtube-preview id="kbMfJtEHHLQ" title="Open Communities in the Age of Control" >}}
 
-**Imagine IF Conference** --- Panel discussion with Derek Ross and Matt O'Dell on the future of digital communications. Explored broken incentives in digital platforms. Discussed how open protocols like Nostr enable user ownership and control.
+**Imagine IF Conference**---Panel discussion with Derek Ross and Matt O'Dell on the future of digital communications. Explored broken incentives in digital platforms. Discussed how open protocols like Nostr enable user ownership and control.
 
 {{< youtube-preview id="FbZwXDDD1rc" title="Where Does the Yield Come From?" >}}
 
-**Where Does the Yield Come From?** --- Panel discussion with Max Kei, Myles Snider, and Jesse Schrader examining Bitcoin financial products. Covered where yield originates in Bitcoin-backed lending and investment products. Addressed risks and opportunities.
+**Where Does the Yield Come From?**---Panel discussion with Max Kei, Myles Snider, and Jesse Schrader examining Bitcoin financial products. Covered where yield originates in Bitcoin-backed lending and investment products. Addressed risks and opportunities.
 
 ## Trust Revolution podcast
 

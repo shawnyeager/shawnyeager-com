@@ -2,6 +2,7 @@
 # pre-commit hook for Hugo site repos
 # 1. Blocks commits on master (must use feature branches)
 # 2. Blocks replace directives in go.mod (breaks Netlify builds)
+# 3. Lints staged content files with Vale (prose style)
 
 # Skip in CI/automated contexts
 if [ -n "$CI" ] || [ -n "$GITHUB_ACTIONS" ]; then
@@ -49,6 +50,42 @@ if git diff --cached --name-only | grep -q "^go.mod$"; then
         echo "This commit has been BLOCKED."
         echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
         exit 1
+    fi
+fi
+
+# Lint staged content files with Vale
+STAGED_MD=()
+while IFS= read -r -d '' file; do
+    STAGED_MD+=("$file")
+done < <(git diff --cached --name-only --diff-filter=ACM -z | grep -z '^content/.*\.md$')
+if [ ${#STAGED_MD[@]} -gt 0 ]; then
+    # Activate mise so vale is on PATH
+    eval "$(mise activate bash 2>/dev/null)" 2>/dev/null
+    if ! command -v vale &>/dev/null; then
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo "WARNING: Vale is not installed. Prose linting skipped."
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo ""
+        echo "TO INSTALL:"
+        echo "  mise install vale"
+        echo "  vale sync"
+        echo ""
+    else
+        VALE_OUTPUT=$(vale "${STAGED_MD[@]}" 2>&1)
+        VALE_EXIT=$?
+        if [ $VALE_EXIT -ne 0 ]; then
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            echo "ERROR: Vale found prose issues in staged content!"
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            echo ""
+            echo "$VALE_OUTPUT"
+            echo ""
+            echo "TO FIX: Resolve the issues above, then re-stage and commit."
+            echo ""
+            echo "This commit has been BLOCKED."
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            exit 1
+        fi
     fi
 fi
 

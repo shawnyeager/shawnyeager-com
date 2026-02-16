@@ -1,6 +1,6 @@
 ---
 title: "SOUL.md and MEMORY.md are the new hearts and minds"
-description: "Agent-driven discovery replaces ad-driven attention. Products need to be legible to SOUL.md and memorable to MEMORY.md — and you can't buy placement in either file."
+description: "Agent-driven discovery replaces ad-driven attention. Products need to be legible to SOUL.md and memorable to MEMORY.md—and you can't buy placement in either file."
 date: 2026-02-15T10:00:00Z
 slug: new-hearts-and-minds
 topics: [ai, go-to-market]

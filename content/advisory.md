@@ -11,12 +11,12 @@ hide_footer_signup: true
 
 Your product works. Early customers prove it. But revenue isn't scaling.
 
-You're not ready for a full-time CRO -- or you tried a sales hire and it failed. You need someone who understands what you built before they try to sell it.
+You're not ready for a full-time CRO---or you tried a sales hire and it failed. You need someone who understands what you built before they try to sell it.
 
-I go deep on your product, market, and early wins. Then I build the playbook that fits -- positioning, process, pipeline. I join calls, pressure-test deals, and help you close. When you're ready to hire, I help you find the right person.
+I go deep on your product, market, and early wins. Then I build the playbook that fits---positioning, process, pipeline. I join calls, pressure-test deals, and help you close. When you're ready to hire, I help you find the right person.
 
 {{< diagnostic-cta >}}
-Not sure where you're stuck? [Find the gaps](https://gtm.shawnyeager.com) in your go-to-market — 10 minutes, free.
+Not sure where you're stuck? [Find the gaps](https://gtm.shawnyeager.com) in your go-to-market---10 minutes, free.
 {{< /diagnostic-cta >}}
 
 {{< section-label "How I Work" >}}
@@ -28,19 +28,19 @@ Build a sales motion that works.
 
 Weekly 60-minute working sessions. Direct access via Slack or email (24-hour response).
 
-**Month 1: Clarity** --
+**Month 1: Clarity**---
 4+ hours of deep-dive sessions on product, market, and traction so far.
 I join 3-5 customer conversations with you.
 Deliverable: Ideal customer profile and positioning document.
 
-**Month 2: Focus** --
+**Month 2: Focus**---
 Full sales process mapped.
 Outreach messaging developed.
 Pricing and packaging pressure-tested.
 Deliverable: Complete sales playbook.
 
-**Month 3: Momentum** --
-Active pipeline building -- I'm in the room.
+**Month 3: Momentum**---
+Active pipeline building---I'm in the room.
 Deal-by-deal coaching on live opportunities.
 Sales hire criteria defined (if needed).
 Deliverable: Final playbook + 90-day forward plan.
@@ -87,7 +87,7 @@ Shawn's expertise in Bitcoin business strategy has been crucial in developing BD
 
 {{< section-label "Background" >}}
 
-I've generated over $300M in revenue across three decades -- starting on Microsoft's first browser team, then commercializing early internet infrastructure at Exodus, IoT hardware at ANKR, personal data sovereignty at Dataswift, and Bitcoin payments at Bottlepay, NYDIG, and Amboss.
+I've generated over $300M in revenue across three decades---starting on Microsoft's first browser team, then commercializing early internet infrastructure at Exodus, IoT hardware at ANKR, personal data sovereignty at Dataswift, and Bitcoin payments at Bottlepay, NYDIG, and Amboss.
 
 Technical enough to go deep. Commercial enough to close.
 
