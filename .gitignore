@@ -6,6 +6,7 @@ resources/
 # Generated files
 lighthouse-report.*
 static/images/og-essays/
+static/images/og-notes/
 static/images/og-pages/
 static/images/og-sections/
 static/images/og-image.png

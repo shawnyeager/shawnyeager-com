@@ -6,6 +6,8 @@ type: page
 show_title: true
 hide_footer_signup: true
 noindex: true
+sitemap:
+  disable: true
 build:
   list: false
   render: true

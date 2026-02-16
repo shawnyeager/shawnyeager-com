@@ -22,9 +22,10 @@
       "essay_title" .title
       "essay_slug" .slug
       "hide_footer_signup" true
-      "list" false
-      "sitemap_disable" true
+      "noindex" true
     )
+    "build" (dict "list" "never")
+    "sitemap" (dict "disable" true)
   }}
   {{ $.AddPage $page }}
 {{ end }}

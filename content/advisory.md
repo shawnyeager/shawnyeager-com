@@ -99,4 +99,4 @@ Technical enough to go deep. Commercial enough to close.
 3. If it's a fit, I'll propose a path forward
 {{< /what-to-expect >}}
 
-{{< cta url="/talk" text="Book a free call" variant="primary" event="advisory_cta" >}}
+{{< cta url="/talk" text="Book a free call" variant="primary" event="cta-book-call" >}}
