@@ -15,7 +15,7 @@ Editorial index — type label, title, description.
     {{/* Topic navigation */}}
     {{ if .Site.Taxonomies.topics }}
     <nav class="writing-topics" aria-label="Browse by topic">
-        {{ range .Site.Taxonomies.topics }}<a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a> <span class="topic-sep" aria-hidden="true">·</span> {{ end }}
+        {{ $topics := .Site.Taxonomies.topics }}{{ $last := sub (len $topics) 1 }}{{ range $i, $t := $topics }}<a href="{{ $t.Page.RelPermalink }}">{{ $t.Page.Title }}</a>{{ if ne $i $last }} <span class="topic-sep" aria-hidden="true">·</span> {{ end }}{{ end }}
     </nav>
     {{ end }}
 
