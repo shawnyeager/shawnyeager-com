@@ -16,7 +16,7 @@ Today, humans still configure which tools an agent can access, but MCP is becomi
 
 [Skillpub](https://skillpub.net) is an early example of where this is heading. An agent needs a capability. It queries a Nostr relay, finds a skill, checks the publisher's web-of-trust ranking, pays 500 sats via Cashu, verifies the cryptographic signature, and installs. No accounts, no app store reviewers, no humans in the loop. Discovery, trust evaluation, payment, and installation---all running autonomously.
 
-As agent-driven discovery takes hold, your product needs to be legible to `SOUL.md` and memorable to `MEMORY.md`. The agent's values determine what gets chosen. Its memory determines who gets trusted again.
+As agent-driven discovery takes hold, your software needs to be legible to `SOUL.md` and memorable to `MEMORY.md`. The agent's values determine what gets chosen. Its memory determines who gets trusted again.
 
 `SOUL.md` is shaped by the human, but not written by the human. It emerges from a conversation. The values encoded there aren't a spec sheet. They're what the person actually cares about. Marketing to that layer means your product has to align with what people genuinely value, not just what they'll click on.
 
