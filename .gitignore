@@ -11,6 +11,8 @@ static/images/og-pages/
 static/images/og-sections/
 static/images/og-image.png
 static/images/og-image-square.png
+static/llms.txt
+static/llms-full.txt
 
 # Netlify
 .netlify/
