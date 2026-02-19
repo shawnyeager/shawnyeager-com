@@ -9,8 +9,15 @@
 
   NOTE: Uses flat path "v4v-{slug}" to avoid Hugo creating intermediate branch
   pages that conflict with essay permalinks. The "url" key overrides output location.
+
+  WARNING: DO NOT move keys out of "params" into top-level dict keys.
+  Hugo 0.153+ silently ignores content adapter pages that use top-level
+  "build" or "sitemap" keys — the pages simply don't get created.
+  This has been broken and fixed twice (1d04a6c, 6666467).
+  SEO exclusion is handled by: noindex in params + robots.txt disallow.
 */}}
 {{ range site.Data.essays }}
+  {{/* All SEO/visibility controls MUST stay inside params — see warning above */}}
   {{ $page := dict
     "path" (printf "v4v-%s" .slug)
     "url" (printf "/%s/v4v/" .slug)
