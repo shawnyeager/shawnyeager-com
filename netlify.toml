@@ -12,6 +12,12 @@
   HUGO_ENV = "production"
 
 [context.deploy-preview]
+  command = "npm ci && npm run generate-essays && npm run generate-og && npm run generate-llms-txt && hugo --gc --minify --buildDrafts"
+
+[context.branch-deploy]
+  command = "npm ci && npm run generate-essays && npm run generate-og && npm run generate-llms-txt && hugo --gc --minify --buildDrafts"
+
+[context.deploy-preview]
   command = "npm ci && npm run generate-essays && npm run generate-og && npm run generate-llms-txt && hugo --gc --minify --buildFuture --buildDrafts"
 
 [context.branch-deploy]

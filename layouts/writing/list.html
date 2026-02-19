@@ -22,7 +22,7 @@ Editorial index — type label, title, description.
     {{/* Collect all essays and notes, filter drafts in production */}}
     {{ $essays := where .Site.RegularPages "Type" "essays" }}
     {{ $notes := where .Site.RegularPages "Type" "notes" }}
-    {{ if not hugo.IsServer }}
+    {{ if and (not hugo.IsServer) (eq hugo.Environment "production") }}
         {{ $essays = where $essays "Draft" false }}
         {{ $notes = where $notes "Draft" false }}
     {{ end }}

@@ -10,7 +10,7 @@ Simple paginated list with date + title format.
 
     <section class="recent-notes full-list">
         {{ $pages := .Pages }}
-        {{ if not hugo.IsServer }}
+        {{ if and (not hugo.IsServer) (eq hugo.Environment "production") }}
         {{ $pages = where $pages "Draft" false }}
         {{ end }}
         {{ $paginator := .Paginate $pages }}
