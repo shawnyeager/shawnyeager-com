@@ -71,7 +71,9 @@ enableGitInfo = true
 # =============================================================================
 
 [params]
-  robotsDisallow = ["/resume/"]
+  # V4V disallow: content adapter can't use top-level sitemap/build keys (Hugo 0.153+ bug)
+  # so robots.txt is the crawl exclusion mechanism. See content/_content.gotmpl for details.
+  robotsDisallow = ["/resume/", "/*/v4v/"]
   site_display_name = "Shawn Yeager"
   description = "Go-to-market advisory for founders building at the frontier—Bitcoin, AI, distributed systems. Deep product understanding, hands-on deal support."
 
