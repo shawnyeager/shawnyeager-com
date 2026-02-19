@@ -30,7 +30,7 @@ Important Notes:
 
     <!-- Featured or Latest Essay -->
     {{ $essays := where .Site.RegularPages "Type" "essays" }}
-    {{ if not hugo.IsServer }}
+    {{ if and (not hugo.IsServer) (eq hugo.Environment "production") }}
     {{ $essays = where $essays "Draft" false }}
     {{ end }}
     {{ $featuredPost := where $essays "Params.featured" true }}
@@ -55,7 +55,7 @@ Important Notes:
 
     <!-- Recent Writing (mixed essays + notes) -->
     {{ $notes := where .Site.RegularPages "Type" "notes" }}
-    {{ if not hugo.IsServer }}
+    {{ if and (not hugo.IsServer) (eq hugo.Environment "production") }}
     {{ $notes = where $notes "Draft" false }}
     {{ end }}
     {{ $allWriting := union $essays $notes }}

@@ -16,7 +16,6 @@ slug: limits-of-persuasion
 topics:
   - bitcoin
   - go-to-market
-tags: []
 draft: false
 hero_image: images/essays/limits-of-persuasion.png
 hero_alt: >-
