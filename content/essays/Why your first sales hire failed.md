@@ -7,6 +7,9 @@ topics:
   - go-to-market
 draft: false
 description: Most first sales hires fail not because of the rep, but because positioning was never solved and they walked into fog instead of a playbook.
+tags: []
+cta: true
+summary: "Most first sales hires fail not because of the rep. They fail because positioning was never solved and the rep walked into fog instead of a playbook. Fix the foundation first—ICP, value prop, reproducible close—then hire someone to run it."
 ---
 
 The hire looked good on paper. Track record at a company you'd heard of. They'd closed enterprise. References checked out. In the interview they could talk about process, pipeline hygiene, qualification. They had the energy.
@@ -14,6 +17,8 @@ The hire looked good on paper. Track record at a company you'd heard of. They'd 
 Six months later, deals were dying in the middle of the funnel. You watched the CRM. Activity was there—calls, demos, follow-ups. Nothing was closing. You extended the ramp. You started sitting in on calls. Eventually you let them go and called it a fit issue.
 
 It wasn't a fit issue.
+
+<!--more-->
 
 ## What they walked into
 
