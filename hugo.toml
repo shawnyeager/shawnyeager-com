@@ -71,7 +71,7 @@ enableGitInfo = true
 # =============================================================================
 
 [params]
-  robotsDisallow = ["/resume/"]
+  robotsDisallow = ["/resume/", "/*/v4v/"]
   site_display_name = "Shawn Yeager"
   description = "Go-to-market advisory for founders building at the frontier—Bitcoin, AI, distributed systems. Deep product understanding, hands-on deal support."
 
