@@ -7,11 +7,9 @@ topics:
   - sales
   - go-to-market
   - bitcoin
-tags: []
 draft: false
 nostr_id: nevent1qvzqqqr4guq3gamnwvaz7tmjv4kxz7fwv3sk6atn9e5k7qgdwaehxw309ahx7uewd3hkcqgmwaehxw309aex2mrp0yh8x6rpwah8jetpvajhytnrdaksqg93fm2qnxmd87j0dg7xp9rf4ppvw672lqx2746r6ugd7khkwvpldskcjgud
 nostr_image: https://i.nostr.build/81rJbBPQ0VjnEYKz.png
-cta: true
 summary: "You can't close deals if buyers can't explain what you do. You can't position if you don't know who actually buys. The sequence: market clarity, positioning, sales motion. Break a link upstream and everything downstream fails."
 hero_image: images/essays/revenue-isnt-sales-problem.png
 hero_alt: A seedling with small leaves above ground and an extensive root system beneath the surface

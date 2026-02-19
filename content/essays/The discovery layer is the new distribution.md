@@ -8,8 +8,6 @@ topics:
   - distribution
 draft: true
 description: "Distribution bottlenecks don't disappear—they relocate. In the agent era, the chokepoint is the discovery layer where agents find and choose tools."
-tags: []
-cta: true
 summary: "Distribution bottlenecks don't disappear—they relocate. Every tech transition moves the chokepoint. In the agent era, it's the discovery layer where agents find and choose tools. Registries, defaults, and behavioral trust now determine who gets distribution."
 ---
 
