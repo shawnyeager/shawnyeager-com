@@ -17,8 +17,6 @@ The product that wins is usually the one buyers encounter first, most often, and
 
 This is true across every era of software. Not because buyers are irrational—because attention is finite and discovery is never neutral. Somebody decides what buyers see. That somebody has always been the real distribution problem.
 
-<!--more-->
-
 ---
 
 ## How distribution bottlenecks shift
@@ -31,7 +29,7 @@ The internet moved the bottleneck to search. Google became the default discovery
 
 Mobile and social moved it again. The App Store and the feed algorithm became the new gatekeepers. Discovery happened through rankings, recommendations, and virality. The channel was probabilistic—you could do everything right and still not get found—but outcomes were still determined by who controlled the curation layer.
 
-Notice the pattern. The product doesn't create its own discovery. Something else does. Whoever controls that something else controls distribution. The bottleneck shifts. It never disappears.
+The pattern holds. The product doesn't create its own discovery. Something else does. Whoever controls that something else controls distribution. The bottleneck shifts. It never disappears.
 
 ---
 
@@ -119,4 +117,3 @@ The founders who see the new chokepoint and build for it will have durable advan
 
 The bottleneck always moves. The winners are always the ones who found it first.
 
-If you're building for the agent era and revenue isn't scaling, the [GTM Map](https://gtm.shawnyeager.com) diagnostic will show you where you're stuck. Most founders I work with find the break isn't in sales. It's in discovery—a layer they weren't measuring because they didn't know it was distribution.

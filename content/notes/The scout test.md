@@ -9,52 +9,43 @@ draft: false
 description: Applying Julia Galef's scout vs. soldier framework to discovery calls reveals which buyers are genuinely evaluating and which were never going to close.
 ---
 
-You can tell in the first fifteen minutes.
+BANT misses the thing that kills deals.
 
-Not always who will close. But who is worth your time.
+Budget, authority, need, timeline—these filter on circumstances. They're good filters. A buyer with no budget can't buy. A buyer with no authority can't sign. Getting this wrong wastes months.
 
-Julia Galef's scout and soldier frames are usually applied to belief formation—how people handle information that challenges what they already think. Scouts update. Soldiers defend. One is trying to see clearly; the other is trying to win.
+But you can have a BANT-qualified buyer and still lose three months of your life to a deal that was never open. Budget, authority, need, timeline—all present. Decision: already made.
 
-The same split shows up on every discovery call you run.
+The missing qualifier is mindset.
 
-## What scouts look like on a call
+---
 
-Scouts ask real questions. Not the rhetorical kind, not the objection-dressed-as-question kind—actual questions. They want to understand how the product works, whether it fits their situation, what the failure modes are. When you say something surprising, they lean in instead of deflecting.
+There are two types of buyers on discovery calls, and the difference is visible in the first fifteen minutes if you know what you're watching.
 
-They'll tell you when something doesn't fit. Scouts self-qualify because they're actually trying to figure out whether this is the right solution. If it isn't, they want to know now, not after three months of evaluation. That honesty makes discovery faster and more accurate.
+One type is trying to figure out whether this fits. They ask real questions—not the objection-dressed-as-a-question kind, but questions that could actually change their assessment. They tell you when something doesn't fit, because they'd rather know now than after three months of evaluation. When you say something unexpected, they incorporate it. They're building a picture.
 
-They update during the call. You explain something and they incorporate it. Their next question reflects what you just said. They're building a picture of whether this works, not defending a position they arrived with.
+The other type arrived with a conclusion forming. They're going through the motions of evaluation—demos, reference calls, procurement steps—but the outcome is largely set. Every new piece of information gets sorted: does this support or threaten what I already think? Objections show up before they've heard enough to have real objections. The call has the shape of discovery without the substance.
 
-## What soldiers look like on a call
+Shawn's essay on [persuasion and soldier mindset](https://shawnyeager.com/limits-of-persuasion/) covers this frame in depth. The point here is narrower: it shows up on every B2B discovery call, and most salespeople don't qualify for it.
 
-Soldiers come in with a verdict already forming. They're going through the motions of evaluation, but the outcome is largely set. Every piece of information becomes either evidence for their existing position or a threat to it.
+---
 
-Objections arrive before they've heard enough to have real objections. "We tried something like this before and it didn't work" before they've seen what makes yours different. "Our team won't adopt new tools" before they've asked how the tool gets deployed. These aren't objections from evidence. They're defenses from identity.
+The expensive mistake is spending three months on a soldier.
 
-Soldiers don't ask questions that might change their mind. They ask questions that let them explain why they're skeptical. The conversation has the shape of discovery without the substance.
+They'll book the follow-ups. They'll send you through procurement. They'll request references. They'll ask detailed questions about implementation. All the signals of an active deal. But the decision was never open—they were building ammunition for "no," or satisfying their boss that alternatives were evaluated.
 
-## The costly tell
+You find out at the end. You rarely see it at the start.
 
-The expensive version of this mistake: spending three months working a soldier.
+One question surfaces it early: *What would it take to be a yes?*
 
-They attend the demos. They ask for references. They send you through procurement. They schedule follow-up calls. They generate all the signals of an active deal. But the decision was never really open. They were gathering ammunition for "no" or hedging against their boss asking why they didn't evaluate alternatives.
+A scout gives you something specific. Here's what we need to see. Here's the timeline. Here's who has to sign off. You can test every element of that and know where you stand.
 
-The pipeline looked real. The deal wasn't.
+A soldier deflects or pivots to another objection. Or gives you an answer that, on inspection, is a moving target—satisfied, and a new condition appears. That's not a buyer working through concerns. That's a buyer who isn't actually evaluating.
 
-You learn this after. You rarely ask the question that would surface it early: "What would it take to be a yes?"
+---
 
-Scouts give you something specific and useful—here's what we'd need to see, here's the timeline, here's who signs off. Soldiers give you something vague or pivot to another objection.
+BANT doesn't catch this because circumstances and mindset are independent. Someone can have the budget, the authority, the need, and the timeline—and still not be genuinely deciding. The question "can they buy?" is different from "are they actually deciding?"
 
-That question is cheap to ask. Three months of follow-up is expensive to lose.
+The scout test asks the second question. You can't convert soldiers by being more persuasive. Mindset isn't a closing problem. What you can do is identify it faster and move on.
 
-## Where the energy goes
+The scouts are in your pipeline. So are the soldiers. The difference between a good quarter and a wasted one is mostly which ones you spend time on.
 
-Selling to soldiers is an act of faith that evidence will change minds that aren't open to it. Sometimes it works. More often it burns time you could have spent on scouts.
-
-The qualifying questions that work aren't interrogation techniques. They're honest curiosity about fit. What are you trying to solve? What have you tried? What has to be true for this to work inside your organization? Scouts engage these seriously. Soldiers deflect or perform.
-
-You can't convert soldiers to scouts by being more persuasive. Mindset isn't a closing problem. What you can do is identify them faster and move on.
-
-The scouts are out there. Pipeline gets better when you stop clogging it with deals that were never deals.
-
-The GTM Map at [gtm.shawnyeager.com](https://gtm.shawnyeager.com) includes a qualification module—helps you define the criteria for who actually belongs in the funnel, and what signals to look for in the first call.

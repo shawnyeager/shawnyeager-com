@@ -10,38 +10,39 @@ draft: true
 description: "In the agent era, your API surface—not your slide deck—is what gets evaluated, remembered, and chosen."
 ---
 
-Pitch decks are for humans. They need narrative. Market size. Founder story. Something that earns the judgment call. The pitch deck exists to compress your case into something a human can evaluate in 20 minutes.
+Developer experience is a sales motion. Most founders don't treat it that way.
 
-Agents don't do that.
+The documentation is your homepage—for the agent evaluating whether to use you. The error message at 2am is your brand voice—there's no one watching, just the log. The API's response structure is your pitch—clean, fast, well-typed means "this team ships carefully." A 500 that returns HTML when the caller expected JSON means "this team doesn't think about how this gets used."
 
-When an agent selects tools at runtime, it reads your documentation, tests your endpoints, and checks whether you compose cleanly with everything else in the workflow. It doesn't read your one-pager. It doesn't watch your demo. It calls your API, sees what comes back, and decides whether to keep you.
-
-Your API surface is your pitch deck now. And most founders haven't updated their go-to-market to match.
+None of this is marketing. All of it is selling.
 
 ---
 
-Two things happened simultaneously that made this true.
+This matters more now because the first buyer evaluating your tool might not be human.
 
-The first: products no longer have edges. You used to ship a defined thing, position what was inside, and sell it as a bounded object. AI agents broke that assumption. An agent discovers your API and wires it into workflows you never imagined. Surface area is emergent, not shipped. Defined at runtime by the agent, not your product team. You can't fully control what your product is anymore.
+An agent choosing tools at runtime doesn't read your one-pager or watch the demo. It calls your API, sees what comes back, and decides whether to keep you. If the result is useful, structured, and reliable—you get called again. If it isn't, you get swapped. No email, no second-chance meeting, no "let us schedule time to address your concerns."
 
-The second: agents evaluate trust through memory, not marketing. MEMORY.md accumulates through use—what worked, what didn't, what to reach for again. SOUL.md encodes values. Ad spend can't edit either file. Only reliable, composable, well-documented APIs earn the repeat call. Trust is written by the product's actual performance, not its positioning.
-
-Put them together: your product has no fixed shape, and your pitch has no human to land on. What's left is the API itself—the quality of the documentation, the reliability of the endpoints, the depth of composability. That's what gets evaluated. That's what gets remembered.
+[Products don't have fixed edges anymore](https://shawnyeager.com/notes/ai-changed-what-a-product-is/)—an agent wires your API into workflows your team never imagined, defined at runtime, not launch. That shift has a GTM consequence most founders haven't caught up to: the pitch you've spent time polishing isn't the one that gets evaluated first. The agent sees your API. What does it find?
 
 ---
 
-This has a direct consequence for go-to-market.
+Trust in the agent layer accumulates through use, not marketing. An agent that calls your endpoint and gets a clean response writes that to memory. The next time it needs that capability, it reaches for the tool it already trusts. That trust score updates with every interaction—positively or negatively—and there's no PR campaign that revises it.
 
-If your API is your pitch deck, then developer experience is your sales motion. Documentation isn't a support function—it's your homepage for agents. Error handling isn't a quality concern—it's your brand voice for every failed call at 2am when no one's watching. Uptime isn't an infrastructure metric—it's your retention strategy.
+Ad spend can't edit MEMORY.md. Only a reliable product can.
 
-The companies that win the agent era will treat DX like GTM. Not because developers are always the buyers—sometimes they are, often they're not—but because the agent's first impression happens in your API. That impression gets written to memory. Memory determines who gets chosen next time.
-
-Your pitch deck can be polished. Your API cannot lie.
+This means the teams winning in the agent era treat DX like GTM. Not as a favor to developers. Not as a support cost reduction. As a sales motion that runs continuously, silently, and at scale.
 
 ---
 
-Most founders I work with are still investing in the wrong sales collateral. Beautiful decks. Sharp one-pagers. Polished demo scripts. Those things matter when the buyer is a human with a calendar. The agent era adds a second buyer—one that evaluates you continuously, silently, and without an audience.
+The implications are operational.
 
-If you're building tools in the agent layer and your developer experience is an afterthought, you don't have a sales problem. You have a pitch problem. The pitch just isn't your deck anymore.
+Shipping an OpenAPI spec that's actually accurate is GTM work. Handling rate limits gracefully instead of returning cryptic errors is GTM work. Writing documentation that covers edge cases—because agents will hit them—is GTM work. Keeping your response schema consistent across versions instead of breaking callers when you ship a new field is GTM work.
 
-The [GTM Map](https://gtm.shawnyeager.com) diagnostic will tell you where your go-to-market is actually breaking. For most founders building in the agent era, the break isn't where they're looking.
+Most of these decisions get made by engineers on a Tuesday with no one in the room thinking about GTM. They should be.
+
+---
+
+You can have a polished deck. A great demo. Sharp positioning. All of it matters when the buyer is a human with a calendar.
+
+The agent layer adds a second evaluation that runs without you present. The pitch happens every time someone calls your endpoint. How that call goes is the only pitch that matters to the system keeping score.
+

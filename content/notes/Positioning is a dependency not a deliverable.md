@@ -53,4 +53,3 @@ Before you update messaging, check positioning. Before you retrain sales, check 
 
 If positioning isn't holding, everything downstream is fighting a dependency that doesn't resolve. You get motion, not progress.
 
-The GTM Map at [gtm.shawnyeager.com](https://gtm.shawnyeager.com) is built around this chain. It walks through each link and surfaces where the break is—usually upstream from where the problem shows up.

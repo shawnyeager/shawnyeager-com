@@ -10,98 +10,77 @@ description: Most first sales hires fail not because of the rep, but because pos
 summary: "Most first sales hires fail not because of the rep. They fail because positioning was never solved and the rep walked into fog instead of a playbook. Fix the foundation first—ICP, value prop, reproducible close—then hire someone to run it."
 ---
 
-The hire looked good on paper. Track record at a company you'd heard of. They'd closed enterprise. References checked out. In the interview they could talk about process, pipeline hygiene, qualification. They had the energy.
+Somewhere in the decision to hire the first rep, you made a second decision you didn't realize you were making.
 
-Six months later, deals were dying in the middle of the funnel. You watched the CRM. Activity was there—calls, demos, follow-ups. Nothing was closing. You extended the ramp. You started sitting in on calls. Eventually you let them go and called it a fit issue.
+Not "who should we hire?" That's the one you focused on. The other one: "Have we figured out what we're selling and who we're selling it to?"
 
-It wasn't a fit issue.
+Most founders answer yes reflexively. They've had customer conversations. They've closed deals—maybe 10, maybe 30. They know the product. Of course they know what they're selling.
 
-<!--more-->
+What they don't have: a repeatable close. Deals that closed in ways they could describe and hand off. Language that held under pressure. A pitch that survived the internal conversation the champion had with their boss after the demo.
 
-## What they walked into
+Without that, the hire doesn't walk into a sales job. They walk into market discovery with a quota.
 
-When a sales rep joins a company that has solved positioning, their job is tractable. They learn the ICP. They learn the value prop. They learn where deals tend to get stuck and what language moves them. The founder hands them a playbook built from real closes. The rep runs it, refines it, makes it faster.
+---
 
-When a sales rep joins a company that hasn't solved positioning, something else happens. They walk into fog. Nobody can explain clearly who buys, why they buy, or what the product does for the person writing the check. The rep has to figure it out. Some try—they reverse-engineer the winning deals, build their own pitch. Others wing it. Both options are bad. Neither is the rep's fault.
+Here's what the first months look like from the rep's side.
 
-Your first hire walked into fog. They did what people do in fog: they guessed.
+They come in, listen to a handful of calls, maybe shadow the founder. They build a pitch from what they hear. Then they go out and use it.
 
-## The dependency chain
+The pitch doesn't work the same way. Not because the rep is bad. Because it was never codified—it existed in the founder's instincts, not in documented language. The founder could close deals because they knew the product better than anyone, recovered from any objection on the fly, and had the credibility of being the builder. The rep has none of that yet. They're flying a plane the founder assembled in midair, without a manual.
 
-There's a sequence that makes revenue work. It looks like this: you understand the market. You know who buys, what triggers a purchase, what language they use to describe the problem. From that you build positioning—a clear, specific case for why your product is the right answer for that buyer right now. From positioning you build messaging. From messaging you build a repeatable sales motion. Then you hire someone to run the motion.
+So they improvise. Some try to rebuild the pitch from scratch based on what resonates in their own calls. Some just run the founder's version and get stuck in places the founder never got stuck. Both approaches produce a rep operating on guesswork in the most critical customer conversations of the company's early life.
 
-Break a link and everything downstream fails.
+---
 
-Most founders skip straight to the hire. Revenue is slow, the board wants a pipeline number, and hiring a rep is doing something. It signals progress. The problem is upstream, but the hire is concrete and the upstream problem is invisible.
+What happens to the deals is telling.
 
-I've watched founders cycle through three sales hires in eighteen months, each one carrying the diagnosis from the last: bad rep, wrong culture fit, not a hunter. Each hire inherited the same broken foundation. Each one failed the same way. The company ended up with bad data about sales talent and no new information about the actual constraint.
+Activity looks fine. Calls get booked, demos happen, follow-ups go out. But the funnel drains instead of converts. Deals go quiet after promising starts.
 
-## What broke first
+Two places this breaks.
 
-When the hire fails, trace it back.
+First: the internal sell. The rep gets the champion excited—someone who genuinely wants the product. Then that person has to take it upstairs. Their boss asks what it does. The champion's version of the answer doesn't land. The boss says "not now." The rep reports "internal budget concerns." What actually happened: the value prop didn't survive one retelling. Nobody gave the champion language that would hold.
 
-Ask what their pitch sounded like three months in. Did it match yours? In most cases it diverges significantly—because nobody gave them a working pitch to start with. They invented one. That's not hustle. That's a sign the pitch was never nailed down.
+Second: buyer inaction. You lose to "let's revisit next quarter" more than you lose to competitors. When you lose to a competitor, the buyer understood you well enough to compare. That's a sharpness problem—fixable. When you lose to nothing, the buyer never got clear enough to decide. They chose inaction over choice. That's a clarity problem, and it lives upstream from the rep. They inherited it.
 
-Ask how deals died. Were you losing to competitors or to nothing? Losing to a competitor means the buyer understood you well enough to compare. That's a positioning sharpness problem—fixable. Losing to nothing—"let's revisit next quarter," "we're going to table this," "went dark after the demo"—means the buyer never understood enough to decide. They didn't choose someone else. They chose inaction. That's a positioning clarity problem, and it lives further upstream.
+---
 
-Ask whether champions could sell it internally. The rep gets the champion excited. The champion takes it to their boss. Their boss asks what it does. The champion can't explain it. The deal dies in the approval chain, not in the sales call. The rep reports "lost to internal budget concerns." What actually happened: the value prop didn't survive one retelling.
+Why does everyone blame the rep?
 
-Positioning failed. The rep inherited the failure.
+The data is in sales. Pipeline is in the CRM. The rep's activity is logged. Conversion rates, deal velocity, close rate—all measurable, all visible. So when revenue doesn't work, you look where the data is.
 
-## The silence around the hire
+Positioning doesn't have a dashboard. It lives in whether a demo call produces a moment of "oh, that's exactly what I need" or just a polite "very interesting." It lives in whether a buyer can explain your product to their CFO. There's no metric for that. So it doesn't get checked.
 
-Why doesn't anyone name this?
+There's also the weight of the hire itself. You made a bet—salary, equity, months of runway. Admitting the problem was upstream means admitting you handed someone an impossible job. That's harder to sit with than "we hired the wrong person." So you extend the ramp. Then you let them go. Then you write the LinkedIn post about culture fit.
 
-Because positioning isn't in the CRM. Lost deals are. Activity is. Conversion rates are. When you're looking for the problem, you go where the data is. Sales has the data. So sales looks like the problem.
+And hire again, into the same fog.
 
-Positioning doesn't have a dashboard. It doesn't have a number. It lives in conversations—in the confusion during demos, in the silence before "we'll think about it." It's invisible until you know how to look.
+---
 
-There's also the cognitive load of the hire itself. You've made a bet: compensation, equity, six months of runway. Admitting the real problem means admitting you gave that person an impossible job. That's harder to sit with than "they weren't the right fit."
+The founders who get this right don't do something clever. They just refuse to hire until they have something to hand over.
 
-So the pattern repeats. New hire, same fog, same outcome.
+They sell themselves long past the point of comfort. Not because they want to, but because they can't afford a rep. That constraint becomes an advantage: they're forced to find the pitch that works without any of the founder's special powers—no product depth to fall back on mid-conversation, no founder credibility to paper over uncertainty. They find the version that holds for a normal person.
 
-## What founders skip
+After 10 or 15 of those closes, patterns emerge. There's a type of buyer who converts. There's language that moves deals past the "what does it do" stage. There's a set of objections that come up every time and a set of answers that clear them. There's an internal champion script that works.
 
-The founders who get this right do something counterintuitive: they sell before they hire. Not because they love selling. Usually because they can't afford a rep yet. But the constraint becomes an advantage.
+None of this needs to be a polished document. It just has to be demonstrated reality. The rep walks in and learns what actually happened in the deals that closed—not an abstract positioning framework, but specific patterns from specific sales.
 
-They close the first customers themselves. They learn who actually buys and why. They hear the objections. They find the language that moves a deal forward. They develop a close rate on a specific ICP. They build something repeatable—rough, but real.
+---
 
-Then they hire.
+Before the hire, four things should exist—not as documentation, but as evidence.
 
-The hire doesn't walk into fog. They walk into a playbook. A rough one, probably. But it has real evidence behind it: these types of buyers convert, here's the pitch that works, here's where deals die and what to say when they do. The rep can run and refine, not reinvent.
+A specific ICP. Not "growth-stage SaaS companies." The description of the buyer who has the problem, has the money, has the authority, and has urgency right now. Founders who can't say this in one sentence without adjectives like "forward-thinking" or "strategic" don't have it yet.
 
-The signal that it's time to hire: you've closed ten or fifteen deals yourself, you understand the pattern, and you're confident the constraint is now capacity. Not clarity. Capacity.
+A value prop buyers can repeat. Simple test: ask three recent buyers to explain what your product does for them. If the answers are all different, the value prop isn't set. Reps can't carry a message that buyers themselves can't reproduce.
 
-If the constraint is still clarity—if you still can't say with confidence who you're targeting, what you're saying, and why it works—a rep will spend their ramp figuring that out. You'll pay for the education. You won't get the pipeline.
+A pattern in your closes. You know why the ones that closed, closed. Not "the champion was motivated" but the sequence: this triggered a search, this approach created urgency, this question surfaced the real blocker, this answer moved it across the line. Reproducible.
 
-## What has to exist first
+A defined death pattern. You know what kills deals—specific objections at specific stages, and what to do with them. Not because a sales coach told you. Because you've hit them yourself enough times to know.
 
-Before the hire, four things need to be in place.
+When all four exist, the rep inherits something real. The job is still hard. But it's the right kind of hard: execution, not reinvention.
 
-A specific ICP. Not a demographic description. A description of the buyer who has the problem, has the budget, has the authority, and has the urgency to buy now. If you find yourself defining ICP with adjectives like "forward-thinking" or "strategic," start over.
+---
 
-A value prop those buyers recognize. Test it: ask three recent buyers to explain what your product does for them. If the answers are inconsistent, positioning isn't set. Sales training won't fix inconsistent positioning.
+The rep who failed in your first hire might have been exactly right for a company with a working foundation. Same person. Different outcome. What you were actually interviewing for when you hired them: their ability to figure out what you hadn't.
 
-A reproducible close. Some deals close and you know why. Others close and you got lucky. One of these is a foundation. The other is noise. You need enough reps on enough deals to distinguish them.
+That's not a sales job.
 
-A defined sales motion. Sequence of steps, decision criteria at each stage, understanding of what kills deals and when. Not a CRM template. Actual pattern knowledge from actual sales.
-
-When all four of these exist, the hire has a fair shot. Without them, the hire is the first person you've put in charge of figuring out what you haven't figured out. That's not a sales job. It's market discovery. And it's probably not in their job description.
-
-## What a good hire looks like
-
-When the foundation holds, the sales hire's job gets specific: find more buyers who match the ICP, run the proven motion, close deals, and surface what's changing so positioning can stay current.
-
-Reps who succeed here share something: they don't have to become experts in the product to be effective. The positioning has done the heavy lifting. They're running a cleared path. Execution is still hard. Execution on a cleared path is at least possible.
-
-The rep who failed in the first version of this story? Often the exact same person who would have succeeded with a working foundation under them. Same talent. Different outcome. The variable wasn't them.
-
-## The actual question
-
-When revenue isn't working and the instinct is to hire or replace a rep, ask first: what did they walk into?
-
-If the answer involves any of these—unclear ICP, inconsistent messaging, no documented close rate, no real playbook—the problem isn't in sales. It's upstream. And no amount of hiring will fix an upstream problem by working on the downstream symptom.
-
-Fix positioning first. Then hire.
-
-Before you do either, it helps to know where the chain is actually broken. The GTM Map at [gtm.shawnyeager.com](https://gtm.shawnyeager.com) is a diagnostic built around this dependency chain. It surfaces where the constraint actually lives. Worth running before you make the next hire—or before you blame the last one.
