@@ -11,8 +11,6 @@ description: "Distribution bottlenecks don't disappear—they relocate. In the a
 summary: "Distribution bottlenecks don't disappear—they relocate. Every tech transition moves the chokepoint. In the agent era, it's the discovery layer where agents find and choose tools. Registries, defaults, and behavioral trust now determine who gets distribution."
 ---
 
-# The discovery layer is the new distribution
-
 Distribution has always been a chokepoint problem. The companies that win aren't always the ones with the best products—they're the ones with the best access to buyers. Control the shelf, control the market. Control the channel, control the customer relationship. The product that wins is usually the one buyers encounter first, most often, and with the least friction.
 
 This is true across every era of software. Not because buyers are irrational, but because attention is finite and discovery is never neutral. Somebody decides what buyers see. That somebody has always been the real distribution problem.

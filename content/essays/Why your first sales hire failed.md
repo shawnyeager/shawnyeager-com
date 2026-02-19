@@ -10,8 +10,6 @@ description: Most first sales hires fail not because of the rep, but because pos
 summary: "Most first sales hires fail not because of the rep. They fail because positioning was never solved and the rep walked into fog instead of a playbook. Fix the foundation first—ICP, value prop, reproducible close—then hire someone to run it."
 ---
 
-# Why your first sales hire failed
-
 Somewhere in the decision to hire the first rep, you made a second decision you didn't realize you were making.
 
 Not "who should we hire?" That's the one you focused on. The other one: "Have we figured out what we're selling and who we're selling it to?"

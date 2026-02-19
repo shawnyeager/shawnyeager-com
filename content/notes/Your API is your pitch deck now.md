@@ -10,8 +10,6 @@ draft: true
 description: "In the agent era, your API surface—not your slide deck—is what gets evaluated, remembered, and chosen."
 ---
 
-# Your API is your pitch deck now
-
 Developer experience is a sales motion. Most founders don't treat it that way.
 
 The documentation is your homepage—for the agent evaluating whether to use you. The error message at 2am is your brand voice, and there's no one watching, just the log. The API's response structure is your pitch: clean, fast, well-typed means "this team ships carefully." A 500 that returns HTML when the caller expected JSON means "this team doesn't think about how this gets used." None of this is marketing. All of it is selling.
