@@ -11,8 +11,9 @@ export default async (req: Request) => {
   const url = new URL(req.url);
   const amount = url.searchParams.get('amount');
   const nostrParam = url.searchParams.get('nostr');
-  const essaySlug = url.searchParams.get('essay') || '';
-  const essayTitle = url.searchParams.get('title') || '';
+  const slug = url.searchParams.get('slug') || url.searchParams.get('essay') || '';
+  const title = url.searchParams.get('title') || '';
+  const contentType = url.searchParams.get('type') || 'essay';
 
   if (!amount) {
     return errorResponse(400, "Amount parameter required", req);
@@ -64,8 +65,8 @@ export default async (req: Request) => {
   // No nostr param - handle locally with NWC for essay tracking
   try {
     const result = await withNWCClient(async (client) => {
-      const memo = essaySlug
-        ? `${siteUrl}/${essaySlug}`
+      const memo = slug
+        ? (contentType === 'note' ? `${siteUrl}/notes/${slug}` : `${siteUrl}/${slug}`)
         : siteUrl || 'V4V payment';
 
       const invoice = await client.makeInvoice({
@@ -83,7 +84,7 @@ export default async (req: Request) => {
         console.error('Failed to decode BOLT11:', e);
       }
 
-      console.log(`Invoice generated: source=${essaySlug || 'footer'}, amount=${amount}ms, hash=${paymentHash}`);
+      console.log(`Invoice generated: source=${slug || 'footer'}, type=${contentType}, amount=${amount}ms, hash=${paymentHash}`);
 
       return { invoice: invoice.invoice, paymentHash };
     });
@@ -94,8 +95,8 @@ export default async (req: Request) => {
       routes: [],
       successAction: {
         tag: "message",
-        message: essayTitle
-          ? `Thank you for supporting ${essayTitle}.`
+        message: title
+          ? `Thank you for supporting ${title}.`
           : 'Thank you for your support.'
       }
     }, 200, req);
@@ -110,7 +111,7 @@ export default async (req: Request) => {
     const errorMessage = error instanceof Error ? error.message : String(error);
     console.error('NWC invoice generation error:', errorMessage, error);
     await alertFailure('Invoice Generation', errorMessage, {
-      source: essaySlug || 'footer',
+      source: slug || 'footer',
       amount
     });
     return errorResponse(500, `Invoice generation failed: ${errorMessage}`, req);

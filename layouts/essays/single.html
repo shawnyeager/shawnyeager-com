@@ -70,7 +70,7 @@ description: "A concise 1-2 sentence summary of the essay for SEO meta tags and 
             "action_url" (printf "/%s/v4v/" .Params.slug)
             "action_text" "Zap this essay"
             "action_icon" "lightning"
-            "action_event" .Site.Params.plausible_events.v4v_essay
+            "action_event" .Site.Params.plausible_events.zap
             "back_url" ("/writing/" | relURL)
             "back_text" "All writing"
             "back_event" .Site.Params.plausible_events.all_writing

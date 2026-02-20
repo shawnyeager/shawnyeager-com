@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = "npm ci && npm run generate-essays && npm run generate-og && npm run generate-llms-txt && hugo --gc --minify"
+  command = "npm ci && npm run generate-essays && npm run generate-notes && npm run generate-og && npm run generate-llms-txt && hugo --gc --minify"
 
 [build.environment]
   HUGO_VERSION = "0.154.3"
@@ -12,10 +12,10 @@
   HUGO_ENV = "production"
 
 [context.deploy-preview]
-  command = "npm ci && npm run generate-essays && npm run generate-og && npm run generate-llms-txt && hugo --gc --minify --buildFuture --buildDrafts"
+  command = "npm ci && npm run generate-essays && npm run generate-notes && npm run generate-og && npm run generate-llms-txt && hugo --gc --minify --buildFuture --buildDrafts"
 
 [context.branch-deploy]
-  command = "npm ci && npm run generate-essays && npm run generate-og && npm run generate-llms-txt && hugo --gc --minify --buildFuture --buildDrafts"
+  command = "npm ci && npm run generate-essays && npm run generate-notes && npm run generate-og && npm run generate-llms-txt && hugo --gc --minify --buildFuture --buildDrafts"
 
 [[headers]]
 for = "/.well-known/*"

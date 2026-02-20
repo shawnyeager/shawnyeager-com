@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "generate-essays": "node scripts/generate-essays-json.js",
+    "generate-notes": "node scripts/generate-notes-json.js",
     "generate-og": "node scripts/generate-og-images.js",
     "generate-llms-txt": "node scripts/generate-llms-txt.js",
-    "build": "npm run generate-essays && npm run generate-og && npm run generate-llms-txt && hugo"
+    "build": "npm run generate-essays && npm run generate-notes && npm run generate-og && npm run generate-llms-txt && hugo"
   },
   "dependencies": {
     "@getalby/sdk": "^7.0.0",
