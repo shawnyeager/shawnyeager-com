@@ -10,9 +10,10 @@ export default async (req: Request, context: Context) => {
   const pathParts = url.pathname.split('/');
   const username = pathParts[pathParts.length - 1];
 
-  // Extract essay parameters for per-essay tracking
-  const essaySlug = url.searchParams.get('essay') || '';
-  const essayTitle = url.searchParams.get('title') || '';
+  // Extract content parameters for per-content tracking
+  const slug = url.searchParams.get('slug') || url.searchParams.get('essay') || '';
+  const title = url.searchParams.get('title') || '';
+  const contentType = url.searchParams.get('type') || 'essay';
 
   // All aliases map to the same Alby account
   if (!VALID_USERNAMES.includes(username as typeof VALID_USERNAMES[number])) {
@@ -49,12 +50,12 @@ export default async (req: Request, context: Context) => {
     );
   }
 
-  // Rewrite callback to our handler, include essay parameter only if present
+  // Rewrite callback to our handler, include content parameters only if present
   // Use request host to work on deploy previews
   const host = req.headers.get('host') || 'shawnyeager.com';
   const protocol = host.includes('localhost') ? 'http' : 'https';
-  data.callback = essaySlug
-    ? `${protocol}://${host}/lnurl-callback?essay=${encodeURIComponent(essaySlug)}&title=${encodeURIComponent(essayTitle)}`
+  data.callback = slug
+    ? `${protocol}://${host}/lnurl-callback?slug=${encodeURIComponent(slug)}&title=${encodeURIComponent(title)}&type=${encodeURIComponent(contentType)}`
     : `${protocol}://${host}/lnurl-callback`;
 
   const corsHeaders = getCorsHeaders(req);
