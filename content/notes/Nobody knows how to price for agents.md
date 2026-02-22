@@ -1,9 +1,9 @@
 ---
-title: The SaaS sector's core tension
-description: "SaaS companies face an unresolvable choice between protecting revenue with proprietary AI and opening platforms to external agents that commoditize their product."
+title: Nobody knows how to price for agents
+description: "The SaaS pricing freeze — zero vendors have fully transitioned from seats — is creating openings for startups that price for outcomes from day one."
 date: 2026-02-22T12:00:00Z
-slug: saas-core-tension-proprietary-ai-vs-openness
-topics: [strategy, product]
+slug: nobody-knows-how-to-price-for-agents
+topics: [ai, product]
 tags: [note]
 draft: false
 ---
