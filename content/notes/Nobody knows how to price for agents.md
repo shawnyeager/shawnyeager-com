@@ -26,4 +26,4 @@ Distribution might matter more. A protocol-compliant agent gets discovered by ev
 
 The vertical question is the one I keep coming back to. Horizontal AI features are easy to replicate, but vertical agents that pass regulatory scrutiny in fields where a generic tool can't operate are not. Incumbents spread across every use case consistently underinvest in any single domain. That seems like the most durable edge, but it's early.
 
-The window exists because incumbents are protecting seat revenue while the market moves past it. How long that lasts is the question worth watching.
+The window exists because incumbents are protecting seat revenue while the market moves past it. How long that lasts is worth paying attention to.
