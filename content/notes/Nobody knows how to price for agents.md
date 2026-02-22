@@ -1,6 +1,6 @@
 ---
 title: Nobody knows how to price for agents
-description: "SaaS pricing indecision — zero vendors have fully transitioned from seats — is creating openings for startups that price for outcomes from day one."
+description: "SaaS pricing indecision—zero vendors have fully transitioned from seats—is creating openings for startups that price for outcomes from day one."
 date: 2026-02-22T12:00:00Z
 slug: nobody-knows-how-to-price-for-agents
 topics: [ai, product]
