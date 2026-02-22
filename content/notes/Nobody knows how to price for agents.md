@@ -1,6 +1,6 @@
 ---
 title: Nobody knows how to price for agents
-description: "The SaaS pricing freeze — zero vendors have fully transitioned from seats — is creating openings for startups that price for outcomes from day one."
+description: "SaaS pricing indecision — zero vendors have fully transitioned from seats — is creating openings for startups that price for outcomes from day one."
 date: 2026-02-22T12:00:00Z
 slug: nobody-knows-how-to-price-for-agents
 topics: [ai, product]
@@ -18,7 +18,7 @@ Both paths break the seat model. Proprietary AI automates the work that justifie
 
 Bain analyzed 30-plus SaaS vendors and found 65% layering AI usage meters on top of seat pricing and 35% raising per-seat prices with bundled AI. The number that fully transitioned to outcome-based models: zero. Everyone's hedging. Salesforce now runs three separate pricing models for Agentforce: per-conversation, per-action, and per-seat add-ons. That kind of confusion doesn't happen when a company knows where it's going.
 
-What's interesting is where the freeze creates openings.
+What's interesting is where the indecision creates openings.
 
 Pricing is the obvious one. Incumbents can't charge for outcomes without cannibalizing the seat revenue Wall Street expects, so they hedge. Sierra charges per resolved customer interaction and hit $100M ARR in 21 months. That model is nearly impossible to retrofit onto a seat-based business, and every incumbent that delays widens the gap.
 
