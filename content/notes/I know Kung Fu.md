@@ -1,6 +1,6 @@
 ---
 title: I know Kung Fu
-description: "Agent skills work like The Matrix's upload scene."
+description: "Agent skills work like The Matrix's upload scene. But better."
 date: 2026-02-25T12:00:00Z
 slug: i-know-kung-fu
 topics: [ai, go-to-market]
