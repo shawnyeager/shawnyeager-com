@@ -1,7 +1,7 @@
 ---
 title: "Nothing enforces your agent's rules"
 description: "Agent skills carry rules with no enforcement underneath. The skill layer is a trust layer—you write the instructions, the model reads them, and you hope."
-date: 2026-02-28T10:00:00Z
+date: 2026-02-27T10:00:00Z
 slug: nothing-enforces-your-agents-rules
 topics: [ai, product]
 draft: false
