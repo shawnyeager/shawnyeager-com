@@ -6,6 +6,7 @@ slug: nobody-knows-how-to-price-for-agents
 topics: [ai, product]
 tags: [note]
 draft: false
+hero_image: images/notes/nobody-knows-how-to-price-for-agents.webp
 ---
 
 I wrote recently about [products losing their edges](/notes/ai-changed-what-a-product-is/)---how agents and open protocols dissolved the boundaries we used to draw around software. The question I didn't get to: what does that mean for how SaaS companies make money?

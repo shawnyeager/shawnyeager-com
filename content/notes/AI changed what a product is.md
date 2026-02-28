@@ -5,6 +5,7 @@ date: 2026-02-12T10:00:00Z
 slug: ai-changed-what-a-product-is
 topics: [ai, product, go-to-market]
 draft: false
+hero_image: images/notes/ai-changed-what-a-product-is.webp
 ---
 
 Products used to have edges. You drew a box, positioned what was inside, priced it, sold it. The entire go-to-market stack---positioning, competitive analysis, pricing, sales enablement---assumes a bounded thing.
