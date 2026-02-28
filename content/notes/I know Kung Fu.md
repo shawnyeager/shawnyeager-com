@@ -6,6 +6,7 @@ slug: i-know-kung-fu
 topics: [ai, go-to-market]
 tags: [note]
 draft: false
+hero_image: images/notes/i-know-kung-fu.webp
 ---
 There's a scene in The Matrix where Tank loads a combat program into Neo's brain. Ten seconds of upload. Neo opens his eyes: "I know Kung Fu." Morpheus doesn't quiz him on theory. He says, "Show me," and they spar.
 

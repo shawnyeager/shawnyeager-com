@@ -5,6 +5,7 @@ date: 2026-02-15T10:00:00Z
 slug: new-hearts-and-minds
 topics: [ai, go-to-market]
 draft: false
+hero_image: images/notes/soul-md-and-memory-md-are-the-new-hearts-and-minds.webp
 ---
 In traditional marketing, you win hearts and minds---get people to care, then get them to believe. That's what positioning is about.
 
