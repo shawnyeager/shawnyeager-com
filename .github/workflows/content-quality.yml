@@ -27,3 +27,4 @@ jobs:
     secrets: inherit
     with:
       site_type: 'essays'
+      base_url: 'https://shawnyeager.com'
