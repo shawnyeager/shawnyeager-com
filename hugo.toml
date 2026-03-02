@@ -184,12 +184,6 @@ enableGitInfo = true
   writeStats = false
 
 [caches]
-  [caches.getjson]
-    dir = ":cacheDir/:project"
-    maxAge = "24h"
-  [caches.getcsv]
-    dir = ":cacheDir/:project"
-    maxAge = "24h"
   [caches.images]
     dir = ":cacheDir/:project"
     maxAge = -1
