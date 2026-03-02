@@ -1,13 +1,12 @@
 ---
 title: Agent payments have a three-body problem
 description: "The financial system wasn't built for software that spends money."
-date: 2026-03-01
+date: 2026-03-04T07:00:00-06:00
 slug: three-body-problem
 topics:
   - ai
   - bitcoin
   - payments
-draft: true
 ---
 Visa launched its Trusted Agent Protocol last year—agents register public keys in a Visa-managed directory and cryptographically sign HTTP requests. MasterCard shipped Agent Pay with "Agentic Tokens," dynamic digital credentials built on existing tokenization infrastructure. PayPal integrated into ChatGPT so a human's wallet pays for things an agent recommends.
 
@@ -17,7 +16,7 @@ Read the fine print and it's the same system with an agent-shaped UI on top. The
 
 How AI agents will pay for things gets framed as a technology problem, but the technology already exists across the full spectrum from Visa to Cashu. The unanswered question is political. There are three gravitational forces acting on every payment method an agent could use. Two of them are allied, and the third is growing faster than either of them expected.
 
-![Agent payments have a three-body problem](agent-payment-gravity.png)
+[![Agent payments have a three-body problem](agent-payment-gravity.png)](https://lab.sideband.pub/three-body-problem/)
 
 ## The binary system
 
