@@ -7,7 +7,7 @@ topics: [ai, product]
 draft: false
 hero_image: images/notes/nothing-enforces-your-agents-rules.webp
 ---
-I wrote recently about skills as [distribution channels](/notes/i-know-kung-fu/), how a plain text file can route an agent to a vendor without a sales call. But skills also carry rules, and rules need enforcement.
+Nothing enforces your agent's rules at runtime. Skills work as [distribution channels](/notes/i-know-kung-fu/)---a plain text file routes an agent to a vendor without a sales call. But skills also carry behavioral constraints, and those constraints run entirely on model compliance.
 
 I built a skill that generates hero images for this publication ([skill file on GitHub](https://github.com/shawnyeager/skill.md/blob/master/sideband-hero/SKILL.md)). Claude Code reads a post, builds a constrained prompt, calls FLUX.2 Pro on Replicate. The skill is mostly prohibitions, each one the result of a specific failure. FLUX treats axis labels as part of the spectrogram format, not as text. Bans have to go in the first line of the prompt because placement equals weight in diffusion models. Say "dark background" without banning the word "paper" and you get a photograph of navy cardstock on a desk. These rules work. But they work because the model is compliant, not because anything enforces them. No runtime rejects an image containing text. No validator checks the palette. When the model doesn't listen, I regenerate. Five wasted cents.
 
