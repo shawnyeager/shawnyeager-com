@@ -14,7 +14,7 @@ In The Matrix, Tank loads a combat program, Neo opens his eyes: "I know Kung Fu.
 
 Skills are [distribution channels](/notes/ai-changed-what-a-product-is/). When an agent loads a skill that defaults to a specific API or vendor, that vendor just got chosen without a sales call or a pricing page. The skill is the channel.
 
-And skills introduce a buyer that nobody's sales playbook accounts for: the skill author. Agents already have [two buyers](/notes/ai-changed-what-a-product-is/)---the human with a budget and the agent choosing tools. The person who writes the skill is a third. They decide which tools the agent reaches for, and they might not even realize they're doing distribution.
+And skills introduce a buyer that nobody's sales playbook accounts for: the skill author. Agents already have two buyers---the human with a budget and the agent choosing tools. The person who writes the skill is a third. They decide which tools the agent reaches for, and they might not even realize they're doing distribution.
 
 The [pricing problem](/notes/nobody-knows-how-to-price-for-agents/) gets weirder too. Skills are free. Plain text in a repo. The value is in what the skill routes to. A skill that teaches an agent to run analytics might default to PostHog. One that handles email sequences might wire in Resend. The skill author is an unpaid distribution channel---or a very intentional one. Either way, no seat to price.
 

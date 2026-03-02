@@ -18,4 +18,4 @@ Subscription and per-seat pricing assume human purchasing decisions, but agent-m
 
 Old moats erode fast when agents swap tools per-call with no loyalty. Features, brand, switching costs. None of them hold. Data quality, reliability, and composability depth do. Trust does too---but when the buyer is an LLM, who evaluates trust?
 
-Your API surface is your product now. Trust and reliability outweigh features when the buyer never sees your UI. Nobody has figured out how to price for autonomous usage. And whoever controls the curation layer controls distribution next. Tool registries, agent defaults, discovery protocols.
+The API surface is the product now. Features matter less than reliability when the buyer never sees a UI. And the real leverage is the curation layer---tool registries, agent defaults, discovery protocols. Whoever writes those defaults is doing distribution whether they know it or not.
