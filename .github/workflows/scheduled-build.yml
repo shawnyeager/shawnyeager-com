@@ -2,7 +2,7 @@ name: Scheduled Netlify Build
 
 on:
   schedule:
-    - cron: '30 13 * * 4,5'  # Thu & Fri at 8:30 AM CT (13:30 UTC)
+    - cron: '0 13 * * 1-5'  # Mon-Fri at 7:00 AM CT (13:00 UTC)
   workflow_dispatch:
 
 jobs:
