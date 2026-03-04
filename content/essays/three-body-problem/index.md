@@ -84,4 +84,4 @@ Capital will flow toward them because the cost of not having autonomous agent pa
 
 [^1]: [Central Bank Digital Currency Tracker](https://www.atlanticcouncil.org/cbdctracker/), Atlantic Council, 2025
 [^2]: ["Fact Sheet: Executive Order to Establish United States Leadership in Digital Financial Technology"](https://www.whitehouse.gov/fact-sheets/2025/01/fact-sheet-executive-order-to-establish-united-states-leadership-in-digital-financial-technology/), The White House, Jan 2025
-[^3]: James C. Scott, *Seeing Like a State* (1998). Scott's concept of legibility—the state's need to make populations and economies visible and categorizable before it can govern them—frames the fundamental tension here. Payment systems are legibility projects. The protocols agents need are illegibility by design.
+[^3]: James C. Scott, *Seeing Like a State* (1998). Scott's concept of legibility—the state's need to make populations and economies visible and categorizable before it can govern them—frames the fundamental tension here. Payment systems are legibility projects. The protocols that agents need are illegible by design.
