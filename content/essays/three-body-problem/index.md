@@ -14,7 +14,7 @@ Read the fine print and it's the same system with an agent-shaped UI on top. The
 
 <!--more-->
 
-How AI agents will pay for things gets framed as a technology problem, but the technology already exists across the full spectrum from Visa to Cashu. The unanswered question is political. There are three gravitational forces acting on every payment method an agent could use. Two of them are allied, and the third is growing faster than either of them expected.
+How AI agents will pay for things gets framed as a technology problem, but the technology already exists across the full spectrum from Visa to Cashu. The unanswered question is political. There are three gravitational forces acting on every payment method an agent could use: the state, incumbent capital, and insurgent capital. Two of them are allied, and the third is growing faster than either of them expected.
 
 [![Agent payments have a three-body problem](agent-payment-gravity.png)](https://lab.sideband.pub/three-body-problem/)
 
