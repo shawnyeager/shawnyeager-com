@@ -20,7 +20,7 @@ Publishing [essays](/essays/) and [notes](/notes/) on go-to-market strategy for 
 
 New projects:
 
-- [StackCut](https://stackcut.net)---Paste a QuickBooks export, get a CEO-ready AI savings report in minutes. It recognizes 120+ SaaS vendors and models cost savings across replacement scenarios. Invite-only right now (code: launch2026).
+- [StackCut](https://stackcut.net)---Paste a QuickBooks export, get a CEO-ready AI savings report in minutes. It recognizes 120+ SaaS vendors and models cost savings across replacement scenarios. Invite-only right now (code: `launch2026`).
 
 - [Sideband Lab](https://lab.sideband.pub)---Interactive visualizations and data behind the Sideband newsletter. Includes the [agent-era infrastructure map](https://lab.sideband.pub/map/) and the [agent payments three-body visualization](https://lab.sideband.pub/three-body-problem/).
 
