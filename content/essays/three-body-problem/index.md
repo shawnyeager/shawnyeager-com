@@ -7,6 +7,7 @@ topics:
   - ai
   - bitcoin
   - payments
+summary: "Visa, Mastercard, and PayPal all shipped agent payment products last year. Read the fine print and it's the same system with an agent-shaped UI on top. The real question isn't technology. It's political: the state, incumbent capital, and permissionless protocols are locked in a three-body problem with no stable equilibrium."
 ---
 Visa launched its Trusted Agent Protocol last year—agents register public keys in a Visa-managed directory and cryptographically sign HTTP requests. MasterCard shipped Agent Pay with "Agentic Tokens," dynamic digital credentials built on existing tokenization infrastructure. PayPal integrated into ChatGPT so a human's wallet pays for things an agent recommends.
 
