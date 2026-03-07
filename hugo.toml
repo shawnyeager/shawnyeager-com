@@ -128,7 +128,11 @@ enableGitInfo = true
   github = "https://github.com/shawnyeager"
   linkedin = "https://www.linkedin.com/in/shawnyeager"
   nostr = "https://shawnyeager.com/nostr"
+  sideband = "https://sideband.pub"
+  sideband_substack = "https://sideband.substack.com"
   substack = "https://substack.com/@shawnyeager"
+  trust_revolution = "https://trustrevolution.co"
+  trust_revolution_substack = "https://trustrevolution.substack.com"
 
 # =============================================================================
 # MARKUP
