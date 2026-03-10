@@ -24,8 +24,20 @@
     "title": "Engagement is inventory"
   },
   {
+    "slug": "i-know-kung-fu",
+    "title": "I know Kung Fu"
+  },
+  {
     "slug": "nostr-ux-pattern-library-launch",
     "title": "Launched: Nostr UX pattern library"
+  },
+  {
+    "slug": "nobody-knows-how-to-price-for-agents",
+    "title": "Nobody knows how to price for agents"
+  },
+  {
+    "slug": "nothing-enforces-your-agents-rules",
+    "title": "Nothing enforces your agent's rules"
   },
   {
     "slug": "new-hearts-and-minds",
